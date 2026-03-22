@@ -23,28 +23,39 @@ import SchemeRepl from '../../components/SchemeRepl';
     <p>A <a href="https://en.wikipedia.org/wiki/Markov_category">🅦 Markov category</a> is a category where morphisms are stochastic functions (Markov kernels) and you can copy and discard data. The paradigmatic example is <strong>FinStoch</strong>: objects are finite sets, morphisms are <a href="https://en.wikipedia.org/wiki/Stochastic_matrix">🅦 stochastic matrices</a>.</p>
     <p>In Python: a stochastic function takes an input and returns a probability distribution over outputs. A distribution is a dict mapping outcomes to probabilities.</p>
 
-    <Repl client:load initialCode={`# A Markov kernel: input -> distribution over outputs
-# This is a morphism in FinStoch.
+    <SchemeRepl client:load initialCode={`; A Markov kernel: input -> distribution over outputs
+; Distribution = list of (value . probability) pairs
+
+(define (fair-coin x)
+  '((heads . 0.5) (tails . 0.5)))
+
+(define (biased-die x)
+  '((1 . 0.1) (2 . 0.1) (3 . 0.1)
+    (4 . 0.1) (5 . 0.1) (6 . 0.5)))
+
+(define (deterministic-double x)
+  (list (cons (* x 2) 1.0)))
+
+(display (fair-coin 'anything))   (newline)
+(display (biased-die 'anything))  (newline)
+(display (deterministic-double 3)) (newline)
+; All three are morphisms in FinStoch.
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Markov kernels as Python dicts
 
 def fair_coin(x):
-    """Ignore input, return heads/tails 50/50"""
     return {"heads": 0.5, "tails": 0.5}
 
-def biased_die(x):
-    """Ignore input, return 1-6 with bias toward 6"""
-    return {1: 0.1, 2: 0.1, 3: 0.1, 4: 0.1, 5: 0.1, 6: 0.5}
-
 def deterministic_double(x):
-    """Deterministic: always returns exactly 2x"""
     return {x * 2: 1.0}
 
 print("fair_coin:", fair_coin(None))
-print("biased_die:", biased_die(None))
 print("double(3):", deterministic_double(3))
-print()
-print("All three are morphisms in FinStoch.")
-print("The first two are stochastic. The third is deterministic.")
 `} />
+    </details>
 
     <!-- Copy and determinism -->
     <h3>Copy detects determinism</h3>
@@ -88,36 +99,42 @@ print("The first two are stochastic. The third is deterministic.")
       </svg>
     </div>
 
-    <Repl client:load initialCode={`# Copy-naturality test: is a function deterministic?
+    <SchemeRepl client:load initialCode={`; Copy-naturality: f is deterministic iff f;copy = copy;(f⊗f)
 
+(define (copy x) (cons x x))
+
+(define (double x) (* x 2))
+
+; Deterministic: apply then copy = copy then apply
+(define lhs (copy (double 5)))
+(define rhs (cons (double 5) (double 5)))
+
+(display "double: f;copy = ") (display lhs) (newline)
+(display "double: copy;f⊗f = ") (display rhs) (newline)
+(display "equal? ") (display (equal? lhs rhs))
+; #t — deterministic
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Copy-naturality in Python (with randomness demo)
 import random
 
-def copy(x):
-    return (x, x)
-
-# Deterministic function
+copy = lambda x: (x, x)
 double = lambda x: x * 2
 
-x = 5
-lhs = copy(double(x))                    # apply then copy
-rhs = (double(x), double(x))             # copy then apply
-print(f"double: apply;copy = {lhs}")
-print(f"double: copy;apply = {rhs}")
-print(f"equal? {lhs == rhs} — deterministic ✓")
-print()
+# Deterministic: both paths agree
+print(f"double: {copy(double(5))} == {(double(5), double(5))}")
 
-# Stochastic function
+# Stochastic: paths diverge
 def coin(x):
     return x if random.random() > 0.5 else -x
 
-# Run 10 trials of "copy then apply independently"
-print("coin: copy then apply independently:")
-for _ in range(6):
-    a, b = coin(5), coin(5)  # two independent flips
-    correlated = "=" if a == b else "≠"
-    print(f"  ({a}, {b}) — copies {correlated}")
-print("Sometimes different — stochastic ✗")
+for _ in range(4):
+    a, b = coin(5), coin(5)
+    print(f"  coin: ({a}, {b}) — {'=' if a==b else '≠'}")
 `} />
+    </details>
 
     <!-- Kleisli composition -->
     <h3>Kleisli composition</h3>
@@ -208,32 +225,33 @@ print(f"support(f(5)) = {support(f(5))}")
     <h3>Informativeness preorder</h3>
     <p>Fritz defines when one morphism is "more informative" than another: f ≤ g if g factors through f. If you can recover g's output from f's output via post-processing, then f is at least as informative. This is the categorical version of <a href="https://en.wikipedia.org/wiki/Sufficient_statistic">🅦 sufficient statistics</a>.</p>
 
-    <Repl client:load initialCode={`# Informativeness: f ≤ g if g = f >=> h for some h
-# "f is at least as informative as g"
+    <SchemeRepl client:load initialCode={`; Informativeness: f ≤ g if g factors through f
+; "f is at least as informative as g"
 
-def full_data(x):
-    """Return (x, x^2) — all information preserved"""
-    return {(x, x**2): 1.0}
+(define (full-data x) (list (cons (cons x (* x x)) 1.0)))
+(define (just-square x) (list (cons (* x x) 1.0)))
+(define (post-process pair) (list (cons (cdr (car pair)) 1.0)))
 
-def just_square(x):
-    """Return x^2 — loses sign information"""
-    return {x**2: 1.0}
-
-def post_process(pair):
-    """Extract the square from full data"""
-    return {pair[1]: 1.0}
-
-# full_data is more informative: just_square = full_data >=> post_process
-x = -3
-fd = full_data(x)
-js = just_square(x)
-print(f"full_data({x}) = {fd}")
-print(f"just_square({x}) = {js}")
-print(f"post_process(full_data({x})) = {post_process(list(fd.keys())[0])}")
-print()
-print("full_data ≥ just_square — you can recover the square")
-print("but not the other way: just_square loses the sign.")
+; full-data(-3) = ((-3 . 9) . 1.0)
+; post-process recovers just-square
+(display (full-data -3)) (newline)
+(display (just-square -3)) (newline)
+; full-data ≥ just-square: you can post-process to recover the square
+; but not the reverse: just-square loses the sign
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Informativeness in Python
+full_data = lambda x: {(x, x**2): 1.0}
+just_square = lambda x: {x**2: 1.0}
+
+print(f"full_data(-3) = {full_data(-3)}")
+print(f"just_square(-3) = {just_square(-3)}")
+print("full_data ≥ just_square — recoverable")
+print("just_square loses the sign — not recoverable")
+`} />
+    </details>
 
     <!-- The pipeline connection -->
     <h3>Where this lives in the pipeline</h3>
