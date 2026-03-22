@@ -1,0 +1,256 @@
+---
+import Layout from '../../layouts/Base.astro';
+import Repl from '../../components/Repl';
+import SchemeRepl from '../../components/SchemeRepl';
+---
+
+<Layout title="🍞 Kura 2026 — Indexed Graded Monads">
+  <main>
+
+    <a href="/natural-breadcrumbs/" class="text-sm mb-4 inline-block">← back to index</a>
+
+    <h1>Indexed Graded Monads and Their Logics</h1>
+    <p class="text-gray-400 text-sm mb-6">Kura, Gaboardi, Sekiyama, Unno · ESOP 2026 · <a href="https://arxiv.org/abs/2601.14846"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> arXiv:2601.14846</a></p>
+
+    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> (Hoare triples), <a href="/natural-breadcrumbs/gaboardi-2021/">🍞 Gaboardi 2021</a> (graded effects). 10 min total.</p>
+
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+      <p class="text-lg" style="max-width:none">An <strong>indexed graded monad</strong> combines two ideas: the <em>index</em> says which type of state you start and end in (like a state machine), and the <em>grade</em> tracks cumulative effects. The handshake between pipeline stages is Definition 7: the output index of stage 1 must equal the input index of stage 2.</p>
+    </div>
+
+    <!-- 1. Indexing = state machine -->
+    <h3>Indexing — which state you're in</h3>
+    <p>An indexed monad T(i, j, A) means: "a computation that starts in state i, ends in state j, and produces a value of type A." You can only compose T(i, j, _) with T(j, k, _) — the output state of the first must match the input state of the second. This is the handshake.</p>
+
+    <SchemeRepl client:load initialCode={`; Indexed computation: (start-state end-state value)
+; Compose only when indices match: T(i,j) ; T(j,k) = T(i,k)
+
+(define (make-indexed start end val) (list start end val))
+(define idx-start car)
+(define idx-end cadr)
+(define idx-val caddr)
+
+(define (idx-bind m f)
+  (let* ((j (idx-end m))
+         (result (f (idx-val m))))
+    (if (eq? j (idx-start result))
+        (make-indexed (idx-start m) (idx-end result) (idx-val result))
+        (error "Index mismatch — handshake failed"))))
+
+; raw -> filtered -> ranked
+(define step1 (make-indexed 'raw 'filtered '(a b c)))
+(define step2-fn (lambda (v) (make-indexed 'filtered 'ranked (length v))))
+
+(define pipeline (idx-bind step1 step2-fn))
+(display "pipeline: ") (display pipeline) (newline)
+; (raw ranked 3) — indices chain, handshake holds
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Indexed computation in Python
+class Indexed:
+    def __init__(self, start, end, val):
+        self.start, self.end, self.val = start, end, val
+
+    def bind(self, f):
+        result = f(self.val)
+        assert self.end == result.start, f"Index mismatch: {self.end} != {result.start}"
+        return Indexed(self.start, result.end, result.val)
+
+    def __repr__(self):
+        return f"({self.start} -> {self.end}: {self.val})"
+
+step1 = Indexed("raw", "filtered", ["a", "b", "c"])
+step2 = lambda v: Indexed("filtered", "ranked", len(v))
+
+print(step1.bind(step2))
+`} />
+    </details>
+
+    <!-- 2. Grading on top -->
+    <h3>Adding grades — indexed AND graded</h3>
+    <p>Now add a grade: T(i, j, e, A) means "start in i, end in j, with effect e, producing A." Composition requires index match (handshake) AND grade composition (budget accounting). This is Definition 3 in the paper.</p>
+
+    <SchemeRepl client:load initialCode={`; Indexed graded computation: (start end grade value)
+(define (make-ig s e g v) (list s e g v))
+(define ig-start car)
+(define ig-end cadr)
+(define ig-grade caddr)
+(define ig-val cadddr)
+
+(define (ig-bind m f grade-op)
+  (let* ((j (ig-end m))
+         (result (f (ig-val m))))
+    (if (eq? j (ig-start result))
+        (make-ig (ig-start m)
+                 (ig-end result)
+                 (grade-op (ig-grade m) (ig-grade result))
+                 (ig-val result))
+        (error "Index mismatch"))))
+
+; perceive: raw->cached, cost 2
+(define step1 (make-ig 'raw 'cached 2 '(x y z)))
+
+; filter: cached->filtered, cost 1
+(define step2-fn
+  (lambda (v) (make-ig 'cached 'filtered 1 (length v))))
+
+(define result (ig-bind step1 step2-fn +))
+(display "result: ") (display result) (newline)
+; (raw filtered 3 3) — indices chain, grades add
+`} />
+
+    <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Simplified.</strong> Grades are integers, not elements of a preordered semiring. Same composition structure.</p>
+
+    <!-- 3. Restricted pointwise order -->
+    <h3>The restricted pointwise order</h3>
+    <p>Kura's key innovation: the <strong>restricted pointwise order</strong> on graded predicates. A graded predicate Q at grade e refines Q' at grade e' if e ≤ e' and Q(x) implies Q'(x) for all x. This lets you weaken postconditions by increasing the allowed effect budget — you can always over-approximate.</p>
+
+    <SchemeRepl client:load initialCode={`; Restricted pointwise order:
+; (Q, e) ≤ (Q', e') iff e ≤ e' AND Q(x) => Q'(x) for all x
+; "Tighter postcondition at lower cost refines looser at higher cost"
+
+(define (refines? Q e Q-prime e-prime test-vals)
+  (and (<= e e-prime)
+       (every (lambda (x)
+         (if (Q x) (Q-prime x) #t))
+       test-vals)))
+
+(define Q  (lambda (x) (> x 10)))     ; strong: x > 10
+(define Q* (lambda (x) (> x 0)))      ; weak: x > 0
+
+(define test-vals '(-5 0 5 10 15 20))
+
+(display "(x>10, cost=1) refines (x>0, cost=3)? ")
+(display (refines? Q 1 Q* 3 test-vals)) (newline)
+; #t — tighter postcondition, lower budget
+
+(display "(x>0, cost=3) refines (x>10, cost=1)? ")
+(display (refines? Q* 3 Q 1 test-vals)) (newline)
+; #f — looser postcondition can't refine tighter
+`} />
+
+    <!-- 4. The handshake (Def 7) -->
+    <h3>The handshake — Definition 7</h3>
+    <p>Definition 7 gives the composition rule for indexed graded Hoare triples. If <code>{'{P}'} c₁ : (i→j, e₁) {'{R}'}</code> and <code>{'{R}'} c₂ : (j→k, e₂) {'{Q}'}</code>, then <code>{'{P}'} c₁;c₂ : (i→k, e₁·e₂) {'{Q}'}</code>. The intermediate R is the handshake — it must satisfy both the postcondition of c₁ and the precondition of c₂, at matching index j.</p>
+
+    <SchemeRepl client:load initialCode={`; Definition 7: The indexed graded handshake
+; {P} c1 : (i->j, e1) {R}  and  {R} c2 : (j->k, e2) {Q}
+;   => {P} c1;c2 : (i->k, e1*e2) {Q}
+
+(define (triple name pre post start end grade fn)
+  (list name pre post start end grade fn))
+
+(define (compose-triples t1 t2 grade-op)
+  (let ((j1 (list-ref t1 4))
+        (j2 (list-ref t2 3)))
+    (if (eq? j1 j2)
+        (list 'composed
+              (list-ref t1 1)  ; P from t1
+              (list-ref t2 2)  ; Q from t2
+              (list-ref t1 3)  ; i from t1
+              (list-ref t2 4)  ; k from t2
+              (grade-op (list-ref t1 5) (list-ref t2 5))
+              (lambda (x) ((list-ref t2 6) ((list-ref t1 6) x))))
+        (error "Handshake failed: index mismatch"))))
+
+(define t1 (triple 'perceive 'any 'valid 'raw 'cached 2 (lambda (x) (abs x))))
+(define t2 (triple 'filter   'valid 'small 'cached 'filtered 1 (lambda (x) (min x 10))))
+
+(define result (compose-triples t1 t2 +))
+(display "Composed: ") (display (list-ref result 3))
+(display " -> ") (display (list-ref result 4))
+(display ", grade=") (display (list-ref result 5)) (newline)
+(display "Result: ") (display ((list-ref result 6) -7))
+; raw -> filtered, grade=3, result=7
+`} />
+
+    <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Simplified.</strong> Captures the composition law. The paper's version works over graded Freyd categories with a preordered semiring.</p>
+
+    <!-- 5. Graded monad lifting -->
+    <h3>Graded monad lifting</h3>
+    <p>Every indexed graded monad "lifts" predicates through the grading: if Q holds for the output, then a graded weakest-precondition wp_e(c, Q) holds for the input, adjusted by the grade. The grade tells you how much the precondition weakens.</p>
+
+    <SchemeRepl client:load initialCode={`; Graded lifting: wp_e(c, Q) — weakest pre adjusted by grade
+; Grade = error tolerance. Higher grade = weaker precondition.
+
+(define (graded-wp c grade Q threshold)
+  ; "Q holds for c(x) within tolerance grade"
+  (lambda (x)
+    (let ((result (c x)))
+      (Q result))))
+
+; Q: result is within 5 of target
+(define target 100)
+(define (Q-tight y) (<= (abs (- y target)) 5))
+(define (Q-loose y) (<= (abs (- y target)) 20))
+
+(define (noisy-measure x) (+ x 3))  ; systematic bias of 3
+
+; At grade 1 (tight): wp requires x in [92, 102]
+; At grade 2 (loose): wp requires x in [77, 117]
+(define vals '(90 95 97 100 103 110))
+(for-each (lambda (x)
+  (let ((y (noisy-measure x)))
+    (display x) (display " -> ") (display y)
+    (display " tight:") (display (if (Q-tight y) "yes" "no"))
+    (display " loose:") (display (if (Q-loose y) "yes" "no"))
+    (newline)))
+vals)
+; Higher grade (more tolerance) => more inputs satisfy wp
+`} />
+
+    <!-- Notation -->
+    <h3>Notation reference</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="py-2 pr-4">Paper</th>
+            <th class="py-2 pr-4">Scheme</th>
+            <th class="py-2">Meaning</th>
+          </tr>
+        </thead>
+        <tbody class="font-mono">
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">T(i, j, e, A)</td><td class="pr-4 text-green-300">(make-ig i j e val)</td><td class="font-sans">Indexed graded computation</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">e₁ · e₂</td><td class="pr-4 text-green-300">(grade-op e1 e2)</td><td class="font-sans">Grade composition</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">i = j (Def 7)</td><td class="pr-4 text-green-300">(eq? (idx-end t1) (idx-start t2))</td><td class="font-sans">Index handshake</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">≤_rpo</td><td class="pr-4 text-green-300">refines?</td><td class="font-sans">Restricted pointwise order</td></tr>
+          <tr><td class="py-2 pr-4">wp_e(c, Q)</td><td class="pr-4 text-green-300">(graded-wp c e Q)</td><td class="font-sans">Graded weakest precondition</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Neighbors -->
+    <h3>Neighbors</h3>
+
+    <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
+    <ul>
+      <li><a href="/natural-breadcrumbs/gaboardi-2021/">🍞 Gaboardi 2021</a> — graded Hoare logic (grading without indexing)</li>
+      <li><a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> — ungraded Hoare logic (the handshake without budgets)</li>
+      <li><a href="/natural-breadcrumbs/liell-cock-2025/">🍞 Liell-Cock 2025</a> — graded monads in the Para construction</li>
+    </ul>
+
+    <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
+    <ul>
+      <li><a href="https://june.kim/the-handshake"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> The Handshake</a> — the pipeline's composition argument maps to Def 7</li>
+    </ul>
+
+    <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Monad_(category_theory)">🅦 Monad</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Hoare_logic">🅦 Hoare logic</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Semiring">🅦 Semiring</a></li>
+    </ul>
+
+    <!-- Translation notes -->
+    <h3>Translation notes</h3>
+    <p>All examples use simple integers for grades and symbols for indices. The paper works over preordered semirings for grades and arbitrary index categories, with the restricted pointwise order defined on fibered predicates. For example: the handshake demonstration on this page checks symbol equality between two stages. In the paper, the same definition works over a category of indexed types where the index match is a morphism equation in the index category — allowing non-trivial coercions between compatible state types. The composition pattern is identical. The categorical generality is not.</p>
+
+    <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
+      Ready for the real thing? <a href="https://arxiv.org/abs/2601.14846"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for indexed graded monads (Def 3), §4 for the Hoare logic (Def 7).
+    </div>
+
+  </main>
+</Layout>
