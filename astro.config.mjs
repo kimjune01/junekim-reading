@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   integrations: [react(), mdx()],
   site: 'https://june.kim',
-  base: '/notation/',
+  base: '/natural-breadcrumbs/',
   vite: {
     plugins: [tailwindcss()],
   },

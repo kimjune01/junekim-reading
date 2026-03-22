@@ -6,10 +6,12 @@ import Repl from '../../components/Repl';
 <Layout title="🍞 Staton 2025 — Program Logics via Distributive Monoidal Categories">
   <main>
 
-    <a href="/notation/" class="text-sm mb-4 inline-block">← back to index</a>
+    <a href="/natural-breadcrumbs/" class="text-sm mb-4 inline-block">← back to index</a>
 
     <h1>Program Logics via Distributive Monoidal Categories</h1>
     <p class="text-gray-400 text-sm mb-6">Bonchi, Di Lavore, Román, Staton · 2025 · <a href="https://arxiv.org/abs/2507.18238">arXiv:2507.18238</a></p>
+
+    <p class="text-sm text-gray-500 mb-6">No prerequisites. This is the entry point.</p>
 
     <!-- One sentence -->
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
@@ -273,6 +275,8 @@ print("stochastic pipelines. The handshake chains")
 print("through the bind — same as your Lean proof.")
 `} />
 
+    <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Simplified.</strong> The paper works over arbitrary measurable spaces and continuous distributions. The Python uses finite dicts. The composition law is the same; the generality is not. <a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Kleisli.lean">Kleisli.lean</a></p>
+
     <!-- Notation table -->
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">
@@ -324,13 +328,33 @@ print("through the bind — same as your Lean proof.")
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
+
+    <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul>
-      <li>→ <a href="/notation/fritz-2020/">Fritz 2020</a> — the category (FinStoch) where these rules hold</li>
-      <li>→ <a href="/notation/gaboardi-2021/">Gaboardi 2021</a> — Hoare triples with grades (track side effects)</li>
-      <li>→ <a href="/notation/kura-2026/">Kura 2026</a> — the restricted pointwise order (handshake as graded monad)</li>
-      <li>→ <a href="https://june.kim/ambient-category">Blog: Ambient Category</a> — why this paper matters for the pipeline</li>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Hoare_logic">Wikipedia: Hoare logic</a></li>
+      <li>→ <a href="/natural-breadcrumbs/fritz-2020/">Fritz 2020</a> — the category (FinStoch) where these rules hold</li>
+      <li>→ <a href="/natural-breadcrumbs/gaboardi-2021/">Gaboardi 2021</a> — Hoare triples with grades (track side effects)</li>
+      <li>→ <a href="/natural-breadcrumbs/kura-2026/">Kura 2026</a> — the restricted pointwise order (handshake as graded monad)</li>
     </ul>
+
+    <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
+    <ul>
+      <li>→ <a href="https://june.kim/ambient-category">Ambient Category</a> — why Stoch is the right setting for the pipeline</li>
+      <li>→ <a href="https://june.kim/the-handshake">The Handshake</a> — the composition argument in prose</li>
+    </ul>
+
+    <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
+    <ul>
+      <li>→ <a href="https://en.wikipedia.org/wiki/Hoare_logic">Hoare logic</a></li>
+      <li>→ <a href="https://en.wikipedia.org/wiki/Weakest_precondition">Weakest precondition</a></li>
+      <li>→ <a href="https://en.wikipedia.org/wiki/Loop_invariant">Loop invariant</a></li>
+      <li>→ <a href="https://en.wikipedia.org/wiki/Stochastic_matrix">Stochastic matrix</a></li>
+      <li>→ <a href="https://en.wikipedia.org/wiki/Kleisli_category">Kleisli category</a></li>
+    </ul>
+
+    <!-- Translation notes -->
+    <h3>Translation notes</h3>
+    <p>All Python examples on this page use finite dicts as probability distributions. The paper works over arbitrary measurable spaces, continuous distributions, and the full subdistribution monad on StdBorel. The composition laws are the same; the generality is not. Every example is tagged <strong class="text-green-400">Simplified</strong> unless marked otherwise — the structure is preserved, the measure theory is dropped.</p>
+    <p>The bridge theorem section is tagged <strong class="text-green-400">Exact</strong> — the Python computes the same equivalence the Lean proof verifies.</p>
 
     <!-- Paper link -->
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">

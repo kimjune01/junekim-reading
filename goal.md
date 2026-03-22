@@ -53,24 +53,24 @@ Cross-links between papers, blog posts, and foundations emerge as pages accumula
 
 **Paper pages** (one per paper in the Lexicon) — the core. Each paper gets a route:
 
-- `/notation/staton-2025/` — Program Logics via Distributive Monoidal Categories
-- `/notation/fritz-2020/` — A Synthetic Approach to Markov Kernels
-- `/notation/fritz-perrone-2021/` — Support as Monad Morphism
-- `/notation/gaboardi-2021/` — Graded Hoare Logic
-- `/notation/kura-2026/` — Indexed Graded Monads
-- `/notation/hedges-2018/` — Compositional Game Theory
-- `/notation/capucci-2021/` — Categorical Cybernetics
-- `/notation/baez-fritz-2011/` — Entropy Characterization
-- `/notation/liell-cock-2025/` — Compositional Imprecise Probability
-- `/notation/sato-2023/` — Divergences on Monads
+- `/natural-breadcrumbs/staton-2025/` — Program Logics via Distributive Monoidal Categories
+- `/natural-breadcrumbs/fritz-2020/` — A Synthetic Approach to Markov Kernels
+- `/natural-breadcrumbs/fritz-perrone-2021/` — Support as Monad Morphism
+- `/natural-breadcrumbs/gaboardi-2021/` — Graded Hoare Logic
+- `/natural-breadcrumbs/kura-2026/` — Indexed Graded Monads
+- `/natural-breadcrumbs/hedges-2018/` — Compositional Game Theory
+- `/natural-breadcrumbs/capucci-2021/` — Categorical Cybernetics
+- `/natural-breadcrumbs/baez-fritz-2011/` — Entropy Characterization
+- `/natural-breadcrumbs/liell-cock-2025/` — Compositional Imprecise Probability
+- `/natural-breadcrumbs/sato-2023/` — Divergences on Monads
 
-**How to use this site** (`/notation/how/`) — for readers unfamiliar with browser REPLs. What is the green box? What does "Run" do? Can I break anything? (No.) How to modify an example. How to read Python if you're a Haskell/OCaml/math person. Short page, mostly screenshots. Gets an academic who's never used a Jupyter notebook to the point where they can click Run and modify a variable.
+**How to use this site** (`/natural-breadcrumbs/how/`) — for readers unfamiliar with browser REPLs. What is the green box? What does "Run" do? Can I break anything? (No.) How to modify an example. How to read Python if you're a Haskell/OCaml/math person. Short page, mostly screenshots. Gets an academic who's never used a Jupyter notebook to the point where they can click Run and modify a variable.
 
-**Symbol grid** (`/notation/symbols/`) — appendix. Quick reference for returning readers. No heavy notation on the landing page — save it for here. Click a symbol, see the code, run it.
+**Symbol grid** (`/natural-breadcrumbs/symbols/`) — appendix. Quick reference for returning readers. No heavy notation on the landing page — save it for here. Click a symbol, see the code, run it.
 
-**Framework page** (`/notation/framework/`) — orientation to the Natural Framework's own vocabulary. The six stages (Perceive → Cache → Filter → Attend → Remember → Consolidate), where they came from (Landauer's principle, pigeonhole argument, information budget), and how the framework's terms map to the paper terms. Short lineage: Landauer 1961 → Shannon → Fritz → this pipeline. This is the page that helps a reader who arrived from the Lexicon or the blog understand the framework's own lingo before diving into individual papers.
+**Framework page** (`/natural-breadcrumbs/framework/`) — orientation to the Natural Framework's own vocabulary. The six stages (Perceive → Cache → Filter → Attend → Remember → Consolidate), where they came from (Landauer's principle, pigeonhole argument, information budget), and how the framework's terms map to the paper terms. Short lineage: Landauer 1961 → Shannon → Fritz → this pipeline. This is the page that helps a reader who arrived from the Lexicon or the blog understand the framework's own lingo before diving into individual papers.
 
-**History page** (`/notation/history/`) — stretch goal. The five lineages (program correctness, category theory, information theory, game theory, cybernetics) traced from Turing and Church to the present. Fun to write, unproven as a user need. Build it if the core pages work.
+**History page** (`/natural-breadcrumbs/history/`) — stretch goal. The five lineages (program correctness, category theory, information theory, game theory, cybernetics) traced from Turing and Church to the present. Fun to write, unproven as a user need. Build it if the core pages work.
 
 ### Paper page ingredients
 
@@ -84,9 +84,13 @@ Not all required. Pick what serves the paper. The list:
 - Confidence tag (exact / simplified / analogy)
 - Two REPLs: Python (Pyodide) for intuition, BiwaScheme for categorical structure. Both preloaded with the key example, both client-side, no server needed. The programmer sees plain functions. The academic sees composition-native Scheme. Same theorem, two languages.
 - Inline Lean snippets (syntax-highlighted, read-only) showing the actual proof. Link to GitHub source for the full file.
-- Outward links (Wikipedia, arXiv, blog)
+- Outward links (Wikipedia, arXiv, blog) — grouped by type: other papers, blog motivation, foundations
 - Neighbor links to related paper pages
-- Explicit prereqs at the top if needed ("assumes you've seen X, 2 min")
+- Explicit prereqs at the top if needed ("assumes you've seen X, 2 min") — or "no prerequisites" if it's an entry point
+- Translation notes near the end — what's simplified, what's lost, what's exact. Negation comes after understanding, not before.
+- Shared Pyodide runtime across all REPLs on a page (module-level singleton, one download)
+- Output hidden until Run — no placeholder text, no empty box
+- Page-number deep links to the paper ("start at Section 5.1, p.20")
 
 ### The knowledge graph
 
@@ -109,7 +113,7 @@ Arrive from a paper, blog, or link → read the claim in plain English → look 
 - **Diagrams decompress.** Dense papers need visual unpacking — SVGs, flow diagrams, charts. Don't rely on text alone.
 - **The reaction is "duh."** Every concept should feel obvious once you see the code and the diagram. If the reader says "of course, that's just X" — you succeeded.
 - **Wikipedia density.** One tight paragraph per concept. The REPL and diagrams do the decompression. The reader chooses their depth.
-- **No hidden prerequisites.** Each page is self-contained for its core idea. But if a concept is genuinely hard and builds on another page's idea, say so at the top: "This page assumes you've seen [Hoare triples](/notation/staton-2025/). 2 minutes." Prereqs are explicit, linked, and estimated. Never hidden.
+- **No hidden prerequisites.** Each page is self-contained for its core idea. But if a concept is genuinely hard and builds on another page's idea, say so at the top: "This page assumes you've seen [Hoare triples](/natural-breadcrumbs/staton-2025/). 2 minutes." Prereqs are explicit, linked, and estimated. Never hidden.
 - **Jargon earns its way in.** Every technical term appears first in code, then gets its math name. Never the reverse.
 - **Confidence is explicit.** Each Python translation is tagged (see editorial rules).
 - **Link out freely.** Wikipedia, arXiv, blog posts. Don't rewrite what's already well-explained. Spend words on the part nobody else has written.
