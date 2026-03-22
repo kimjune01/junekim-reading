@@ -35,8 +35,8 @@ An interactive paper decoder — part reading guide, part REPL, part knowledge g
 ### Primary function: paper decoder
 Each paper gets a page that unpacks its key idea into plain English, diagrams, and runnable code.
 
-### Secondary function: notation crosswalk
-A symbol grid for quick lookup — every symbol translated to Python.
+### Secondary function: notation crosswalk (planned)
+A symbol grid for quick lookup — every symbol translated to Python. Data exists in `src/data/symbols.ts`; route not yet shipped.
 
 ### Later function: knowledge graph
 Cross-links between papers, blog posts, and foundations emerge as pages accumulate.
@@ -83,7 +83,7 @@ Not all required. Pick what serves the paper. The list:
 - The punchline theorem in both paper notation and Python
 - Confidence tag (exact / simplified / analogy)
 - Two REPLs: Python (Pyodide) for intuition, BiwaScheme for categorical structure. Both preloaded with the key example, both client-side, no server needed. The programmer sees plain functions. The academic sees composition-native Scheme. Same theorem, two languages.
-- Inline Lean snippets (syntax-highlighted, read-only) showing the actual proof. Link to GitHub source for the full file.
+- Inline Lean snippets where available (syntax-highlighted, read-only). Only on Staton page currently — not a general ingredient yet.
 - Outward links (Wikipedia, arXiv, blog) — grouped by type: other papers, blog motivation, foundations
 - Neighbor links to related paper pages
 - Explicit prereqs at the top if needed ("assumes you've seen X, 2 min") — or "no prerequisites" if it's an entry point
@@ -157,9 +157,9 @@ Each checkpoint is where I apply Attend — revisit goal.md, assess what worked,
 
 **Checkpoint 1**: Staton 2025 page, end to end. Does the format click? What ingredients did the page actually need? What was dead weight? Update goal.md. **Done.** Reference implementation: [`src/pages/staton-2025/index.astro`](src/pages/staton-2025/index.astro).
 
-**Checkpoint 2**: Three pages (Staton, Fritz, Baez-Fritz-Leinster). Do cross-links work? Does arriving from one page and clicking to another feel natural? Which page template ingredients generalized and which were paper-specific? Update goal.md.
+**Checkpoint 2**: Three pages (Staton, Fritz, Baez-Fritz-Leinster). Do cross-links work? Does arriving from one page and clicking to another feel natural? Which page template ingredients generalized and which were paper-specific? Update goal.md. **Done.**
 
-**Checkpoint 3**: All ten pages. Landing page, framework page, symbol grid. Ship it. Link from the Lexicon with 🍞. Update goal.md with what the final format actually is, not what we predicted.
+**Checkpoint 3**: All ten paper pages + landing page. **Done.** Shipped: landing page with paper index, ten paper pages with dual REPLs, cross-links with emoji prefixes. Not yet shipped: `/how/`, `/symbols/`, `/framework/`, `/history/` — these are planned, not blocked on.
 
 ## Stretch goals
 - "Reading mode" — paste a paper abstract, every symbol gets hover tooltips
