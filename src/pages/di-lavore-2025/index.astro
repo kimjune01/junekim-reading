@@ -19,7 +19,7 @@ import SchemeRepl from '../../components/SchemeRepl';
     </div>
 
     <h3>Restriction — morphisms that can fail</h3>
-    <p>A <a href="https://en.wikipedia.org/wiki/Restriction_category">🅦 restriction category</a> gives each morphism a "domain of definition" — a partial identity that says where the morphism is defined. In probabilistic terms: some observations have zero probability, and conditioning on them is undefined.</p>
+    <p>A <a href="https://ncatlab.org/nlab/show/restriction+category">restriction category (nLab)</a> gives each morphism a "domain of definition" — a partial identity that says where the morphism is defined. In probabilistic terms: some observations have zero probability, and conditioning on them is undefined.</p>
 
     <SchemeRepl client:load initialCode={`; A partial function: defined on some inputs, undefined on others
 ; Restriction: the domain where the function is defined
@@ -201,7 +201,7 @@ print(f"P(>10):  {condition(dist, lambda x: x > 10)}")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Restriction_category">🅦 Restriction category</a></li>
+      <li><a href="https://ncatlab.org/nlab/show/restriction+category">Restriction category (nLab)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Bayesian_inference">🅦 Bayesian inference</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Probability_kinematics">🅦 Probability kinematics (Jeffrey conditioning)</a></li>
     </ul>
