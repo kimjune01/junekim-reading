@@ -18,6 +18,63 @@ import SchemeRepl from '../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Separation_logic">🅦 Separation logic</a> for Bayesian programs. The <strong>frame rule</strong> says: if a program only touches variables x, then independent variables y are unaffected. Independence IS the separating conjunction. Hoare logic for probabilistic programs where "separate" means "statistically independent."</p>
     </div>
 
+    <!-- SVG: Bayesian Hoare triple with distributions -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 520 230" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
+        <!-- Prior distribution (left) -->
+        <text x="90" y="25" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.6">prior P</text>
+        <line x1="30" y1="145" x2="150" y2="145" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <!-- Uniform-ish bars -->
+        <rect x="42" y="105" width="18" height="40" fill="#60a5fa" fill-opacity="0.3" stroke="#60a5fa" stroke-width="1"/>
+        <rect x="66" y="105" width="18" height="40" fill="#60a5fa" fill-opacity="0.3" stroke="#60a5fa" stroke-width="1"/>
+        <rect x="90" y="105" width="18" height="40" fill="#60a5fa" fill-opacity="0.3" stroke="#60a5fa" stroke-width="1"/>
+        <rect x="114" y="105" width="18" height="40" fill="#60a5fa" fill-opacity="0.3" stroke="#60a5fa" stroke-width="1"/>
+
+        <!-- Program box (center) -->
+        <rect x="195" y="65" rx="6" ry="6" width="130" height="80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.3"/>
+        <text x="260" y="100" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.7">program c</text>
+        <text x="260" y="118" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">sample; observe</text>
+
+        <!-- Arrow prior -> program -->
+        <line x1="155" y1="105" x2="190" y2="105" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.3" marker-end="url(#arrowHW)"/>
+
+        <!-- Arrow program -> posterior -->
+        <line x1="330" y1="105" x2="365" y2="105" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.3" marker-end="url(#arrowHW)"/>
+
+        <!-- Posterior distribution (right) -->
+        <text x="430" y="25" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.6">posterior Q</text>
+        <line x1="370" y1="145" x2="490" y2="145" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <!-- Shifted bars (evidence updated) -->
+        <rect x="382" y="125" width="18" height="20" fill="#4ade80" fill-opacity="0.3" stroke="#4ade80" stroke-width="1"/>
+        <rect x="406" y="110" width="18" height="35" fill="#4ade80" fill-opacity="0.3" stroke="#4ade80" stroke-width="1"/>
+        <rect x="430" y="80" width="18" height="65" fill="#4ade80" fill-opacity="0.4" stroke="#4ade80" stroke-width="1"/>
+        <rect x="454" y="55" width="18" height="90" fill="#4ade80" fill-opacity="0.5" stroke="#4ade80" stroke-width="1"/>
+
+        <!-- Frame rule: independent variable y unchanged -->
+        <rect x="195" y="155" rx="4" ry="4" width="130" height="30" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4,3"/>
+        <text x="260" y="175" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.6">R (independent, untouched)</text>
+
+        <!-- Frame arrows -->
+        <line x1="155" y1="170" x2="190" y2="170" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.25" marker-end="url(#arrowAmberHW)"/>
+        <line x1="330" y1="170" x2="365" y2="170" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.25" marker-end="url(#arrowAmberHW)"/>
+        <text x="172" y="183" text-anchor="middle" fill="#f59e0b" font-size="8" fill-opacity="0.4">R</text>
+        <text x="347" y="183" text-anchor="middle" fill="#f59e0b" font-size="8" fill-opacity="0.4">R</text>
+
+        <!-- Caption -->
+        <text x="260" y="210" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">P * R &#x2192; c &#x2192; Q * R</text>
+        <text x="260" y="225" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">* = separating conjunction (independence)</text>
+
+        <defs>
+          <marker id="arrowHW" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
+          </marker>
+          <marker id="arrowAmberHW" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
     <h3>Hoare triples for probabilistic programs</h3>
     <p>A Bayesian Hoare triple <code>{'{P}'} c {'{Q}'}</code> says: if the prior satisfies P, then after running the probabilistic program c, the posterior satisfies Q. The programs are written in a probabilistic language with sampling, conditioning (observe), and Bayesian inference built in.</p>
 

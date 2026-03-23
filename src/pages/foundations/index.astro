@@ -11,6 +11,25 @@ import Layout from '../../layouts/Base.astro';
     <p class="text-gray-400 mb-2">Based on <a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Bartosz Milewski's blog series</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
     <p class="text-gray-400 mb-6">Same format as the paper pages: runnable Python, diagrams, plain English. Milewski wrote for Haskell programmers. These pages translate to Python.</p>
 
+    <!-- SVG: The simplest category — two objects, one arrow -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 360 120" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Object A -->
+        <circle cx="80" cy="50" r="20" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="80" y="55" text-anchor="middle" fill="#60a5fa" font-size="16">A</text>
+        <!-- Object B -->
+        <circle cx="280" cy="50" r="20" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="280" y="55" text-anchor="middle" fill="#f59e0b" font-size="16">B</text>
+        <!-- Arrow f: A -> B -->
+        <line x1="105" y1="50" x2="253" y2="50" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
+        <polygon points="255,50 245,45 245,55" fill="currentColor" fill-opacity="0.5"/>
+        <!-- Label f -->
+        <text x="180" y="40" text-anchor="middle" fill="currentColor" font-size="13" fill-opacity="0.6" font-style="italic">f</text>
+        <!-- Caption -->
+        <text x="180" y="100" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">Objects, arrows, composition. That is all of it.</text>
+      </svg>
+    </div>
+
     <div class="overflow-x-auto">
       <table class="w-full text-sm">
         <thead>

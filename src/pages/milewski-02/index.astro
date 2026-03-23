@@ -18,6 +18,64 @@ import SchemeRepl from '../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">Types are <a href="https://en.wikipedia.org/wiki/Set_(mathematics)">🅦 sets</a>. Functions are morphisms between them. The category <strong>Hask</strong> has Haskell types as objects and pure functions as arrows. Every type is extended with <strong>bottom</strong> (&perp;), the value representing non-termination.</p>
     </div>
 
+    <!-- SVG: Three objects — Void, Unit, Bool — with cardinality -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 520 260" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
+        <!-- Void: empty set -->
+        <ellipse cx="80" cy="100" rx="45" ry="55" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+        <text x="80" y="175" text-anchor="middle" fill="currentColor" font-size="13" fill-opacity="0.8">Void</text>
+        <text x="80" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">|Void| = 0</text>
+
+        <!-- Unit: one dot -->
+        <ellipse cx="260" cy="100" rx="45" ry="55" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+        <circle cx="260" cy="100" r="4" fill="#4ade80" fill-opacity="0.7"/>
+        <text x="260" y="90" text-anchor="middle" fill="#4ade80" font-size="9" fill-opacity="0.7" dy="-12">()</text>
+        <text x="260" y="175" text-anchor="middle" fill="currentColor" font-size="13" fill-opacity="0.8">Unit</text>
+        <text x="260" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">|Unit| = 1</text>
+
+        <!-- Bool: two dots -->
+        <ellipse cx="440" cy="100" rx="45" ry="55" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+        <circle cx="440" cy="78" r="4" fill="#60a5fa" fill-opacity="0.7"/>
+        <text x="457" y="82" fill="#60a5fa" font-size="9" fill-opacity="0.7">T</text>
+        <circle cx="440" cy="122" r="4" fill="#f59e0b" fill-opacity="0.7"/>
+        <text x="457" y="126" fill="#f59e0b" font-size="9" fill-opacity="0.7">F</text>
+        <text x="440" y="175" text-anchor="middle" fill="currentColor" font-size="13" fill-opacity="0.8">Bool</text>
+        <text x="440" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">|Bool| = 2</text>
+
+        <!-- Morphism arrows -->
+        <!-- absurd: Void -> Unit (unique, vacuous) -->
+        <line x1="128" y1="88" x2="212" y2="92" stroke="currentColor" stroke-width="1" stroke-opacity="0.25" marker-end="url(#arrowM2)"/>
+        <text x="170" y="80" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">absurd</text>
+
+        <!-- unit: Bool -> Unit (unique) -->
+        <line x1="392" y1="88" x2="308" y2="92" stroke="currentColor" stroke-width="1" stroke-opacity="0.25" marker-end="url(#arrowM2)"/>
+        <text x="350" y="80" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">unit</text>
+
+        <!-- Functions from Unit to Bool: 2 arrows -->
+        <path d="M 300,85 Q 340,55 395,75" fill="none" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arrowBlueM2)"/>
+        <path d="M 300,115 Q 340,145 395,125" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arrowAmberM2)"/>
+        <text x="345" y="50" text-anchor="middle" fill="#60a5fa" font-size="8" fill-opacity="0.5">const T</text>
+        <text x="345" y="158" text-anchor="middle" fill="#f59e0b" font-size="8" fill-opacity="0.5">const F</text>
+
+        <!-- Caption -->
+        <text x="260" y="225" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">|A &rarr; B| = |B|^|A|</text>
+        <text x="260" y="245" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">functions from Unit pick elements; functions to Unit are unique</text>
+
+        <!-- Arrow markers -->
+        <defs>
+          <marker id="arrowM2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+          </marker>
+          <marker id="arrowBlueM2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.4"/>
+          </marker>
+          <marker id="arrowAmberM2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
     <!-- 1. Types as sets -->
     <h3>Types as sets</h3>
     <p>A type is a set of values. <code>Bool</code> is the two-element set &lbrace;True, False&rbrace;. <code>Integer</code> is an infinite set. A function between types is a mapping between sets. This is the category <strong>Set</strong>: objects are sets, morphisms are functions. Programming types live in the same structure.</p>

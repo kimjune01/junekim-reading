@@ -18,6 +18,56 @@ import SchemeRepl from '../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">Weighted search is parameterized by a <a href="https://en.wikipedia.org/wiki/Semiring">🅦 semiring</a>. Choose the semiring and you choose the semantics: natural numbers for counting, reals in [0,1] for probability, booleans for reachability. One monad, many interpretations.</p>
     </div>
 
+    <!-- SVG: Three semiring instances side by side -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 540 220" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
+        <!-- Column 1: Probability (R+) -->
+        <rect x="20" y="30" rx="6" ry="6" width="150" height="160" fill="none" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="95" y="22" text-anchor="middle" fill="#60a5fa" font-size="11" fill-opacity="0.7">Probability</text>
+        <text x="95" y="55" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">S = [0,1]</text>
+        <text x="95" y="75" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">&oplus; = +, &otimes; = &times;</text>
+        <!-- Small distribution bars -->
+        <rect x="45" y="120" width="15" height="50" fill="#60a5fa" fill-opacity="0.25" stroke="#60a5fa" stroke-width="0.7"/>
+        <rect x="65" y="100" width="15" height="70" fill="#60a5fa" fill-opacity="0.35" stroke="#60a5fa" stroke-width="0.7"/>
+        <rect x="85" y="130" width="15" height="40" fill="#60a5fa" fill-opacity="0.2" stroke="#60a5fa" stroke-width="0.7"/>
+        <rect x="105" y="140" width="15" height="30" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="0.7"/>
+        <rect x="125" y="150" width="15" height="20" fill="#60a5fa" fill-opacity="0.1" stroke="#60a5fa" stroke-width="0.7"/>
+        <line x1="40" y1="170" x2="145" y2="170" stroke="currentColor" stroke-width="0.7" stroke-opacity="0.2"/>
+        <text x="95" y="185" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.35">weights sum to 1</text>
+
+        <!-- Column 2: Counting (N) -->
+        <rect x="195" y="30" rx="6" ry="6" width="150" height="160" fill="none" stroke="#4ade80" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="270" y="22" text-anchor="middle" fill="#4ade80" font-size="11" fill-opacity="0.7">Counting</text>
+        <text x="270" y="55" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">S = N</text>
+        <text x="270" y="75" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">&oplus; = +, &otimes; = &times;</text>
+        <!-- Tally marks / multiset -->
+        <text x="225" y="110" fill="#4ade80" font-size="11" fill-opacity="0.6">a</text>
+        <text x="245" y="110" fill="currentColor" font-size="10" fill-opacity="0.4">&times;3</text>
+        <text x="225" y="130" fill="#4ade80" font-size="11" fill-opacity="0.6">b</text>
+        <text x="245" y="130" fill="currentColor" font-size="10" fill-opacity="0.4">&times;1</text>
+        <text x="225" y="150" fill="#4ade80" font-size="11" fill-opacity="0.6">c</text>
+        <text x="245" y="150" fill="currentColor" font-size="10" fill-opacity="0.4">&times;2</text>
+        <text x="270" y="185" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.35">weights count paths</text>
+
+        <!-- Column 3: Search (Bool) -->
+        <rect x="370" y="30" rx="6" ry="6" width="150" height="160" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="445" y="22" text-anchor="middle" fill="#f59e0b" font-size="11" fill-opacity="0.7">Search</text>
+        <text x="445" y="55" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">S = Bool</text>
+        <text x="445" y="75" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">&oplus; = &or;, &otimes; = &and;</text>
+        <!-- Reachability dots -->
+        <circle cx="420" cy="110" r="5" fill="#4ade80" fill-opacity="0.5"/>
+        <text x="435" y="114" fill="#4ade80" font-size="9" fill-opacity="0.5">reachable</text>
+        <circle cx="420" cy="135" r="5" fill="#4ade80" fill-opacity="0.5"/>
+        <text x="435" y="139" fill="#4ade80" font-size="9" fill-opacity="0.5">reachable</text>
+        <circle cx="420" cy="160" r="5" fill="currentColor" fill-opacity="0.15"/>
+        <text x="435" y="164" fill="currentColor" font-size="9" fill-opacity="0.3">unreachable</text>
+        <text x="445" y="185" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.35">weights are true/false</text>
+
+        <!-- Bottom caption -->
+        <text x="270" y="210" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">same monad, different semiring, different meaning</text>
+      </svg>
+    </div>
+
     <h3>The free semimodule monad</h3>
     <p>A weighted collection assigns a weight from a semiring S to each element. When S = ℕ, you're counting occurrences. When S = [0,1] with ordinary multiplication, you're assigning probabilities. The free semimodule monad over S captures all of these at once.</p>
 

@@ -18,6 +18,68 @@ import SchemeRepl from '../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Diversity_index">🅦 Hill diversity numbers</a> form a one-parameter family: at q=0 you count species, at q=1 you get the exponential of Shannon entropy, at q=2 you get Simpson's reciprocal. <strong>Magnitude</strong> extends this to metric spaces — a single number measuring the "effective size" of a space.</p>
     </div>
 
+    <!-- SVG: Hill number effect — same community, three q values -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 540 200" class="w-full max-w-xl" style="font-family: ui-monospace, monospace;">
+        <!-- q=0: count all species equally -->
+        <text x="90" y="18" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">q = 0</text>
+        <text x="90" y="32" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">count all</text>
+        <!-- 5 species dots, all equally highlighted -->
+        <circle cx="50" cy="70" r="14" fill="#60a5fa" fill-opacity="0.3" stroke="#60a5fa" stroke-width="1.5"/>
+        <circle cx="90" cy="70" r="14" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5"/>
+        <circle cx="130" cy="70" r="14" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1.5"/>
+        <circle cx="70" cy="110" r="14" fill="#a78bfa" fill-opacity="0.3" stroke="#a78bfa" stroke-width="1.5"/>
+        <circle cx="110" cy="110" r="14" fill="#fb7185" fill-opacity="0.3" stroke="#fb7185" stroke-width="1.5"/>
+        <!-- Abundance bars underneath -->
+        <rect x="44" y="140" width="12" height="40" fill="#60a5fa" fill-opacity="0.5" rx="1"/>
+        <rect x="84" y="170" width="12" height="10" fill="#f59e0b" fill-opacity="0.5" rx="1"/>
+        <rect x="124" y="165" width="12" height="15" fill="#34d399" fill-opacity="0.5" rx="1"/>
+        <rect x="64" y="172" width="12" height="8" fill="#a78bfa" fill-opacity="0.5" rx="1"/>
+        <rect x="104" y="175" width="12" height="5" fill="#fb7185" fill-opacity="0.5" rx="1"/>
+        <text x="90" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">D = 5</text>
+
+        <!-- Divider -->
+        <line x1="180" y1="15" x2="180" y2="185" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
+
+        <!-- q=1: weight by abundance (Shannon) -->
+        <text x="270" y="18" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">q = 1</text>
+        <text x="270" y="32" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">weight by abundance</text>
+        <!-- Same dots, dominant one brighter -->
+        <circle cx="230" cy="70" r="16" fill="#60a5fa" fill-opacity="0.5" stroke="#60a5fa" stroke-width="2"/>
+        <circle cx="270" cy="70" r="12" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
+        <circle cx="310" cy="70" r="13" fill="#34d399" fill-opacity="0.2" stroke="#34d399" stroke-width="1" stroke-opacity="0.5"/>
+        <circle cx="250" cy="110" r="11" fill="#a78bfa" fill-opacity="0.12" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+        <circle cx="290" cy="110" r="10" fill="#fb7185" fill-opacity="0.08" stroke="#fb7185" stroke-width="1" stroke-opacity="0.3"/>
+        <!-- Abundance bars -->
+        <rect x="224" y="140" width="12" height="40" fill="#60a5fa" fill-opacity="0.5" rx="1"/>
+        <rect x="264" y="170" width="12" height="10" fill="#f59e0b" fill-opacity="0.3" rx="1"/>
+        <rect x="304" y="165" width="12" height="15" fill="#34d399" fill-opacity="0.3" rx="1"/>
+        <rect x="244" y="172" width="12" height="8" fill="#a78bfa" fill-opacity="0.3" rx="1"/>
+        <rect x="284" y="175" width="12" height="5" fill="#fb7185" fill-opacity="0.3" rx="1"/>
+        <text x="270" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">D = 2.3</text>
+
+        <!-- Divider -->
+        <line x1="360" y1="15" x2="360" y2="185" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
+
+        <!-- q=2: dominant species matter most -->
+        <text x="450" y="18" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">q = 2</text>
+        <text x="450" y="32" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">dominants matter most</text>
+        <!-- Same dots, only dominant is visible -->
+        <circle cx="410" cy="70" r="18" fill="#60a5fa" fill-opacity="0.6" stroke="#60a5fa" stroke-width="2.5"/>
+        <circle cx="450" cy="70" r="9" fill="#f59e0b" fill-opacity="0.06" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.2"/>
+        <circle cx="490" cy="70" r="10" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1" stroke-opacity="0.2"/>
+        <circle cx="430" cy="110" r="8" fill="#a78bfa" fill-opacity="0.05" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.15"/>
+        <circle cx="470" cy="110" r="7" fill="#fb7185" fill-opacity="0.04" stroke="#fb7185" stroke-width="1" stroke-opacity="0.15"/>
+        <!-- Abundance bars -->
+        <rect x="404" y="140" width="12" height="40" fill="#60a5fa" fill-opacity="0.6" rx="1"/>
+        <rect x="444" y="170" width="12" height="10" fill="#f59e0b" fill-opacity="0.12" rx="1"/>
+        <rect x="484" y="165" width="12" height="15" fill="#34d399" fill-opacity="0.12" rx="1"/>
+        <rect x="424" y="172" width="12" height="8" fill="#a78bfa" fill-opacity="0.12" rx="1"/>
+        <rect x="464" y="175" width="12" height="5" fill="#fb7185" fill-opacity="0.12" rx="1"/>
+        <text x="450" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">D = 1.6</text>
+      </svg>
+    </div>
+
     <h3>Hill diversity numbers</h3>
     <p>Given a probability distribution p over n species, the Hill number of order q is:</p>
     <div class="bg-zinc-800 rounded-lg p-4 mb-4 font-mono text-center">
