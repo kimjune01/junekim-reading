@@ -71,6 +71,27 @@ import SchemeRepl from '../../components/SchemeRepl';
     <h3>The free semimodule monad</h3>
     <p>A weighted collection assigns a weight from a semiring S to each element. When S = ℕ, you're counting occurrences. When S = [0,1] with ordinary multiplication, you're assigning probabilities. The free semimodule monad over S captures all of these at once.</p>
 
+    <div class="overflow-x-auto my-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="py-2 pr-4">Semiring</th>
+            <th class="py-2 pr-4">Values</th>
+            <th class="py-2 pr-4">Zero</th>
+            <th class="py-2 pr-4">One</th>
+            <th class="py-2 pr-4">Plus</th>
+            <th class="py-2 pr-4">Times</th>
+            <th class="py-2">Meaning</th>
+          </tr>
+        </thead>
+        <tbody class="font-mono">
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">Probability</td><td class="pr-4">[0,1]</td><td class="pr-4">0</td><td class="pr-4">1</td><td class="pr-4">+</td><td class="pr-4">&times;</td><td class="font-sans">how likely</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">Counting</td><td class="pr-4">&#8469;</td><td class="pr-4">0</td><td class="pr-4">1</td><td class="pr-4">+</td><td class="pr-4">&times;</td><td class="font-sans">how many ways</td></tr>
+          <tr><td class="py-2 pr-4">Search</td><td class="pr-4">Bool</td><td class="pr-4">false</td><td class="pr-4">true</td><td class="pr-4">or</td><td class="pr-4">and</td><td class="font-sans">is it reachable</td></tr>
+        </tbody>
+      </table>
+    </div>
+
     <SchemeRepl client:load initialCode={`; A weighted collection: list of (value . weight) pairs
 ; The semiring determines what weights mean
 
