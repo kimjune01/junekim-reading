@@ -123,6 +123,8 @@ print(f"Equilibria: {find_equilibria(matrix)}")
     <SchemeRepl client:load initialCode={`; Verify: all equilibrium points share the same value
 ; Try several matrices
 
+(define (every pred lst) (if (null? lst) #t (if (pred (car lst)) (every pred (cdr lst)) #f)))
+
 (define (all-eq-values-same? m)
   (let ((eqs (find-equilibria m)))
     (if (null? eqs) "no equilibria"

@@ -77,24 +77,24 @@ import SchemeRepl from '../../components/SchemeRepl';
     <h3>The problem: composing embellished functions</h3>
     <p>You have functions that return a value <em>plus</em> a log string. You can't compose them with ordinary function composition because the types don't line up: <code>a → (b, string)</code> followed by <code>b → (c, string)</code> needs someone to unpack the pair and concatenate the logs. That "someone" is Kleisli composition.</p>
 
-    <SchemeRepl client:load initialCode={`; Functions that return a value AND a log message.
-; Type: a -> (value . log-string)
+    <SchemeRepl client:load initialCode={`; Functions that return a value AND a log.
+; Type: a -> (value . log-list)
 ; We can't use plain compose — the types don't match.
 
-(define (to-upper s)
-  (cons (string-upcase s) "to-upper "))
+(define (double n)
+  (cons (* n 2) (list "doubled")))
 
-(define (to-words s)
-  (cons (string-split s " ") "to-words "))
+(define (add-ten n)
+  (cons (+ n 10) (list "added-ten")))
 
-(display "to-upper: ")
-(display (to-upper "hello world")) (newline)
-(display "to-words: ")
-(display (to-words "HELLO WORLD")) (newline)
+(display "double: ")
+(display (double 5)) (newline)
+(display "add-ten: ")
+(display (add-ten 20)) (newline)
 
-; We want to compose them: string -> (list-of-strings . log)
-; But (to-words (to-upper "hello")) won't work —
-; to-words expects a string, not a pair.
+; We want to compose them: number -> (number . log)
+; But (add-ten (double 5)) won't work —
+; add-ten expects a number, not a pair.
 `} />
 
     <details class="my-2">
@@ -117,7 +117,7 @@ print(f"to_words: {to_words('HELLO WORLD')}")
     <h3>The Writer type and Kleisli composition</h3>
     <p>The <strong>Writer</strong> type wraps a value with a log: <code>(value . log)</code>. Kleisli composition (<code>>=></code>, the "fish operator") extracts the value from the first function's result, feeds it to the second, and concatenates the logs. This is the composition rule for morphisms in the Kleisli category.</p>
 
-    <SchemeRepl client:load initialCode={`; Writer: (value . log-string)
+    <SchemeRepl client:load initialCode={`; Writer: (value . log-list)
 ; Kleisli composition (fish operator): (a -> Writer b) -> (b -> Writer c) -> (a -> Writer c)
 
 (define (fish f g)
@@ -125,21 +125,21 @@ print(f"to_words: {to_words('HELLO WORLD')}")
     (let* ((p1 (f x))
            (p2 (g (car p1))))
       (cons (car p2)
-            (string-append (cdr p1) (cdr p2))))))
+            (append (cdr p1) (cdr p2))))))
 
 ; Our embellished functions
-(define (to-upper s)
-  (cons (string-upcase s) "to-upper "))
+(define (double n)
+  (cons (* n 2) (list "doubled")))
 
-(define (to-words s)
-  (cons (string-split s " ") "to-words "))
+(define (add-ten n)
+  (cons (+ n 10) (list "added-ten")))
 
 ; Compose them with fish
-(define to-upper-words (fish to-upper to-words))
+(define double-then-add (fish double add-ten))
 
 (display "composed: ")
-(display (to-upper-words "hello world")) (newline)
-; => (("HELLO" "WORLD") . "to-upper to-words ")
+(display (double-then-add 5)) (newline)
+; => (20 . ("doubled" "added-ten"))
 ; Value flows through. Logs accumulate.
 `} />
 
@@ -172,7 +172,7 @@ print(to_upper_words("hello world"))
 
     <SchemeRepl client:load initialCode={`; Kleisli identity: return value unchanged, empty log
 (define (writer-id x)
-  (cons x ""))
+  (cons x '()))
 
 ; Fish operator (from above)
 (define (fish f g)
@@ -180,29 +180,29 @@ print(to_upper_words("hello world"))
     (let* ((p1 (f x))
            (p2 (g (car p1))))
       (cons (car p2)
-            (string-append (cdr p1) (cdr p2))))))
+            (append (cdr p1) (cdr p2))))))
 
-(define (to-upper s)
-  (cons (string-upcase s) "to-upper "))
+(define (double n)
+  (cons (* n 2) (list "doubled")))
 
 ; Left identity:  fish(id, f) = f
-(define left  ((fish writer-id to-upper) "hello"))
-(define direct (to-upper "hello"))
+(define left  ((fish writer-id double) 5))
+(define direct (double 5))
 (display "left identity:  ") (display (equal? left direct)) (newline)
 
 ; Right identity: fish(f, id) = f
-(define right ((fish to-upper writer-id) "hello"))
+(define right ((fish double writer-id) 5))
 (display "right identity: ") (display (equal? right direct)) (newline)
 
 ; Associativity: fish(fish(f, g), h) = fish(f, fish(g, h))
-(define (to-words s) (cons (string-split s " ") "to-words "))
-(define (count-em xs) (cons (length xs) "count "))
+(define (add-ten n) (cons (+ n 10) (list "added-ten")))
+(define (negate n) (cons (- 0 n) (list "negated")))
 
-(define lhs ((fish (fish to-upper to-words) count-em) "hello world"))
-(define rhs ((fish to-upper (fish to-words count-em)) "hello world"))
+(define lhs ((fish (fish double add-ten) negate) 3))
+(define rhs ((fish double (fish add-ten negate)) 3))
 (display "associativity:  ") (display (equal? lhs rhs)) (newline)
 (display "result: ") (display lhs)
-; (2 . "to-upper to-words count ")
+; (-16 . ("doubled" "added-ten" "negated"))
 `} />
 
 
@@ -217,28 +217,28 @@ print(to_upper_words("hello world"))
     (let* ((p1 (f x))
            (p2 (g (car p1))))
       (cons (car p2)
-            (string-append (cdr p1) (cdr p2))))))
+            (append (cdr p1) (cdr p2))))))
 
 (define (validate-age n)
   (if (and (>= n 0) (<= n 150))
-      (cons n "validated ")
-      (cons -1 "INVALID ")))
+      (cons n (list "validated"))
+      (cons -1 (list "INVALID"))))
 
 (define (categorize n)
-  (cond ((< n 0)  (cons "invalid" "categorized "))
-        ((< n 18) (cons "minor" "categorized "))
-        ((< n 65) (cons "adult" "categorized "))
-        (else     (cons "senior" "categorized "))))
+  (cond ((< n 0)  (cons 'invalid (list "categorized")))
+        ((< n 18) (cons 'minor (list "categorized")))
+        ((< n 65) (cons 'adult (list "categorized")))
+        (else     (cons 'senior (list "categorized")))))
 
 (define (format-result cat)
-  (cons (string-append "Category: " cat) "formatted "))
+  (cons (list 'category cat) (list "formatted")))
 
 (define pipeline (fish (fish validate-age categorize) format-result))
 
 (display (pipeline 25)) (newline)
-; ("Category: adult" . "validated categorized formatted ")
+; ((category adult) . ("validated" "categorized" "formatted"))
 (display (pipeline 200)) (newline)
-; ("Category: invalid" . "INVALID categorized formatted ")
+; ((category invalid) . ("INVALID" "categorized" "formatted"))
 ; Every step is pure. The log assembles itself through composition.
 `} />
 
@@ -353,7 +353,7 @@ print(pipeline(200))
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p>The blog post uses C++ templates and Haskell. This page uses Scheme cons pairs as the Writer type and a plain <code>fish</code> function for Kleisli composition. The monoid used for logs is string concatenation. The general construction works for any monoid (lists, numbers under addition, etc.), and for any monad, not just Writer. The Optional/Maybe example at the end shows the same pattern with a different embellishment.</p>
+    <p>The blog post uses C++ templates and Haskell. This page uses Scheme cons pairs as the Writer type and a plain <code>fish</code> function for Kleisli composition. The monoid used for logs is list append. The general construction works for any monoid (strings, numbers under addition, etc.), and for any monad, not just Writer. The Optional/Maybe example at the end shows the same pattern with a different embellishment.</p>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://bartoszmilewski.com/2014/12/23/kleisli-categories/">Read the blog post</a>. Start with the C++ examples, then try the Haskell fish operator.

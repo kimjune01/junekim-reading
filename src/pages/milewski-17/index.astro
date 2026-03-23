@@ -309,11 +309,11 @@ print(f"sum to 4: {sum4}")
     <h3>Writer monad revisited</h3>
     <p>The Writer monad pairs a value with a log (any monoid). <code>return x = (x, mempty)</code>. <code>bind (a, w) f = let (b, w') = f a in (b, w &lt;&gt; w')</code>. This is the monad from Ch. 4's Kleisli category, now recognized as a proper monad with return, bind, and join. The <code>tell</code> function appends to the log without producing a value.</p>
 
-    <SchemeRepl client:load initialCode={`; Writer monad: (value . log) where log is a monoid (strings here)
-; return x = (x . "")
+    <SchemeRepl client:load initialCode={`; Writer monad: (value . log) where log is a monoid (lists here)
+; return x = (x . ())
 ; bind (a . w) f = let (b . w') = f(a) in (b . w ++ w')
 
-(define (writer-return x) (cons x ""))
+(define (writer-return x) (cons x '()))
 
 (define (writer-bind mx f)
   (let* ((a (car mx))
@@ -321,24 +321,23 @@ print(f"sum to 4: {sum4}")
          (result (f a))
          (b (car result))
          (w2 (cdr result)))
-    (cons b (string-append w w2))))
+    (cons b (append w w2))))
 
-(define (tell msg) (cons '() msg))
+(define (tell msg) (cons '() (list msg)))
 
-; Logging pipeline: uppercase then count words
-(define (to-upper s)
-  (cons (string-upcase s) "toUpper "))
+; Logging pipeline: double then add-ten
+(define (double n)
+  (cons (* n 2) (list "doubled")))
 
-(define (count-words s)
-  (cons (length (string-split s " "))
-        "countWords "))
+(define (add-ten n)
+  (cons (+ n 10) (list "added-ten")))
 
 (define result
-  (writer-bind (to-upper "hello world")
-    (lambda (s)
-      (writer-bind (count-words s)
-        (lambda (n)
-          (writer-return n))))))
+  (writer-bind (double 5)
+    (lambda (n)
+      (writer-bind (add-ten n)
+        (lambda (m)
+          (writer-return m))))))
 
 (display "result: ") (display (car result)) (newline)
 (display "log:    ") (display (cdr result))

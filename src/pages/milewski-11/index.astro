@@ -441,9 +441,9 @@ for s, c in matches:
   (display "  x=") (display x)
   (display ": f(x)=") (display (f x))
   (display ", g(x)=") (display (g x))
-  (when (not (equal? (f x) (g x)))
-    (display " => merge ") (display (f x))
-    (display " ~ ") (display (g x)))
+  (if (not (equal? (f x) (g x)))
+    (begin (display " => merge ") (display (f x))
+           (display " ~ ") (display (g x))))
   (newline))
   '(0 1 2 3 4 5))
 `} />

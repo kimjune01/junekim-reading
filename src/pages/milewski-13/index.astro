@@ -313,16 +313,16 @@ print(f"calls: {call_count}")
 
 (display "nats[0..4]:    ")
 (let loop ((i 0))
-  (when (< i 5)
-    (display (stream-index nats i)) (display " ")
-    (loop (+ i 1))))
+  (if (< i 5)
+    (begin (display (stream-index nats i)) (display " ")
+           (loop (+ i 1)))))
 (newline)
 
 (display "doubled[0..4]: ")
 (let loop ((i 0))
-  (when (< i 5)
-    (display (stream-index doubled i)) (display " ")
-    (loop (+ i 1))))
+  (if (< i 5)
+    (begin (display (stream-index doubled i)) (display " ")
+           (loop (+ i 1)))))
 ; fmap through the isomorphism — no direct recursion on Stream.
 `} />
 

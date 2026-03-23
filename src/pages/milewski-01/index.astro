@@ -243,27 +243,26 @@ print(f"Equal? {left(3) == right(3)}")
 (define (compose g f) (lambda (x) (g (f x))))
 
 ; Simple pieces
-(define (tokenize s) (string-split s " "))
-(define (count-tokens lst) (length lst))
-(define (classify n)
-  (cond ((< n 3) 'short)
-        ((< n 8) 'medium)
-        (else 'long)))
+(define (double x) (* x 2))
+(define (add1 x) (+ x 1))
+(define (square x) (* x x))
 
-; Compose into a pipeline
-(define analyze
-  (compose classify (compose count-tokens tokenize)))
+; Compose into pipelines
+(define double-then-add1 (compose add1 double))
+(define add1-then-square (compose square add1))
 
-(display "\"hello world\" -> ")
-(display (analyze "hello world")) (newline)
+(display "double-then-add1(3) = ")
+(display (double-then-add1 3)) (newline)  ; (3*2)+1 = 7
 
-(display "\"the cat sat on the mat\" -> ")
-(display (analyze "the cat sat on the mat")) (newline)
+(display "add1-then-square(3) = ")
+(display (add1-then-square 3)) (newline)  ; (3+1)^2 = 16
 
-(display "\"hi\" -> ")
-(display (analyze "hi"))
+; Deeper pipeline: three functions composed
+(define pipeline (compose square (compose add1 double)))
+(display "square(add1(double(3))) = ")
+(display (pipeline 3))  ; square(add1(6)) = square(7) = 49
 ; Each piece is one chunk. The pipeline is one chunk.
-; Total cognitive load: 4 chunks, not n² interactions.
+; Total cognitive load: 4 chunks, not n^2 interactions.
 `} />
 
 

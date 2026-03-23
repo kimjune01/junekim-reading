@@ -95,7 +95,7 @@ import SchemeRepl from '../../components/SchemeRepl';
          (result (f (idx-val m))))
     (if (eq? j (idx-start result))
         (make-indexed (idx-start m) (idx-end result) (idx-val result))
-        (error "Index mismatch — handshake failed"))))
+        (begin (display "ERROR: Index mismatch — handshake failed") (newline)))))
 
 ; raw -> filtered -> ranked
 (define step1 (make-indexed 'raw 'filtered '(a b c)))
@@ -204,7 +204,7 @@ print(step1.bind(step2))
                  (ig-end result)
                  (grade-op (ig-grade m) (ig-grade result))
                  (ig-val result))
-        (error "Index mismatch"))))
+        (begin (display "ERROR: Index mismatch") (newline)))))
 
 ; stage 1: raw->cached, cost 2
 (define step1 (make-ig 'raw 'cached 2 '(x y z)))
@@ -266,6 +266,8 @@ print(step1.bind(step2))
 
     <SchemeRepl client:load initialCode={`; Restricted pointwise order (toy checker — finite sample, not proof):
 ; (Q, e) ≤ (Q', e') iff e ≤ e' AND Q(x) => Q'(x) for all x
+
+(define (every pred lst) (if (null? lst) #t (if (pred (car lst)) (every pred (cdr lst)) #f)))
 
 (define (refines? Q e Q-prime e-prime test-vals)
   (and (<= e e-prime)
@@ -351,7 +353,7 @@ print(f"(x>0, cost=3) refines (x>10, cost=1)? {refines(Q_weak, 3, Q_strong, 1, v
 
 (define (compose-triples t1 t2 grade-op)
   (if (not (eq? (t-end t1) (t-start t2)))
-      (error "Index mismatch"))
+      (begin (display "ERROR: Index mismatch") (newline)))
   ; The logical handshake: t1's postcondition must imply t2's precondition
   (list (t-pre t1) (t-post t2)
         (t-start t1) (t-end t2)
@@ -359,9 +361,9 @@ print(f"(x>0, cost=3) refines (x>10, cost=1)? {refines(Q_weak, 3, Q_strong, 1, v
         (lambda (x) ((t-fn t2) ((t-fn t1) x)))))
 
 (define (run-triple t x)
-  (if (not ((t-pre t) x)) (error "Precondition failed"))
+  (if (not ((t-pre t) x)) (begin (display "ERROR: Precondition failed") (newline)))
   (let ((y ((t-fn t) x)))
-    (if (not ((t-post t) y)) (error "Postcondition failed"))
+    (if (not ((t-post t) y)) (begin (display "ERROR: Postcondition failed") (newline)))
     y))
 
 ; c1: takes any number, guarantees result >= 0

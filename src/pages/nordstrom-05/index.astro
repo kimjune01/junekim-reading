@@ -54,7 +54,7 @@ import SchemeRepl from '../../components/SchemeRepl';
 
 (define (make-mixed-strategy actions probs)
   (if (not (= 1 (apply + probs)))
-      (error "probabilities must sum to 1")
+      (begin (display "ERROR: probabilities must sum to 1") (newline))
       (map list actions probs)))
 
 ; Rock-Paper-Scissors: biased toward Paper

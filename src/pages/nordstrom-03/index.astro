@@ -118,13 +118,13 @@ print(f"Prisoner's Dilemma: {is_zero_sum(prisoners)}")
 
 (display "Full payoffs from simplified matrix:") (newline)
 (let loop ((i 0))
-  (when (< i 3)
-    (let col-loop ((j 0))
-      (when (< j 3)
-        (display (full-payoff election i j)) (display " ")
-        (col-loop (+ j 1))))
+  (if (< i 3)
+    (begin (let col-loop ((j 0))
+      (if (< j 3)
+        (begin (display (full-payoff election i j)) (display " ")
+               (col-loop (+ j 1)))))
     (newline)
-    (loop (+ i 1))))
+    (loop (+ i 1)))))
 `} />
 
     <!-- 3. Equilibrium in zero-sum games -->

@@ -293,6 +293,11 @@ print(f"seller('high') = {seller('high')}")
     <SchemeRepl client:load initialCode={`; Nash equilibrium: no player can improve by deviating
 ; Check each player: is their action optimal given others' actions?
 
+; BiwaScheme helpers
+(define (any pred lst) (if (null? lst) #f (if (pred (car lst)) #t (any pred (cdr lst)))))
+(define (take lst n) (if (or (null? lst) (= n 0)) '() (cons (car lst) (take (cdr lst) (- n 1)))))
+(define (drop lst n) (if (or (null? lst) (= n 0)) lst (drop (cdr lst) (- n 1))))
+
 (define (nash-eq? strategies utility-fns action-spaces)
   (let loop ((i 0) (result #t))
     (if (>= i (length strategies)) result
@@ -388,6 +393,8 @@ print(f"(C,C) Nash? {is_nash(['C','C'], [u1,u2], [['C','D'],['C','D']])}")
 
     <SchemeRepl client:load initialCode={`; Compositional equilibrium: check locally, compose globally
 ; Each sub-game has a best-response predicate
+
+(define (every pred lst) (if (null? lst) #t (if (pred (car lst)) (every pred (cdr lst)) #f)))
 
 (define (best-response? player action context util-fn alternatives)
   (let ((current-util (util-fn action context)))

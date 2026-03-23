@@ -38,7 +38,7 @@ import SchemeRepl from '../../components/SchemeRepl';
 ; There's a unique morphism FROM it to every object,
 ; but you can never call it — there are no values of type Void.
 (define (absurd x)
-  (error "Void has no values — this can never be called"))
+  (display "ERROR: Void has no values") (newline))
 
 (display "absurd is defined but uncallable — Void is empty")
 `} />

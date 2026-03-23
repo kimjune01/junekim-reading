@@ -255,6 +255,8 @@ print(f"Wedge holds? {path1(42) == path2(42)}")
 (define (apply-fn fn x) (cdr (assoc x fn)))
 
 ; Naturality: alpha_a(x) = alpha_b(x) for all x (since F(f)=G(f)=id)
+(define (every pred lst) (if (null? lst) #t (if (pred (car lst)) (every pred (cdr lst)) #f)))
+
 (define nat-transformations
   (filter (lambda (pair)
     (let ((alpha-a (car pair)) (alpha-b (cadr pair)))
@@ -329,11 +331,11 @@ for a, _ in nat_trans:
         (if (equal? p x) x (find p))))
     (define (union! a b)
       (let ((ra (find a)) (rb (find b)))
-        (when (not (equal? ra rb))
-          (set! parent
+        (if (not (equal? ra rb))
+          (begin (set! parent
             (map (lambda (p)
               (if (equal? (cdr p) rb) (cons (car p) ra) p))
-              parent)))))
+              parent))))))
     (for-each (lambda (id) (union! (car id) (cdr id))) identifications)
     ; Return equivalence classes
     (let ((classes '()))

@@ -42,7 +42,7 @@ import SchemeRepl from '../../components/SchemeRepl';
 (define (D day)
   (cond ((eq? day 'mon) 10)
         ((eq? day 'tue) 20)
-        (else (error "D is only defined on I"))))
+        (else (begin (display "ERROR: D is only defined on I") (newline)))))
 
 ; K: the embedding I -> A (identity on the subcategory)
 (define (K day) day)

@@ -97,12 +97,12 @@ import SchemeRepl from '../../components/SchemeRepl';
 (define (bimap-pair f g pair)
   (cons (f (car pair)) (g (cdr pair))))
 
-; Example: double the first, uppercase the second
-(define p (cons 3 "hello"))
+; Example: double the first, negate the second
+(define p (cons 3 7))
 (display "original: ") (display p) (newline)
 (display "bimap:    ")
 (display (bimap-pair (lambda (x) (* x 2))
-                     string-upcase
+                     (lambda (x) (- 0 x))
                      p))
 (newline)
 
@@ -117,9 +117,9 @@ import SchemeRepl from '../../components/SchemeRepl';
 def bimap_pair(f, g, pair):
     return (f(pair[0]), g(pair[1]))
 
-p = (3, "hello")
+p = (3, 7)
 print(f"original: {p}")
-print(f"bimap:    {bimap_pair(lambda x: x*2, str.upper, p)}")
+print(f"bimap:    {bimap_pair(lambda x: x*2, lambda x: -x, p)}")
 print(f"bimap id: {bimap_pair(lambda x: x, lambda x: x, p)}")
 `} />
     </details>
@@ -143,12 +143,12 @@ print(f"bimap id: {bimap_pair(lambda x: x, lambda x: x, p)}")
 
 ; Apply different transforms to each branch
 (define e1 (make-left 42))
-(define e2 (make-right "hello"))
+(define e2 (make-right 7))
 
 (display "left:  ") (display (bimap-either (lambda (x) (* x 2))
-                                           string-upcase e1)) (newline)
+                                           (lambda (x) (+ x 100)) e1)) (newline)
 (display "right: ") (display (bimap-either (lambda (x) (* x 2))
-                                           string-upcase e2))
+                                           (lambda (x) (+ x 100)) e2))
 ; Left maps the first function. Right maps the second.
 `} />
 
@@ -168,8 +168,8 @@ def bimap_either(f, g, e):
         return Left(f(e.v))
     return Right(g(e.v))
 
-print(bimap_either(lambda x: x*2, str.upper, Left(42)))
-print(bimap_either(lambda x: x*2, str.upper, Right("hello")))
+print(bimap_either(lambda x: x*2, lambda x: x+100, Left(42)))
+print(bimap_either(lambda x: x*2, lambda x: x+100, Right(7)))
 `} />
     </details>
 
