@@ -21,6 +21,21 @@ import SchemeRepl from '../../components/SchemeRepl';
     <h3>The Hoare triple</h3>
     <p>You already know this pattern:</p>
 
+    <!-- SVG: Basic Hoare triple -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 400 80" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <text x="40" y="30" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">P</text>
+        <line x1="20" y1="40" x2="120" y2="40" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="120" cy="40" r="3" fill="currentColor" fill-opacity="0.4"/>
+        <rect x="123" y="22" width="60" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+        <text x="153" y="45" text-anchor="middle" fill="currentColor" font-size="14">c</text>
+        <circle cx="183" cy="40" r="3" fill="currentColor" fill-opacity="0.4"/>
+        <line x1="186" y1="40" x2="290" y2="40" stroke="currentColor" stroke-width="1.5"/>
+        <text x="270" y="30" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">Q</text>
+        <text x="153" y="70" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.3">if P holds before, Q holds after</text>
+      </svg>
+    </div>
+
     <div class="bg-zinc-800 rounded-lg p-5 mb-4 font-mono text-center">
       <span class="text-gray-400">assert</span> <span class="text-green-300">P</span><span class="text-gray-500">;</span>
       <span class="text-blue-300">run(c)</span><span class="text-gray-500">;</span>
@@ -46,6 +61,17 @@ for x in range(-3, 4):
 
     <!-- 2. SKIP -->
     <h3>SKIP — doing nothing preserves anything</h3>
+
+    <!-- SVG: SKIP — just a wire -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 300 50" class="w-full max-w-xs" style="font-family: ui-monospace, monospace;">
+        <text x="30" y="18" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">P</text>
+        <line x1="20" y1="28" x2="280" y2="28" stroke="currentColor" stroke-width="1.5"/>
+        <text x="270" y="18" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">P</text>
+        <text x="150" y="45" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.3">no box — wire passes straight through</text>
+      </svg>
+    </div>
+
     <p>The simplest rule. <code>{'{P}'} skip {'{P}'}</code>. If P is true before doing nothing, P is still true after. Obvious — but it's a theorem, not an assumption.</p>
 
     <Repl client:load initialCode={`# SKIP: {P} skip {P}
@@ -133,6 +159,42 @@ print("     and see where Q breaks.")
 
     <!-- 4. WHILE -->
     <h3>WHILE — loop invariants</h3>
+
+    <!-- SVG: WHILE loop — feedback with guard -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 400 140" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Input wire -->
+        <text x="25" y="30" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">P</text>
+        <line x1="15" y1="40" x2="80" y2="40" stroke="currentColor" stroke-width="1.5"/>
+
+        <!-- Guard diamond -->
+        <polygon points="100,20 120,40 100,60 80,40" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+        <text x="100" y="44" text-anchor="middle" fill="currentColor" font-size="10">b?</text>
+
+        <!-- True branch: into body -->
+        <line x1="120" y1="40" x2="170" y2="40" stroke="currentColor" stroke-width="1.5"/>
+        <text x="145" y="33" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.4">true</text>
+
+        <!-- Body box -->
+        <rect x="170" y="22" width="60" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+        <text x="200" y="45" text-anchor="middle" fill="currentColor" font-size="13">c</text>
+
+        <!-- Feedback: body output loops back to guard -->
+        <line x1="230" y1="40" x2="260" y2="40" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+        <line x1="260" y1="40" x2="260" y2="100" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+        <line x1="260" y1="100" x2="60" y2="100" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+        <line x1="60" y1="100" x2="60" y2="40" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+        <line x1="60" y1="40" x2="80" y2="40" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+        <text x="160" y="115" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">P survives each iteration</text>
+
+        <!-- False branch: exit -->
+        <line x1="100" y1="60" x2="100" y2="80" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="100" y1="80" x2="350" y2="80" stroke="currentColor" stroke-width="1.5"/>
+        <text x="130" y="75" fill="currentColor" font-size="8" fill-opacity="0.4">false</text>
+        <text x="330" y="72" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">P ∧ ¬b</text>
+      </svg>
+    </div>
+
     <p>If <code>{'{b ∧ P}'} c {'{P}'}</code>, then <code>{'{P}'} while b do c {'{P ∧ ¬b}'}</code>.</p>
     <p>If the body preserves the invariant P, the loop preserves it too. When the loop exits, P still holds AND the guard b is false. This is the loop invariant from your algorithms class — except here it's a theorem derived from the categorical structure, not a proof technique you choose to apply.</p>
 
@@ -159,6 +221,26 @@ print("     Does the invariant still hold?")
 
     <!-- 5. Weakest precondition -->
     <h3>Weakest precondition</h3>
+
+    <!-- SVG: wp — backwards from Q through c to P -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 400 80" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Q on the right -->
+        <text x="350" y="25" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.7">Q</text>
+        <line x1="290" y1="40" x2="370" y2="40" stroke="currentColor" stroke-width="1.5"/>
+
+        <!-- Box c -->
+        <rect x="180" y="22" width="60" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+        <text x="210" y="45" text-anchor="middle" fill="currentColor" font-size="14">c</text>
+        <line x1="240" y1="40" x2="290" y2="40" stroke="currentColor" stroke-width="1.5"/>
+
+        <!-- Backwards arrow to wp(c,Q) -->
+        <line x1="30" y1="40" x2="180" y2="40" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <text x="80" y="25" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">wp(c, Q) = ?</text>
+        <text x="210" y="70" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.3">given Q and c, compute the weakest P</text>
+      </svg>
+    </div>
+
     <p>Flip the question. Given c and Q, what's the <em>weakest</em> P that guarantees Q? That's <code>wp(c, Q)</code>. The most permissive input condition that still gives you the output you want.</p>
 
     <Repl client:load initialCode={`# wp(c, Q) = the weakest P such that {P} c {Q}
@@ -300,9 +382,9 @@ kleisli = lambda f, g: lambda x: {
 }
 
 h = kleisli(f, g)
-print(f"  f(3) = {f(3)}")
-print(f"  g(3) = {g(3)}")
-print(f"  (f >=> g)(3) = {h(3)}")
+print(f"  f(3) = {dict(sorted(f(3).items()))}")
+print(f"  g(3) = {dict(sorted(g(3).items()))}")
+print(f"  (f >=> g)(3) = {dict(sorted(h(3).items()))}")
 print()
 print("This composition is what makes COMP work for")
 print("stochastic pipelines. The handshake chains")
