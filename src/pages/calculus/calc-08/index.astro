@@ -110,6 +110,27 @@ print(f"Exact:     {exact:.6f}")
 (display "= e^1 * 0 - e^0 * (-1) = 1")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# Integration by parts: integral of x*e^x dx
+# u=x, dv=e^x dx => antiderivative = (x-1)*e^x
+def integrate(f, a, b, n=10000):
+    dx = (b - a) / n
+    return sum(f(a + (i+0.5)*dx) * dx for i in range(n))
+
+integrand = lambda x: x * math.exp(x)
+F = lambda x: (x - 1) * math.exp(x)
+
+numerical = integrate(integrand, 0, 1)
+exact = F(1) - F(0)
+print("Numerical: {:.4f}".format(numerical))
+print("Exact:     {:.4f}".format(exact))
+print("= e^1 * 0 - e^0 * (-1) = 1")
+`} />
+    </details>
+
 
     <!-- 3. Partial fractions -->
     <h3>Partial fractions</h3>
@@ -142,6 +163,26 @@ print(f"Exact:     {exact:.6f}")
 (display "Exact:     ") (display (/ (round (* exact 10000)) 10000))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# Partial fractions: integral of 1/(x^2 - 1) dx from 2 to 5
+# = (1/2) ln|(x-1)/(x+1)| + C
+def integrate(f, a, b, n=10000):
+    dx = (b - a) / n
+    return sum(f(a + (i+0.5)*dx) * dx for i in range(n))
+
+integrand = lambda x: 1 / (x**2 - 1)
+F = lambda x: 0.5 * math.log(abs((x-1)/(x+1)))
+
+numerical = integrate(integrand, 2, 5)
+exact = F(5) - F(2)
+print("Numerical: {:.4f}".format(numerical))
+print("Exact:     {:.4f}".format(exact))
+`} />
+    </details>
+
 
     <!-- 4. Trig substitution -->
     <h3>Trig substitution</h3>
@@ -171,6 +212,25 @@ print(f"Exact:     {exact:.6f}")
 (display "pi/4:      ") (display (/ (round (* exact 10000)) 10000))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# Trig substitution: integral of sqrt(1-x^2) from 0 to 1
+# This is the area of a quarter circle = pi/4
+def integrate(f, a, b, n=10000):
+    dx = (b - a) / n
+    return sum(f(a + (i+0.5)*dx) * dx for i in range(n))
+
+integrand = lambda x: math.sqrt(1 - x**2)
+numerical = integrate(integrand, 0, 1)
+exact = math.pi / 4
+
+print("Numerical: {:.4f}".format(numerical))
+print("pi/4:      {:.4f}".format(exact))
+`} />
+    </details>
+
 
     <!-- 5. Improper integrals -->
     <h3>Improper integrals</h3>
@@ -199,6 +259,29 @@ print(f"Exact:     {exact:.6f}")
 (display "1/x from 1 to 1000: ") (display (/ (round (* (integrate (lambda (x) (/ 1 x)) 1 1000 100000) 100)) 100)) (newline)
 (display "Diverges: ln(b) grows without bound")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# Improper integral: 1/x^2 from 1 to infinity = 1 (converges)
+def integrate(f, a, b, n):
+    dx = (b - a) / n
+    return sum(f(a + (i+0.5)*dx) * dx for i in range(n))
+
+for b, n in [(10, 1000), (100, 10000), (1000, 100000)]:
+    val = integrate(lambda x: 1/x**2, 1, b, n)
+    print("1/x^2 from 1 to {}: {:.4f}".format(b, val))
+print("Exact: 1")
+print()
+
+# 1/x from 1 to infinity diverges
+for b, n in [(100, 10000), (1000, 100000)]:
+    val = integrate(lambda x: 1/x, 1, b, n)
+    print("1/x from 1 to {}: {:.2f}".format(b, val))
+print("Diverges: ln(b) grows without bound")
+`} />
+    </details>
 
 
     <!-- Notation -->

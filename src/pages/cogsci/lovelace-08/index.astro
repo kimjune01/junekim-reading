@@ -142,6 +142,25 @@ print(f"Final WM: {wm}")
 (display "Higher activation = faster retrieval = lower RT")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# ACT-R base-level activation
+import math
+
+decay = 0.5
+
+def base_level(times_since_use):
+    return math.log(sum(t ** (-decay) for t in times_since_use))
+
+paris = [1, 10, 100]
+ouaga = [10000]
+
+print("Activation (Paris, recent use): " + "{:.4f}".format(base_level(paris)))
+print("Activation (Ouagadougou, old):  " + "{:.4f}".format(base_level(ouaga)))
+print("Higher activation = faster retrieval = lower RT")
+`} />
+    </details>
+
 
     <!-- Soar -->
     <h3>Soar</h3>
@@ -180,6 +199,29 @@ print(f"Final WM: {wm}")
 ; Second time: retrieved directly (no impasse)
 (solve-with-chunking "3+4")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Soar-style chunking: solve, then cache as a rule
+known_rules = {}
+
+def solve(goal):
+    if goal in known_rules:
+        print("Retrieved: " + goal + " -> " + str(known_rules[goal]))
+        return known_rules[goal]
+    # Impasse: no rule matches. Solve by subgoaling.
+    results = {"3+4": 7, "7*2": 14}
+    result = results.get(goal, "unknown")
+    print("Impasse on " + goal + " -> solved: " + str(result))
+    known_rules[goal] = result
+    print("Chunked into new rule")
+    return result
+
+solve("3+4")
+print()
+solve("3+4")  # second time: retrieved directly
+`} />
+    </details>
 
 
     <!-- Notation -->
@@ -226,6 +268,7 @@ print(f"Final WM: {wm}")
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cogsci/lovelace-07/">&larr; Language and Communication</a>
       <span></span>
+      <span class="text-gray-500">fin &middot; 8 of 8</span>
     </div>
 
   </main>

@@ -131,6 +131,24 @@ print(f"P(healthy | positive) = {1 - p_disease_given_pos:.4f}")
 ; Tails pulls belief back toward fair
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Sequential Bayesian updating: fair vs biased coin
+def update(pf, pb, obs):
+    pof = 0.5 if obs == "H" else 0.5
+    pob = 0.8 if obs == "H" else 0.2
+    evidence = pof * pf + pob * pb
+    return pof * pf / evidence, pob * pb / evidence
+
+pf, pb = 0.5, 0.5
+print("Start:     " + str([pf, pb]))
+
+for obs in ["H", "H", "T"]:
+    pf, pb = update(pf, pb, obs)
+    print("After " + obs + ":   [" + "{:.4f}".format(pf) + ", " + "{:.4f}".format(pb) + "]")
+`} />
+    </details>
+
 
     <!-- Conjugate priors -->
     <h3>Conjugate priors</h3>
@@ -169,6 +187,27 @@ print(f"P(healthy | positive) = {1 - p_disease_given_pos:.4f}")
 (display (exact->inexact (beta-mean post2-a post2-b)))
 ; More data = tighter posterior, converging on 0.7
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Beta-Binomial conjugacy
+def beta_mean(a, b):
+    return a / (a + b)
+
+a, b = 1, 1  # uniform prior
+print("Prior mean: " + str(beta_mean(a, b)))
+
+# After 7 heads, 3 tails
+a1, b1 = a + 7, b + 3
+print("After 7H 3T: Beta(" + str(a1) + ", " + str(b1) + ")")
+print("Posterior mean: " + "{:.4f}".format(beta_mean(a1, b1)))
+
+# After 70 heads, 30 tails
+a2, b2 = a + 70, b + 30
+print("After 70H 30T: Beta(" + str(a2) + ", " + str(b2) + ")")
+print("Posterior mean: " + "{:.4f}".format(beta_mean(a2, b2)))
+`} />
+    </details>
 
 
     <!-- Notation reference -->

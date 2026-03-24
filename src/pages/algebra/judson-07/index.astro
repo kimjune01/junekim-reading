@@ -163,6 +163,24 @@ for n in [5, 6]:
     (loop (+ x 1))))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Polynomials over Z5
+# p(x) = 2 + 3x + x^2
+coeffs = [2, 3, 1]
+
+def poly_eval(coeffs, x, n):
+    result = 0
+    for c in reversed(coeffs):
+        result = (c + result * x) % n
+    return result
+
+print("p(x) = 2 + 3x + x^2 over Z5")
+for x in range(5):
+    print("  p(" + str(x) + ") = " + str(poly_eval(coeffs, x, 5)))
+`} />
+    </details>
+
 
     <!-- Notation -->
     <h3>Notation reference</h3>
@@ -200,7 +218,7 @@ for n in [5, 6]:
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/algebra/judson-06/">&larr; Rings</a>
-      <a href="/reading/algebra/judson-08/">Lattices and Boolean Algebras &rarr;</a>
+      <a href="/reading/algebra/judson-08/">Lattices and Boolean Algebras &middot; 8 of 8 &rarr;</a>
     </div>
 
   </main>

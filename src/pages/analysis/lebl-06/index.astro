@@ -111,6 +111,22 @@ print(f"Exact: {1/3:.6f}")
 (display "As partition refines, sum -> 1 (spike is negligible)")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+def f(x):
+    return 100 if 0.499999 < x < 0.500001 else 1
+
+print("Midpoint sums (spike at 0.5):")
+for n in [10, 100, 1000, 10000]:
+    dx = 1.0 / n
+    s = sum(f(i * dx + dx / 2) * dx for i in range(n))
+    print("  n=" + str(n) + ":", s)
+
+print("As partition refines, sum -> 1 (spike is negligible)")
+`} />
+    </details>
+
     <h3>Fundamental theorem of calculus</h3>
     <p><strong>FTC Part 1</strong>: if f is continuous on [a, b], then F(x) = &int;_a^x f(t) dt is differentiable and F'(x) = f(x). <strong>FTC Part 2</strong>: if F is any antiderivative of f, then &int;_a^b f(t) dt = F(b) - F(a). Integration and differentiation are inverse operations.</p>
 
@@ -141,6 +157,30 @@ print(f"Exact: {1/3:.6f}")
 (display "F'(pi/4) = ") (display (F-prime 0.785398)) (newline)
 (display "sin(pi/4) = ") (display (sin 0.785398))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+def integrate(f, a, b, n=10000):
+    dx = (b - a) / n
+    return sum(f(a + i * dx + dx / 2) * dx for i in range(n))
+
+fprime = lambda x: 3 * x * x
+result = integrate(fprime, 1.0, 3.0)
+print("Integral of 3x^2 from 1 to 3:", result)
+print("F(3) - F(1) = 27 - 1 = 26")
+
+# FTC Part 1: F(x) = integral of sin from 0 to x
+F = lambda x: integrate(math.sin, 0, x, 1000)
+h = 0.001
+x0 = math.pi / 4
+F_prime = (F(x0 + h) - F(x0)) / h
+print("F'(pi/4) =", F_prime)
+print("sin(pi/4) =", math.sin(x0))
+`} />
+    </details>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

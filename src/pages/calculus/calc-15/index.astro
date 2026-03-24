@@ -133,6 +133,20 @@ print(f"Equal? {np.isclose(lhs, rhs)}")
 (display "All three are: integral(d_omega, M) = integral(omega, dM)")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Stokes' theorem on flat surface = Green's theorem
+import math
+
+# curl(F).n = 2, surface = unit disk
+# Surface integral = 2 * area(disk) = 2*pi
+print("Stokes on a flat surface = Green's theorem")
+print("curl(F) . n = 2")
+print("Surface integral = 2 * area(disk) = 2*pi = " + format(2 * math.pi, ".6f"))
+print("All three are: integral(d_omega, M) = integral(omega, dM)")
+`} />
+    </details>
+
 
     <!-- Divergence theorem -->
     <h3>Divergence theorem (3D volumes)</h3>
@@ -160,6 +174,23 @@ print(f"Equal? {np.isclose(lhs, rhs)}")
 (display "Net source inside = net flux out")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Divergence theorem: F = (x,y,z) on unit ball
+import math
+
+# div(F) = 3, volume integral = 3 * (4/3)*pi = 4*pi
+lhs = 3 * (4.0/3) * math.pi
+print("Volume integral of div(F) = 3 * (4/3)*pi = " + format(lhs, ".6f"))
+
+# Flux through unit sphere: F.n = 1, surface area = 4*pi
+rhs = 4 * math.pi
+print("Surface flux = 4*pi = " + format(rhs, ".6f"))
+print("Equal? " + str(abs(lhs - rhs) < 0.001))
+print("Net source inside = net flux out")
+`} />
+    </details>
+
 
     <!-- The unification -->
     <h3>One theorem, three dimensions</h3>
@@ -185,6 +216,21 @@ print(f"Equal? {np.isclose(lhs, rhs)}")
 (display "  d on 2-forms = divergence") (newline)
 (display "  d^2 = 0 (curl of gradient = 0, div of curl = 0)")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# One theorem, three dimensions
+print("1D: integral(f', [a,b]) = f(b) - f(a)")
+print("2D: integral(curl F, R) = integral(F, dR)")
+print("3D: integral(div F, V)  = integral(F, dV)")
+print()
+print("The exterior derivative d generalizes all three:")
+print("  d on 0-forms = gradient")
+print("  d on 1-forms = curl")
+print("  d on 2-forms = divergence")
+print("  d^2 = 0 (curl of gradient = 0, div of curl = 0)")
+`} />
+    </details>
 
 
     <!-- Notation -->

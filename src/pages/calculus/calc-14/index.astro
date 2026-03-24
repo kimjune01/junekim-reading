@@ -46,6 +46,24 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Exact: 0 (symmetry: positive and negative cancel)")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Scalar line integral of f(x,y) = x+y along unit circle
+import math
+
+n = 10000
+dt = 2 * math.pi / n
+total = 0.0
+for i in range(n):
+    t = dt * (i + 0.5)
+    x, y = math.cos(t), math.sin(t)
+    total += (x + y)  # |r'(t)| = 1
+result = total * dt
+print("Scalar line integral of (x+y) on unit circle = " + format(result, ".6f"))
+print("Exact: 0 (symmetry: positive and negative cancel)")
+`} />
+    </details>
+
 
     <!-- Vector line integrals (work) -->
     <h3>Vector line integrals</h3>
@@ -163,6 +181,25 @@ print(f"Work = {work:.4f}, exact = 1.0")
 (display "Exact: 1")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Surface integrals: flux through top of unit cube
+# F = (0,0,z), surface z=1, normal = (0,0,1)
+# F.n = 1 on z=1
+
+n = 100
+dx = 1.0 / n
+flux = sum(1 * dx * dx for i in range(n) for j in range(n))
+print("Flux of (0,0,z) through top of unit cube = " + format(flux, ".4f"))
+print("Exact: 1")
+
+# F = (0,0,x+y), same surface
+flux2 = sum((dx*(i+0.5) + dx*(j+0.5)) * dx * dx for i in range(n) for j in range(n))
+print("Flux of (0,0,x+y) through top = " + format(flux2, ".4f"))
+print("Exact: 1")
+`} />
+    </details>
+
 
     <!-- Notation -->
     <h3>Notation reference</h3>
@@ -202,7 +239,7 @@ print(f"Work = {work:.4f}, exact = 1.0")
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-13/">&larr; Multiple Integrals</a>
-      <a href="/reading/calculus/calc-15/">Fundamental Theorems &rarr;</a>
+      <a href="/reading/calculus/calc-15/">Fundamental Theorems &middot; 15 of 15 &rarr;</a>
     </div>
 
   </main>

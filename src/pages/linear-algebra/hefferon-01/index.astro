@@ -163,6 +163,26 @@ for row in m:
 (display "Solution: x1=2, x2=3, x3=-1")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Row reduce to echelon form
+m = [[2, 1, -1, 8],
+     [0, 0.5, 0.5, 1],
+     [0, 2, 1, 5]]
+
+# R3 <- R3 + (-4)*R2
+for j in range(4):
+    m[2][j] += -4 * m[1][j]
+
+print("Echelon form:")
+for row in m:
+    print(" ", [round(x, 2) for x in row])
+
+# Back-substitute: x3=-1, x2=3, x1=2
+print("Solution: x1=2, x2=3, x3=-1")
+`} />
+    </details>
+
 
     <!-- 3. Gauss-Jordan -->
     <h3>Gauss-Jordan elimination</h3>
@@ -266,6 +286,26 @@ print(A)
 (newline)
 (display "Solution is a line through (3,0,1).")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# System with a free variable
+m = [[1, 2, 1, 4],
+     [2, 4, 3, 9]]
+
+# R2 <- R2 - 2*R1
+for j in range(4):
+    m[1][j] -= 2 * m[0][j]
+
+print("Echelon form:")
+for row in m:
+    print(" ", [round(x, 2) for x in row])
+
+# z=1, x=3-2t, y=t (free)
+print("z = 1, x = 3 - 2t, y = t  (t is free)")
+print("Solution is a line through (3, 0, 1).")
+`} />
+    </details>
 
 
     <!-- Notation -->

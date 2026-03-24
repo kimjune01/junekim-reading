@@ -123,6 +123,22 @@ for i in range(2):
 (display "Det = 4*3 - 2*1 = 10 = 2 * 5")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Characteristic polynomial of 2x2 matrix
+# A = ((a,b),(c,d)) -> lambda^2 - (a+d)*lambda + (ad-bc) = 0
+a, b, c, d = 4, 2, 1, 3
+p = -(a + d)
+q = a*d - b*c
+
+print("lambda^2 + " + str(p) + "*lambda + " + str(q) + " = 0")
+# lambda^2 - 7*lambda + 10 = 0 -> (lambda-2)(lambda-5) = 0
+print("Eigenvalues: 2 and 5")
+print("Trace = " + str(a+d) + " = 2 + 5")
+print("Det = " + str(a*d - b*c) + " = 2 * 5")
+`} />
+    </details>
+
 
     <!-- 3. Diagonalization -->
     <h3>Diagonalization</h3>
@@ -208,6 +224,26 @@ print(f"Matches A? {np.allclose(A, reconstructed)}")
 (display "Jordan form: ((2 1)(0 2))")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Non-diagonalizable matrix: A = [[2,1],[0,2]]
+def mat_vec(A, v):
+    return [sum(a*x for a,x in zip(row, v)) for row in A]
+
+def scalar_mult(c, v):
+    return [c*x for x in v]
+
+A = [[2, 1], [0, 2]]
+v = [1, 0]
+w = [0, 1]
+
+print("A*(1,0) = " + str(mat_vec(A, v)) + " = 2*(1,0)? " + str(mat_vec(A, v) == scalar_mult(2, v)))
+print("A*(0,1) = " + str(mat_vec(A, w)) + " = 2*(0,1)? " + str(mat_vec(A, w) == scalar_mult(2, w)))
+print("Only one eigenvector direction. Not diagonalizable.")
+print("Jordan form: [[2,1],[0,2]]")
+`} />
+    </details>
+
 
     <!-- Notation -->
     <h3>Notation reference</h3>
@@ -264,6 +300,7 @@ print(f"Matches A? {np.allclose(A, reconstructed)}")
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/linear-algebra/hefferon-04/">← Determinants</a>
       <span></span>
+      <span class="text-gray-500">fin &middot; 5 of 5</span>
     </div>
 
   </main>

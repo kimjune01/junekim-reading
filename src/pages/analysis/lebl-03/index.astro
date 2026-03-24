@@ -111,6 +111,22 @@ print(f"Harmonic (10000 terms): {harm:.4f} (diverges)")
 (display " < 1: converges")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+def ratio(n):
+    return (math.factorial(n+1) / (n+1)**(n+1)) / (math.factorial(n) / n**n)
+
+print("Ratio test for n!/n^n:")
+for n in [2, 5, 10, 20]:
+    print("  a_(n+1)/a_n at n=" + str(n) + ":", ratio(n))
+
+print("  Limit = 1/e =", 1/math.e, "< 1: converges")
+`} />
+    </details>
+
     <h3>Absolute vs conditional convergence</h3>
     <p><strong>Absolute convergence</strong> (&Sigma; |a_n| converges) implies convergence. <strong>Conditional convergence</strong> means &Sigma; a_n converges but &Sigma; |a_n| diverges. The alternating harmonic series &Sigma; (-1)^(n+1)/n converges conditionally to ln(2). Riemann's rearrangement theorem: a conditionally convergent series can be rearranged to sum to any value.</p>
 
@@ -132,6 +148,22 @@ print(f"Harmonic (10000 terms): {harm:.4f} (diverges)")
 (display "  ln(2) = ")
 (display (log 2))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+def alt_harmonic(n):
+    return sum((1 if k % 2 == 1 else -1) / k for k in range(1, n + 1))
+
+print("Alternating harmonic (converges to ln 2):")
+for n in [10, 100, 1000, 10000]:
+    print("  S_" + str(n) + " =", alt_harmonic(n))
+
+print("  ln(2) =", math.log(2))
+`} />
+    </details>
 
     <h3>Power series</h3>
     <p>A <strong>power series</strong> &Sigma; c_n x^n has a <strong>radius of convergence</strong> R: it converges absolutely for |x| &lt; R and diverges for |x| &gt; R. Inside the radius, power series can be differentiated and integrated term by term.</p>
@@ -155,6 +187,22 @@ print(f"Harmonic (10000 terms): {harm:.4f} (diverges)")
   (newline))
   (list 1 2 -1 0.5))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+def taylor_exp(x, n):
+    return sum(x**k / math.factorial(k) for k in range(n + 1))
+
+print("e^x via power series:")
+for x in [1, 2, -1, 0.5]:
+    approx = taylor_exp(x, 20)
+    exact = math.exp(x)
+    print("  e^" + str(x) + " = " + str(approx) + " (exact: " + str(exact) + ")")
+`} />
+    </details>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

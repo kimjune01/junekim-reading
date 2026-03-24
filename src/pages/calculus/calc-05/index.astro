@@ -72,6 +72,25 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "g'(1) numerical:  ") (display (/ (round (* (g-numerical 1) 1000)) 1000))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Power rule: d/dx[x^n] = n * x^(n-1)
+def deriv(f, x, h=1e-5):
+    return (f(x+h) - f(x-h)) / (2*h)
+
+# f(x) = x^3, f'(x) = 3x^2
+f = lambda x: x**3
+print("f'(2) power rule:", 3 * 2**2)          # 12
+print("f'(2) numerical: {:.3f}".format(deriv(f, 2)))
+
+# g(x) = 5x^4 - 3x^2 + 7, g'(x) = 20x^3 - 6x
+g = lambda x: 5*x**4 - 3*x**2 + 7
+g_prime = lambda x: 20*x**3 - 6*x
+print("g'(1) power rule:", g_prime(1))         # 14
+print("g'(1) numerical: {:.3f}".format(deriv(g, 1)))
+`} />
+    </details>
+
 
     <!-- 2. Product rule -->
     <h3>Product rule</h3>
@@ -97,6 +116,25 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Product rule: ") (display (/ (round (* (product-prime 1) 10000)) 10000)) (newline)
 (display "Numerical:    ") (display (/ (round (* (product-numerical 1) 10000)) 10000))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# Product rule: (f*g)' = f'g + fg'
+# f(x) = x^2, g(x) = sin(x)
+# (f*g)' = 2x*sin(x) + x^2*cos(x)
+def deriv(f, x, h=1e-5):
+    return (f(x+h) - f(x-h)) / (2*h)
+
+product = lambda x: x**2 * math.sin(x)
+product_prime = lambda x: 2*x*math.sin(x) + x**2*math.cos(x)
+
+print("At x=1:")
+print("Product rule: {:.4f}".format(product_prime(1)))
+print("Numerical:    {:.4f}".format(deriv(product, 1)))
+`} />
+    </details>
 
 
     <!-- 3. Chain rule -->
@@ -165,6 +203,24 @@ for x in [1, 2]:
 (display "Numerical:     ") (display (/ (round (* (q-numerical 1) 10000)) 10000))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# Quotient rule: (f/g)' = (f'g - fg') / g^2
+# q(x) = sin(x)/x, q'(x) = (cos(x)*x - sin(x)) / x^2
+def deriv(f, x, h=1e-5):
+    return (f(x+h) - f(x-h)) / (2*h)
+
+q = lambda x: math.sin(x) / x
+q_prime = lambda x: (math.cos(x)*x - math.sin(x)) / x**2
+
+print("At x=1:")
+print("Quotient rule: {:.4f}".format(q_prime(1)))
+print("Numerical:     {:.4f}".format(deriv(q, 1)))
+`} />
+    </details>
+
 
     <!-- 5. Implicit differentiation -->
     <h3>Implicit differentiation</h3>
@@ -189,6 +245,25 @@ for x in [1, 2]:
 
 (display "Numerical dy/dx = ") (display (/ (round (* numerical-slope 10000)) 10000))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# Implicit differentiation: x^2 + y^2 = 1
+# dy/dx = -x/y
+x, y = 0.6, 0.8  # point on unit circle
+
+print("x^2 + y^2 =", x**2 + y**2)
+print("dy/dx = -x/y =", -x/y)
+
+# Verify numerically: y = sqrt(1 - x^2)
+y_explicit = lambda x: math.sqrt(1 - x**2)
+h = 1e-5
+numerical = (y_explicit(x+h) - y_explicit(x-h)) / (2*h)
+print("Numerical dy/dx = {:.4f}".format(numerical))
+`} />
+    </details>
 
 
     <!-- Notation -->

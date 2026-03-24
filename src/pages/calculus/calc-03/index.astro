@@ -149,6 +149,20 @@ for eps in [1.0, 0.1, 0.01, 0.001]:
 (display "All three squeeze to 0")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# Squeeze theorem: -|x| <= x*sin(1/x) <= |x|
+def f(x): return x * math.sin(1/x)
+
+for x in [1.0, 0.1, 0.01, 0.001]:
+    print("x={} lower={:.4f} f={:.4f} upper={:.4f}".format(
+        x, -abs(x), f(x), abs(x)))
+print("All three squeeze to 0")
+`} />
+    </details>
+
 
     <!-- 4. Continuity -->
     <h3>Continuity</h3>
@@ -169,6 +183,24 @@ for eps in [1.0, 0.1, 0.01, 0.001]:
 (display "g(-0.001) = ") (display (/ 1 -0.001)) (newline)
 (display "Left and right limits disagree: not continuous")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Continuity: lim f(x) must equal f(a)
+# Continuous: f(x) = x^2 at x = 2
+f = lambda x: x**2
+print("f(2) =", f(2))
+print("f(1.99) =", f(1.99))
+print("f(2.01) =", f(2.01))
+print("Continuous: limit = f(2) = 4")
+print()
+
+# Discontinuous: g(x) = 1/x at x = 0
+print("g(0.001) =", 1/0.001)
+print("g(-0.001) =", 1/-0.001)
+print("Left and right limits disagree: not continuous")
+`} />
+    </details>
 
 
     <!-- 5. IVT -->
@@ -195,6 +227,27 @@ for eps in [1.0, 0.1, 0.01, 0.001]:
 (display "Sign change: root exists in (1,2)") (newline)
 (bisect 1.0 2.0 30)
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# IVT + bisection to find sqrt(2)
+def f(x): return x**2 - 2
+
+lo, hi = 1.0, 2.0
+print("f(1) =", f(1), " f(2) =", f(2))
+print("Sign change: root exists in (1,2)")
+
+for _ in range(30):
+    mid = (lo + hi) / 2
+    if f(lo) * f(mid) < 0:
+        hi = mid
+    else:
+        lo = mid
+
+print("root ~", mid)
+print("f(root) ~", f(mid))
+`} />
+    </details>
 
 
     <!-- Notation -->
@@ -226,7 +279,7 @@ for eps in [1.0, 0.1, 0.01, 0.001]:
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-02/">&larr; Trigonometry</a>
-      <a href="/reading/calculus/calc-04/">The Derivative &rarr;</a>
+      <a href="/reading/calculus/calc-04/">The Derivative &middot; 4 of 15 &rarr;</a>
     </div>
 
   </main>

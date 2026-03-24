@@ -109,6 +109,26 @@ print(f"|x|' at 0 from left:  {deriv(g, 0, -0.001)}")
 (display (sin 2.0))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+def deriv(f, c, h=1e-5):
+    return (f(c + h) - f(c)) / h
+
+f = lambda x: x**2
+g = lambda x: math.sin(x)
+fog = lambda x: f(g(x))
+
+c = 1.0
+print("Chain rule at c = 1:")
+print("  numerical (fog)'(1) =", deriv(fog, c))
+print("  f'(g(1)) * g'(1) =", deriv(f, g(c)) * deriv(g, c))
+print("  exact sin(2) =", math.sin(2.0))
+`} />
+    </details>
+
     <h3>Mean value theorem</h3>
     <p>If f is continuous on [a, b] and differentiable on (a, b), there exists c in (a, b) with f'(c) = (f(b) - f(a)) / (b - a). The tangent at c is parallel to the secant from a to b. Rolle's theorem is the special case where f(a) = f(b), giving f'(c) = 0.</p>
 
@@ -132,6 +152,24 @@ print(f"|x|' at 0 from left:  {deriv(g, 0, -0.001)}")
 (display "Matches average slope? ")
 (display (< (abs (- (* 3 c-exact c-exact) avg-slope)) 0.0001))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+f = lambda x: x**3
+a, b = 1.0, 3.0
+avg_slope = (f(b) - f(a)) / (b - a)
+print("Average slope on [1,3]:", avg_slope)
+
+# f'(x) = 3x^2 = 13 => x = sqrt(13/3)
+c = math.sqrt(13 / 3)
+print("MVT point c = sqrt(13/3) =", c)
+print("f'(c) = 3c^2 =", 3 * c * c)
+print("Matches average slope?", abs(3 * c * c - avg_slope) < 0.0001)
+`} />
+    </details>
 
     <h3>L'Hopital's rule and Taylor's theorem</h3>
     <p><strong>L'Hopital's rule</strong>: if f(c) = g(c) = 0 and the limit of f'/g' exists, then lim f(x)/g(x) = lim f'(x)/g'(x). <strong>Taylor's theorem</strong>: f(x) = f(c) + f'(c)(x-c) + f''(c)(x-c)^2/2! + ... + R_n, with an explicit remainder term. The Taylor polynomial is the best polynomial approximation near c.</p>
@@ -158,6 +196,25 @@ print(f"|x|' at 0 from left:  {deriv(g, 0, -0.001)}")
 
 (display "Exact e = ") (display (exp 1.0))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+def taylor_exp(x, n):
+    return sum(x**k / math.factorial(k) for k in range(n + 1))
+
+x = 1.0
+print("Taylor approximations of e^1:")
+for n in [1, 2, 3, 5, 10, 15]:
+    approx = taylor_exp(x, n)
+    error = abs(math.e - approx)
+    print("  degree " + str(n) + ": " + str(approx) + "  (error: " + str(error) + ")")
+
+print("Exact e =", math.e)
+`} />
+    </details>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

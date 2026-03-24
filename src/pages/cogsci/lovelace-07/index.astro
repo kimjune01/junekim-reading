@@ -119,6 +119,29 @@ for word, p in words.items():
 (display (exact->inexact (bigram-prob "cat" "ran")))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Bigram language model
+from collections import defaultdict
+
+corpus = [["the","cat","sat"], ["the","cat","ran"], ["the","dog","sat"]]
+
+counts = defaultdict(lambda: defaultdict(int))
+for sent in corpus:
+    for i in range(len(sent) - 1):
+        counts[sent[i]][sent[i+1]] += 1
+
+def bigram_prob(w1, w2):
+    total = sum(counts[w1].values())
+    if total == 0:
+        return 0.0
+    return counts[w1][w2] / total
+
+for w1, w2 in [("the","cat"), ("the","dog"), ("cat","sat"), ("cat","ran")]:
+    print("P(" + w2 + " | " + w1 + ") = " + "{:.4f}".format(bigram_prob(w1, w2)))
+`} />
+    </details>
+
 
     <!-- Pragmatic inference -->
     <h3>Pragmatic inference</h3>
@@ -166,6 +189,32 @@ for word, p in words.items():
 (display "Result: hearing 'some' implies 'not all'")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Scalar implicature via RSA (simplified)
+# Literal semantics: is utterance true in state?
+def literal(utt, state):
+    if utt == "all":
+        return 1 if state == "all" else 0
+    if utt == "some":
+        return 1  # "some" is true in both states
+
+# Speaker: uniform over true utterances
+def speaker(state):
+    scores = {"all": literal("all", state), "some": literal("some", state)}
+    total = sum(scores.values())
+    return {u: s / total for u, s in scores.items()}
+
+for state in ["all", "some"]:
+    probs = speaker(state)
+    print("Speaker given '" + state + "': " +
+          "P(say all)=" + str(probs["all"]) +
+          " P(say some)=" + str(probs["some"]))
+
+print("Result: hearing 'some' implies 'not all'")
+`} />
+    </details>
+
 
     <!-- Notation -->
     <h3>Notation reference</h3>
@@ -208,7 +257,7 @@ for word, p in words.items():
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cogsci/lovelace-06/">&larr; Decision Making</a>
-      <a href="/reading/cogsci/lovelace-08/">Cognitive Architecture &rarr;</a>
+      <a href="/reading/cogsci/lovelace-08/">Cognitive Architecture &middot; 8 of 8 &rarr;</a>
     </div>
 
   </main>

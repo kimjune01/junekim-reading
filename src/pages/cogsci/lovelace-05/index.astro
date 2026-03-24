@@ -148,6 +148,28 @@ print(f"Pulls: A={n[0]}, B={n[1]}")
 ; Values should start approaching [0, 0.2, 0.4, 0.6, 0.8, 0]
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# TD learning: 5-state random walk
+import random
+random.seed(42)
+
+alpha = 0.1
+v = [0.0, 0.5, 0.5, 0.5, 0.5, 0.0]
+
+for episode in range(100):
+    state = 3
+    while 0 < state < 5:
+        next_state = state + (1 if random.random() < 0.5 else -1)
+        reward = 1.0 if next_state == 5 else 0.0
+        v[state] += alpha * (reward + v[next_state] - v[state])
+        state = next_state
+
+print("Values: " + str([round(x, 3) for x in v]))
+# Should approach [0, 0.2, 0.4, 0.6, 0.8, 0]
+`} />
+    </details>
+
 
     <!-- Q-learning -->
     <h3>Q-learning</h3>
@@ -185,6 +207,26 @@ print(f"Pulls: A={n[0]}, B={n[1]}")
 (update-q 0 1 0.0 1)
 ; Q(0, go) picks up value from state 1's potential
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Q-learning: 2-state, 2-action MDP
+alpha, gamma = 0.1, 0.9
+q = [[0.0, 0.0], [0.0, 0.0]]  # q[state][action]
+
+def update_q(s, a, reward, next_s):
+    old = q[s][a]
+    td_error = reward + gamma * max(q[next_s]) - old
+    q[s][a] = old + alpha * td_error
+    print("Q(" + str(s) + "," + str(a) + ") = " + "{:.4f}".format(q[s][a]))
+
+print("After action 'stay' in state 1 (reward=2):")
+update_q(1, 0, 2.0, 1)
+print()
+print("After action 'go' in state 0 (reward=0, arrive at state 1):")
+update_q(0, 1, 0.0, 1)
+`} />
+    </details>
 
 
     <!-- Notation -->
@@ -229,7 +271,7 @@ print(f"Pulls: A={n[0]}, B={n[1]}")
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cogsci/lovelace-04/">&larr; Neural Networks</a>
-      <a href="/reading/cogsci/lovelace-06/">Decision Making &rarr;</a>
+      <a href="/reading/cogsci/lovelace-06/">Decision Making &middot; 6 of 8 &rarr;</a>
     </div>
 
   </main>

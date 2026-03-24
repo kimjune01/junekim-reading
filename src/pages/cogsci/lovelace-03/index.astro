@@ -132,6 +132,26 @@ for h, l in liks.items():
 (wet-grass-model)
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Causal reasoning: rain vs sprinkler
+p_rain = 0.2
+# Joint probabilities for wet grass
+j1 = p_rain * 0.01 * 0.99       # rain + sprinkler + wet
+j2 = p_rain * 0.99 * 0.8        # rain + no-sprinkler + wet
+j3 = (1-p_rain) * 0.4 * 0.9     # no-rain + sprinkler + wet
+j4 = (1-p_rain) * 0.6 * 0.0     # no-rain + no-sprinkler + wet
+
+p_wet = j1 + j2 + j3 + j4
+print("P(rain | wet grass) = " + "{:.4f}".format((j1+j2) / p_wet))
+
+# Condition on sprinkler ON
+p_wet_spr = j1 + j3
+print("P(rain | wet, sprinkler on) = " + "{:.4f}".format(j1 / p_wet_spr))
+# Rain less likely once sprinkler explains wetness
+`} />
+    </details>
+
 
     <!-- Blessing of abstraction -->
     <h3>The blessing of abstraction</h3>
@@ -157,6 +177,19 @@ for h, l in liks.items():
 (display (abstract-prior)) (newline)
 (display "Abstraction makes prediction before seeing ANY Island 3 data.")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Blessing of abstraction
+# Without abstraction: uniform prior
+print("P(small animals on Island 3)")
+print("  Without abstraction: 0.5")
+
+# With abstraction: Beta(1+2, 1+0) = Beta(3,1), mean = 0.75
+print("  With abstraction:    0.75")
+print("Abstraction makes prediction before seeing ANY Island 3 data.")
+`} />
+    </details>
 
 
     <!-- Notation -->
@@ -199,7 +232,7 @@ for h, l in liks.items():
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cogsci/lovelace-02/">&larr; Probability and Bayes</a>
-      <a href="/reading/cogsci/lovelace-04/">Neural Networks &rarr;</a>
+      <a href="/reading/cogsci/lovelace-04/">Neural Networks &middot; 4 of 8 &rarr;</a>
     </div>
 
   </main>

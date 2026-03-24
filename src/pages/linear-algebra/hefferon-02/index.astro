@@ -133,6 +133,24 @@ print(f"v + (-v) = {vec_add(v, scalar_mult(-1, v))}")
 ; = (0 0) with coefficients 1 and -1/2
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Linear independence check
+v1 = [1, 2]
+v2 = [3, 4]
+
+# 4*v1 - 2*v2 should NOT be zero if independent
+combo = [4*v1[i] - 2*v2[i] for i in range(2)]
+print("4*v1 - 2*v2 = " + str(combo))
+
+# Dependent vectors: v3 = 2*v1
+v3 = [2, 4]
+check = [v1[i] - 0.5*v3[i] for i in range(2)]
+print("v1 - 0.5*v3 = " + str(check))
+# [0, 0] -- dependent
+`} />
+    </details>
+
 
     <!-- 3. Basis and dimension -->
     <h3>Basis and dimension</h3>
@@ -162,6 +180,19 @@ print(f"v + (-v) = {vec_add(v, scalar_mult(-1, v))}")
 (newline)
 (display "dim(xy-plane in R^3) = 2")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Standard basis for R^3
+e1, e2, e3 = [1,0,0], [0,1,0], [0,0,1]
+
+# Express (3, -1, 7) in the standard basis
+v = [3*e1[i] + (-1)*e2[i] + 7*e3[i] for i in range(3)]
+print("3*e1 + (-1)*e2 + 7*e3 = " + str(v))
+print("dim(R^3) = 3")
+print("dim(xy-plane in R^3) = 2")
+`} />
+    </details>
 
 
     <!-- 4. Subspaces -->
@@ -195,6 +226,24 @@ print(f"v + (-v) = {vec_add(v, scalar_mult(-1, v))}")
 ; s1 and s2 form a basis for this 2D subspace.
 (display "The solution plane has dimension 2.")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Subspace: solutions of x + 2y + z = 0
+s1 = [-2, 1, 0]
+s2 = [-1, 0, 1]
+
+# Check s1 satisfies equation
+print("-2 + 2(1) + 0 = " + str(s1[0] + 2*s1[1] + s1[2]))
+
+# Closure: s1 + s2
+s3 = [s1[i] + s2[i] for i in range(3)]
+print("s1 + s2 = " + str(s3))
+print("Check: " + str(s3[0] + 2*s3[1] + s3[2]))
+
+print("The solution plane has dimension 2.")
+`} />
+    </details>
 
 
     <!-- Notation -->

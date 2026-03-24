@@ -136,6 +136,24 @@ for r in range(-3, 4):
 (display "Kernel: multiples of 6")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Ring homomorphism: Z -> Z6, f(n) = n mod 6
+f = lambda n: n % 6
+a, b = 8, 15
+
+lhs_add = f(a + b)
+rhs_add = (f(a) + f(b)) % 6
+print("f(a+b) = " + str(lhs_add) + "  f(a)+f(b) mod 6 = " + str(rhs_add))
+
+lhs_mul = f(a * b)
+rhs_mul = (f(a) * f(b)) % 6
+print("f(a*b) = " + str(lhs_mul) + "  f(a)*f(b) mod 6 = " + str(rhs_mul))
+
+print("Kernel: multiples of 6")
+`} />
+    </details>
+
 
     <!-- Notation -->
     <h3>Notation reference</h3>
@@ -178,7 +196,7 @@ for r in range(-3, 4):
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/algebra/judson-05/">&larr; Cosets and Lagrange's Theorem</a>
-      <a href="/reading/algebra/judson-07/">Integral Domains and Fields &rarr;</a>
+      <a href="/reading/algebra/judson-07/">Integral Domains and Fields &middot; 7 of 8 &rarr;</a>
     </div>
 
   </main>

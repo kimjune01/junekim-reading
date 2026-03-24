@@ -99,6 +99,25 @@ print("Limit = 6 = 2*3")
 (display "g'(3) = ") (display (/ (round (* (g-prime 3) 1000)) 1000))            ; 27
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Numerical derivative as a function
+def deriv(f, h=1e-5):
+    return lambda x: (f(x+h) - f(x-h)) / (2*h)
+
+f = lambda x: x**2
+f_prime = deriv(f)
+print("f'(1) = {:.3f}".format(f_prime(1)))  # 2
+print("f'(2) = {:.3f}".format(f_prime(2)))  # 4
+print("f'(3) = {:.3f}".format(f_prime(3)))  # 6
+
+g = lambda x: x**3
+g_prime = deriv(g)
+print("g'(2) = {:.3f}".format(g_prime(2)))  # 12
+print("g'(3) = {:.3f}".format(g_prime(3)))  # 27
+`} />
+    </details>
+
 
     <!-- 3. Differentiability -->
     <h3>Differentiability</h3>
@@ -129,6 +148,24 @@ print("Limit = 6 = 2*3")
 (display "Not equal: |x| is not differentiable at 0")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# |x| is continuous at 0 but not differentiable
+# Left slope = -1, right slope = +1
+
+print("Right slopes:")
+for h in [0.1, 0.01]:
+    print("  h={}: {}".format(h, abs(h) / h))
+
+print("Left slopes:")
+for h in [-0.1, -0.01]:
+    print("  h={}: {}".format(h, abs(h) / h))
+
+print("Left limit = -1, Right limit = +1")
+print("Not equal: |x| is not differentiable at 0")
+`} />
+    </details>
+
 
     <!-- 4. Tangent line equation -->
     <h3>Tangent line equation</h3>
@@ -151,6 +188,21 @@ print("Limit = 6 = 2*3")
 (display "x=3.0: f=") (display (f 3.0)) (display " tangent=") (display (tangent 3.0)) (newline)
 (display "Tangent approximation is good near a, worse far away")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Tangent line: y = f(a) + f'(a)(x - a)
+# f(x) = x^2 at a = 2
+f = lambda x: x**2
+f_prime = lambda x: 2*x
+a = 2
+tangent = lambda x: f(a) + f_prime(a) * (x - a)
+
+for x in [1.5, 2.0, 2.5, 3.0]:
+    print("x={}: f={} tangent={}".format(x, f(x), tangent(x)))
+print("Tangent approximation is good near a, worse far away")
+`} />
+    </details>
 
 
     <!-- Notation -->
@@ -183,7 +235,7 @@ print("Limit = 6 = 2*3")
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-03/">&larr; Limits and Continuity</a>
-      <a href="/reading/calculus/calc-05/">Derivative Rules &rarr;</a>
+      <a href="/reading/calculus/calc-05/">Derivative Rules &middot; 5 of 15 &rarr;</a>
     </div>
 
   </main>

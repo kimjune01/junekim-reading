@@ -140,6 +140,22 @@ print(f"3*h(v)   = {scalar_mult(3, h(v))}")
 (display (mat-vec-mult B '(4 5)))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Matrix-vector multiplication
+def mat_vec(A, v):
+    return [sum(a*x for a,x in zip(row, v)) for row in A]
+
+# Rotation matrix
+A = [[0, -1], [1, 0]]
+print("A * (3,1) = " + str(mat_vec(A, [3, 1])))
+
+# Scaling matrix
+B = [[2, 0], [0, 3]]
+print("B * (4,5) = " + str(mat_vec(B, [4, 5])))
+`} />
+    </details>
+
 
     <!-- 3. Kernel and image -->
     <h3>Kernel and image</h3>
@@ -166,6 +182,21 @@ print(f"3*h(v)   = {scalar_mult(3, h(v))}")
 ; dim(domain) = 2 = 1 + 1. That's rank-nullity.
 (display "dim(ker) + dim(im) = 1 + 1 = 2 = dim(R^2)")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Projection onto x-axis: h((x,y)) = (x, 0)
+def proj(v):
+    return [v[0], 0]
+
+print("h((3,7)) = " + str(proj([3, 7])))
+print("h((0,5)) = " + str(proj([0, 5])))
+print("h((0,0)) = " + str(proj([0, 0])))
+print("Kernel: the y-axis (all (0,y))")
+print("Image: the x-axis (all (x,0))")
+print("dim(ker) + dim(im) = 1 + 1 = 2 = dim(R^2)")
+`} />
+    </details>
 
 
     <!-- 4. Rank-nullity -->
@@ -202,6 +233,22 @@ print(f"3*h(v)   = {scalar_mult(3, h(v))}")
 ; Rank-nullity: 3 = 1 + 2
 (display "dim(R^3) = dim(ker) + dim(im) = 1 + 2 = 3")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Rank-nullity: h(x,y,z) = (x+y, y+z)
+def mat_vec(A, v):
+    return [sum(a*x for a,x in zip(row, v)) for row in A]
+
+A = [[1, 1, 0], [0, 1, 1]]
+
+# Kernel: A*(1,-1,1) should be (0,0)
+print("A * (1,-1,1) = " + str(mat_vec(A, [1, -1, 1])))
+print("Kernel basis: (1, -1, 1)")
+print("Image basis: (1,0) and (1,1)")
+print("dim(R^3) = dim(ker) + dim(im) = 1 + 2 = 3")
+`} />
+    </details>
 
 
     <!-- Notation -->
