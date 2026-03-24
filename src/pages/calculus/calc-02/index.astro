@@ -1,0 +1,196 @@
+---
+import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
+---
+
+<Layout title="Ch.2 — Trigonometry" favicon="∫">
+  <main>
+
+    <a href="/reading/calculus/" class="text-sm mb-4 inline-block">&larr; back to calculus</a>
+
+    <h1>Trigonometry</h1>
+    <p class="text-gray-400 text-sm mb-6">Active Calculus (CC BY-SA) · <a href="https://activecalculus.org/">activecalculus.org</a></p>
+
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+      <p class="text-lg" style="max-width:none">The <strong>unit circle</strong> defines sine and cosine as coordinates. Every trig identity follows from the fact that the point (cos&#x3B8;, sin&#x3B8;) sits on a circle of radius 1. Trig functions are periodic: they repeat every 2&#x3C0;.</p>
+    </div>
+
+    <!-- SVG: unit circle with angle and coordinates -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 300 300" class="w-full max-w-xs" style="font-family: ui-monospace, monospace;">
+        <!-- Axes -->
+        <line x1="20" y1="150" x2="280" y2="150" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <line x1="150" y1="20" x2="150" y2="280" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <!-- Unit circle -->
+        <circle cx="150" cy="150" r="110" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.4"/>
+        <!-- Angle arc (30 degrees) -->
+        <path d="M 170 150 A 20 20 0 0 0 167 140" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
+        <text x="178" y="143" fill="#f59e0b" font-size="10" fill-opacity="0.6">&#x3B8;</text>
+        <!-- Radius to point -->
+        <line x1="150" y1="150" x2="245" y2="95" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
+        <!-- Point on circle (cos theta, sin theta) at ~30 deg -->
+        <circle cx="245" cy="95" r="4" fill="#f59e0b" fill-opacity="0.7"/>
+        <!-- Projections -->
+        <line x1="245" y1="95" x2="245" y2="150" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.4"/>
+        <line x1="245" y1="150" x2="150" y2="150" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.4"/>
+        <!-- Labels -->
+        <text x="200" y="165" text-anchor="middle" fill="#f59e0b" font-size="10" fill-opacity="0.6">cos &#x3B8;</text>
+        <text x="258" y="125" fill="#60a5fa" font-size="10" fill-opacity="0.6">sin &#x3B8;</text>
+        <text x="248" y="88" fill="currentColor" font-size="9" fill-opacity="0.5">(cos&#x3B8;, sin&#x3B8;)</text>
+      </svg>
+    </div>
+
+    <!-- 1. Unit Circle -->
+    <h3>The unit circle</h3>
+    <p>Place a point on the unit circle at angle &#x3B8; from the positive x-axis. Its x-coordinate is <strong>cos&#x3B8;</strong>, its y-coordinate is <strong>sin&#x3B8;</strong>. Since the point is on a circle of radius 1, cos&#xB2;&#x3B8; + sin&#xB2;&#x3B8; = 1. This is the Pythagorean identity.</p>
+
+    <SchemeRepl client:load initialCode={`; Unit circle: cos^2(theta) + sin^2(theta) = 1
+; BiwaScheme has sin, cos built in
+
+(define pi 3.141592653589793)
+
+; Key angles in radians
+(define angles (list 0 (/ pi 6) (/ pi 4) (/ pi 3) (/ pi 2) pi))
+(define names  (list "0" "pi/6" "pi/4" "pi/3" "pi/2" "pi"))
+
+(define (show-angle name theta)
+  (let ((c (cos theta)) (s (sin theta)))
+    (display name) (display ": cos=")
+    (display (/ (round (* c 1000)) 1000))
+    (display " sin=")
+    (display (/ (round (* s 1000)) 1000))
+    (display " sum=")
+    (display (/ (round (* (+ (* c c) (* s s)) 1000)) 1000))
+    (newline)))
+
+(for-each show-angle names angles)
+`} />
+
+
+    <!-- 2. sin, cos, tan -->
+    <h3>Sine, cosine, tangent</h3>
+    <p><strong>tan&#x3B8; = sin&#x3B8;/cos&#x3B8;</strong>. It is undefined when cos&#x3B8; = 0 (at &#x3C0;/2, 3&#x3C0;/2). Sine is odd, cosine is even. All three functions are periodic.</p>
+
+    <SchemeRepl client:load initialCode={`; sin, cos, tan relationships
+(define pi 3.141592653589793)
+
+(define (my-tan x) (/ (sin x) (cos x)))
+
+; Verify tan = sin/cos
+(display "tan(pi/4) = ") (display (/ (round (* (my-tan (/ pi 4)) 1000)) 1000)) (newline)
+; Should be 1.0
+
+; sin is odd: sin(-x) = -sin(x)
+(display "sin(pi/3) = ") (display (/ (round (* (sin (/ pi 3)) 1000)) 1000)) (newline)
+(display "sin(-pi/3) = ") (display (/ (round (* (sin (- (/ pi 3))) 1000)) 1000)) (newline)
+
+; cos is even: cos(-x) = cos(x)
+(display "cos(pi/3) = ") (display (/ (round (* (cos (/ pi 3)) 1000)) 1000)) (newline)
+(display "cos(-pi/3) = ") (display (/ (round (* (cos (- (/ pi 3))) 1000)) 1000))
+`} />
+
+
+    <!-- 3. Identities -->
+    <h3>Key identities</h3>
+    <p>The Pythagorean identity generates the rest. Angle-sum formulas let you expand sin(a+b) and cos(a+b). Double-angle formulas are a special case. These are not arbitrary: they all follow from the geometry of the circle.</p>
+
+    <SchemeRepl client:load initialCode={`; Angle-sum identities:
+; sin(a+b) = sin(a)cos(b) + cos(a)sin(b)
+; cos(a+b) = cos(a)cos(b) - sin(a)sin(b)
+
+(define pi 3.141592653589793)
+(define a (/ pi 6))  ; 30 degrees
+(define b (/ pi 4))  ; 45 degrees
+
+; Verify sin(a+b)
+(define lhs-sin (sin (+ a b)))
+(define rhs-sin (+ (* (sin a) (cos b)) (* (cos a) (sin b))))
+(display "sin(a+b) direct: ") (display (/ (round (* lhs-sin 10000)) 10000)) (newline)
+(display "sin(a+b) formula: ") (display (/ (round (* rhs-sin 10000)) 10000)) (newline)
+
+; Double-angle: sin(2a) = 2 sin(a) cos(a)
+(define lhs-double (sin (* 2 a)))
+(define rhs-double (* 2 (sin a) (cos a)))
+(display "sin(2a) direct: ") (display (/ (round (* lhs-double 10000)) 10000)) (newline)
+(display "sin(2a) formula: ") (display (/ (round (* rhs-double 10000)) 10000))
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+a, b = math.pi/6, math.pi/4
+
+# Angle sum: sin(a+b) = sin(a)cos(b) + cos(a)sin(b)
+lhs = math.sin(a + b)
+rhs = math.sin(a)*math.cos(b) + math.cos(a)*math.sin(b)
+print(f"sin(a+b) direct:  {lhs:.6f}")
+print(f"sin(a+b) formula: {rhs:.6f}")
+
+# Double angle: sin(2a) = 2 sin(a) cos(a)
+print(f"sin(2a) direct:  {math.sin(2*a):.6f}")
+print(f"sin(2a) formula: {2*math.sin(a)*math.cos(a):.6f}")
+`} />
+    </details>
+
+
+    <!-- 4. Inverse trig -->
+    <h3>Inverse trig functions</h3>
+    <p>arcsin, arccos, arctan undo sin, cos, tan on restricted domains. arcsin maps [-1,1] to [-&#x3C0;/2, &#x3C0;/2]. arctan maps all reals to (-&#x3C0;/2, &#x3C0;/2). These are essential for integration later.</p>
+
+    <SchemeRepl client:load initialCode={`; Inverse trig: asin, acos, atan
+(define pi 3.141592653589793)
+
+; asin(sin(x)) = x for x in [-pi/2, pi/2]
+(display "asin(sin(pi/6)) = ") (display (/ (round (* (asin (sin (/ pi 6))) 10000)) 10000)) (newline)
+; Should be pi/6 = 0.5236
+
+; atan(1) = pi/4 (since tan(pi/4) = 1)
+(display "atan(1) = ") (display (/ (round (* (atan 1) 10000)) 10000)) (newline)
+; Should be pi/4 = 0.7854
+
+; atan2 handles all four quadrants
+(display "atan2(1, 1) = ") (display (/ (round (* (atan 1 1) 10000)) 10000)) (newline)
+(display "atan2(-1, -1) = ") (display (/ (round (* (atan -1 -1) 10000)) 10000))
+; -3pi/4 = -2.3562
+`} />
+
+
+    <!-- Notation -->
+    <h3>Notation reference</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="py-2 pr-4">Math</th>
+            <th class="py-2 pr-4">Scheme</th>
+            <th class="py-2 pr-4">Python</th>
+            <th class="py-2">Meaning</th>
+          </tr>
+        </thead>
+        <tbody class="font-mono">
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">sin &#x3B8;</td><td class="pr-4 text-green-300">(sin x)</td><td class="pr-4 text-blue-300">math.sin(x)</td><td class="font-sans">Sine (radians)</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">cos &#x3B8;</td><td class="pr-4 text-green-300">(cos x)</td><td class="pr-4 text-blue-300">math.cos(x)</td><td class="font-sans">Cosine</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">tan &#x3B8;</td><td class="pr-4 text-green-300">(/ (sin x) (cos x))</td><td class="pr-4 text-blue-300">math.tan(x)</td><td class="font-sans">Tangent</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">arcsin x</td><td class="pr-4 text-green-300">(asin x)</td><td class="pr-4 text-blue-300">math.asin(x)</td><td class="font-sans">Inverse sine</td></tr>
+          <tr><td class="py-2 pr-4">&#x3C0;</td><td class="pr-4 text-green-300">3.14159...</td><td class="pr-4 text-blue-300">math.pi</td><td class="font-sans">Half the circumference of a unit circle</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Neighbors -->
+    <h3>Neighbors</h3>
+    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
+    <ul>
+      <li><a href="/reading/calculus/calc-05/">∫ Ch.5 Derivative Rules</a> — derivatives of trig functions use these identities</li>
+      <li><a href="/reading/calculus/calc-08/">∫ Ch.8 Integration Techniques</a> — trig substitution requires inverse trig</li>
+    </ul>
+
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/calculus/calc-01/">&larr; Functions and Graphs</a>
+      <a href="/reading/calculus/calc-03/">Limits and Continuity &rarr;</a>
+    </div>
+
+  </main>
+</Layout>
