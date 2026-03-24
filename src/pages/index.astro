@@ -2,185 +2,111 @@
 import Layout from '../layouts/Base.astro';
 ---
 
-<Layout title="🍞 Natural Breadcrumbs">
+<Layout title="Reading — June Kim">
   <main>
 
-    <h1 class="text-3xl font-bold mb-2">🍞 Natural Breadcrumbs</h1>
+    <h1 class="text-3xl font-bold mb-2">Reading</h1>
+    <p class="text-lg text-gray-300 mb-6">Textbooks and papers, translated into runnable code with diagrams.</p>
 
-    <p class="text-lg text-gray-300 mb-6">Applied category theory and programming language theory are converging on the same structures from different directions. This site maps the translations, with runnable code.</p>
+    <h2 class="text-xl font-semibold mb-4">Foundations</h2>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-6" style="display:flex;gap:2em;flex-wrap:wrap;">
-      <div style="flex:1;min-width:200px;">
-        <p class="text-xs text-gray-500 mb-2">PL theory</p>
-        <pre class="text-sm font-mono text-green-300" style="margin:0">assert P(x)
-y = f(x)
-assert R(y)
-z = g(y)
-assert Q(z)</pre>
-      </div>
-      <div style="flex:1;min-width:200px;">
-        <p class="text-xs text-gray-500 mb-2">Category theory</p>
-        <pre class="text-sm font-mono text-blue-300" style="margin:0">{'{P}'} f {'{R}'}    {'{R}'} g {'{Q}'}
-─────────────────────
-    {'{P}'} g∘f {'{Q}'}</pre>
-      </div>
-    </div>
-
-    <p class="text-gray-300 mb-8">Same structure. Different notation. Each paper below gets a page that shows both.</p>
-
-    <hr class="border-zinc-700 mb-8"/>
-
-    <h2 class="text-xl font-semibold mb-4">Papers</h2>
-    <p class="text-gray-400 mb-4">Each paper has a 🍞 page that translates its key ideas into diagrams and runnable code.</p>
-
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto mb-6">
       <table class="w-full text-sm">
         <thead>
           <tr class="border-b border-zinc-700">
-            <th class="text-left py-2 pr-3 text-gray-400">Paper</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
+            <th class="text-left py-2 pr-3 text-gray-400"></th>
+            <th class="text-left py-2 pr-3 text-gray-400">Subject</th>
+            <th class="text-left py-2 pr-3 text-gray-400">Source</th>
+            <th class="text-left py-2 text-gray-400">License</th>
           </tr>
         </thead>
         <tbody>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Staton 2025</td>
-            <td class="pr-3 text-gray-400">Every Hoare rule is a theorem, not an axiom, in stochastic systems</td>
-            <td><a href="/reading/staton-2025/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+            <td class="py-2 pr-3">🐱</td>
+            <td class="pr-3"><a href="/reading/category-theory/">Category Theory</a></td>
+            <td class="pr-3 text-gray-400">Bartosz Milewski</td>
+            <td class="text-gray-400">CC BY-SA 4.0</td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Fritz 2020</td>
-            <td class="pr-3 text-gray-400">Stochastic functions form a category with copy and discard</td>
-            <td><a href="/reading/fritz-2020/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+            <td class="py-2 pr-3">🎲</td>
+            <td class="pr-3"><a href="/reading/game-theory/">Game Theory</a></td>
+            <td class="pr-3 text-gray-400">Jennifer Nordstrom</td>
+            <td class="text-gray-400">CC BY-SA 4.0</td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Fritz, Perrone, Rezagholi 2021</td>
-            <td class="pr-3 text-gray-400">"Which outputs are possible?" is a monad morphism</td>
-            <td><a href="/reading/fritz-perrone-2021/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Gaboardi 2021</td>
-            <td class="pr-3 text-gray-400">Hoare logic with grades — track side effects through composition</td>
-            <td><a href="/reading/gaboardi-2021/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Kura 2026</td>
-            <td class="pr-3 text-gray-400">Stage N's guarantee becomes stage N+1's assumption</td>
-            <td><a href="/reading/kura-2026/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Hedges, Ghani 2018</td>
-            <td class="pr-3 text-gray-400">Nash equilibrium composes the same way contracts compose</td>
-            <td><a href="/reading/hedges-2018/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Capucci 2021</td>
-            <td class="pr-3 text-gray-400">"What is a goal but a predicate on a system?"</td>
-            <td><a href="/reading/capucci-2021/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Baez, Fritz, Leinster 2011</td>
-            <td class="pr-3 text-gray-400">Shannon entropy is the only information loss that respects composition</td>
-            <td><a href="/reading/baez-fritz-2011/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Liell-Cock, Staton 2025</td>
-            <td class="pr-3 text-gray-400">Graded monads and Markov categories are the same structure</td>
-            <td><a href="/reading/liell-cock-2025/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Sato, Katsumata 2023</td>
-            <td class="pr-3 text-gray-400">Distance between programs = enrichment on the category</td>
-            <td><a href="/reading/sato-2023/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Spivak 2013</td>
-            <td class="pr-3 text-gray-400">Typed ports and wiring diagrams — the syntax layer for composing boxes</td>
-            <td><a href="/reading/spivak-2013/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Jacobs 2014</td>
-            <td class="pr-3 text-gray-400">Weakest preconditions from fibrations over Kleisli categories</td>
-            <td><a href="/reading/jacobs-2014/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Kidney, Wu 2021</td>
-            <td class="pr-3 text-gray-400">One monad parameterized by a semiring — probability, counting, search</td>
-            <td><a href="/reading/kidney-wu-2021/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Leinster 2021</td>
-            <td class="pr-3 text-gray-400">Diversity IS categorical cardinality — magnitude generalizes species count</td>
-            <td><a href="/reading/leinster-2021/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Smithe 2021</td>
-            <td class="pr-3 text-gray-400">Bayesian inversions compose as lenses — forward inference, backward learning</td>
-            <td><a href="/reading/smithe-2021/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Parzygnat 2020</td>
-            <td class="pr-3 text-gray-400">Bayesian inversion as dagger structure — three levels of reversibility</td>
-            <td><a href="/reading/parzygnat-2020/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Di Lavore, Román, Sobocinski 2025</td>
-            <td class="pr-3 text-gray-400">Markov categories where morphisms can fail — observations, conditioning</td>
-            <td><a href="/reading/di-lavore-2025/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Panangaden 2009</td>
-            <td class="pr-3 text-gray-400">Bisimulation metrics — behavioral distance between stochastic processes</td>
-            <td><a href="/reading/panangaden-2009/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Cho, Jacobs 2015</td>
-            <td class="pr-3 text-gray-400">Predicates as effects, not subobjects — states/effects duality</td>
-            <td><a href="/reading/cho-jacobs-2015/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">Ho, Wu, Raad 2026</td>
-            <td class="pr-3 text-gray-400">Hoare logic for Bayesian programs — frame rule IS probabilistic independence</td>
-            <td><a href="/reading/ho-wu-2026/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+            <td class="py-2 pr-3">🎰</td>
+            <td class="pr-3"><a href="/reading/probability/">Probability</a></td>
+            <td class="pr-3 text-gray-400">Grinstead &amp; Snell</td>
+            <td class="text-gray-400">GFDL</td>
           </tr>
           <tr>
-            <td class="py-2 pr-3 text-gray-300">Chen, Vigneaux 2023</td>
-            <td class="pr-3 text-gray-400">Shannon entropy and magnitude unified — recovers magnitude under uniform</td>
-            <td><a href="/reading/chen-vigneaux-2023/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+            <td class="py-2 pr-3">📡</td>
+            <td class="pr-3"><a href="/reading/info-theory/">Information Theory</a></td>
+            <td class="pr-3 text-gray-400">Shannon 1948 + Wikipedia</td>
+            <td class="text-gray-400">Public domain + CC BY-SA</td>
           </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-xl font-semibold mb-4">Papers</h2>
+    <p class="text-gray-400 mb-4"><a href="/reading/natural-breadcrumbs/">🍞 Natural Breadcrumbs</a> — 21 research papers decoded into plain English, runnable Python, and SVG diagrams.</p>
+
+    <hr class="border-zinc-700 my-8"/>
+
+    <h2 class="text-xl font-semibold mb-4">Glossary</h2>
+
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="text-left py-2 pr-3 text-gray-400">Term</th>
+            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
+            <th class="text-left py-2 text-gray-400">Learn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Category</td><td class="pr-3 text-gray-400">Objects and arrows that compose with identity and associativity</td><td><a href="/reading/milewski-01/">🐱 ch1</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Functor</td><td class="pr-3 text-gray-400">A structure-preserving map between categories</td><td><a href="/reading/milewski-07/">🐱 ch7</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Natural transformation</td><td class="pr-3 text-gray-400">A map between functors that commutes with morphisms</td><td><a href="/reading/milewski-10/">🐱 ch10</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Monad</td><td class="pr-3 text-gray-400">A functor with return and join that lets effects compose</td><td><a href="/reading/milewski-17/">🐱 ch17</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Adjunction</td><td class="pr-3 text-gray-400">Two functors that are almost inverses: free/forgetful, curry/uncurry</td><td><a href="/reading/milewski-16/">🐱 ch16</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Yoneda lemma</td><td class="pr-3 text-gray-400">An object is determined by how everything maps into it</td><td><a href="/reading/milewski-14/">🐱 ch14</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Kleisli category</td><td class="pr-3 text-gray-400">Side effects compose when you change what "arrow" means</td><td><a href="/reading/milewski-04/">🐱 ch4</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Nash equilibrium</td><td class="pr-3 text-gray-400">No player can improve by switching strategy alone</td><td><a href="/reading/nordstrom-06/">🎲 §6</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Dominated strategy</td><td class="pr-3 text-gray-400">If A is always worse than B, rational players never use A</td><td><a href="/reading/nordstrom-04/">🎲 §4</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Mixed strategy</td><td class="pr-3 text-gray-400">Randomize over pure strategies to prevent exploitation</td><td><a href="/reading/nordstrom-09/">🎲 §9</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Prisoner's dilemma</td><td class="pr-3 text-gray-400">Rational self-interest leads to a collectively worse outcome</td><td><a href="/reading/nordstrom-12/">🎲 §12</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Entropy</td><td class="pr-3 text-gray-400">Expected surprise: H(X) = -sum P(x) log P(x)</td><td><a href="/reading/shannon-02/">📡 §2</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">KL divergence</td><td class="pr-3 text-gray-400">Surprise of Q when the truth is P. Not a distance</td><td><a href="/reading/shannon-05/">📡 §5</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Mutual information</td><td class="pr-3 text-gray-400">How much knowing X tells you about Y</td><td><a href="/reading/shannon-04/">📡 §4</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Data processing inequality</td><td class="pr-3 text-gray-400">Processing cannot create information</td><td><a href="/reading/shannon-06/">📡 §6</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Markov chain</td><td class="pr-3 text-gray-400">Next state depends only on the current state</td><td><a href="/reading/grinstead-11/">🎰 ch11</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Bayes' theorem</td><td class="pr-3 text-gray-400">Update beliefs with evidence: posterior = likelihood x prior / evidence</td><td><a href="/reading/grinstead-04/">🎰 ch4</a></td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3">Hoare triple</td><td class="pr-3 text-gray-400">If P holds before c runs, then Q holds after</td><td><a href="/reading/staton-2025/">🍞 Staton</a></td></tr>
+          <tr><td class="py-2 pr-3">Open game</td><td class="pr-3 text-gray-400">A game with interfaces: inputs, outputs, and a coplay channel</td><td><a href="/reading/hedges-2018/">🍞 Hedges</a></td></tr>
         </tbody>
       </table>
     </div>
 
     <hr class="border-zinc-700 my-8"/>
 
-    <h2 class="text-xl font-semibold mb-4">Foundations</h2>
-    <p class="text-gray-400 mb-4">If a paper page above uses a concept you haven't seen, it probably lives in the foundations. Based on <a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/" class="underline hover:text-gray-200">Bartosz Milewski's Category Theory for Programmers</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" class="underline hover:text-gray-200">CC BY-SA 4.0</a>), translated to runnable Python.</p>
-    <p class="text-gray-400 mb-4"><a href="/reading/foundations/" class="text-yellow-300 hover:text-yellow-200">→ 🐱 Category theory: 24 chapters</a></p>
-
-    <p class="text-gray-400 mb-4">For game theory foundations (Nash equilibrium, dominated strategies, mixed strategies), based on <a href="https://nordstrommath.com/IntroGameTheory/" class="underline hover:text-gray-200">Jennifer Nordstrom's Introduction to Game Theory</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" class="underline hover:text-gray-200">CC BY-SA 4.0</a>).</p>
-    <p class="text-gray-400 mb-4"><a href="/reading/game-theory/" class="text-yellow-300 hover:text-yellow-200">→ 🎲 Game theory: 14 sections</a></p>
-
-    <p class="text-gray-400 mb-4">For probability foundations (distributions, expectation, Bayes, Markov chains), based on <a href="https://math.dartmouth.edu/~prob/prob/prob.pdf" class="underline hover:text-gray-200">Grinstead &amp; Snell's Introduction to Probability</a> (<a href="https://www.gnu.org/licenses/fdl-1.3.html" class="underline hover:text-gray-200">GFDL</a>).</p>
-    <p class="text-gray-400 mb-4"><a href="/reading/probability/" class="text-yellow-300 hover:text-yellow-200">→ 🎰 Probability: 12 chapters</a></p>
-
-    <p class="text-gray-400 mb-4">For information theory (entropy, divergence, channels, data processing inequality), from Shannon's 1948 paper (public domain) and Wikipedia (CC BY-SA 4.0).</p>
-    <p class="text-gray-400 mb-4"><a href="/reading/info-theory/" class="text-yellow-300 hover:text-yellow-200">→ 📡 Information theory: 8 sections</a></p>
+    <h2 class="text-xl font-semibold mb-4">Further reading (external)</h2>
+    <p class="text-gray-400 mb-4">Permissive-licensed sources worth reading directly. Pointers, not derivatives.</p>
+    <ul class="text-gray-400 space-y-1 mb-4">
+      <li><a href="https://forallx.openlogicproject.org/">forall x: Calgary</a> — propositional and predicate logic (CC BY 4.0)</li>
+      <li><a href="https://openlogicproject.org/">Open Logic Project</a> — formal proof systems, model theory (CC BY 4.0)</li>
+      <li><a href="https://leanprover-community.github.io/logic_and_proof/">Logic and Proof</a> — induction, Lean-flavored proofs (Apache 2.0)</li>
+      <li><a href="https://softwarefoundations.cis.upenn.edu/plf-current/index.html">Software Foundations vol. 2</a> — Hoare logic, weakest preconditions (MIT)</li>
+    </ul>
 
     <hr class="border-zinc-700 my-8"/>
 
-    <h2 class="text-xl font-semibold mb-4">Three ways in</h2>
-    <p class="text-gray-400 mb-4">An interactive companion to a <a href="https://june.kim/framework-lexicon" class="underline hover:text-gray-200">research project</a> connecting several academic communities working on the same problem with different vocabulary.</p>
-    <ul class="text-gray-400 space-y-1 mb-4 list-disc pl-5">
-      <li>A <a href="https://github.com/kimjune01/natural-framework" class="underline hover:text-gray-200">Lean 4 proof</a> machine-checks the connections (<a href="/reading/lean/">read the proof file by file</a>)</li>
-      <li>A <a href="https://june.kim/framework-lexicon" class="underline hover:text-gray-200">vocabulary table</a> maps terms across communities (for the researchers)</li>
-      <li><strong>This site</strong> — the same ideas, in code you can run (for everyone else)</li>
-    </ul>
-
-    <p class="text-gray-500 text-sm">Also: <a href="/reading/symbols/" class="underline hover:text-gray-300">symbol grid</a> · <a href="/reading/how/" class="underline hover:text-gray-300">how to use this site</a></p>
+    <p class="text-gray-400 mb-4"><a href="https://june.kim/books/">My book notes</a> — 52 posts, 2012-2023.</p>
 
     <hr class="border-zinc-700 my-8"/>
     <p class="text-gray-600 text-xs">This site is licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="underline hover:text-gray-400">CC BY-SA 4.0</a>. Fork it, build on it, keep it open.</p>
+    <p class="text-gray-600 text-xs mt-1"><a href="https://june.kim" class="underline hover:text-gray-400">june.kim</a></p>
 
   </main>
 </Layout>
