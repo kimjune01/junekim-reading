@@ -16,30 +16,114 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">The <strong>unit circle</strong> defines sine and cosine as coordinates. Every trig identity follows from the fact that the point (cos&#x3B8;, sin&#x3B8;) sits on a circle of radius 1. Trig functions are periodic: they repeat every 2&#x3C0;.</p>
     </div>
 
-    <!-- SVG: unit circle with angle and coordinates -->
+    <!-- SVG: interactive unit circle — drag the point -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 300 300" class="w-full max-w-xs" style="font-family: ui-monospace, monospace;">
+      <svg id="unit-circle" viewBox="0 0 300 320" class="w-full max-w-xs" style="font-family: ui-monospace, monospace; cursor: pointer;">
         <!-- Axes -->
         <line x1="20" y1="150" x2="280" y2="150" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
         <line x1="150" y1="20" x2="150" y2="280" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
         <!-- Unit circle -->
         <circle cx="150" cy="150" r="110" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.4"/>
-        <!-- Angle arc (30 degrees) -->
-        <path d="M 170 150 A 20 20 0 0 0 167 140" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
-        <text x="178" y="143" fill="#f59e0b" font-size="10" fill-opacity="0.6">&#x3B8;</text>
+        <!-- Angle arc -->
+        <path id="uc-arc" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
+        <text id="uc-theta-label" fill="#f59e0b" font-size="10" fill-opacity="0.6"></text>
         <!-- Radius to point -->
-        <line x1="150" y1="150" x2="245" y2="95" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
-        <!-- Point on circle (cos theta, sin theta) at ~30 deg -->
-        <circle cx="245" cy="95" r="4" fill="#f59e0b" fill-opacity="0.7"/>
+        <line id="uc-radius" x1="150" y1="150" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
         <!-- Projections -->
-        <line x1="245" y1="95" x2="245" y2="150" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.4"/>
-        <line x1="245" y1="150" x2="150" y2="150" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.4"/>
+        <line id="uc-proj-v" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.4"/>
+        <line id="uc-proj-h" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.4"/>
+        <!-- Draggable point -->
+        <circle id="uc-dot" r="6" fill="#f59e0b" fill-opacity="0.8" style="cursor: grab;"/>
         <!-- Labels -->
-        <text x="200" y="165" text-anchor="middle" fill="#f59e0b" font-size="10" fill-opacity="0.6">cos &#x3B8;</text>
-        <text x="258" y="125" fill="#60a5fa" font-size="10" fill-opacity="0.6">sin &#x3B8;</text>
-        <text x="248" y="88" fill="currentColor" font-size="9" fill-opacity="0.5">(cos&#x3B8;, sin&#x3B8;)</text>
+        <text id="uc-cos-label" text-anchor="middle" fill="#f59e0b" font-size="10" fill-opacity="0.6"></text>
+        <text id="uc-sin-label" fill="#60a5fa" font-size="10" fill-opacity="0.6"></text>
+        <text id="uc-coord-label" fill="currentColor" font-size="9" fill-opacity="0.5"></text>
+        <!-- Readout -->
+        <text id="uc-readout" x="150" y="310" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4"></text>
       </svg>
     </div>
+    <script is:inline>
+    (function() {
+      var CX = 150, CY = 150, R = 110;
+      var theta = Math.PI / 6;
+      var svg = document.getElementById('unit-circle');
+      var dot = document.getElementById('uc-dot');
+      var radius = document.getElementById('uc-radius');
+      var projV = document.getElementById('uc-proj-v');
+      var projH = document.getElementById('uc-proj-h');
+      var arc = document.getElementById('uc-arc');
+      var thetaLabel = document.getElementById('uc-theta-label');
+      var cosLabel = document.getElementById('uc-cos-label');
+      var sinLabel = document.getElementById('uc-sin-label');
+      var coordLabel = document.getElementById('uc-coord-label');
+      var readout = document.getElementById('uc-readout');
+
+      function update() {
+        var px = CX + R * Math.cos(theta);
+        var py = CY - R * Math.sin(theta);
+        dot.setAttribute('cx', px);
+        dot.setAttribute('cy', py);
+        radius.setAttribute('x2', px);
+        radius.setAttribute('y2', py);
+        projV.setAttribute('x1', px); projV.setAttribute('y1', py);
+        projV.setAttribute('x2', px); projV.setAttribute('y2', CY);
+        projH.setAttribute('x1', CX); projH.setAttribute('y1', CY);
+        projH.setAttribute('x2', px); projH.setAttribute('y2', CY);
+        // Arc
+        var ar = 20;
+        var ax = CX + ar * Math.cos(theta);
+        var ay = CY - ar * Math.sin(theta);
+        var large = Math.abs(theta) > Math.PI ? 1 : 0;
+        var sweep = theta > 0 ? 0 : 1;
+        arc.setAttribute('d', 'M ' + (CX + ar) + ' ' + CY + ' A ' + ar + ' ' + ar + ' 0 ' + large + ' ' + sweep + ' ' + ax.toFixed(1) + ' ' + ay.toFixed(1));
+        // Labels
+        var midX = (CX + px) / 2;
+        thetaLabel.setAttribute('x', CX + 28 * Math.cos(theta / 2));
+        thetaLabel.setAttribute('y', CY - 28 * Math.sin(theta / 2) + 4);
+        thetaLabel.textContent = '\u03B8';
+        cosLabel.setAttribute('x', midX);
+        cosLabel.setAttribute('y', CY + 15);
+        cosLabel.setAttribute('text-anchor', 'middle');
+        cosLabel.textContent = 'cos \u03B8 = ' + Math.cos(theta).toFixed(2);
+        var sinOnRight = px > CX;
+        sinLabel.setAttribute('x', sinOnRight ? Math.min(px + 8, 220) : Math.max(px - 8, 80));
+        sinLabel.setAttribute('y', (py + CY) / 2 + 4);
+        sinLabel.setAttribute('text-anchor', sinOnRight ? 'start' : 'end');
+        sinLabel.textContent = 'sin \u03B8 = ' + Math.sin(theta).toFixed(2);
+        var coordX = px > 200 ? px - 8 : px + 8;
+        coordLabel.setAttribute('x', coordX);
+        coordLabel.setAttribute('y', py - 10);
+        coordLabel.setAttribute('text-anchor', px > 200 ? 'end' : 'start');
+        coordLabel.textContent = '(' + Math.cos(theta).toFixed(2) + ', ' + Math.sin(theta).toFixed(2) + ')';
+        var deg = (theta * 180 / Math.PI);
+        if (deg < 0) deg += 360;
+        readout.textContent = '\u03B8 = ' + deg.toFixed(0) + '\u00B0 = ' + (theta < 0 ? theta + 2 * Math.PI : theta).toFixed(2) + ' rad';
+      }
+
+      function getTheta(e) {
+        var pt = svg.createSVGPoint();
+        var ctm = svg.getScreenCTM();
+        if (e.touches) e = e.touches[0];
+        pt.x = e.clientX; pt.y = e.clientY;
+        pt = pt.matrixTransform(ctm.inverse());
+        return Math.atan2(CY - pt.y, pt.x - CX);
+      }
+
+      var dragging = false;
+      function onDown(e) { dragging = true; theta = getTheta(e); update(); e.preventDefault(); }
+      function onMove(e) { if (!dragging) return; theta = getTheta(e); update(); e.preventDefault(); }
+      function onUp() { dragging = false; }
+
+      svg.addEventListener('mousedown', onDown);
+      svg.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onUp);
+      svg.addEventListener('touchstart', onDown, {passive: false});
+      svg.addEventListener('touchmove', onMove, {passive: false});
+      window.addEventListener('touchend', onUp);
+
+      update();
+    })();
+    </script>
 
     <!-- 1. Unit Circle -->
     <h3>The unit circle</h3>

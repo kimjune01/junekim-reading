@@ -33,23 +33,48 @@ Pattern: static SVG → slider/drag input + JS that redraws elements. Reference 
 
 | File | Current | Interactive idea | Viability | Status |
 |------|---------|-----------------|-----------|--------|
+| **Calculus (every chapter)** | | | | |
+| `calculus/index` | tangent + shaded area | Drag point along curve → tangent rotates, area grows | high | planned |
+| `calculus/calc-01` | domain → range mapping | Drag x input, watch f(x) output highlight | high | planned |
+| `calculus/calc-02` | unit circle trig | Drag θ slider, point orbits, sin/cos projections update | high | planned |
+| `calculus/calc-03` | limit at a | Drag x toward a, watch f(x) approach L | high | planned |
+| `calculus/calc-04` | secant → tangent | Slider: h→0, secant lines collapse onto tangent | high | planned |
+| `calculus/calc-05` | chain rule x→u→y | Slider: nudge x, watch du and dy propagate | high | planned |
+| `calculus/calc-06` | local max/min | Drag point along curve, tangent line shown, slope readout | high | planned |
+| `calculus/calc-07` | Riemann sum | Slider: n rectangles (1..50), watch approximation converge | high | planned |
+| `calculus/calc-08` | u-substitution | Slider: x range, watch "hard" integral morph to "easy" | high | planned |
+| `calculus/calc-09` | solid of revolution | Slider: x position, disk slice sweeps across, volume accumulates | high | planned |
+| `calculus/calc-10` | cross product u×v | Drag u and v tips, cross product arrow + parallelogram update | high | planned |
+| `calculus/calc-11` | tangent plane on surface | Drag (a,b) point on surface, tangent plane + gradient reorient | high | planned |
+| `calculus/calc-12` | gradient contour plot | Drag point, gradient arrow recomputes, shows steepest ascent | high | planned |
+| `calculus/calc-13` | double integral region | Drag dx strip across region, shaded area accumulates | high | planned |
+| `calculus/calc-14` | line integral in vector field | Drag curve endpoints, work integral updates | high | planned |
+| `calculus/calc-15` | Stokes ladder 1D/2D/3D | Click to toggle between FTC, Stokes, divergence theorem | medium | planned |
+| **SICP** | | | | |
 | `sicp-02` | recursion vs iteration trace | Slider: n=1..8, watch stack grow/shrink vs constant state | high | planned |
 | `sicp-04` | abstraction barriers | Click to swap representation (v1/v2), barrier stays | medium | planned |
 | `sicp-05` | box-and-pointer `((1 2) (3 4))` | Click cons cells to build list step by step | medium | planned |
 | `sicp-09` | bank account state | Slider: number of withdrawals, balance updates | high | planned |
 | `sicp-10` | environment model | Click "call square(5)" → animate frame creation | medium | planned |
 | `sicp-13` | stream promise/force | Click "force" arrows one at a time, values appear | high | planned |
+| **Analysis** | | | | |
 | `analysis/index` | ε-δ continuity | Drag ε band → δ band adjusts to keep curve inside | high | planned |
-| `analysis/lebl-04` | continuity at point | Same as above, different curve | high | planned |
-| `calculus/index` | tangent + area | Drag point along curve → tangent rotates, shaded area grows | high | planned |
-| `calculus/calc-07` | Riemann sum | Slider: n rectangles (1..50), watch approximation converge | high | planned |
+| `analysis/lebl-01` | supremum on number line | Drag upper bound toward S, snap to sup | high | planned |
+| `analysis/lebl-04` | continuity at point | Drag ε, δ auto-adjusts | high | planned |
+| `analysis/lebl-08` | open ball B(p,r) | Drag r slider, ball expands/contracts, interior points highlight | high | planned |
+| **Probability** | | | | |
 | `probability/grinstead-06` | expected value | Drag distribution weights, μ line moves | high | planned |
+| **Information theory** | | | | |
 | `info-theory/shannon-01` | self-information bars | Slider: adjust probabilities, bar heights update | high | planned |
 | `info-theory/shannon-05` | KL divergence | Drag Q distribution, divergence overlay updates | high | planned |
+| **Game theory** | | | | |
 | `game-theory/nordstrom-09` | mixed strategy | Drag p slider, expected payoff lines cross at equilibrium | high | planned |
+| **Linear algebra** | | | | |
 | `linear-algebra/hefferon-04` | determinant parallelogram | Drag vector tips, area updates | high | planned |
+| **Category theory** | | | | |
 | `milewski-10` | naturality square | Click to step through F(f) then α vs α then G(f) | medium | planned |
 | `milewski-07-0` | functor C→D | Drag an arrow in C, watch F(arrow) appear in D | medium | planned |
+| **Papers** | | | | |
 | `fritz-2020-1` | deterministic vs stochastic | Toggle between copy-then-f and f-then-copy, see ≠ | medium | planned |
 | `leinster-2021` | diversity indices | Slider: q=0→1→2→∞, watch circles resize | high | planned |
 | `ho-wu-2026` | Bayesian lens | Drag prior bars, posterior bars update via Bayes | high | planned |
@@ -57,7 +82,7 @@ Pattern: static SVG → slider/drag input + JS that redraws elements. Reference 
 
 ### Not viable (structural/definitional — static is better)
 
-Landing page icons, commutative diagrams (milewski 01-06, 11-12, 16, 19-24), universal property triangles, type hierarchy nesting (algebra 07), truth tables (discrete-math 03), notation references, Hasse diagrams, string diagram definitions (fritz-2020 copy/discard).
+Landing page icons, commutative diagrams (milewski 01-06, 11-12, 16, 19-24), universal property triangles, type hierarchy nesting (algebra 07), truth tables (discrete-math 03), notation references, Hasse diagrams, string diagram definitions (fritz-2020 copy/discard), chain rule composition diagram (calc-05 arrow diagram — the slider version above replaces the idea, not the same SVG).
 
 ## Inventory
 

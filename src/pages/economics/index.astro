@@ -1,0 +1,177 @@
+---
+import Layout from '../../layouts/Base.astro';
+---
+
+<Layout title="Economics" favicon="💰">
+  <main>
+
+    <a href="/reading/" class="text-sm mb-4 inline-block">&larr; back to reading</a>
+
+    <h1>💰 Economics</h1>
+    <p class="text-gray-400 mb-2">Adam Smith, David Ricardo, Alfred Marshall (public domain) &middot; Wikipedia (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>).</p>
+    <p class="text-gray-400 mb-6">Classical economics translated into runnable code and diagrams. Smith wrote for merchants, Ricardo for Parliament, Marshall for Cambridge students. These pages translate to Python and Scheme.</p>
+
+    <!-- SVG: Supply and demand curves crossing at equilibrium -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 360 200" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Axes -->
+        <line x1="50" y1="170" x2="330" y2="170" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
+        <line x1="50" y1="170" x2="50" y2="20" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="190" y="195" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">Quantity</text>
+        <text x="25" y="95" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5" transform="rotate(-90, 25, 95)">Price</text>
+        <!-- Demand curve (slopes down) -->
+        <line x1="70" y1="35" x2="310" y2="155" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.7"/>
+        <text x="315" y="160" fill="#f59e0b" font-size="11" fill-opacity="0.8">D</text>
+        <!-- Supply curve (slopes up) -->
+        <line x1="70" y1="155" x2="310" y2="35" stroke="#60a5fa" stroke-width="2" stroke-opacity="0.7"/>
+        <text x="315" y="40" fill="#60a5fa" font-size="11" fill-opacity="0.8">S</text>
+        <!-- Equilibrium point -->
+        <circle cx="190" cy="95" r="4" fill="#10b981" fill-opacity="0.8"/>
+        <text x="210" y="88" fill="#10b981" font-size="11" fill-opacity="0.8">equilibrium</text>
+        <!-- Dashed lines to axes -->
+        <line x1="190" y1="95" x2="190" y2="170" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.3"/>
+        <line x1="190" y1="95" x2="50" y2="95" stroke="currentColor" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.3"/>
+        <text x="190" y="183" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">Q*</text>
+        <text x="40" y="99" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">P*</text>
+      </svg>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
+            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
+            <th class="text-left py-2 text-gray-400"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Micro (1&ndash;14)</td></tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">1. Division of Labor</td>
+            <td class="pr-3 text-gray-400">Specialization multiplies output: one worker makes one pin, ten workers make 4,800</td>
+            <td><a href="/reading/economics/econ-01/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">2. Supply and Demand</td>
+            <td class="pr-3 text-gray-400">Demand slopes down, supply slopes up, price settles where they cross</td>
+            <td><a href="/reading/economics/econ-02/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">3. Comparative Advantage</td>
+            <td class="pr-3 text-gray-400">Both countries gain from trade even when one is better at everything</td>
+            <td><a href="/reading/economics/econ-03/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">4. Diminishing Returns</td>
+            <td class="pr-3 text-gray-400">Each additional unit of input yields less additional output</td>
+            <td><a href="/reading/economics/econ-04/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">5. Elasticity</td>
+            <td class="pr-3 text-gray-400">How much quantity responds to a price change, and why it matters for revenue</td>
+            <td><a href="/reading/economics/econ-05/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">6. Marginal Utility</td>
+            <td class="pr-3 text-gray-400">Each additional unit is worth less than the last</td>
+            <td><a href="/reading/economics/econ-06/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">7. Opportunity Cost</td>
+            <td class="pr-3 text-gray-400">The cost of any choice is the best alternative you gave up</td>
+            <td><a href="/reading/economics/econ-07/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">8. Market Equilibrium</td>
+            <td class="pr-3 text-gray-400">Surplus drives price down, shortage drives price up, until the market clears</td>
+            <td><a href="/reading/economics/econ-08/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">9. Consumer Choice</td>
+            <td class="pr-3 text-gray-400">Indifference curves meet budget constraints at the optimal bundle</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">10. Production and Costs</td>
+            <td class="pr-3 text-gray-400">Fixed costs, variable costs, and the U-shaped average cost curve</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">11. Perfect Competition</td>
+            <td class="pr-3 text-gray-400">Price equals marginal cost when no firm has market power</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">12. Monopoly</td>
+            <td class="pr-3 text-gray-400">A single seller restricts output to raise price above marginal cost</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">13. Externalities</td>
+            <td class="pr-3 text-gray-400">When costs or benefits spill over to bystanders, markets misprice</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">14. Public Goods</td>
+            <td class="pr-3 text-gray-400">Non-rival and non-excludable: the market undersupplies them</td>
+            <td></td>
+          </tr>
+          <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Macro (15&ndash;19)</td></tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">15. GDP and National Income</td>
+            <td class="pr-3 text-gray-400">Measuring the whole economy: output equals income equals expenditure</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">16. Inflation and Money</td>
+            <td class="pr-3 text-gray-400">Too much money chasing too few goods raises the price level</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">17. Unemployment</td>
+            <td class="pr-3 text-gray-400">Frictional, structural, cyclical: three kinds, three different fixes</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">18. Fiscal Policy</td>
+            <td class="pr-3 text-gray-400">Government spending and taxes as levers on aggregate demand</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">19. Monetary Policy</td>
+            <td class="pr-3 text-gray-400">Central banks set interest rates to steer inflation and employment</td>
+            <td></td>
+          </tr>
+          <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Applied (20&ndash;24)</td></tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">20. International Trade</td>
+            <td class="pr-3 text-gray-400">Tariffs, quotas, and why free trade has winners and losers</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">21. Labor Markets</td>
+            <td class="pr-3 text-gray-400">Wages are prices too: supply and demand for workers</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">22. Income Inequality</td>
+            <td class="pr-3 text-gray-400">Lorenz curves and Gini coefficients measure how income is distributed</td>
+            <td></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">23. Market Failures</td>
+            <td class="pr-3 text-gray-400">Asymmetric information, moral hazard, and adverse selection</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-3 text-gray-300">24. Behavioral Economics</td>
+            <td class="pr-3 text-gray-400">Bounded rationality, loss aversion, and nudges</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</Layout>
