@@ -71,6 +71,10 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Terminates: budget hits 0 at depth=initial")
 `} />
 
+    <div class="python-block my-2">
+      <!-- TODO: no direct Python equivalent for this Scheme block -->
+    </div>
+
     <h3>theorem tower_preserves_up</h3>
     <p>Up-induction (the life_at_zero path). Start at passthrough (depth 0): output = input, trivially preserves the postcondition. Build upward: if depth d preserves for a given policy, depth d+1 does too. This is the constructive path &mdash; observe life, build the mechanism step by step.</p>
     <p class="text-sm text-gray-500">The proof uses induction on d. Base case: support of <code>pure pol</code> is &#123;pol&#125;, so the postcondition holds. Inductive step: decompose the cycle, extract that the output policy came from tower(n) applied to the same input policy, apply the induction hypothesis.</p>

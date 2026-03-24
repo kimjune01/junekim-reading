@@ -61,6 +61,10 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (pipeline "cat"))
 `} />
 
+    <div class="python-block my-2">
+      <!-- TODO: no direct Python equivalent for this Scheme block -->
+    </div>
+
     <h3>theorem Kernel.deterministic_comp</h3>
     <p>Pure functions can be embedded as kernels (wrap the output in <code>pure</code>). This embedding preserves composition: embedding <code>g . f</code> gives the same kernel as composing the embeddings of f and g separately.</p>
     <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm text-blue-300"><code><span class="text-blue-300">theorem</span> <span class="text-green-300">Kernel.deterministic_comp</span> [Monad M] [LawfulMonad M]

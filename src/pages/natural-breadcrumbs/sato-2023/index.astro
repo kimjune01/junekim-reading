@@ -66,8 +66,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Measures how "surprised" you'd be seeing q when expecting p
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`import math
 
 def kl(p, q):
@@ -77,7 +76,7 @@ p = [0.5, 0.3, 0.2]
 q = [0.33, 0.33, 0.34]
 print(f"D(p || q) = {kl(p, q):.4f} bits")
 `} />
-    </details>
+    </div>
 
     <h3>Enrichment — metric on morphisms</h3>
     <p>The insight: a divergence on the monad lifts to a divergence on Kleisli arrows. Two stochastic functions f, g : X → D(Y) are "close" if their output distributions are close for every input. This turns the hom-sets of the Kleisli category into metric spaces.</p>
@@ -104,8 +103,7 @@ print(f"D(p || q) = {kl(p, q):.4f} bits")
 ; This distance enriches the hom-set Hom(X, Y)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`import math
 
 def kl(p, q):
@@ -119,7 +117,7 @@ inputs = range(5)
 d = max(kl(f(x), g(x)) for x in inputs)
 print(f"d(f, g) = {d:.4f} bits")
 `} />
-    </details>
+    </div>
 
     <h3>Relational program logics</h3>
     <p>With a metric on morphisms, you can state relational properties: "these two programs produce outputs within ε of each other." That's a relational Hoare triple — instead of <code>{'{P}'} c {'{Q}'}</code>, you get <code>{'{P}'} c₁ ~ c₂ {'{Q}'}</code> where Q talks about the *relationship* between the two outputs. Divergences on monads give the semantic foundation for these relational triples.</p>
@@ -145,6 +143,25 @@ print(f"d(f, g) = {d:.4f} bits")
 (display "ε-close? ") (display (<= dist epsilon))
 ; #t — these programs are within ε of each other
 `} />
+
+    <div class="python-block my-2">
+      <Repl client:load initialCode={`import math
+
+def kl(p, q):
+    return sum(pi * math.log2(pi/qi) for pi, qi in zip(p, q) if pi > 0)
+
+epsilon = 0.5
+
+def f(x): return [0.5, 0.3, 0.2]
+def g(x): return [0.45, 0.35, 0.2]
+
+dist = kl(f(0), g(0))
+print(f"D(f(0) || g(0)) = {dist:.4f} bits")
+print(f"ε = {epsilon}")
+print(f"ε-close? {dist <= epsilon}")
+# These programs are within ε of each other
+`} />
+    </div>
 
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">

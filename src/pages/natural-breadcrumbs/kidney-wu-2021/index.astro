@@ -113,8 +113,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Same structure, different semiring
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`# Weighted collections parameterized by semiring
 counting = {"apple": 3, "banana": 1}   # S = ℕ
 prob = {"heads": 0.5, "tails": 0.5}    # S = [0,1]
@@ -124,7 +123,7 @@ print("counting:", counting)
 print("probability:", prob)
 print("reachability:", reach)
 `} />
-    </details>
+    </div>
 
     <h3>Bind over different semirings</h3>
     <p>Monadic bind (>>=) for weighted search: for each element, apply the function and multiply weights. The semiring's multiplication combines the weights. Its addition collects duplicates.</p>
@@ -165,8 +164,7 @@ print("reachability:", reach)
 ; Weights count how many paths reach each state
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`# Bind with different semirings
 from collections import defaultdict
 
@@ -190,7 +188,7 @@ prob = {0: 1.0}
 p1 = weighted_bind(prob, g, float.__mul__, float.__add__)
 print(f"probability: {prob} -> {p1}")
 `} />
-    </details>
+    </div>
 
     <h3>Semiring = ℕ gives counting</h3>
     <p>When S = ℕ (natural numbers with +, ×), weights count multiplicity. Bind sums the number of paths reaching each state. This is nondeterministic search with counting.</p>
@@ -226,6 +224,30 @@ print(f"probability: {prob} -> {p1}")
 ; Weights are path counts — Fibonacci numbers appear
 `} />
 
+    <div class="python-block my-2">
+      <Repl client:load initialCode={`# S = ℕ: counting paths — Fibonacci numbers appear
+from collections import defaultdict
+
+def bind_nat(bag, f):
+    result = defaultdict(int)
+    for v, w in bag.items():
+        for v2, w2 in f(v).items():
+            result[v2] += w * w2
+    return dict(result)
+
+step = lambda x: {x+1: 1, x+2: 1}
+
+s0 = {0: 1}
+s1 = bind_nat(s0, step)
+s2 = bind_nat(s1, step)
+s3 = bind_nat(s2, step)
+
+for i, s in enumerate([s0, s1, s2, s3]):
+    print(f"step {i}: {dict(sorted(s.items()))}")
+# Weights are path counts — Fibonacci numbers appear
+`} />
+    </div>
+
     <h3>Semiring = [0,1] gives probability</h3>
     <p>When S = [0,1] with ordinary multiplication and addition (capped at 1 for subdistributions), weights are probabilities. Bind marginalizes over intermediate states. This recovers <a href="/reading/category-theory/milewski-04/">🐱 Kleisli composition</a> from <a href="/reading/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a>.</p>
 
@@ -257,6 +279,32 @@ print(f"probability: {prob} -> {p1}")
 (display "after 2 coins: ") (display after2) (newline)
 ; This IS Kleisli composition — same as Fritz's setup
 `} />
+
+    <div class="python-block my-2">
+      <Repl client:load initialCode={`# S = [0,1]: weights are probabilities — Kleisli composition
+
+from collections import defaultdict
+
+def bind_prob(bag, f):
+    result = defaultdict(float)
+    for v, w in bag.items():
+        for v2, w2 in f(v).items():
+            result[v2] += w * w2
+    return dict(result)
+
+coin = lambda x: {x + 1: 0.6, x + 2: 0.4}
+
+start = {0: 1.0}
+after1 = bind_prob(start, coin)
+after2 = bind_prob(after1, coin)
+
+fmt = lambda d: {k: round(v, 4) for k, v in sorted(d.items())}
+print(f"start:   {fmt(start)}")
+print(f"after 1: {fmt(after1)}")
+print(f"after 2: {fmt(after2)}")
+print(f"sum = {sum(after2.values()):.3f} (probability sums to 1)")
+`} />
+    </div>
 
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">

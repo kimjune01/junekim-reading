@@ -86,8 +86,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (coin-backward 0.5 'tails))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`# Bayesian lens: forward prediction + backward update
 def coin_forward(bias):
     return {"heads": bias, "tails": 1 - bias}
@@ -102,7 +101,7 @@ print(f"prior: 0.5")
 print(f"observe heads -> posterior: {coin_backward(0.5, 'heads')}")
 print(f"observe tails -> posterior: {coin_backward(0.5, 'tails')}")
 `} />
-    </details>
+    </div>
 
     <h3>Bayesian inversion as the backward pass</h3>
     <p>The backward channel is the <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">🅦 Bayesian inverse</a>: given a prior and an observation, compute the posterior. This isn't an arbitrary update — it's the unique channel that makes the joint distribution factor correctly.</p>
@@ -136,8 +135,7 @@ print(f"observe tails -> posterior: {coin_backward(0.5, 'tails')}")
 (display (bayes-update prior likelihood 'tails))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`# Bayesian inversion
 def bayes_update(prior, likelihood, evidence):
     joint = {h: ph * likelihood(h)[evidence] for h, ph in prior.items()}
@@ -152,7 +150,7 @@ print(f"prior: {prior}")
 print(f"after heads: {bayes_update(prior, likelihood, 'heads')}")
 print(f"after tails: {bayes_update(prior, likelihood, 'tails')}")
 `} />
-    </details>
+    </div>
 
     <h3>Composing lenses</h3>
     <p>Two Bayesian lenses compose: the forward passes chain (predict through both stages), and the backward passes chain in reverse (update flows back). This is the categorical structure of lenses — composition is well-defined and associative.</p>
@@ -181,6 +179,24 @@ print(f"after tails: {bayes_update(prior, likelihood, 'tails')}")
 ; forward: (3+1)*2 = 8, backward: recovers via inverse
 `} />
 
+    <div class="python-block my-2">
+      <Repl client:load initialCode={`# Composing Bayesian lenses: forward chains, backward reverses
+def compose_lens(L1, L2):
+    f1, b1 = L1
+    f2, b2 = L2
+    forward = lambda a: f2(f1(a))
+    backward = lambda a, c: b1(a, b2(f1(a), c))
+    return (forward, backward)
+
+L1 = (lambda x: x + 1, lambda x, obs: obs - 1)
+L2 = (lambda x: x * 2, lambda x, obs: obs / 2)
+
+L = compose_lens(L1, L2)
+print(f"forward(3) = {L[0](3)}")      # (3+1)*2 = 8
+print(f"backward(3, 10) = {L[1](3, 10)}")  # recovers via inverse
+`} />
+    </div>
+
     <h3>Free energy as the game's objective</h3>
     <p>A statistical game has players that minimize <a href="https://en.wikipedia.org/wiki/Variational_Bayesian_methods">🅦 variational free energy</a> — the gap between their model's predictions and the actual observations. The equilibrium of the game is active inference: each agent updates its beliefs to minimize surprise.</p>
 
@@ -204,6 +220,22 @@ print(f"after tails: {bayes_update(prior, likelihood, 'tails')}")
 ; Active inference minimizes F by updating beliefs
 (display "Agents update beliefs to reduce free energy.")
 `} />
+
+    <div class="python-block my-2">
+      <Repl client:load initialCode={`import math
+
+def free_energy(obs_prob, kl_div):
+    return -math.log2(obs_prob) + kl_div
+
+# Good model: high observation probability, low divergence
+print(f"good model: F = {free_energy(0.8, 0.1):.3f}")
+
+# Bad model: low observation probability, high divergence
+print(f"bad model:  F = {free_energy(0.1, 2.0):.3f}")
+
+print("Agents update beliefs to reduce free energy.")
+`} />
+    </div>
 
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">
