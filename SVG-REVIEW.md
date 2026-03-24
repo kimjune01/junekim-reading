@@ -20,6 +20,45 @@ Reviewed 2026-03-23.
 
 **`font-family: ui-monospace, monospace`** on the SVG root element ensures code-like text (expressions, variable names) renders in the same font as the REPLs. Non-code labels use the same font for consistency within the diagram.
 
+## Interactive upgrades
+
+Pattern: static SVG → slider/drag input + JS that redraws elements. Reference implementation: [bid-demo.html](https://june.kim/one-shot-bidding) (range input drives Gaussian curves in SVG).
+
+### Viability criteria
+- **High**: diagram has a continuous parameter the reader would learn by varying (slider, drag)
+- **Medium**: diagram has discrete states worth toggling (click to step through)
+- **Low**: diagram is structural/definitional — interactivity adds noise, not insight
+
+### Candidates
+
+| File | Current | Interactive idea | Viability | Status |
+|------|---------|-----------------|-----------|--------|
+| `sicp-02` | recursion vs iteration trace | Slider: n=1..8, watch stack grow/shrink vs constant state | high | planned |
+| `sicp-04` | abstraction barriers | Click to swap representation (v1/v2), barrier stays | medium | planned |
+| `sicp-05` | box-and-pointer `((1 2) (3 4))` | Click cons cells to build list step by step | medium | planned |
+| `sicp-09` | bank account state | Slider: number of withdrawals, balance updates | high | planned |
+| `sicp-10` | environment model | Click "call square(5)" → animate frame creation | medium | planned |
+| `sicp-13` | stream promise/force | Click "force" arrows one at a time, values appear | high | planned |
+| `analysis/index` | ε-δ continuity | Drag ε band → δ band adjusts to keep curve inside | high | planned |
+| `analysis/lebl-04` | continuity at point | Same as above, different curve | high | planned |
+| `calculus/index` | tangent + area | Drag point along curve → tangent rotates, shaded area grows | high | planned |
+| `calculus/calc-07` | Riemann sum | Slider: n rectangles (1..50), watch approximation converge | high | planned |
+| `probability/grinstead-06` | expected value | Drag distribution weights, μ line moves | high | planned |
+| `info-theory/shannon-01` | self-information bars | Slider: adjust probabilities, bar heights update | high | planned |
+| `info-theory/shannon-05` | KL divergence | Drag Q distribution, divergence overlay updates | high | planned |
+| `game-theory/nordstrom-09` | mixed strategy | Drag p slider, expected payoff lines cross at equilibrium | high | planned |
+| `linear-algebra/hefferon-04` | determinant parallelogram | Drag vector tips, area updates | high | planned |
+| `milewski-10` | naturality square | Click to step through F(f) then α vs α then G(f) | medium | planned |
+| `milewski-07-0` | functor C→D | Drag an arrow in C, watch F(arrow) appear in D | medium | planned |
+| `fritz-2020-1` | deterministic vs stochastic | Toggle between copy-then-f and f-then-copy, see ≠ | medium | planned |
+| `leinster-2021` | diversity indices | Slider: q=0→1→2→∞, watch circles resize | high | planned |
+| `ho-wu-2026` | Bayesian lens | Drag prior bars, posterior bars update via Bayes | high | planned |
+| `cogsci/index` | Bayesian network | Click Rain on/off, conditional probs propagate | high | planned |
+
+### Not viable (structural/definitional — static is better)
+
+Landing page icons, commutative diagrams (milewski 01-06, 11-12, 16, 19-24), universal property triangles, type hierarchy nesting (algebra 07), truth tables (discrete-math 03), notation references, Hasse diagrams, string diagram definitions (fritz-2020 copy/discard).
+
 ## Inventory
 
 All SVGs are inline `<svg>` elements (no separate files). Referenced by containing `.astro` file.
