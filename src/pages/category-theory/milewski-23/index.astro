@@ -14,7 +14,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/category-theory/milewski-11/">🍞 Ch11 (Limits and Colimits)</a>, <a href="/reading/category-theory/milewski-09/">🍞 Ch9 (Function Types)</a>. 10 min.</p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">A <strong>topos</strong> is a category that behaves like a universe of sets. It has all finite limits, exponentials (function objects), and a <strong>subobject classifier</strong> &Omega; that generalizes true/false. In <strong>Set</strong>, &Omega; = &lbrace;true, false&rbrace; and subsets correspond to characteristic functions. In a presheaf topos, &Omega; can have more truth values: the internal logic is intuitionistic, not classical.</p>
     </div>
 
@@ -390,6 +390,8 @@ print("Law of excluded middle FAILS.")
       Ready for the real thing? <a href="https://bartoszmilewski.com/2017/07/22/topoi/">Read the blog post</a>. Start with the subobject classifier definition, then trace how sieves generalize truth values.
     </div>
 
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/logic/logic-10/">🔑 Logic Ch.10</a> — topoi have their own internal logic; Gödel incompleteness is a shadow · <a href="/reading/proof-writing/proofs-05/">✎ Proofs Ch.5</a> — sets as a special case of objects in a topos · <a href="/reading/lean/axioms/">✏️ Axioms.lean</a> — axioms as the foundation of the formal system in a topos</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/category-theory/milewski-22/">← Enriched Categories</a>

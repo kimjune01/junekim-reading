@@ -52,33 +52,33 @@ import Layout from '../../layouts/Base.astro';
         <tbody>
           <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Part 1: Symmetric primitives</td></tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">1. Symmetric Ciphers</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-01/">1. Symmetric Ciphers</a></td>
             <td class="pr-3 text-gray-400">XOR, Caesar, substitution: encryption and decryption share the same secret</td>
             <td><a href="/reading/cryptography/crypto-01/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">2. Block Ciphers</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-02/">2. Block Ciphers</a></td>
             <td class="pr-3 text-gray-400">Feistel networks and AES: fixed-size blocks, multiple rounds, diffusion and confusion</td>
             <td><a href="/reading/cryptography/crypto-02/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">3. Hash Functions</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-03/">3. Hash Functions</a></td>
             <td class="pr-3 text-gray-400">One-way compression: any input to a fixed-length fingerprint, no way back</td>
             <td><a href="/reading/cryptography/crypto-03/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">4. MACs and Authentication</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-04/">4. MACs and Authentication</a></td>
             <td class="pr-3 text-gray-400">HMAC: a keyed hash that proves the message was not tampered with</td>
             <td><a href="/reading/cryptography/crypto-04/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
           </tr>
           <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Part 2: Public-key cryptography</td></tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">5. Key Exchange</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-05/">5. Key Exchange</a></td>
             <td class="pr-3 text-gray-400">Diffie-Hellman: two strangers agree on a shared secret over a public channel</td>
             <td><a href="/reading/cryptography/crypto-05/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">6. RSA</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-06/">6. RSA</a></td>
             <td class="pr-3 text-gray-400">Public key encrypts, private key decrypts: the factoring problem makes it hard</td>
             <td><a href="/reading/cryptography/crypto-06/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
           </tr>
@@ -119,5 +119,7 @@ import Layout from '../../layouts/Base.astro';
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/channel/UC1usFRN4LCMcfIV7UjHNuQg">Christof Paar: Introduction to Cryptography</a></p>
+
+    <p class="text-gray-500 text-sm mt-4">See also: <a href="/reading/number-theory/">&#35; Number Theory</a> — RSA is Euler's theorem, key exchange is discrete logarithm · <a href="/reading/abstract-algebra/">🔗 Abstract Algebra</a> — elliptic curves are abelian groups · <a href="/reading/information-theory/">📡 Information Theory</a> — Shannon's perfect secrecy is information-theoretic security · <a href="/reading/theory-of-computation/">🔀 Theory of Computation</a> — computational hardness assumptions underlie every scheme</p>
   </main>
 </Layout>

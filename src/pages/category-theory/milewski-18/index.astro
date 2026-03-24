@@ -14,7 +14,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/category-theory/milewski-16/">🍞 Ch16 (Adjunctions)</a>. 8 min.</p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">A <strong>comonad</strong> is a value in context. Where a monad lets you <em>put</em> a value in a container (<code>return</code>) but not peek inside, a comonad lets you <em>extract</em> the focused value but not inject one from nothing. <code>extract</code> reads the focus, <code>duplicate</code> shifts attention to every position, and <code>extend</code> applies a local computation everywhere. Spreadsheets, cellular automata, and image kernels are all comonads: a current cell, plus the whole neighborhood.</p>
     </div>
 

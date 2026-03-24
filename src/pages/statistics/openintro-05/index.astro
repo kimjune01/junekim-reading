@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>Foundations for Inference</h1>
     <p class="text-gray-400 text-sm mb-6">OpenIntro Statistics &middot; Ch. 5 &middot; <a href="https://openintro.org/book/operating-systems/">openintro.org/book/os</a></p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Statistical inference</strong> draws conclusions about a population from a sample. Two main tools: <strong>confidence intervals</strong> estimate a parameter with a margin of error, and <strong>hypothesis tests</strong> evaluate whether evidence supports a claim. Both rest on the sampling distribution.</p>
     </div>
 
@@ -218,6 +218,8 @@ print(f"95% CI: ({x_bar - margin:.2f}, {x_bar + margin:.2f})")
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Want the full treatment? <a href="https://openintro.org/book/operating-systems/">Read OpenIntro Statistics, Ch. 5</a>.
     </div>
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/scientific-method/fisher-1935/">🔬 Fisher 1935</a> — the inventor of significance testing and p-values · <a href="/reading/scientific-method/ioannidis-2005/">🔬 Ioannidis 2005</a> — why the tools in this chapter are often misused · <a href="/reading/machine-learning/ml-01/">🤖 ML Ch.1</a> — statistical learning as inference from data</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/statistics/openintro-04/">&larr; Distributions</a>

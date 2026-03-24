@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>KL Divergence</h1>
     <p class="text-gray-400 text-sm mb-6">Shannon 1948 (public domain) &middot; Wikipedia (CC BY-SA 4.0)</p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">&#x1F150; KL divergence</a> measures the <strong>extra surprise</strong> you get when you use distribution Q to code data that actually comes from P. It is not a distance: D(P||Q) &ne; D(Q||P). It is always &ge; 0, and zero only when P = Q.</p>
     </div>
 
@@ -190,6 +190,8 @@ print("Asymmetric: D(P||Q) != D(Q||P). Not a distance.")
     <h3>Translation notes</h3>
     <p>All examples use finite discrete distributions with explicit probability vectors. KL divergence extends to continuous distributions via integrals, and to distributions over infinite countable sets via infinite sums. The asymmetry is the same in all cases. The non-negativity proof (Gibbs' inequality) uses Jensen's inequality on the convexity of -log, which holds regardless of whether the sample space is finite.</p>
 
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/machine-learning/ml-04/">🤖 ML Ch.4</a> — cross-entropy loss in logistic regression is KL divergence from the true labels · <a href="/reading/statistics/openintro-05/">📊 Statistics Ch.5</a> — KL divergence generalizes the log-likelihood ratio · <a href="/reading/natural-breadcrumbs/baez-fritz-2011/">🍞 Baez, Fritz, Leinster 2011</a> — Shannon entropy characterized via its behavior under composition</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/information-theory/shannon-04/">← Mutual Information</a>

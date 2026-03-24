@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>Homomorphisms</h1>
     <p class="text-gray-400 text-sm mb-6">Tom Judson &middot; GFDL &middot; <a href="http://abstract.ups.edu/">Abstract Algebra: Theory and Applications, Ch. 3</a></p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">A <strong>homomorphism</strong> is a function between groups that preserves the operation: f(a * b) = f(a) * f(b). The <strong>kernel</strong> measures what it forgets. The <strong>image</strong> measures what it hits. These three pieces tell you everything about how one group maps onto another.</p>
     </div>
 
@@ -195,6 +195,8 @@ print("Image = " + str(image))
     <!-- Translation notes -->
     <h3>Translation notes</h3>
     <p>Judson covers homomorphisms in Ch. 11 and isomorphisms in Ch. 9, after treating permutation groups and cosets. We pull homomorphisms forward because the concept is simpler than the textbook ordering suggests: it is just "f preserves the operation." The first isomorphism theorem (G/ker(f) is isomorphic to im(f)) is the punchline of this material but requires quotient groups, covered implicitly in Ch. 5.</p>
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/category-theory/milewski-07/">🐱 Category Theory Ch.7</a> — functors are homomorphisms between categories · <a href="/reading/linear-algebra/hefferon-03/">📐 Linear Algebra Ch.3</a> — linear maps are homomorphisms of vector spaces · <a href="/reading/proof-writing/proofs-06/">✎ Proofs Ch.6</a> — the function properties (injective, surjective) used to classify homomorphisms</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/abstract-algebra/judson-02/">&larr; Subgroups</a>

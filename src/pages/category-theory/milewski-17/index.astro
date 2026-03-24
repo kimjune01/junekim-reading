@@ -14,7 +14,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/category-theory/milewski-04/">🍞 Ch4 (Kleisli Categories)</a>, <a href="/reading/category-theory/milewski-07/">🍞 Ch7 (Functors)</a>, <a href="/reading/category-theory/milewski-10/">🍞 Ch10 (Natural Transformations)</a>. 12 min.</p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">A monad is a functor <strong>M</strong> equipped with two natural transformations: <code>return</code> (&eta; : a &rarr; M(a)) and <code>join</code> (&mu; : M(M(a)) &rarr; M(a)). Equivalently, <code>bind</code> (&gt;&gt;=) replaces both. The monad laws (associativity, left/right identity) are the Kleisli category's composition laws. Monads are the compositional glue for effects: partiality, nondeterminism, logging, state.</p>
     </div>
 
@@ -457,6 +457,8 @@ print(f"log:    {result[1]}")
       Ready for the real thing? <a href="https://bartoszmilewski.com/2016/11/21/monads-programmers-definition/">Read the blog post</a>. Start with the fish operator, then see how bind and join are equivalent formulations.
     </div>
 
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/lean/kleisli/">✏️ Kleisli.lean</a> — Kleisli composition of the probability monad · <a href="/reading/programming/sicp-04/">🪄 Programming Ch.4</a> — data abstraction is a monadic pattern · <a href="/reading/natural-breadcrumbs/kidney-wu-2021/">🍞 Kidney, Wu 2021</a> — one monad parameterized by a semiring</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/category-theory/milewski-16/">← Adjunctions</a>

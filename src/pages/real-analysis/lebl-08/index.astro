@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>Metric Spaces</h1>
     <p class="text-gray-400 text-sm mb-6">Jiří Lebl · <a href="https://www.jirka.org/ra/">Basic Analysis I, Ch. 8</a> · CC BY-SA 4.0</p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">A <strong>metric space</strong> is a set with a distance function satisfying positivity, symmetry, and the triangle inequality. Every concept from real analysis (convergence, continuity, compactness, completeness) generalizes to metric spaces. The reals are just one example.</p>
     </div>
 
@@ -267,6 +267,8 @@ print("Difference:", abs(fp - math.cos(fp)))
 
     <h3>Translation notes</h3>
     <p>The metric space axioms are easy to verify computationally. The deep results (Heine-Borel, completeness of R, Banach fixed point) are theorems that our code illustrates but cannot prove. The contraction mapping iteration is the constructive content of the Banach theorem: it gives you the fixed point and a convergence rate.</p>
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/geometry/geom-07/">△ Geometry Ch.7</a> — metric spaces in geometric context with visual intuition · <a href="/reading/machine-learning/ml-05/">🤖 ML Ch.5</a> — kernel methods define metrics in feature space · <a href="/reading/category-theory/milewski-22/">🐱 Category Theory Ch.22</a> — enriched categories over metric spaces (Lawvere metric spaces)</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/real-analysis/lebl-07/">← Sequences of Functions</a>

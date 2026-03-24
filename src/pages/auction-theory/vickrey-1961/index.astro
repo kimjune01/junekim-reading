@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>Second-Price Sealed-Bid Auction</h1>
     <p class="text-gray-400 text-sm mb-6">Vickrey &middot; 1961 &middot; <a href="https://doi.org/10.2307/2977633">doi:10.2307/2977633</a></p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">In a <strong>second-price sealed-bid auction</strong>, the highest bidder wins but pays the <em>second-highest</em> bid. The dominant strategy is to bid your true value.</p>
     </div>
 
@@ -161,6 +161,8 @@ print(second_price([45, 50, 30]))
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://doi.org/10.2307/2977633">Read the paper</a>.
     </div>
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/game-theory/nordstrom-01/">🎲 Game Theory Ch.1</a> — dominant strategies in the game-theoretic frame · <a href="/reading/auction-theory/vcg-1973/">💎 VCG Mechanism</a> — the multi-item generalization · <a href="/reading/probability/grinstead-06/">🎰 Probability Ch.6</a> — expected revenue requires integrating over bidder distributions</p>
 
   </main>
 </Layout>

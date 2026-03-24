@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>VCG Mechanism</h1>
     <p class="text-gray-400 text-sm mb-6">Clarke 1971 &middot; Groves 1973 &middot; <a href="https://doi.org/10.2307/1914085">Clarke doi:10.2307/1914085</a> &middot; <a href="https://doi.org/10.2307/1914085">Groves doi:10.2307/1914085</a></p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">Each winner pays the <strong>externality</strong> they impose on other bidders. This makes truthful bidding dominant, allocation efficient, and participation individually rational.</p>
     </div>
 
@@ -139,6 +139,8 @@ print(vcg_multi([10, 7, 4, 3, 1], k=2))
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://doi.org/10.2307/1914085">Clarke 1971</a> and <a href="https://doi.org/10.2307/1914085">Groves 1973</a>.
     </div>
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/auction-theory/vickrey-1961/">💎 Vickrey 1961</a> — the second-price auction is the single-item special case of VCG · <a href="/reading/economics/econ-20/">💰 Economics Ch.20</a> — mechanism design: VCG as the canonical incentive-compatible mechanism · <a href="/reading/auction-theory/lahaie-lubin-2025/">💎 Lahaie &amp; Lubin 2025</a> — VCG as a linear program</p>
 
   </main>
 </Layout>

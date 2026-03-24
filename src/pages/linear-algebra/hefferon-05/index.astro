@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>Similarity</h1>
     <p class="text-gray-400 text-sm mb-6">Jim Hefferon · GFDL + CC BY-SA 2.5 · <a href="https://hefferon.net/linearalgebra/">Linear Algebra</a></p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">An <strong>eigenvector</strong> of a linear map is a nonzero vector whose direction is unchanged by the map: Av = lambda v. The scalar lambda is the <strong>eigenvalue</strong>. Finding eigenvalues reduces to solving det(A - lambda I) = 0. When a matrix has enough independent eigenvectors, it can be <strong>diagonalized</strong>: the map becomes just scaling along each eigenvector axis.</p>
     </div>
 
@@ -296,6 +296,8 @@ print("Jordan form: [[2,1],[0,2]]")
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Full chapter: <a href="https://hefferon.net/linearalgebra/">Hefferon, Chapter Five — Similarity</a>.
     </div>
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/machine-learning/ml-06/">🤖 ML Ch.6</a> — PCA is eigendecomposition of the covariance matrix · <a href="/reading/control/ctrl-07/">🎛 Control Ch.7</a> — eigenvalues determine stability in state space · <a href="/reading/geometry/geom-03/">△ Geometry Ch.3</a> — linear transformations as geometric operations</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/linear-algebra/hefferon-04/">← Determinants</a>

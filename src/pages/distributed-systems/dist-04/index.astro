@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>Consensus</h1>
     <p class="text-gray-400 text-sm mb-6">Fischer, Lynch, Paterson 1985 &middot; Lamport 1998 &middot; <a href="https://en.wikipedia.org/wiki/Consensus_(computer_science)">Wikipedia</a></p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">The <strong>consensus problem</strong>: get all non-faulty nodes to agree on a single value. The FLP impossibility result says no deterministic algorithm can guarantee consensus in an asynchronous system if even one node can crash. Paxos solves it anyway by being non-deterministic (it may not terminate, but if it does, it is correct).</p>
     </div>
 

@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>Distributed Transactions</h1>
     <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol">Two-phase commit</a></p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Two-phase commit (2PC)</strong> ensures all-or-nothing across multiple nodes. Phase 1: coordinator asks participants to prepare (vote yes/no). Phase 2: if all vote yes, coordinator commits; otherwise aborts. The weakness: if the coordinator crashes after prepare, participants are stuck waiting. Sagas offer an alternative: execute steps with compensating actions for rollback.</p>
     </div>
 

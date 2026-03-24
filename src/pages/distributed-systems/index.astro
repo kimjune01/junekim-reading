@@ -54,52 +54,52 @@ import Layout from '../../layouts/Base.astro';
         </thead>
         <tbody>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">1. What Makes It Hard</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-01/">1. What Makes It Hard</a></td>
             <td class="pr-3 text-gray-400">Network partitions, partial failure, no global clock, Byzantine faults</td>
             <td><a href="/reading/distributed-systems/dist-01/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">2. Time and Clocks</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-02/">2. Time and Clocks</a></td>
             <td class="pr-3 text-gray-400">Physical clocks drift; logical clocks capture causality without synchronization</td>
             <td><a href="/reading/distributed-systems/dist-02/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">3. Replication</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-03/">3. Replication</a></td>
             <td class="pr-3 text-gray-400">Copy data across nodes for fault tolerance, then fight consistency</td>
             <td><a href="/reading/distributed-systems/dist-03/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">4. Consensus</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-04/">4. Consensus</a></td>
             <td class="pr-3 text-gray-400">Getting nodes to agree on a value, and why it is impossible in general</td>
             <td><a href="/reading/distributed-systems/dist-04/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">5. Raft</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-05/">5. Raft</a></td>
             <td class="pr-3 text-gray-400">Leader election and log replication made understandable</td>
             <td><a href="/reading/distributed-systems/dist-05/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">6. Byzantine Fault Tolerance</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-06/">6. Byzantine Fault Tolerance</a></td>
             <td class="pr-3 text-gray-400">When nodes can lie: 3f+1 to tolerate f traitors</td>
             <td><a href="/reading/distributed-systems/dist-06/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">7. CAP Theorem</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-07/">7. CAP Theorem</a></td>
             <td class="pr-3 text-gray-400">Consistency, availability, partition tolerance: pick two</td>
             <td><a href="/reading/distributed-systems/dist-07/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">8. Distributed Transactions</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-08/">8. Distributed Transactions</a></td>
             <td class="pr-3 text-gray-400">Two-phase commit, three-phase commit, and the saga pattern</td>
             <td><a href="/reading/distributed-systems/dist-08/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">9. Gossip Protocols</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-09/">9. Gossip Protocols</a></td>
             <td class="pr-3 text-gray-400">Epidemic dissemination: tell two friends, who tell two friends</td>
             <td><a href="/reading/distributed-systems/dist-09/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
           <tr>
-            <td class="py-2 pr-3 text-gray-300">10. CRDTs</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-10/">10. CRDTs</a></td>
             <td class="pr-3 text-gray-400">Eventual consistency without consensus, via join-semilattices</td>
             <td><a href="/reading/distributed-systems/dist-10/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
           </tr>
@@ -109,5 +109,7 @@ import Layout from '../../layouts/Base.astro';
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB">Martin Kleppmann: Distributed Systems</a></p>
+
+    <p class="text-gray-500 text-sm mt-4">See also: <a href="/reading/algorithms/">⚙ Algorithms</a> — consensus algorithms are graph algorithms on distributed state · <a href="/reading/probability/">🎰 Probability</a> — probabilistic guarantees and gossip protocols · <a href="/reading/databases/">🗄 Databases</a> — distributed transactions are both fields · <a href="/reading/cryptography/">🔐 Cryptography</a> — Byzantine fault tolerance and authenticated channels</p>
   </main>
 </Layout>

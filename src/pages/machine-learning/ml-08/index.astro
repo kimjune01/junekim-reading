@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>Neural Networks</h1>
     <p class="text-gray-400 text-sm mb-6">Machine Learning · Ch.8 of 12</p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">A neural network is <strong>function composition</strong>: layers of linear maps + nonlinear activations. Backpropagation is the chain rule applied to the computation graph. <strong><a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem">🅦 Universal approximation</a></strong>: one hidden layer can approximate any continuous function.</p>
     </div>
 
@@ -380,6 +380,8 @@ for x, t in data:
     <!-- Ready for the real thing? -->
     <h3>Ready for the real thing?</h3>
     <p class="text-sm text-gray-400">This chapter covers the core mechanics. For optimization (Adam, batch norm, dropout), architectures (CNNs, RNNs, transformers), and the theory of deep learning, see Goodfellow, Bengio & Courville's <em>Deep Learning</em> (free online).</p>
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/linear-algebra/hefferon-03/">📐 Linear Algebra Ch.3</a> — each layer is a linear map, and the network composes them · <a href="/reading/calculus/calc-05/">∫ Calculus Ch.5</a> — chain rule is backpropagation in one dimension · <a href="/reading/cognitive-science/lovelace-04/">🧠 Cognitive Science Ch.4</a> — neural networks as cognitive models</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/machine-learning/ml-07/">&larr; Gaussian Processes</a>

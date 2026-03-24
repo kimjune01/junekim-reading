@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>CRDTs</h1>
     <p class="text-gray-400 text-sm mb-6">Shapiro et al. 2011 &middot; <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type">Wikipedia</a></p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Conflict-free replicated data types</strong> guarantee eventual consistency without consensus. The trick: structure your data as a <strong>join-semilattice</strong>. Merging any two states produces a unique least upper bound. Merge is commutative, associative, and idempotent. No conflicts, no coordination, no locking.</p>
     </div>
 

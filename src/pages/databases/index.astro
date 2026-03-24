@@ -62,52 +62,52 @@ import Layout from '../../layouts/Base.astro';
         </thead>
         <tbody>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">1. The Relational Model</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-01/">1. The Relational Model</a></td>
             <td class="pr-3 text-gray-400">Tables, rows, columns, and keys: Codd's foundation for all structured data</td>
             <td><a href="/reading/databases/db-01/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">2. Relational Algebra</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-02/">2. Relational Algebra</a></td>
             <td class="pr-3 text-gray-400">Select, project, join, union, difference: the formal operations on relations</td>
             <td><a href="/reading/databases/db-02/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">3. SQL Basics</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-03/">3. SQL Basics</a></td>
             <td class="pr-3 text-gray-400">CREATE, SELECT, JOIN, GROUP BY: the language that implements relational algebra</td>
             <td><a href="/reading/databases/db-03/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">4. Normalization</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-04/">4. Normalization</a></td>
             <td class="pr-3 text-gray-400">Eliminate redundancy by decomposing tables according to functional dependencies</td>
             <td><a href="/reading/databases/db-04/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">5. Indexing</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-05/">5. Indexing</a></td>
             <td class="pr-3 text-gray-400">B-trees, B+ trees, and hash indexes: trade space for speed on lookups</td>
             <td><a href="/reading/databases/db-05/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">6. Transactions</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-06/">6. Transactions</a></td>
             <td class="pr-3 text-gray-400">ACID properties guarantee correctness when multiple operations must succeed or fail together</td>
             <td><a href="/reading/databases/db-06/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">7. Concurrency Control</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-07/">7. Concurrency Control</a></td>
             <td class="pr-3 text-gray-400">Locks, two-phase locking, and MVCC: let multiple transactions run without corrupting data</td>
             <td><a href="/reading/databases/db-07/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">8. Recovery</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-08/">8. Recovery</a></td>
             <td class="pr-3 text-gray-400">Write-ahead logging and checkpoints: survive crashes without losing committed data</td>
             <td><a href="/reading/databases/db-08/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">9. Query Processing</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-09/">9. Query Processing</a></td>
             <td class="pr-3 text-gray-400">Query plans, join algorithms, and cost estimation: how the engine picks the fastest path</td>
             <td><a href="/reading/databases/db-09/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
           <tr>
-            <td class="py-2 pr-3 text-gray-300">10. NoSQL and Beyond</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-10/">10. NoSQL and Beyond</a></td>
             <td class="pr-3 text-gray-400">Key-value, document, column-family, graph: when relations are not the right shape</td>
             <td><a href="/reading/databases/db-10/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
           </tr>
@@ -117,5 +117,7 @@ import Layout from '../../layouts/Base.astro';
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/playlist?list=PLSE8ODhjZXjbj8BMuIrRcacnQh20hmY9g">CMU 15-445: Database Systems (Andy Pavlo)</a></p>
+
+    <p class="text-gray-500 text-sm mt-4">See also: <a href="/reading/discrete-math/">🔢 Discrete Math</a> — relational algebra is formal logic applied to tables · <a href="/reading/algorithms/">⚙ Algorithms</a> — B-trees, indexing, and query processing · <a href="/reading/distributed-systems/">🌐 Distributed Systems</a> — distributed transactions and replication · <a href="/reading/operating-systems/">🖥 Operating Systems</a> — storage engines use OS-level abstractions</p>
   </main>
 </Layout>

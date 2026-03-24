@@ -14,7 +14,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/category-theory/milewski-01/">🍞 Chapter 1</a> (Category), <a href="/reading/category-theory/milewski-01/">🍞 Chapter 2</a> (Types and Functions). 7 min.</p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">Side effects are <strong>not side effects</strong> if you make them part of the return type. A <strong>Kleisli category</strong> re-defines morphisms as functions <code>a → m(b)</code> and composition as the fish operator <code>(>=>)</code>. The category laws still hold. You get purity and logging (or failure, or nondeterminism) at the same time.</p>
     </div>
 
@@ -359,6 +359,8 @@ print(pipeline(200))
       Ready for the real thing? <a href="https://bartoszmilewski.com/2014/12/23/kleisli-categories/">Read the blog post</a>. Start with the C++ examples, then try the Haskell fish operator.
     </div>
 
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/lean/kleisli/">✏️ Kleisli.lean</a> — Kleisli composition formalized in Lean · <a href="/reading/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> — stochastic maps form a Kleisli category · <a href="/reading/programming/sicp-13/">🪄 Programming Ch.13</a> — SICP's streams are a comonadic structure in disguise</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/category-theory/milewski-03/">← Great and Small</a>

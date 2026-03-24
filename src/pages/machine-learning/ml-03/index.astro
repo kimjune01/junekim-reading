@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h1>Optimization</h1>
     <p class="text-gray-400 text-sm mb-6">Deisenroth et al., <em>Mathematics for Machine Learning</em> (CC BY 4.0) &middot; <a href="https://mml-book.github.io/">mml-book.github.io</a></p>
 
-    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Gradient descent</strong> follows the negative gradient downhill. The <strong>learning rate</strong> controls step size: too small and you crawl, too large and you overshoot. <strong>Convex</strong> functions have one minimum, so gradient descent always finds it. Non-convex functions have many minima, and you get whichever one you fall into.</p>
     </div>
 
@@ -219,6 +219,8 @@ print("Diverged! x = {:.2f}, f(x) = {:.2f}".format(x, f(x)))
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://mml-book.github.io/">Mathematics for Machine Learning</a> Ch. 7 and <a href="https://d2l.ai/chapter_optimization/">D2L Ch. 12</a>.
     </div>
+
+    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/calculus/calc-06/">∫ Calculus Ch.6</a> — applications of derivatives: gradient descent is optimization by following the derivative downhill · <a href="/reading/linear-algebra/hefferon-05/">📐 Linear Algebra Ch.5</a> — eigenvalues determine convergence rates of gradient methods · <a href="/reading/algorithms/algo-02/">⚙ Algorithms Ch.2</a> — dynamic programming shares the optimal substructure property with convex optimization</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/machine-learning/ml-02/">&larr; Linear Regression</a>
