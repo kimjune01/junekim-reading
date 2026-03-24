@@ -11,7 +11,7 @@ import Layout from '../../../layouts/Base.astro';
     <p class="text-gray-400 text-sm mb-6">Google &middot; 2017&ndash;present &middot; <a href="https://developers.google.com/style">Read the guide (CC BY 4.0)</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">Every style guide before this one said &ldquo;use the active voice.&rdquo; None of them said when not to. Google&rsquo;s guide is the first to enumerate the exceptions: use passive when you want to emphasize the object, when you want to de-emphasize the subject, or when the actor is irrelevant. Three cases. Falsifiable. Now the rule compiles.</p>
+      <p class="text-lg" style="max-width:none">Every style guide before this one said &ldquo;use the active voice.&rdquo; None of them said when not to. Google&rsquo;s guide is the first to enumerate the exceptions: use passive when you want to emphasize the object, when you want to de-emphasize the subject, or when the actor is irrelevant. Three cases. Falsifiable. Now the rule is precise enough to follow.</p>
     </div>
 
     <!-- SVG: compilable rule — decision tree -->
@@ -66,11 +66,11 @@ import Layout from '../../../layouts/Base.astro';
     <!-- 1. The argument -->
     <h3>The argument</h3>
 
-    <p>Google&rsquo;s style guide emerged from the practical problem of writing documentation at scale. Thousands of engineers writing docs for millions of readers. The question was practical: how do you get consistent output from inconsistent writers? Strunk&rsquo;s rules are too vague to enforce. &ldquo;Use the active voice&rdquo; means different things to different people. One writer reads it as &ldquo;never use passive.&rdquo; Another reads it as &ldquo;prefer active when possible.&rdquo; Neither is wrong, and the outputs diverge.</p>
+    <p>Google&rsquo;s style guide emerged from the practical problem of writing documentation at scale. Thousands of engineers writing docs for millions of readers. The guide was written for engineers, but the breakthrough applies to any team that writes: precise rules produce consistent output. The question was practical: how do you get consistent output from inconsistent writers? Strunk&rsquo;s rules are too vague to enforce. &ldquo;Use the active voice&rdquo; means different things to different people. One writer reads it as &ldquo;never use passive.&rdquo; Another reads it as &ldquo;prefer active when possible.&rdquo; Neither is wrong, and the outputs diverge.</p>
 
     <p>Google&rsquo;s solution: make every rule precise enough that two writers reading the same rule produce the same output. The guide covers voice, tense, word choice, formatting, accessibility, and more. But the active voice section is the breakthrough. It takes a rule that&rsquo;s been vague since 1918 and makes it mechanically applicable. The rule became &ldquo;use active voice unless one of these three conditions holds&rdquo;: a decision procedure, not an aspiration.</p>
 
-    <p>This is what it means for a rule to compile. A compiled rule takes an input (a sentence) and produces a deterministic output (active or passive). An uncompiled rule takes an input and produces a judgment call. Judgment calls don&rsquo;t scale. Decision procedures do.</p>
+    <p>This is what it means for a rule to be precise. A precise rule takes a sentence and produces a clear answer: active or passive. A vague rule takes a sentence and produces a judgment call. Judgment calls don&rsquo;t scale. Clear answers do.</p>
 
     <!-- 2. The three exceptions -->
     <h3>The three exceptions</h3>
@@ -95,11 +95,11 @@ import Layout from '../../../layouts/Base.astro';
     <!-- 3. Discussion -->
     <h3>Discussion</h3>
 
-    <p>The guide&rsquo;s breakthrough is making voice choice falsifiable. Three exceptions, each with a clear test: is the object more important than the actor? Is the actor distracting to name? Is the actor irrelevant? A writer can check each condition and arrive at an answer. The rule compiles because the exceptions are enumerated, not left to judgment.</p>
+    <p>Voice choice is now falsifiable. Three exceptions, each with a clear test: is the object more important than the actor? Is the actor distracting to name? Is the actor irrelevant? You can check each condition and arrive at an answer. You can also check whether someone else followed the rule. That&rsquo;s the difference between a guideline and a specification.</p>
 
-    <p>The guide is also the first major style guide written for a world where text is processed by both humans and machines. Screen readers, translation engines, and search indexers all parse the same sentences your readers do. Accessibility is not an add-on; it is a design constraint that drives many of the guide&rsquo;s choices. Short sentences translate better. Active voice parses more reliably. Consistent terminology improves search. The guide&rsquo;s rules are not just about clarity for human readers. They are about making text that survives mechanical transformation.</p>
+    <p>The guide also treats text as something processed by both humans and machines. Screen readers, translation tools, and search indexes all parse the same sentences your readers do. Short sentences translate better. Active voice parses more reliably. Consistent terminology improves search. Clarity for human readers and survival through mechanical transformation turn out to require the same things.</p>
 
-    <p>The deeper lesson: vague rules produce inconsistent output. Precise rules produce consistent output. Every discipline that has matured (engineering, law, accounting) has made this transition. Prose style is late to the party, but Google&rsquo;s guide is the first serious attempt. The frontier is better specification.</p>
+    <p>The deeper point: vague rules produce inconsistent output. Precise rules produce consistent output. Every discipline that has matured &mdash; engineering, law, accounting &mdash; has made this transition. Prose style was late. Google&rsquo;s guide is the first serious attempt to catch up. The frontier is better specification.</p>
 
     <hr class="border-zinc-700 my-8"/>
 

@@ -14,7 +14,7 @@ import Layout from '../../../layouts/Base.astro';
       <p class="text-lg" style="max-width:none">Bad prose is a political act. Orwell argued that vague, pretentious, abstract language doesn't happen by accident. It's how power hides what it's doing. "Pacification" means bombing villages. "Transfer of population" means deportation. The cure is six rules, and the last rule overrides all the others: break any of these rules sooner than say anything outright barbarous.</p>
     </div>
 
-    <!-- SVG: Linter metaphor — six rules with pass/fail examples -->
+    <!-- SVG: Checklist — six rules with pass/fail examples -->
     <div class="flex justify-center my-6">
       <svg viewBox="0 0 520 260" class="w-full max-w-2xl" style="font-family: ui-monospace, monospace;">
         <!-- Rule boxes (left column) -->
@@ -76,7 +76,7 @@ import Layout from '../../../layouts/Base.astro';
 
         <!-- Rule 6 override note -->
         <line x1="210" y1="225" x2="270" y2="225" stroke="#34d399" stroke-width="0.8" stroke-opacity="0.3" stroke-dasharray="3,3"/>
-        <text x="280" y="228" fill="#34d399" font-size="8.5" fill-opacity="0.5">suppress: if breaking the rule sounds better</text>
+        <text x="280" y="228" fill="#34d399" font-size="8.5" fill-opacity="0.5">override: if breaking the rule sounds better</text>
       </svg>
     </div>
 
@@ -86,7 +86,7 @@ import Layout from '../../../layouts/Base.astro';
 
     <p>The essay diagnoses a feedback loop: bad politics produces bad language, and bad language makes bad politics easier. When a government can describe the bombing of villages as "pacification" and mass deportation as "rectification of frontiers," it has already won the argument before the argument starts. The euphemism does the political work. Anyone who wants to challenge the policy must first undo the language, and by then the audience has moved on.</p>
 
-    <p>Orwell's examples are political, but the diagnosis applies everywhere: academic writing, corporate communications, legal language. Anywhere the writer benefits from the reader not understanding, you will find the same patterns. Pretentious diction, meaningless words, dying metaphors, passive constructions. These are moral failures, not style failures. The writer who hides behind bad prose is choosing not to be understood, and that choice has consequences.</p>
+    <p>The examples are political, but the diagnosis applies everywhere: academic writing, corporate communications, legal language. Anywhere the writer benefits from the reader not understanding, you will find the same patterns. Pretentious diction, meaningless words, dying metaphors, passive constructions. These are moral failures, not style failures. The writer who hides behind bad prose is choosing not to be understood, and that choice has consequences.</p>
 
     <h3>The six rules</h3>
 
@@ -251,11 +251,11 @@ import Layout from '../../../layouts/Base.astro';
 
     <h3>Discussion</h3>
 
-    <p>Rule 6 is what makes Orwell better than Strunk. Strunk's rules are absolute: always use active voice, always omit needless words. Orwell says: usually use active voice, but not if it makes the sentence worse. This is a linter with a suppress directive. It acknowledges that rules are heuristics, not laws. A linter that fires on every passive construction is useless in a codebase that needs passive constructions. The suppress directive is what makes the linter worth running.</p>
+    <p>Rule 6 is what makes Orwell better than Strunk. Strunk's rules are absolute: always use active voice, always omit needless words. Orwell says: usually use active voice, but not if it makes the sentence worse. This is a checklist with an override. It acknowledges that rules are heuristics, not laws. A checklist that flags every passive sentence is useless when some sentences need to be passive. The override is what makes the checklist worth using.</p>
 
-    <p>The weakness is that Orwell doesn't say when the rules should be broken. He trusts the writer's judgment, which is exactly what bad writers lack. The writer who most needs Rule 3 ("cut if possible") is the writer least able to recognize what's cuttable. The rules are diagnostic: they tell you what's wrong. They are not generative: they don't tell you what's right. "Break any rule sooner than say anything barbarous" is a suppress directive with no condition. It says the linter can be wrong, but not how to tell.</p>
+    <p>The weakness is that Orwell doesn't say when the rules should be broken. He trusts the writer's judgment, which is exactly what bad writers lack. The writer who most needs Rule 3 ("cut if possible") is the writer least able to recognize what's cuttable. The rules are diagnostic: they tell you what's wrong. They are not generative: they don't tell you what's right. "Break any rule sooner than say anything barbarous" is an override with no condition. It says the rules can be wrong, but not how to tell.</p>
 
-    <p>The essay endures because the feedback loop it describes never stopped. Every generation produces its own euphemisms, its own pretentious diction, its own vague abstractions designed to insulate power from scrutiny. The specific examples change. The structure doesn't. That is why Orwell's rules still compile: they target the structure, not the examples.</p>
+    <p>The essay endures because the feedback loop it describes never stopped. Every generation produces its own euphemisms, its own pretentious diction, its own vague abstractions designed to insulate power from scrutiny. The specific examples change. The structure doesn't. That is why Orwell's rules still hold: they target the structure, not the examples.</p>
 
     <hr class="border-zinc-700 my-8"/>
 

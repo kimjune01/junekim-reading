@@ -14,49 +14,52 @@ import Layout from '../../../layouts/Base.astro';
       <p class="text-lg" style="max-width:none">Rhetoric was oral. Blair made it literary. For the first time, someone taught style as a skill you develop through study and practice. "Taste" became learnable, not an aristocratic inheritance.</p>
     </div>
 
-    <!-- SVG: Oral to written rhetoric -->
+    <!-- SVG: Before Blair vs. after Blair -->
     <div class="flex justify-center my-6">
       <svg viewBox="0 0 480 200" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
 
-        <!-- Left: Oral rhetoric -->
-        <text x="120" y="20" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.6">oral rhetoric</text>
+        <!-- Left: Before Blair — taste as innate -->
+        <text x="110" y="18" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">before Blair</text>
 
-        <!-- Speaker icon -->
-        <circle cx="120" cy="55" r="12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
-        <circle cx="120" cy="50" r="5" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <line x1="120" y1="55" x2="120" y2="70" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <!-- Radiating lines -->
-        <line x1="138" y1="45" x2="148" y2="40" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <line x1="140" y1="55" x2="150" y2="55" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <line x1="138" y1="65" x2="148" y2="70" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <!-- "Good taste" circle — locked, opaque -->
+        <circle cx="110" cy="70" r="30" fill="none" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.2" stroke-dasharray="4,3"/>
+        <text x="110" y="67" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">taste</text>
+        <text x="110" y="79" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.2">(innate)</text>
 
-        <!-- Oral properties -->
-        <text x="120" y="100" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">memory</text>
-        <text x="120" y="114" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">delivery</text>
-        <text x="120" y="128" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">audience presence</text>
+        <!-- Three people, two locked out -->
+        <text x="55" y="130" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.15">born with it</text>
+        <text x="55" y="143" text-anchor="middle" fill="#34d399" font-size="10" fill-opacity="0.5">&#x2713;</text>
+        <text x="110" y="130" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.15">not born with it</text>
+        <text x="110" y="143" text-anchor="middle" fill="#ef4444" font-size="10" fill-opacity="0.4">&#x2717;</text>
+        <text x="165" y="130" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.15">not born with it</text>
+        <text x="165" y="143" text-anchor="middle" fill="#ef4444" font-size="10" fill-opacity="0.4">&#x2717;</text>
 
-        <!-- Arrow -->
-        <line x1="200" y1="55" x2="270" y2="55" stroke="#71717a" stroke-width="1.5" stroke-opacity="0.45"/>
-        <polygon points="270,50 280,55 270,60" fill="#71717a" fill-opacity="0.45"/>
-        <text x="240" y="75" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.25">Blair 1783</text>
+        <!-- Divider -->
+        <line x1="230" y1="10" x2="230" y2="180" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.3"/>
 
-        <!-- Right: Written rhetoric -->
-        <text x="360" y="20" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.6">written rhetoric</text>
+        <!-- Right: After Blair — taste as curriculum -->
+        <text x="360" y="18" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">after Blair</text>
 
-        <!-- Page/document icon -->
-        <rect x="340" y="35" width="40" height="50" rx="3" fill="#a1a1aa" fill-opacity="0.1" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
-        <line x1="348" y1="47" x2="372" y2="47" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <line x1="348" y1="54" x2="372" y2="54" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <line x1="348" y1="61" x2="372" y2="61" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <line x1="348" y1="68" x2="365" y2="68" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <!-- Curriculum stack -->
+        <rect x="310" y="35" width="100" height="22" rx="3" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="360" y="50" text-anchor="middle" fill="#f59e0b" font-size="8" fill-opacity="0.6">read widely</text>
 
-        <!-- Written properties -->
-        <text x="360" y="100" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">revision</text>
-        <text x="360" y="114" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">structure</text>
-        <text x="360" y="128" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">absent reader</text>
+        <rect x="310" y="62" width="100" height="22" rx="3" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="360" y="77" text-anchor="middle" fill="#f59e0b" font-size="8" fill-opacity="0.6">notice reactions</text>
+
+        <rect x="310" y="89" width="100" height="22" rx="3" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="360" y="104" text-anchor="middle" fill="#f59e0b" font-size="8" fill-opacity="0.6">practice judgment</text>
+
+        <!-- Arrow down to taste -->
+        <line x1="360" y1="114" x2="360" y2="132" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+        <polygon points="356,130 360,138 364,130" fill="#f59e0b" fill-opacity="0.4"/>
+
+        <!-- "Taste" circle — open, earned -->
+        <circle cx="360" cy="158" r="20" fill="#f59e0b" fill-opacity="0.06" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.4"/>
+        <text x="360" y="162" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">taste</text>
 
         <!-- Bottom note -->
-        <text x="240" y="170" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.2">the text has to do all the work</text>
+        <text x="240" y="195" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.2">judgment as curriculum, not birthright</text>
       </svg>
     </div>
 
@@ -97,11 +100,27 @@ import Layout from '../../../layouts/Base.astro';
 
     <p>Both say the same thing. The first took sixty words. The second took seven. Blair would say the ability to feel the difference — to wince at the first and nod at the second — is taste. You develop it by reading widely and paying attention to your own reactions. Which sentences do you re-read for pleasure? Which do you skim? The pattern in your reactions is your taste forming.</p>
 
+    <p>Now listen for rhythm:</p>
+
+    <blockquote class="border-l-2 border-zinc-600 pl-4 my-4 text-gray-400 italic">"The sequential implementation of the various project phases was completed on time."</blockquote>
+
+    <blockquote class="border-l-2 border-zinc-600 pl-4 my-4 text-gray-300 italic">"Each phase finished on time."</blockquote>
+
+    <p>The first trips over itself. The second lands clean. You don't need to name the difference to feel it. That feeling is taste.</p>
+
+    <p>Now watch for specificity:</p>
+
+    <blockquote class="border-l-2 border-zinc-600 pl-4 my-4 text-gray-400 italic">"The event was a great success and many people attended."</blockquote>
+
+    <blockquote class="border-l-2 border-zinc-600 pl-4 my-4 text-gray-300 italic">"Three hundred people showed up. We ran out of chairs."</blockquote>
+
+    <p>The first tells you it went well. The second puts you in the room. Blair would say: the writer who reaches for "great success" hasn't looked closely enough. The writer who counts the chairs has.</p>
+
     <h3>Discussion</h3>
 
     <p>Blair's lectures were the standard rhetoric textbook for a century. They were used at Edinburgh, Harvard, Yale, and across the English-speaking world. That influence is itself the proof of his central thesis: if taste were innate, you wouldn't need a textbook.</p>
 
-    <p>His weakness is the one every subsequent writer on style had to fix. "Taste" is subjective without criteria. What makes one sentence better than another? Blair appeals to the consensus of educated readers, which is circular. Good taste is what people with good taste recognize. He never gets past this. Strunk later gave concrete rules: omit needless words, use the active voice. Williams later gave structural principles: old before new, characters as subjects, actions as verbs. Both were doing what Blair couldn't: turning taste into something falsifiable.</p>
+    <p>His weakness: "taste" without criteria is circular. What makes one sentence better than another? Blair appeals to the consensus of educated readers. Good taste is what people with good taste recognize. He never gets past this. Strunk later gave concrete rules: omit needless words, use the active voice. Williams later gave structural principles: old before new, characters as subjects, actions as verbs. Both were doing what Blair couldn't: turning taste into something falsifiable.</p>
 
     <p>But Blair established the frame that made Strunk and Williams possible. Before Blair, rhetoric was either an elite birthright (the classical tradition) or a collection of ornamental tricks (the elocutionists). After Blair, it was a discipline with a curriculum. The specific content would be replaced many times over. The frame has not.</p>
 

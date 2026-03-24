@@ -14,58 +14,66 @@ import Layout from '../../../layouts/Base.astro';
       <p class="text-lg" style="max-width:none">Strunk said omit needless words. Zinsser asked: why are they there? His answer: because the writer hasn&rsquo;t finished thinking. Clutter is a symptom of unclear thought. The cure is rewriting, not once, but until every sentence says exactly what you mean and nothing else.</p>
     </div>
 
-    <!-- SVG: Rewriting process — draft layers getting shorter -->
+    <!-- SVG: Zinsser's causal diagnosis — clutter traces back to unclear thinking -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 480 260" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
+      <svg viewBox="0 0 480 220" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
 
-        <!-- Draft 1 — tallest -->
-        <rect x="40" y="30" width="100" height="150" rx="4" fill="#a1a1aa" fill-opacity="0.08" stroke="currentColor" stroke-width="1" stroke-opacity="0.25"/>
-        <text x="90" y="22" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.6">Draft 1</text>
-        <!-- Filler lines -->
-        <line x1="55" y1="50" x2="125" y2="50" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="62" x2="125" y2="62" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="74" x2="125" y2="74" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="86" x2="125" y2="86" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="98" x2="125" y2="98" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="110" x2="125" y2="110" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="122" x2="125" y2="122" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="134" x2="125" y2="134" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="146" x2="125" y2="146" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="158" x2="125" y2="158" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="55" y1="170" x2="105" y2="170" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
+        <!-- Strunk's view (surface) -->
+        <text x="240" y="18" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">Strunk sees this</text>
 
-        <!-- Arrow 1 -->
-        <line x1="155" y1="105" x2="185" y2="105" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.5"/>
-        <polygon points="185,101 193,105 185,109" fill="#a78bfa" fill-opacity="0.5"/>
-        <text x="174" y="95" text-anchor="middle" fill="#a78bfa" font-size="8" fill-opacity="0.6">cut</text>
+        <!-- Cluttered sentence -->
+        <rect x="80" y="28" width="320" height="30" rx="4" fill="#a1a1aa" fill-opacity="0.06" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <text x="100" y="47" fill="currentColor" font-size="8" fill-opacity="0.25">I think what I'm trying to say is that</text>
+        <text x="320" y="47" fill="#ef4444" font-size="8" fill-opacity="0.5">needless words</text>
 
-        <!-- Draft 2 — medium -->
-        <rect x="200" y="55" width="100" height="100" rx="4" fill="#a1a1aa" fill-opacity="0.08" stroke="currentColor" stroke-width="1" stroke-opacity="0.25"/>
-        <text x="250" y="47" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.6">Draft 2</text>
-        <line x1="215" y1="75" x2="285" y2="75" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="215" y1="87" x2="285" y2="87" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="215" y1="99" x2="285" y2="99" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="215" y1="111" x2="285" y2="111" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="215" y1="123" x2="285" y2="123" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="215" y1="135" x2="270" y2="135" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
+        <!-- Strunk's fix: delete -->
+        <line x1="420" y1="43" x2="450" y2="43" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+        <text x="455" y="46" fill="#ef4444" font-size="8" fill-opacity="0.5">cut</text>
 
-        <!-- Arrow 2 -->
-        <line x1="315" y1="105" x2="345" y2="105" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.5"/>
-        <polygon points="345,101 353,105 345,109" fill="#a78bfa" fill-opacity="0.5"/>
-        <text x="334" y="95" text-anchor="middle" fill="#a78bfa" font-size="8" fill-opacity="0.6">clarify</text>
+        <!-- Divider -->
+        <line x1="60" y1="75" x2="420" y2="75" stroke="#71717a" stroke-width="0.5" stroke-opacity="0.2"/>
 
-        <!-- Draft 3 — shortest -->
-        <rect x="360" y="80" width="100" height="60" rx="4" fill="#a78bfa" fill-opacity="0.08" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
-        <text x="410" y="72" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.6">Draft 3</text>
-        <line x1="375" y1="100" x2="445" y2="100" stroke="#a78bfa" stroke-width="0.8" stroke-opacity="0.25"/>
-        <line x1="375" y1="112" x2="445" y2="112" stroke="#a78bfa" stroke-width="0.8" stroke-opacity="0.25"/>
-        <line x1="375" y1="124" x2="420" y2="124" stroke="#a78bfa" stroke-width="0.8" stroke-opacity="0.25"/>
+        <!-- Zinsser's view (cause) -->
+        <text x="240" y="95" text-anchor="middle" fill="#a78bfa" font-size="10" fill-opacity="0.6">Zinsser asks why</text>
 
-        <!-- Bottom label -->
-        <text x="410" y="210" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">what remains is what you meant</text>
+        <!-- Causal chain: unclear thought → clutter → rewrite → clear thought -->
+        <rect x="30" y="110" width="95" height="40" rx="4" fill="#a78bfa" fill-opacity="0.06" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="77" y="128" text-anchor="middle" fill="#a78bfa" font-size="8" fill-opacity="0.6">unclear</text>
+        <text x="77" y="140" text-anchor="middle" fill="#a78bfa" font-size="8" fill-opacity="0.6">thought</text>
 
-        <!-- Baseline -->
-        <line x1="40" y1="190" x2="460" y2="190" stroke="#71717a" stroke-width="0.5" stroke-opacity="0.2"/>
+        <!-- Arrow: produces -->
+        <line x1="128" y1="130" x2="155" y2="130" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
+        <polygon points="153,127 160,130 153,133" fill="#a78bfa" fill-opacity="0.3"/>
+        <text x="143" y="122" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.2">produces</text>
+
+        <rect x="163" y="110" width="75" height="40" rx="4" fill="#ef4444" fill-opacity="0.06" stroke="#ef4444" stroke-width="1" stroke-opacity="0.25"/>
+        <text x="200" y="134" text-anchor="middle" fill="#ef4444" font-size="8" fill-opacity="0.5">clutter</text>
+
+        <!-- Arrow: rewrite -->
+        <line x1="241" y1="130" x2="268" y2="130" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
+        <polygon points="266,127 273,130 266,133" fill="#a78bfa" fill-opacity="0.3"/>
+        <text x="256" y="122" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.2">rewrite</text>
+
+        <rect x="276" y="110" width="75" height="40" rx="4" fill="#a78bfa" fill-opacity="0.06" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="313" y="128" text-anchor="middle" fill="#a78bfa" font-size="8" fill-opacity="0.6">clearer</text>
+        <text x="313" y="140" text-anchor="middle" fill="#a78bfa" font-size="8" fill-opacity="0.6">thought</text>
+
+        <!-- Arrow: produces -->
+        <line x1="354" y1="130" x2="381" y2="130" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
+        <polygon points="379,127 386,130 379,133" fill="#a78bfa" fill-opacity="0.3"/>
+        <text x="369" y="122" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.2">produces</text>
+
+        <rect x="389" y="110" width="75" height="40" rx="4" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="426" y="128" text-anchor="middle" fill="#34d399" font-size="8" fill-opacity="0.6">clean</text>
+        <text x="426" y="140" text-anchor="middle" fill="#34d399" font-size="8" fill-opacity="0.6">prose</text>
+
+        <!-- Feedback loop arrow from "clearer thought" back to rewrite -->
+        <path d="M 313 153 C 313 175, 200 175, 200 153" fill="none" stroke="#a78bfa" stroke-width="0.8" stroke-opacity="0.25" stroke-dasharray="3,3"/>
+        <polygon points="197,155 200,148 203,155" fill="#a78bfa" fill-opacity="0.25"/>
+        <text x="256" y="186" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.2">repeat until the thought is finished</text>
+
+        <!-- Bottom note -->
+        <text x="240" y="210" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.2">the fix is upstream of the sentence</text>
       </svg>
     </div>
 
