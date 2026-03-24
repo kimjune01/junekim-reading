@@ -9,28 +9,34 @@ import Layout from '../layouts/Base.astro';
     <p class="text-lg text-gray-300 mb-6">Textbooks and papers, translated into runnable code with diagrams.</p>
 
     <h2 class="text-xl font-semibold mb-4">How to read these</h2>
+    <p class="text-gray-400 mb-4">Every page has runnable code. If you're new to the languages used on this site, start here.</p>
 
-    <p class="text-gray-400 mb-4">Every page has two REPLs. Green code is <strong>Scheme</strong> (the primary). Click Run to execute it in your browser. Modify and re-run.</p>
-
-    <div class="bg-zinc-800 rounded-lg p-4 mb-4 font-mono text-sm">
-      <p class="text-green-300 mb-1">; Scheme — everything is an expression</p>
-      <p class="text-green-300 mb-1">(+ 1 2)              ; 3</p>
-      <p class="text-green-300 mb-1">(define (square x) (* x x))</p>
-      <p class="text-green-300 mb-1">(square 5)            ; 25</p>
-      <p class="text-green-300 mb-1">(map square '(1 2 3)) ; (1 4 9)</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm">
+        <thead>
+          <tr>
+            <th class="text-left py-2 pr-3 text-gray-400">📚</th>
+            <th class="text-left py-2 pr-3 text-gray-400">Language</th>
+            <th class="text-left py-2 pr-3 text-gray-400">Role on this site</th>
+            <th class="text-left py-2 text-gray-400"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="py-2 pr-3">🟢</td>
+            <td class="pr-3">Scheme</td>
+            <td class="pr-3 text-gray-400">Primary REPL on every page. Functional, minimal syntax.</td>
+            <td><a href="/reading/how/scheme/" class="text-yellow-300 hover:text-yellow-200">start</a></td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-3">🔵</td>
+            <td class="pr-3">Python</td>
+            <td class="pr-3 text-gray-400">Imperative equivalent in collapsible blocks. Familiar syntax.</td>
+            <td><a href="/reading/how/python/" class="text-yellow-300 hover:text-yellow-200">start</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <p class="text-gray-400 mb-4">The <strong>Python</strong> equivalent is in a collapsible "imperative equivalent" block below each Scheme REPL. If you know Python but not Scheme, start there.</p>
-
-    <div class="bg-zinc-800 rounded-lg p-4 mb-4 font-mono text-sm">
-      <p class="text-blue-300 mb-1"># Python — same ideas, different syntax</p>
-      <p class="text-blue-300 mb-1">1 + 2              # 3</p>
-      <p class="text-blue-300 mb-1">def square(x): return x * x</p>
-      <p class="text-blue-300 mb-1">square(5)          # 25</p>
-      <p class="text-blue-300 mb-1">[square(x) for x in [1,2,3]]  # [1,4,9]</p>
-    </div>
-
-    <p class="text-gray-400 mb-6">Both run entirely in your browser. Nothing is sent to a server. You can't break anything.</p>
 
     <hr class="border-zinc-700 my-8"/>
 
