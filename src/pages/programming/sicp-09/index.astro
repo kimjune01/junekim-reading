@@ -7,7 +7,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 <Layout title="📖 SICP Ch.9 — Assignment & State" favicon="📖">
   <main>
 
-    <a href="/reading/programming/" class="text-sm mb-4 inline-block">← back to programming</a>
+    <a href="/reading/programming/" class="text-sm mb-4 inline-block">&larr; back to programming</a>
 
     <h1>Assignment &amp; State</h1>
     <p class="text-gray-400 text-sm mb-6">Abelson &amp; Sussman · 1996 · <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-20.html#%_sec_3.1">SICP §3.1</a></p>
@@ -139,16 +139,16 @@ print(acc.withdraw(60))  # 30
 
 ; Now compare with set! version:
 ; Same call, different results
-(define W (make-withdraw 100))
-(display (W 25)) (newline)  ; 75
-(display (W 25))            ; 50  — not the same!
-
 (define (make-withdraw balance)
   (lambda (amount)
     (if (>= balance amount)
         (begin (set! balance (- balance amount))
                balance)
         "Insufficient funds")))
+
+(define W (make-withdraw 100))
+(display (W 25)) (newline)  ; 75
+(display (W 25))            ; 50 — not the same!
 `} />
 
     <details class="my-2">
@@ -189,24 +189,27 @@ print(W(25))  # 50 — not the same!
   (set! rand-state
         (modulo (+ (* 1103515245 rand-state) 12345)
                 (expt 2 31)))
-  (/ rand-state (expt 2 31)))
+  rand-state)
 
 (define (monte-carlo trials experiment)
   (define (iter remaining passed)
     (cond ((= remaining 0)
-           (/ passed trials))
+           (exact->inexact (/ passed trials)))
           ((experiment)
            (iter (- remaining 1) (+ passed 1)))
           (else
            (iter (- remaining 1) passed))))
   (iter trials 0))
 
+; Cesaro test: are two random numbers coprime?
 (define (cesaro-test)
-  (= (gcd (rand-state) (+ 1 (modulo (* 7 rand-state) 1000))) 1))
+  (= (gcd (rand) (rand)) 1))
 
 (define fraction (monte-carlo 1000 cesaro-test))
-(display "fraction of coprime pairs: ")
-(display (exact->inexact fraction))
+(display "fraction coprime: ")
+(display fraction) (newline)
+(display "pi estimate: ")
+(display (sqrt (/ 6.0 fraction)))
 `} />
 
     <details class="my-2">
@@ -233,6 +236,19 @@ print(f"pi estimate:      {pi_est:.4f}")
     <p>If two variables refer to the same mutable object, changing one affects the other. Before <code>set!</code>, "same" meant "equal value." After <code>set!</code>, we must distinguish <strong>identity</strong> (same object) from <strong>equality</strong> (same value).</p>
 
     <SchemeRepl client:load initialCode={`; Identity vs equality with mutable state
+(define (make-account balance)
+  (define (withdraw amount)
+    (if (>= balance amount)
+        (begin (set! balance (- balance amount)) balance)
+        "Insufficient funds"))
+  (define (deposit amount)
+    (set! balance (+ balance amount)) balance)
+  (define (dispatch m)
+    (cond ((eq? m 'withdraw) withdraw)
+          ((eq? m 'deposit) deposit)
+          (else (error "Unknown request" m))))
+  dispatch)
+
 (define acc1 (make-account 100))
 (define acc2 (make-account 100))
 
@@ -249,19 +265,6 @@ print(f"pi estimate:      {pi_est:.4f}")
 ((acc3 'deposit) 50)
 (display "acc1 after acc3 deposit: ")
 (display ((acc1 'withdraw) 0))
-
-(define (make-account balance)
-  (define (withdraw amount)
-    (if (>= balance amount)
-        (begin (set! balance (- balance amount)) balance)
-        "Insufficient funds"))
-  (define (deposit amount)
-    (set! balance (+ balance amount)) balance)
-  (define (dispatch m)
-    (cond ((eq? m 'withdraw) withdraw)
-          ((eq? m 'deposit) deposit)
-          (else (error "Unknown request" m))))
-  dispatch)
 `} />
 
     <details class="my-2">
@@ -330,9 +333,13 @@ print(f"acc1 is acc3: {acc1 is acc3}")  # True
       <li><a href="https://en.wikipedia.org/wiki/Imperative_programming">Wikipedia: Imperative programming</a></li>
     </ul>
 
+    <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
+      Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-20.html#%_sec_3.1">Read SICP &sect;3.1</a>.
+    </div>
+
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-08/">← Generic Operations</a>
-      <a href="/reading/programming/sicp-10/">Environment Model →</a>
+      <a href="/reading/programming/sicp-08/">&larr; Generic Operations</a>
+      <a href="/reading/programming/sicp-10/">Environment Model &rarr;</a>
     </div>
 
   </main>

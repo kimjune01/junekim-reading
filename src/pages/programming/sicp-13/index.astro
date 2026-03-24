@@ -7,7 +7,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 <Layout title="📖 SICP Ch.13 — Streams" favicon="📖">
   <main>
 
-    <a href="/reading/programming/" class="text-sm mb-4 inline-block">← back to programming</a>
+    <a href="/reading/programming/" class="text-sm mb-4 inline-block">&larr; back to programming</a>
 
     <h1>Streams</h1>
     <p class="text-gray-400 text-sm mb-6">Abelson &amp; Sussman · 1996 · <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-24.html#%_sec_3.5">SICP §3.5</a></p>
@@ -94,7 +94,14 @@ print(next(s))  # 3
     <h3>Infinite streams</h3>
     <p>Since the cdr is delayed, a stream can be infinite. The integers, the Fibonacci sequence, and the primes all have natural stream definitions.</p>
 
-    <SchemeRepl client:load initialCode={`; Infinite stream of integers starting from n
+    <SchemeRepl client:load initialCode={`; Stream primitives (needed in each REPL block)
+(define-syntax cons-stream
+  (syntax-rules ()
+    ((cons-stream a b) (cons a (delay b)))))
+(define (stream-car s) (car s))
+(define (stream-cdr s) (force (cdr s)))
+
+; Infinite stream of integers starting from n
 (define (integers-from n)
   (cons-stream n (integers-from (+ n 1))))
 
@@ -114,12 +121,6 @@ print(next(s))  # 3
 
 (define fibs (fibgen 0 1))
 (display (stream-take fibs 12))
-
-(define-syntax cons-stream
-  (syntax-rules ()
-    ((cons-stream a b) (cons a (delay b)))))
-(define (stream-car s) (car s))
-(define (stream-cdr s) (force (cdr s)))
 `} />
 
     <details class="my-2">
@@ -146,7 +147,22 @@ print(list(islice(fibs(), 12)))
     <h3>Exploiting the stream paradigm</h3>
     <p>Stream-map, stream-filter, and stream-accumulate give you the same composable pipeline as list operations, but lazily. Define a sieve of Eratosthenes in two lines.</p>
 
-    <SchemeRepl client:load initialCode={`; Stream utilities
+    <SchemeRepl client:load initialCode={`; Stream primitives
+(define-syntax cons-stream
+  (syntax-rules ()
+    ((cons-stream a b) (cons a (delay b)))))
+(define (stream-car s) (car s))
+(define (stream-cdr s) (force (cdr s)))
+(define stream-null '())
+(define (stream-null? s) (null? s))
+(define (integers-from n)
+  (cons-stream n (integers-from (+ n 1))))
+(define (stream-take s n)
+  (if (= n 0) '()
+      (cons (stream-car s)
+            (stream-take (stream-cdr s) (- n 1)))))
+
+; Stream utilities
 (define (stream-filter pred s)
   (cond ((stream-null? s) stream-null)
         ((pred (stream-car s))
@@ -169,20 +185,6 @@ print(list(islice(fibs(), 12)))
 
 (define primes (sieve (integers-from 2)))
 (display (stream-take primes 15))
-
-(define-syntax cons-stream
-  (syntax-rules ()
-    ((cons-stream a b) (cons a (delay b)))))
-(define (stream-car s) (car s))
-(define (stream-cdr s) (force (cdr s)))
-(define stream-null '())
-(define (stream-null? s) (null? s))
-(define (integers-from n)
-  (cons-stream n (integers-from (+ n 1))))
-(define (stream-take s n)
-  (if (= n 0) '()
-      (cons (stream-car s)
-            (stream-take (stream-cdr s) (- n 1)))))
 `} />
 
     <details class="my-2">
@@ -209,7 +211,18 @@ print(list(islice(primes, 15)))
     <h3>Implicit stream definitions</h3>
     <p>Streams can be defined implicitly, referring to themselves. The ones stream is 1 followed by itself. Adding two streams element-wise lets you define Fibonacci numbers as: fibs = 0, 1, fibs + (cdr fibs).</p>
 
-    <SchemeRepl client:load initialCode={`; Implicit definitions: streams that reference themselves
+    <SchemeRepl client:load initialCode={`; Stream primitives
+(define-syntax cons-stream
+  (syntax-rules ()
+    ((cons-stream a b) (cons a (delay b)))))
+(define (stream-car s) (car s))
+(define (stream-cdr s) (force (cdr s)))
+(define (stream-take s n)
+  (if (= n 0) '()
+      (cons (stream-car s)
+            (stream-take (stream-cdr s) (- n 1)))))
+
+; Implicit definitions: streams that reference themselves
 
 ; add-streams: element-wise addition
 (define (add-streams s1 s2)
@@ -233,16 +246,6 @@ print(list(islice(primes, 15)))
 
 (display "fibs: ")
 (display (stream-take fibs 12))
-
-(define-syntax cons-stream
-  (syntax-rules ()
-    ((cons-stream a b) (cons a (delay b)))))
-(define (stream-car s) (car s))
-(define (stream-cdr s) (force (cdr s)))
-(define (stream-take s n)
-  (if (= n 0) '()
-      (cons (stream-car s)
-            (stream-take (stream-cdr s) (- n 1)))))
 `} />
 
     <details class="my-2">
@@ -281,21 +284,7 @@ print("fibs:", list(islice(fibs(), 12)))
     <h3>Streams and delayed evaluation</h3>
     <p>Streams decouple the <em>order of events</em> from the <em>apparent structure</em> of the computation. You write code that looks like it processes an entire sequence, but only the needed elements are ever computed. This is <strong>normal-order evaluation</strong> achieved within an applicative-order language.</p>
 
-    <SchemeRepl client:load initialCode={`; Partial sums: running total of a stream
-(define (partial-sums s)
-  (cons-stream (stream-car s)
-               (add-streams (partial-sums s)
-                            (stream-cdr s))))
-
-(define (add-streams s1 s2)
-  (cons-stream (+ (stream-car s1) (stream-car s2))
-               (add-streams (stream-cdr s1) (stream-cdr s2))))
-
-; 1, 1+2, 1+2+3, ...
-(define sums (partial-sums (integers-from 1)))
-(display "partial sums: ")
-(display (stream-take sums 8))
-
+    <SchemeRepl client:load initialCode={`; Stream primitives
 (define-syntax cons-stream
   (syntax-rules ()
     ((cons-stream a b) (cons a (delay b)))))
@@ -307,6 +296,21 @@ print("fibs:", list(islice(fibs(), 12)))
   (if (= n 0) '()
       (cons (stream-car s)
             (stream-take (stream-cdr s) (- n 1)))))
+
+; Partial sums: running total of a stream
+(define (add-streams s1 s2)
+  (cons-stream (+ (stream-car s1) (stream-car s2))
+               (add-streams (stream-cdr s1) (stream-cdr s2))))
+
+(define (partial-sums s)
+  (cons-stream (stream-car s)
+               (add-streams (partial-sums s)
+                            (stream-cdr s))))
+
+; 1, 1+2, 1+2+3, ...
+(define sums (partial-sums (integers-from 1)))
+(display "partial sums: ")
+(display (stream-take sums 8))
 `} />
 
     <details class="my-2">
@@ -358,9 +362,13 @@ print("partial sums:", list(islice(sums, 8)))
       <li><a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Wikipedia: Sieve of Eratosthenes</a></li>
     </ul>
 
+    <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
+      Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-24.html#%_sec_3.5">Read SICP &sect;3.5</a>.
+    </div>
+
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-12/">← Concurrency</a>
-      <a href="/reading/programming/sicp-14/">Metacircular Evaluator →</a>
+      <a href="/reading/programming/sicp-12/">&larr; Concurrency</a>
+      <a href="/reading/programming/sicp-14/">Metacircular Evaluator &rarr;</a>
     </div>
 
   </main>
