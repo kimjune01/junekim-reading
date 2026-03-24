@@ -7,7 +7,7 @@ import SchemeRepl from '../../components/SchemeRepl';
 <Layout title="🎰 Grinstead &amp; Snell Ch 6 — Expected Value and Variance">
   <main>
 
-    <a href="/natural-breadcrumbs/probability/" class="text-sm mb-4 inline-block">&larr; back to probability</a>
+    <a href="/reading/probability/" class="text-sm mb-4 inline-block">&larr; back to probability</a>
 
     <h1>Expected Value and Variance</h1>
     <p class="text-gray-400 text-sm mb-6">Grinstead &amp; Snell &middot; GFDL &middot; <a href="https://math.dartmouth.edu/~prob/prob/prob.pdf">PDF</a></p>
@@ -152,7 +152,7 @@ print(f"SD(X) = {math.sqrt(var):.4f}")
 
     <!-- 4. Expected value as information -->
     <h3>Connection: expected value and entropy</h3>
-    <p>Shannon entropy H(X) = -sum P(x) log P(x) is itself an expected value: the average surprise. <a href="/natural-breadcrumbs/baez-fritz-2011/">Baez and Fritz (2011)</a> showed that entropy is the unique functor preserving this expectation structure. Expected value is not just a summary statistic. It is the interface between probability and information.</p>
+    <p>Shannon entropy H(X) = -sum P(x) log P(x) is itself an expected value: the average surprise. <a href="/reading/baez-fritz-2011/">Baez and Fritz (2011)</a> showed that entropy is the unique functor preserving this expectation structure. Expected value is not just a summary statistic. It is the interface between probability and information.</p>
 
     <SchemeRepl client:load initialCode={`; Shannon entropy is an expected value: E[-log P(x)]
 ; H(X) = -sum P(x) * log2(P(x))
@@ -201,14 +201,14 @@ print(f"SD(X) = {math.sqrt(var):.4f}")
 
     <p class="text-sm text-gray-500 mb-2">Probability chapters</p>
     <ul>
-      <li><a href="/natural-breadcrumbs/grinstead-05/">&#x1F3B0; Ch 5</a> &mdash; the distributions whose expected values and variances we compute here</li>
-      <li><a href="/natural-breadcrumbs/grinstead-07/">&#x1F3B0; Ch 7</a> &mdash; sums of random variables: linearity in action</li>
-      <li><a href="/natural-breadcrumbs/grinstead-08/">&#x1F3B0; Ch 8</a> &mdash; law of large numbers: sample means converge to E[X]</li>
+      <li><a href="/reading/grinstead-05/">&#x1F3B0; Ch 5</a> &mdash; the distributions whose expected values and variances we compute here</li>
+      <li><a href="/reading/grinstead-07/">&#x1F3B0; Ch 7</a> &mdash; sums of random variables: linearity in action</li>
+      <li><a href="/reading/grinstead-08/">&#x1F3B0; Ch 8</a> &mdash; law of large numbers: sample means converge to E[X]</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Paper pages</p>
     <ul>
-      <li><a href="/natural-breadcrumbs/baez-fritz-2011/">&#x1F35E; Baez &amp; Fritz 2011</a> &mdash; entropy as a functor, the categorical view of expected information</li>
+      <li><a href="/reading/baez-fritz-2011/">&#x1F35E; Baez &amp; Fritz 2011</a> &mdash; entropy as a functor, the categorical view of expected information</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
@@ -226,8 +226,8 @@ print(f"SD(X) = {math.sqrt(var):.4f}")
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/natural-breadcrumbs/grinstead-05/">← Distributions</a>
-      <a href="/natural-breadcrumbs/grinstead-07/">Sums of Variables →</a>
+      <a href="/reading/grinstead-05/">← Distributions</a>
+      <a href="/reading/grinstead-07/">Sums of Variables →</a>
     </div>
 
   </main>

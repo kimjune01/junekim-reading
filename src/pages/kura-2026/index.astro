@@ -7,12 +7,12 @@ import SchemeRepl from '../../components/SchemeRepl';
 <Layout title="🍞 Kura 2026 — Indexed Graded Monads">
   <main>
 
-    <a href="/natural-breadcrumbs/" class="text-sm mb-4 inline-block">← back to index</a>
+    <a href="/reading/" class="text-sm mb-4 inline-block">← back to index</a>
 
     <h1>Indexed Graded Monads and Their Logics</h1>
-    <p class="text-gray-400 text-sm mb-6">Kura, Gaboardi, Sekiyama, Unno · ESOP 2026 · <a href="https://arxiv.org/abs/2601.14846"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> arXiv:2601.14846</a></p>
+    <p class="text-gray-400 text-sm mb-6">Kura, Gaboardi, Sekiyama, Unno · ESOP 2026 · <a href="https://arxiv.org/abs/2601.14846"><img src="/reading/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> arXiv:2601.14846</a></p>
 
-    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> (Hoare triples), <a href="/natural-breadcrumbs/gaboardi-2021/">🍞 Gaboardi 2021</a> (graded effects).</p>
+    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/staton-2025/">🍞 Staton 2025</a> (Hoare triples), <a href="/reading/gaboardi-2021/">🍞 Gaboardi 2021</a> (graded effects).</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
       <p class="text-lg" style="max-width:none">An <strong>indexed graded monad</strong> combines two ideas: the <em>index</em> says which type of state you start and end in (like a state machine), and the <em>grade</em> tracks cumulative effects. Definition 7 gives the composition rule: the output index of stage 1 must equal the input index of stage 2.</p>
@@ -520,9 +520,9 @@ for x in [80, 90, 95, 97, 100, 103, 110, 120]:
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul>
-      <li><a href="/natural-breadcrumbs/gaboardi-2021/">🍞 Gaboardi 2021</a> — graded Hoare logic (grading without indexing)</li>
-      <li><a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> — ungraded Hoare logic (the handshake without budgets)</li>
-      <li><a href="/natural-breadcrumbs/liell-cock-2025/">🍞 Liell-Cock 2025</a> — graded monads in the Para construction</li>
+      <li><a href="/reading/gaboardi-2021/">🍞 Gaboardi 2021</a> — graded Hoare logic (grading without indexing)</li>
+      <li><a href="/reading/staton-2025/">🍞 Staton 2025</a> — ungraded Hoare logic (the handshake without budgets)</li>
+      <li><a href="/reading/liell-cock-2025/">🍞 Liell-Cock 2025</a> — graded monads in the Para construction</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
@@ -537,7 +537,7 @@ for x in [80, 90, 95, 97, 100, 103, 110, 120]:
     <p>All examples use simple integers for grades and symbols for indices. The paper works over preordered semirings for grades and arbitrary index categories, with the restricted pointwise order defined on fibered predicates. For example: the handshake demonstration on this page checks symbol equality between two stages. In the paper, the same definition works over a category of indexed types where the index match is a morphism equation in the index category — allowing non-trivial coercions between compatible state types. The composition pattern is identical. The categorical generality is not.</p>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
-      Ready for the real thing? <a href="https://arxiv.org/abs/2601.14846"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for indexed graded monads (Def 3), §4 for the Hoare logic (Def 7).
+      Ready for the real thing? <a href="https://arxiv.org/abs/2601.14846"><img src="/reading/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for indexed graded monads (Def 3), §4 for the Hoare logic (Def 7).
     </div>
 
     <p class="text-sm text-gray-500 mt-6">Framework connection: The Natural Framework pipeline's handshake composition maps directly to Definition 7 — the output index of each stage must match the input index of the next. (<a href="https://june.kim/the-handshake">The Handshake</a>)</p>

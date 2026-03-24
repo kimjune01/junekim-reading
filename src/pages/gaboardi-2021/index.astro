@@ -7,12 +7,12 @@ import SchemeRepl from '../../components/SchemeRepl';
 <Layout title="🍞 Gaboardi 2021 — Graded Hoare Logic">
   <main>
 
-    <a href="/natural-breadcrumbs/" class="text-sm mb-4 inline-block">← back to index</a>
+    <a href="/reading/" class="text-sm mb-4 inline-block">← back to index</a>
 
     <h1>Combining Effects and Coeffects via Grading</h1>
-    <p class="text-gray-400 text-sm mb-6">Gaboardi, Katsumata, Orchard, Sato · ESOP 2021 · <a href="https://arxiv.org/abs/2007.06237"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> arXiv:2007.06237</a></p>
+    <p class="text-gray-400 text-sm mb-6">Gaboardi, Katsumata, Orchard, Sato · ESOP 2021 · <a href="https://arxiv.org/abs/2007.06237"><img src="/reading/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> arXiv:2007.06237</a></p>
 
-    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> (Hoare triples). 5 min.</p>
+    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/staton-2025/">🍞 Staton 2025</a> (Hoare triples). 5 min.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
       <p class="text-lg" style="max-width:none">Hoare triples with <strong>grades</strong>: a tag on every computation that tracks side effects — how many resources it uses, how much noise it adds, how far it can branch. The grade algebra tells you what happens when you compose.</p>
@@ -292,9 +292,9 @@ print("The semiring handles the accounting.")
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul>
-      <li><a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> — ungraded Hoare logic (the starting point)</li>
-      <li><a href="/natural-breadcrumbs/kura-2026/">🍞 Kura 2026</a> — indexed graded monads (grading + indexing together)</li>
-      <li><a href="/natural-breadcrumbs/sato-2023/">🍞 Sato 2023</a> — divergences as another grading on morphism spaces</li>
+      <li><a href="/reading/staton-2025/">🍞 Staton 2025</a> — ungraded Hoare logic (the starting point)</li>
+      <li><a href="/reading/kura-2026/">🍞 Kura 2026</a> — indexed graded monads (grading + indexing together)</li>
+      <li><a href="/reading/sato-2023/">🍞 Sato 2023</a> — divergences as another grading on morphism spaces</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
@@ -310,7 +310,7 @@ print("The semiring handles the accounting.")
     <p>All examples use simple numeric grades (counts, products). The paper works with graded monads indexed by a semiring, graded Freyd categories, and the interaction between effect and coeffect gradings via a distributive law. For example: the graded COMP on this page multiplies two fidelity floats. In the paper, the same rule works over a preordered semiring where the composition operation may be non-commutative and where the ordering constrains subeffecting (you can always over-approximate an effect grade). The composition structure is identical. The lattice-theoretic subtleties are not.</p>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
-      Ready for the real thing? <a href="https://arxiv.org/abs/2007.06237"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for graded monads, §5 for the graded Hoare logic.
+      Ready for the real thing? <a href="https://arxiv.org/abs/2007.06237"><img src="/reading/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for graded monads, §5 for the graded Hoare logic.
     </div>
 
     <p class="text-sm text-gray-500 mt-6">Framework connection: The Natural Framework pipeline's composition with contracts is graded COMP — each stage carries an effect grade that composes through the handshake. (<a href="https://june.kim/the-handshake">The Handshake</a>, <a href="https://june.kim/ambient-category">Ambient Category</a>)</p>

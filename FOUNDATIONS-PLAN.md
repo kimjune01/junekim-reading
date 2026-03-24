@@ -25,7 +25,7 @@ Three new foundation sections for Natural Breadcrumbs. Same format as Milewski (
 - Law of large numbers
 - Central limit theorem
 
-**Route:** `/natural-breadcrumbs/nordstrom-prob-NN/` or `/natural-breadcrumbs/grinstead-NN/`
+**Route:** `/reading/nordstrom-prob-NN/` or `/reading/grinstead-NN/`
 
 ## 2. Logic & Proofs 🔑
 
@@ -66,7 +66,7 @@ Instead: link to them from relevant paper pages and foundations pages as "furthe
 - Lattices and partial orders (connecting to Milewski ch3)
 - Universal algebra (connecting to Milewski ch24)
 
-**Route:** `/natural-breadcrumbs/algebra-NN/`
+**Route:** `/reading/algebra-NN/`
 
 ## Execution order
 

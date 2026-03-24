@@ -7,12 +7,12 @@ import SchemeRepl from '../../components/SchemeRepl';
 <Layout title="🍞 Milewski Ch.19 — F-Algebras">
   <main>
 
-    <a href="/natural-breadcrumbs/foundations/" class="text-sm mb-4 inline-block">← back to index</a>
+    <a href="/reading/foundations/" class="text-sm mb-4 inline-block">← back to index</a>
 
     <h1>F-Algebras</h1>
     <p class="text-gray-400 text-sm mb-6">Bartosz Milewski · 2017 · <a href="https://bartoszmilewski.com/2017/02/28/f-algebras/">Category Theory for Programmers, Ch. 19</a></p>
 
-    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/natural-breadcrumbs/milewski-07/">🍞 Ch7 (Functors)</a>, <a href="/natural-breadcrumbs/milewski-06/">🍞 Ch6 (Simple Algebraic Data Types)</a>. 10 min.</p>
+    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/milewski-07/">🍞 Ch7 (Functors)</a>, <a href="/reading/milewski-06/">🍞 Ch6 (Simple Algebraic Data Types)</a>. 10 min.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
       <p class="text-lg" style="max-width:none">An <strong>F-algebra</strong> is a functor F plus a morphism <code>F(a) &rarr; a</code>. The <strong>initial algebra</strong> is the fixed point of the functor: it <em>is</em> the recursive data type. A <strong>catamorphism</strong> (fold) is the unique morphism from the initial algebra to any other algebra. Every recursive data type you define is an initial algebra. Every fold you write is a catamorphism.</p>
@@ -451,9 +451,9 @@ print(f"to-list: {cata(listf_map, to_list_alg, my_list)}")
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul>
-      <li><a href="/natural-breadcrumbs/milewski-07/">🍞 Chapter 7</a> — Functors (the F in F-algebra)</li>
-      <li><a href="/natural-breadcrumbs/milewski-06/">🍞 Chapter 6</a> — Simple Algebraic Data Types (sum and product types that F-algebras generalize)</li>
-      <li><a href="/natural-breadcrumbs/milewski-16/">🍞 Chapter 16</a> — Adjunctions (adjoint functors give rise to monads; F-algebras give rise to recursive types)</li>
+      <li><a href="/reading/milewski-07/">🍞 Chapter 7</a> — Functors (the F in F-algebra)</li>
+      <li><a href="/reading/milewski-06/">🍞 Chapter 6</a> — Simple Algebraic Data Types (sum and product types that F-algebras generalize)</li>
+      <li><a href="/reading/milewski-16/">🍞 Chapter 16</a> — Adjunctions (adjoint functors give rise to monads; F-algebras give rise to recursive types)</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
@@ -474,8 +474,8 @@ print(f"to-list: {cata(listf_map, to_list_alg, my_list)}")
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/natural-breadcrumbs/milewski-18/">← Comonads</a>
-      <a href="/natural-breadcrumbs/milewski-20/">Ends and Coends →</a>
+      <a href="/reading/milewski-18/">← Comonads</a>
+      <a href="/reading/milewski-20/">Ends and Coends →</a>
     </div>
 
   </main>

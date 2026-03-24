@@ -7,12 +7,12 @@ import SchemeRepl from '../../components/SchemeRepl';
 <Layout title="🍞 Milewski Ch.13 — Representable Functors">
   <main>
 
-    <a href="/natural-breadcrumbs/foundations/" class="text-sm mb-4 inline-block">← back to index</a>
+    <a href="/reading/foundations/" class="text-sm mb-4 inline-block">← back to index</a>
 
     <h1>Representable Functors</h1>
     <p class="text-gray-400 text-sm mb-6">Bartosz Milewski · 2015 · <a href="https://bartoszmilewski.com/2015/07/29/representable-functors/">Category Theory for Programmers, Ch. 13</a></p>
 
-    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/natural-breadcrumbs/milewski-07/">🍞 Ch7 (Functors)</a>, <a href="/natural-breadcrumbs/milewski-09/">🍞 Ch9 (Function Types)</a>. 8 min.</p>
+    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/milewski-07/">🍞 Ch7 (Functors)</a>, <a href="/reading/milewski-09/">🍞 Ch9 (Function Types)</a>. 8 min.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
       <p class="text-lg" style="max-width:none">A functor F is <strong>representable</strong> if F(a) is isomorphic to Hom(r, a) for some object r. That means every container of type F is secretly a function from r. <code>tabulate</code> turns a function into the container; <code>index</code> turns the container back into a function. Round-trip: <code>tabulate (index s) = s</code>. This is memoization, stated categorically.</p>
@@ -368,9 +368,9 @@ print("doubled[0..4]:", [index(doubled, i) for i in range(5)])
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul>
-      <li><a href="/natural-breadcrumbs/milewski-07/">🍞 Chapter 7</a> — Functors: the concept representable functors generalize</li>
-      <li><a href="/natural-breadcrumbs/milewski-09/">🍞 Chapter 9</a> — Function Types: exponentials, the Hom-set as a type</li>
-      <li><a href="/natural-breadcrumbs/milewski-12/">🍞 Chapter 12</a> — Limits and Colimits: universal constructions</li>
+      <li><a href="/reading/milewski-07/">🍞 Chapter 7</a> — Functors: the concept representable functors generalize</li>
+      <li><a href="/reading/milewski-09/">🍞 Chapter 9</a> — Function Types: exponentials, the Hom-set as a type</li>
+      <li><a href="/reading/milewski-12/">🍞 Chapter 12</a> — Limits and Colimits: universal constructions</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
@@ -390,8 +390,8 @@ print("doubled[0..4]:", [index(doubled, i) for i in range(5)])
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/natural-breadcrumbs/milewski-12/">← Free Monoids</a>
-      <a href="/natural-breadcrumbs/milewski-14/">Yoneda Lemma →</a>
+      <a href="/reading/milewski-12/">← Free Monoids</a>
+      <a href="/reading/milewski-14/">Yoneda Lemma →</a>
     </div>
 
   </main>

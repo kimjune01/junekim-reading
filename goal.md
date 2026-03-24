@@ -53,24 +53,24 @@ Cross-links between papers, blog posts, and foundations emerge as pages accumula
 
 **Paper pages** (one per paper in the Lexicon) — the core. Each paper gets a route:
 
-- `/natural-breadcrumbs/staton-2025/` — Program Logics via Distributive Monoidal Categories
-- `/natural-breadcrumbs/fritz-2020/` — A Synthetic Approach to Markov Kernels
-- `/natural-breadcrumbs/fritz-perrone-2021/` — Support as Monad Morphism
-- `/natural-breadcrumbs/gaboardi-2021/` — Graded Hoare Logic
-- `/natural-breadcrumbs/kura-2026/` — Indexed Graded Monads
-- `/natural-breadcrumbs/hedges-2018/` — Compositional Game Theory
-- `/natural-breadcrumbs/capucci-2021/` — Categorical Cybernetics
-- `/natural-breadcrumbs/baez-fritz-2011/` — Entropy Characterization
-- `/natural-breadcrumbs/liell-cock-2025/` — Compositional Imprecise Probability
-- `/natural-breadcrumbs/sato-2023/` — Divergences on Monads
+- `/reading/staton-2025/` — Program Logics via Distributive Monoidal Categories
+- `/reading/fritz-2020/` — A Synthetic Approach to Markov Kernels
+- `/reading/fritz-perrone-2021/` — Support as Monad Morphism
+- `/reading/gaboardi-2021/` — Graded Hoare Logic
+- `/reading/kura-2026/` — Indexed Graded Monads
+- `/reading/hedges-2018/` — Compositional Game Theory
+- `/reading/capucci-2021/` — Categorical Cybernetics
+- `/reading/baez-fritz-2011/` — Entropy Characterization
+- `/reading/liell-cock-2025/` — Compositional Imprecise Probability
+- `/reading/sato-2023/` — Divergences on Monads
 
-**How to use this site** (`/natural-breadcrumbs/how/`) — for readers unfamiliar with browser REPLs. What is the green box? What does "Run" do? Can I break anything? (No.) How to modify an example. How to read Python if you're a Haskell/OCaml/math person. Short page, mostly screenshots. Gets an academic who's never used a Jupyter notebook to the point where they can click Run and modify a variable.
+**How to use this site** (`/reading/how/`) — for readers unfamiliar with browser REPLs. What is the green box? What does "Run" do? Can I break anything? (No.) How to modify an example. How to read Python if you're a Haskell/OCaml/math person. Short page, mostly screenshots. Gets an academic who's never used a Jupyter notebook to the point where they can click Run and modify a variable.
 
-**Symbol grid** (`/natural-breadcrumbs/symbols/`) — appendix. Quick reference for returning readers. No heavy notation on the landing page — save it for here. Click a symbol, see the code, run it.
+**Symbol grid** (`/reading/symbols/`) — appendix. Quick reference for returning readers. No heavy notation on the landing page — save it for here. Click a symbol, see the code, run it.
 
-**Framework page** (`/natural-breadcrumbs/framework/`) — orientation to the Natural Framework's own vocabulary. The six stages (Perceive → Cache → Filter → Attend → Remember → Consolidate), where they came from (Landauer's principle, pigeonhole argument, information budget), and how the framework's terms map to the paper terms. Short lineage: Landauer 1961 → Shannon → Fritz → this pipeline. This is the page that helps a reader who arrived from the Lexicon or the blog understand the framework's own lingo before diving into individual papers.
+**Framework page** (`/reading/framework/`) — orientation to the Natural Framework's own vocabulary. The six stages (Perceive → Cache → Filter → Attend → Remember → Consolidate), where they came from (Landauer's principle, pigeonhole argument, information budget), and how the framework's terms map to the paper terms. Short lineage: Landauer 1961 → Shannon → Fritz → this pipeline. This is the page that helps a reader who arrived from the Lexicon or the blog understand the framework's own lingo before diving into individual papers.
 
-**History page** (`/natural-breadcrumbs/history/`) — stretch goal. The five lineages (program correctness, category theory, information theory, game theory, cybernetics) traced from Turing and Church to the present. Fun to write, unproven as a user need. Build it if the core pages work.
+**History page** (`/reading/history/`) — stretch goal. The five lineages (program correctness, category theory, information theory, game theory, cybernetics) traced from Turing and Church to the present. Fun to write, unproven as a user need. Build it if the core pages work.
 
 ### Paper page ingredients
 
@@ -113,7 +113,7 @@ Arrive from a paper, blog, or link → read the claim in plain English → look 
 - **Diagrams decompress.** Dense papers need visual unpacking — SVGs, flow diagrams, charts. Don't rely on text alone.
 - **The reaction is "duh."** Every concept should feel obvious once you see the code and the diagram. If the reader says "of course, that's just X" — you succeeded.
 - **Wikipedia density.** One tight paragraph per concept. The REPL and diagrams do the decompression. The reader chooses their depth.
-- **No hidden prerequisites.** Each page is self-contained for its core idea. But if a concept is genuinely hard and builds on another page's idea, say so at the top: "This page assumes you've seen [Hoare triples](/natural-breadcrumbs/staton-2025/). 2 minutes." Prereqs are explicit, linked, and estimated. Never hidden.
+- **No hidden prerequisites.** Each page is self-contained for its core idea. But if a concept is genuinely hard and builds on another page's idea, say so at the top: "This page assumes you've seen [Hoare triples](/reading/staton-2025/). 2 minutes." Prereqs are explicit, linked, and estimated. Never hidden.
 - **Jargon earns its way in.** Every technical term appears first in code, then gets its math name. Never the reverse.
 - **Confidence is explicit.** Each Python translation is tagged (see editorial rules).
 - **Link out freely.** Wikipedia, arXiv, blog posts. Don't rewrite what's already well-explained. Spend words on the part nobody else has written.
@@ -177,7 +177,7 @@ Based on Bartosz Milewski's blog series (CC BY-SA 4.0). 24 chapters, each gettin
 
 **Selection discipline:** All 24 chapters from the three-part series. Unlike paper pages (which require a cognition series reference), the foundations section is comprehensive — it's a curriculum, not a curated selection.
 
-**Routes:** `/natural-breadcrumbs/milewski-01/` through `/natural-breadcrumbs/milewski-24/`
+**Routes:** `/reading/milewski-01/` through `/reading/milewski-24/`
 
 ## Stretch goals
 - "Reading mode" — paste a paper abstract, every symbol gets hover tooltips

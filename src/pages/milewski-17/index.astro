@@ -7,12 +7,12 @@ import SchemeRepl from '../../components/SchemeRepl';
 <Layout title="🍞 Milewski Ch.17 — Monads">
   <main>
 
-    <a href="/natural-breadcrumbs/foundations/" class="text-sm mb-4 inline-block">← back to index</a>
+    <a href="/reading/foundations/" class="text-sm mb-4 inline-block">← back to index</a>
 
     <h1>Monads</h1>
     <p class="text-gray-400 text-sm mb-6">Bartosz Milewski · 2016-2017 · <a href="https://bartoszmilewski.com/2016/11/21/monads-programmers-definition/">Category Theory for Programmers, Ch. 17</a></p>
 
-    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/natural-breadcrumbs/milewski-04/">🍞 Ch4 (Kleisli Categories)</a>, <a href="/natural-breadcrumbs/milewski-07/">🍞 Ch7 (Functors)</a>, <a href="/natural-breadcrumbs/milewski-10/">🍞 Ch10 (Natural Transformations)</a>. 12 min.</p>
+    <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/milewski-04/">🍞 Ch4 (Kleisli Categories)</a>, <a href="/reading/milewski-07/">🍞 Ch7 (Functors)</a>, <a href="/reading/milewski-10/">🍞 Ch10 (Natural Transformations)</a>. 12 min.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
       <p class="text-lg" style="max-width:none">A monad is a functor <strong>M</strong> equipped with two natural transformations: <code>return</code> (&eta; : a &rarr; M(a)) and <code>join</code> (&mu; : M(M(a)) &rarr; M(a)). Equivalently, <code>bind</code> (&gt;&gt;=) replaces both. The monad laws (associativity, left/right identity) are the Kleisli category's composition laws. Monads are the compositional glue for effects: partiality, nondeterminism, logging, state.</p>
@@ -430,16 +430,16 @@ print(f"log:    {result[1]}")
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul>
-      <li><a href="/natural-breadcrumbs/milewski-04/">🍞 Chapter 4</a> — Kleisli Categories (where the fish operator was born)</li>
-      <li><a href="/natural-breadcrumbs/milewski-07/">🍞 Chapter 7</a> — Functors (every monad is a functor)</li>
-      <li><a href="/natural-breadcrumbs/milewski-10/">🍞 Chapter 10</a> — Natural Transformations (return and join are natural transformations)</li>
-      <li><a href="/natural-breadcrumbs/milewski-16/">🍞 Chapter 16</a> — Adjunctions (every adjunction gives a monad)</li>
+      <li><a href="/reading/milewski-04/">🍞 Chapter 4</a> — Kleisli Categories (where the fish operator was born)</li>
+      <li><a href="/reading/milewski-07/">🍞 Chapter 7</a> — Functors (every monad is a functor)</li>
+      <li><a href="/reading/milewski-10/">🍞 Chapter 10</a> — Natural Transformations (return and join are natural transformations)</li>
+      <li><a href="/reading/milewski-16/">🍞 Chapter 16</a> — Adjunctions (every adjunction gives a monad)</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Paper pages that use these concepts</p>
     <ul>
-      <li><a href="/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> — Markov categories axiomatize the probability monad</li>
-      <li><a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> — monads structure the semantics of effectful programs</li>
+      <li><a href="/reading/fritz-2020/">🍞 Fritz 2020</a> — Markov categories axiomatize the probability monad</li>
+      <li><a href="/reading/staton-2025/">🍞 Staton 2025</a> — monads structure the semantics of effectful programs</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
@@ -459,8 +459,8 @@ print(f"log:    {result[1]}")
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/natural-breadcrumbs/milewski-16/">← Adjunctions</a>
-      <a href="/natural-breadcrumbs/milewski-18/">Comonads →</a>
+      <a href="/reading/milewski-16/">← Adjunctions</a>
+      <a href="/reading/milewski-18/">Comonads →</a>
     </div>
 
   </main>
