@@ -17,7 +17,7 @@ import Layout from '../../layouts/Base.astro';
         <!-- Parabolic trajectory -->
         <path d="M 40 130 Q 180 -20 320 130" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="5,4"/>
         <!-- Ground -->
-        <line x1="30" y1="135" x2="330" y2="135" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
+        <line x1="30" y1="135" x2="330" y2="135" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
         <!-- Ball at peak-ish position -->
         <circle cx="160" cy="28" r="8" fill="#60a5fa" fill-opacity="0.6"/>
         <!-- Velocity vector (tangent to parabola, pointing right and slightly down) -->
@@ -107,5 +107,7 @@ import Layout from '../../layouts/Base.astro';
       </table>
     </div>
 
+
+    <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://oyc.yale.edu/physics/phys-200">Yale PHYS 200: Fundamentals of Physics (Ramamurti Shankar)</a></p>
   </main>
 </Layout>

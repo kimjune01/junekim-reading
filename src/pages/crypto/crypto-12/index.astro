@@ -20,7 +20,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <div class="flex justify-center my-6">
       <svg viewBox="0 0 500 300" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
         <!-- Server box -->
-        <rect x="140" y="30" width="280" height="220" rx="8" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1.5"/>
+        <rect x="140" y="30" width="280" height="220" rx="8" fill="none" stroke="#71717a" stroke-opacity="0.45" stroke-width="1.5"/>
         <text x="280" y="55" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.4">Server (operator controls)</text>
 
         <!-- Enclave box inside server -->
@@ -31,7 +31,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <text x="280" y="155" text-anchor="middle" fill="#4ade80" font-size="9" fill-opacity="0.7">attested code</text>
 
         <!-- Code inside enclave -->
-        <rect x="210" y="165" width="140" height="30" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+        <rect x="210" y="165" width="140" height="30" rx="4" fill="none" stroke="#71717a" stroke-opacity="0.45" stroke-width="1"/>
         <text x="280" y="185" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">application logic</text>
 
         <!-- User -->
@@ -128,7 +128,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- 3. Application: honest auction -->
     <h3>Application: the honest auction</h3>
-    <p>Consider an ad auction server. Advertisers submit bids, and the server runs a VCG auction (second-price). Without a TEE, the operator could peek at bids, favor certain advertisers, or lie about the winning price.</p>
+    <p>Consider an ad auction server. Advertisers submit bids, and the server runs a <a href="https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_auction">🅦 VCG auction</a> (second-price). Without a TEE, the operator could peek at bids, favor certain advertisers, or lie about the winning price.</p>
     <p>With a TEE, the auction code runs in an enclave. Advertisers verify the code via attestation, then send encrypted bids. The enclave computes the winner and price. The operator never sees the bids or the auction logic's internal state.</p>
 
     <SchemeRepl client:load initialCode={`; Honest auction in an enclave

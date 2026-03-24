@@ -24,7 +24,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <text x="200" y="12" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">WAL (Write-Ahead Log)</text>
 
         <!-- Header -->
-        <rect x="30" y="15" width="340" height="20" fill="currentColor" fill-opacity="0.08"/>
+        <rect x="30" y="15" width="340" height="20" fill="#a1a1aa" fill-opacity="0.15"/>
         <text x="60" y="29" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.7">LSN</text>
         <text x="110" y="29" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.7">Txn</text>
         <text x="170" y="29" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.7">Op</text>
@@ -178,7 +178,7 @@ print("Final state: " + str(db.db))
 
     <!-- ARIES -->
     <h3>ARIES algorithm</h3>
-    <p><strong>ARIES</strong> (Algorithms for Recovery and Isolation Exploiting Semantics) is the industry-standard recovery algorithm. Three phases: (1) Analysis: scan the log to determine which transactions were active at crash time. (2) Redo: replay all logged actions from the last checkpoint. (3) Undo: reverse actions of uncommitted transactions, working backward. ARIES uses LSNs (Log Sequence Numbers) to avoid redundant work.</p>
+    <p><strong><a href="https://en.wikipedia.org/wiki/Algorithms_for_Recovery_and_Isolation_Exploiting_Semantics">🅦 ARIES</a></strong> (Algorithms for Recovery and Isolation Exploiting Semantics) is the industry-standard recovery algorithm. Three phases: (1) Analysis: scan the log to determine which transactions were active at crash time. (2) Redo: replay all logged actions from the last checkpoint. (3) Undo: reverse actions of uncommitted transactions, working backward. ARIES uses LSNs (Log Sequence Numbers) to avoid redundant work.</p>
 
     <SchemeRepl client:load initialCode={`; ARIES three phases: Analysis, Redo, Undo.
 ; Simplified demonstration.

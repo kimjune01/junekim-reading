@@ -28,7 +28,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <div class="flex justify-center my-6">
       <svg viewBox="0 0 480 150" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
         <!-- Stage 1 -->
-        <rect x="20" y="25" width="90" height="45" rx="6" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="20" y="25" width="90" height="45" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
         <text x="65" y="52" text-anchor="middle" fill="currentColor" font-size="12">Stage 1</text>
         <!-- Handshake 1 -->
         <rect x="118" y="20" width="56" height="55" rx="4" fill="#4ade80" fill-opacity="0.08" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4,2"/>
@@ -36,7 +36,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <text x="146" y="54" text-anchor="middle" fill="#4ade80" font-size="8" fill-opacity="0.7">= pre</text>
         <text x="146" y="70" text-anchor="middle" fill="#4ade80" font-size="9" fill-opacity="0.5">j</text>
         <!-- Stage 2 -->
-        <rect x="182" y="25" width="90" height="45" rx="6" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="182" y="25" width="90" height="45" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
         <text x="227" y="52" text-anchor="middle" fill="currentColor" font-size="12">Stage 2</text>
         <!-- Handshake 2 -->
         <rect x="280" y="20" width="56" height="55" rx="4" fill="#4ade80" fill-opacity="0.08" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4,2"/>
@@ -44,7 +44,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <text x="308" y="54" text-anchor="middle" fill="#4ade80" font-size="8" fill-opacity="0.7">= pre</text>
         <text x="308" y="70" text-anchor="middle" fill="#4ade80" font-size="9" fill-opacity="0.5">k</text>
         <!-- Stage 3 -->
-        <rect x="344" y="25" width="90" height="45" rx="6" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="344" y="25" width="90" height="45" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
         <text x="389" y="52" text-anchor="middle" fill="currentColor" font-size="12">Stage 3</text>
         <!-- Index labels below -->
         <text x="25" y="90" fill="currentColor" font-size="9" fill-opacity="0.4">i</text>
@@ -62,21 +62,21 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <svg viewBox="0 0 500 100" class="w-full max-w-md my-4" style="font-family: ui-monospace, monospace;">
       <!-- raw -->
-      <rect x="20" y="30" width="80" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="20" y="30" width="80" height="36" rx="6" fill="#a1a1aa" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
       <text x="60" y="53" text-anchor="middle" fill="currentColor" font-size="12">raw</text>
       <!-- arrow 1 -->
       <line x1="100" y1="48" x2="170" y2="48" stroke="currentColor" stroke-width="1.5"/>
       <polygon points="170,44 178,48 170,52" fill="currentColor"/>
       <text x="135" y="40" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">T(i, j, A)</text>
       <!-- filtered -->
-      <rect x="180" y="30" width="100" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="180" y="30" width="100" height="36" rx="6" fill="#a1a1aa" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
       <text x="230" y="53" text-anchor="middle" fill="currentColor" font-size="12">filtered</text>
       <!-- arrow 2 -->
       <line x1="280" y1="48" x2="340" y2="48" stroke="currentColor" stroke-width="1.5"/>
       <polygon points="340,44 348,48 340,52" fill="currentColor"/>
       <text x="310" y="40" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">T(j, k, A)</text>
       <!-- ranked -->
-      <rect x="350" y="30" width="90" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="350" y="30" width="90" height="36" rx="6" fill="#a1a1aa" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
       <text x="395" y="53" text-anchor="middle" fill="currentColor" font-size="12">ranked</text>
       <!-- handshake annotation -->
       <text x="230" y="85" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">output index of step 1 = input index of step 2</text>
@@ -165,25 +165,25 @@ print(step1.bind(step2))
 
     <svg viewBox="0 0 500 110" class="w-full max-w-md my-4" style="font-family: ui-monospace, monospace;">
       <!-- raw -->
-      <rect x="20" y="30" width="70" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="20" y="30" width="70" height="36" rx="6" fill="#a1a1aa" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
       <text x="55" y="53" text-anchor="middle" fill="currentColor" font-size="12">raw</text>
       <!-- arrow 1 with grade -->
       <line x1="90" y1="48" x2="155" y2="48" stroke="currentColor" stroke-width="1.5"/>
       <polygon points="155,44 163,48 155,52" fill="currentColor"/>
       <text x="123" y="40" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">i → j</text>
-      <rect x="108" y="55" width="30" height="16" rx="3" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+      <rect x="108" y="55" width="30" height="16" rx="3" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
       <text x="123" y="66" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.7">e=2</text>
       <!-- cached -->
-      <rect x="165" y="30" width="80" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="165" y="30" width="80" height="36" rx="6" fill="#a1a1aa" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
       <text x="205" y="53" text-anchor="middle" fill="currentColor" font-size="12">cached</text>
       <!-- arrow 2 with grade -->
       <line x1="245" y1="48" x2="310" y2="48" stroke="currentColor" stroke-width="1.5"/>
       <polygon points="310,44 318,48 310,52" fill="currentColor"/>
       <text x="278" y="40" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">j → k</text>
-      <rect x="263" y="55" width="30" height="16" rx="3" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+      <rect x="263" y="55" width="30" height="16" rx="3" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
       <text x="278" y="66" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.7">e=1</text>
       <!-- filtered -->
-      <rect x="320" y="30" width="90" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="320" y="30" width="90" height="36" rx="6" fill="#a1a1aa" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
       <text x="365" y="53" text-anchor="middle" fill="currentColor" font-size="12">filtered</text>
       <!-- total grade -->
       <text x="220" y="100" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">total grade: 2 + 1 = 3</text>
@@ -248,11 +248,11 @@ print(step1.bind(step2))
 
     <svg viewBox="0 0 500 150" class="w-full max-w-md my-4" style="font-family: ui-monospace, monospace;">
       <!-- Bottom-left: tight Q, low cost (refines) -->
-      <rect x="80" y="90" width="130" height="40" rx="6" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="80" y="90" width="130" height="40" rx="6" fill="#a1a1aa" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
       <text x="145" y="108" text-anchor="middle" fill="currentColor" font-size="10">x &gt; 10, cost=1</text>
       <text x="145" y="122" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.4">tight, cheap</text>
       <!-- Top-right: loose Q', high cost -->
-      <rect x="290" y="20" width="130" height="40" rx="6" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+      <rect x="290" y="20" width="130" height="40" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
       <text x="355" y="38" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.6">x &gt; 0, cost=3</text>
       <text x="355" y="52" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">loose, expensive</text>
       <!-- Arrow: refines (bottom-left to top-right) -->
@@ -318,11 +318,11 @@ print(f"(x>0, cost=3) refines (x>10, cost=1)? {refines(Q_weak, 3, Q_strong, 1, v
 
     <svg viewBox="0 0 500 200" class="w-full max-w-md my-4" style="font-family: ui-monospace, monospace;">
       <!-- Triple 1 -->
-      <rect x="20" y="20" width="200" height="60" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="20" y="20" width="200" height="60" rx="6" fill="#a1a1aa" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
       <text x="120" y="45" text-anchor="middle" fill="currentColor" font-size="11">{'{P}'} c&#x2081; {'{R}'}</text>
       <text x="120" y="62" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">i &#x2192; j, grade e&#x2081;</text>
       <!-- Triple 2 -->
-      <rect x="280" y="20" width="200" height="60" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="280" y="20" width="200" height="60" rx="6" fill="#a1a1aa" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
       <text x="380" y="45" text-anchor="middle" fill="currentColor" font-size="11">{'{R}'} c&#x2082; {'{Q}'}</text>
       <text x="380" y="62" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">j &#x2192; k, grade e&#x2082;</text>
       <!-- Handshake point -->
@@ -332,7 +332,7 @@ print(f"(x>0, cost=3) refines (x>10, cost=1)? {refines(Q_weak, 3, Q_strong, 1, v
       <text x="250" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">j = j</text>
       <text x="250" y="108" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.35">handshake</text>
       <!-- Composed result -->
-      <rect x="80" y="130" width="340" height="50" rx="6" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1" stroke-dasharray="6,3" stroke-opacity="0.4"/>
+      <rect x="80" y="130" width="340" height="50" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1" stroke-dasharray="6,3" stroke-opacity="0.4"/>
       <text x="250" y="155" text-anchor="middle" fill="currentColor" font-size="11">{'{P}'} c&#x2081;;c&#x2082; {'{Q}'}</text>
       <text x="250" y="172" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">i &#x2192; k, grade e&#x2081;&#xB7;e&#x2082;</text>
       <!-- Arrows down from triples to composed -->

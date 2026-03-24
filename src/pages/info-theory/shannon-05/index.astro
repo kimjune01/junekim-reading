@@ -99,7 +99,7 @@ print("Asymmetric: D(P||Q) != D(Q||P). Not a distance.")
 
     <!-- 2. Gibbs' inequality -->
     <h3>Gibbs' inequality: always non-negative</h3>
-    <p>KL divergence is always &ge; 0. This is <a href="https://en.wikipedia.org/wiki/Gibbs%27_inequality">&#x1F150; Gibbs' inequality</a>. The proof uses Jensen's inequality on the concavity of log. Intuitively: you can never do <em>better</em> than the truth. Any mismatch between model and reality costs you bits.</p>
+    <p>KL divergence is always &ge; 0. This is <a href="https://en.wikipedia.org/wiki/Gibbs%27_inequality">&#x1F150; Gibbs' inequality</a>. The proof uses <a href="https://en.wikipedia.org/wiki/Jensen%27s_inequality">Jensen's inequality</a> on the concavity of log. Intuitively: you can never do <em>better</em> than the truth. Any mismatch between model and reality costs you bits.</p>
 
     <SchemeRepl client:load initialCode={`; Gibbs' inequality: D(P||Q) >= 0 always
 (define (log2 x) (/ (log x) (log 2)))

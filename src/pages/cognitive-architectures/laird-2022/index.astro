@@ -16,27 +16,27 @@ import Layout from '../../../layouts/Base.astro';
 
     <h2>What Soar is</h2>
 
-    <p>Soar is not a model. It is a <em>cognitive architecture</em>, a fixed set of mechanisms that an agent uses to perceive, decide, act, and learn across any domain. The architecture does not change per task. The knowledge does.</p>
+    <p>Soar is not a model. It is a <a href="https://en.wikipedia.org/wiki/Cognitive_architecture">🅦 cognitive architecture</a>, a fixed set of mechanisms that an agent uses to perceive, decide, act, and learn across any domain. The architecture does not change per task. The knowledge does.</p>
 
-    <p>Allen Newell proposed in 1990 that cognitive science needed unified theories, not isolated models. Soar is the most sustained attempt to build one. It started in 1983 and has been continuously extended for four decades.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Allen_Newell">🅦 Allen Newell</a> proposed in 1990 that cognitive science needed unified theories, not isolated models. Soar is the most sustained attempt to build one. It started in 1983 and has been continuously extended for four decades.</p>
 
     <!-- SVG: Soar decision cycle -->
     <div class="flex justify-center my-6">
       <svg viewBox="0 0 480 160" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
         <!-- Pipeline boxes -->
-        <rect x="10" y="50" width="70" height="32" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="10" y="50" width="70" height="32" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="45" y="71" text-anchor="middle" fill="currentColor" font-size="10">Input</text>
 
-        <rect x="100" y="50" width="90" height="32" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="100" y="50" width="90" height="32" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="145" y="71" text-anchor="middle" fill="currentColor" font-size="10">Elaboration</text>
 
-        <rect x="210" y="50" width="80" height="32" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="210" y="50" width="80" height="32" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="250" y="71" text-anchor="middle" fill="currentColor" font-size="10">Decision</text>
 
-        <rect x="310" y="50" width="90" height="32" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="310" y="50" width="90" height="32" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="355" y="71" text-anchor="middle" fill="currentColor" font-size="10">Application</text>
 
-        <rect x="420" y="50" width="55" height="32" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="420" y="50" width="55" height="32" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="447" y="71" text-anchor="middle" fill="currentColor" font-size="10">Output</text>
 
         <!-- Arrows between boxes -->
@@ -56,13 +56,13 @@ import Layout from '../../../layouts/Base.astro';
         <text x="250" y="42" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.4">reject &#x2192; rank</text>
 
         <!-- Working Memory at center -->
-        <rect x="140" y="105" width="200" height="26" rx="4" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,3"/>
+        <rect x="140" y="105" width="200" height="26" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="4,3"/>
         <text x="240" y="122" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">Working Memory (central hub)</text>
 
         <!-- Lines from WM to stages -->
-        <line x1="145" y1="82" x2="200" y2="105" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="250" y1="82" x2="250" y2="105" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-        <line x1="355" y1="82" x2="290" y2="105" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
+        <line x1="145" y1="82" x2="200" y2="105" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <line x1="250" y1="82" x2="250" y2="105" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <line x1="355" y1="82" x2="290" y2="105" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
 
         <!-- Impasse arrow (loops back) -->
         <path d="M 250 82 Q 250 95 160 95 Q 100 95 100 82" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3"/>
@@ -91,19 +91,19 @@ import Layout from '../../../layouts/Base.astro';
     <div class="flex justify-center my-6">
       <svg viewBox="0 0 460 200" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
         <!-- Memory boxes -->
-        <rect x="10" y="30" width="100" height="50" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="10" y="30" width="100" height="50" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="60" y="52" text-anchor="middle" fill="currentColor" font-size="9">Working</text>
         <text x="60" y="65" text-anchor="middle" fill="currentColor" font-size="9">Memory</text>
 
-        <rect x="125" y="30" width="100" height="50" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="125" y="30" width="100" height="50" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="175" y="52" text-anchor="middle" fill="currentColor" font-size="9">Procedural</text>
         <text x="175" y="65" text-anchor="middle" fill="currentColor" font-size="9">Memory</text>
 
-        <rect x="240" y="30" width="100" height="50" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="240" y="30" width="100" height="50" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="290" y="52" text-anchor="middle" fill="currentColor" font-size="9">Semantic</text>
         <text x="290" y="65" text-anchor="middle" fill="currentColor" font-size="9">Memory</text>
 
-        <rect x="355" y="30" width="100" height="50" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="355" y="30" width="100" height="50" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="405" y="52" text-anchor="middle" fill="currentColor" font-size="9">Episodic</text>
         <text x="405" y="65" text-anchor="middle" fill="currentColor" font-size="9">Memory</text>
 
@@ -112,11 +112,11 @@ import Layout from '../../../layouts/Base.astro';
         <text x="175" y="138" text-anchor="middle" fill="#34d399" font-size="9" fill-opacity="0.8">Chunking</text>
         <text x="175" y="150" text-anchor="middle" fill="#34d399" font-size="9" fill-opacity="0.8">+ RL</text>
 
-        <rect x="240" y="120" width="100" height="40" rx="5" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,3"/>
+        <rect x="240" y="120" width="100" height="40" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="4,3"/>
         <text x="290" y="138" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">Semantic</text>
         <text x="290" y="150" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">Learning</text>
 
-        <rect x="355" y="120" width="100" height="40" rx="5" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,3"/>
+        <rect x="355" y="120" width="100" height="40" rx="5" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="4,3"/>
         <text x="405" y="138" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">Episodic</text>
         <text x="405" y="150" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">Learning</text>
 
@@ -124,8 +124,8 @@ import Layout from '../../../layouts/Base.astro';
         <line x1="175" y1="120" x2="175" y2="80" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.5"/>
         <polygon points="171,82 175,76 179,82" fill="#34d399" fill-opacity="0.5"/>
 
-        <line x1="290" y1="120" x2="290" y2="80" stroke="currentColor" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4,3"/>
-        <line x1="405" y1="120" x2="405" y2="80" stroke="currentColor" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4,3"/>
+        <line x1="290" y1="120" x2="290" y2="80" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="4,3"/>
+        <line x1="405" y1="120" x2="405" y2="80" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="4,3"/>
 
         <!-- Labels -->
         <text x="60" y="20" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.4">scratchpad</text>
@@ -152,7 +152,7 @@ import Layout from '../../../layouts/Base.astro';
         <tbody>
           <tr class="border-b border-zinc-800"><td class="py-2 pr-3 text-gray-300">Working Memory</td><td class="pr-3 text-gray-400">Current situation: perceptual input, goals, intermediate results. Graph of attribute-value elements. Truth maintenance auto-retracts unsupported elements.</td><td class="text-gray-400">None (by design: it is the scratchpad)</td></tr>
           <tr class="border-b border-zinc-800"><td class="py-2 pr-3 text-gray-300">Procedural Memory</td><td class="pr-3 text-gray-400">Production rules (if-then). The RETE network matches incrementally: cost proportional to change, not to total rules. All matched rules fire in parallel.</td><td class="text-gray-400">Chunking + RL (the only store with automatic learning)</td></tr>
-          <tr class="border-b border-zinc-800"><td class="py-2 pr-3 text-gray-300">Semantic Memory</td><td class="pr-3 text-gray-400">Long-term facts: graph structures in SQLite. Retrieval uses activation (recency + frequency + spreading) borrowed from ACT-R.</td><td class="text-gray-400">Manual only. No automatic learning mechanism.</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3 text-gray-300">Semantic Memory</td><td class="pr-3 text-gray-400">Long-term facts: graph structures in SQLite. Retrieval uses activation (recency + frequency + spreading) borrowed from <a href="https://en.wikipedia.org/wiki/ACT-R">🅦 ACT-R</a>.</td><td class="text-gray-400">Manual only. No automatic learning mechanism.</td></tr>
           <tr><td class="py-2 pr-3 text-gray-300">Episodic Memory</td><td class="text-gray-400">Snapshots of working memory, stored as change-deltas. One episode per decision cycle. Retrieval by partial cue matching.</td><td class="text-gray-400">Automatic but undiscriminating. Stores everything.</td></tr>
         </tbody>
       </table>
@@ -213,7 +213,7 @@ import Layout from '../../../layouts/Base.astro';
 
     <h2>What Soar gives back</h2>
 
-    <p>The RETE network is the cache that LLMs don't have. It tracks every partial match incrementally: cost proportional to what changed, not to total knowledge. <a href="/reading/cognitive-architectures/vaswani-2017/">Transformers</a> recompute attention over the entire context every pass. KV-caching helps but doesn't approach RETE's efficiency. When <a href="/reading/cognitive-architectures/arunkumar-2026/">agent frameworks</a> bolt on memory systems like MemGPT, they're rebuilding what RETE already does natively.</p>
+    <p>The <a href="https://en.wikipedia.org/wiki/Rete_algorithm">🅦 RETE network</a> is the cache that LLMs don't have. It tracks every partial match incrementally: cost proportional to what changed, not to total knowledge. <a href="/reading/cognitive-architectures/vaswani-2017/">Transformers</a> recompute attention over the entire context every pass. KV-caching helps but doesn't approach RETE's efficiency. When <a href="/reading/cognitive-architectures/arunkumar-2026/">agent frameworks</a> bolt on memory systems like MemGPT, they're rebuilding what RETE already does natively.</p>
 
     <p>When a rule's conditions no longer hold, truth maintenance automatically retracts the structures it created. No garbage, no stale data. <a href="/reading/cognitive-architectures/arunkumar-2026/">LLM agents</a> accumulate context monotonically. MemAgent had to learn a separate policy for what to forget. Soar does it architecturally. <a href="/reading/cognitive-architectures/minsky-1986/">Minsky's</a> censors and suppressors are the informal version: negative expertise that removes what shouldn't be there.</p>
 

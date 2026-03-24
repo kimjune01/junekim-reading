@@ -23,9 +23,9 @@ import Layout from '../../../layouts/Base.astro';
       <svg viewBox="0 0 460 200" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
         <!-- Case 1 -->
         <text x="115" y="20" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.6">Case 1</text>
-        <rect x="20" y="35" width="50" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="20" y="35" width="50" height="30" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="45" y="55" text-anchor="middle" fill="currentColor" font-size="10">A</text>
-        <rect x="80" y="35" width="50" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="80" y="35" width="50" height="30" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="105" y="55" text-anchor="middle" fill="currentColor" font-size="10">B</text>
         <rect x="140" y="35" width="50" height="30" rx="4" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.6"/>
         <text x="165" y="55" text-anchor="middle" fill="#60a5fa" font-size="10">C</text>
@@ -40,11 +40,11 @@ import Layout from '../../../layouts/Base.astro';
 
         <!-- Case 2 -->
         <text x="115" y="100" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.6">Case 2</text>
-        <rect x="20" y="115" width="50" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="20" y="115" width="50" height="30" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="45" y="135" text-anchor="middle" fill="currentColor" font-size="10">A</text>
-        <rect x="80" y="115" width="50" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="80" y="115" width="50" height="30" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
         <text x="105" y="135" text-anchor="middle" fill="currentColor" font-size="10">B</text>
-        <rect x="140" y="115" width="50" height="30" rx="4" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.15" stroke-dasharray="4 3"/>
+        <rect x="140" y="115" width="50" height="30" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="4 3"/>
         <text x="165" y="135" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.3">--</text>
 
         <!-- Arrow -->
@@ -52,7 +52,7 @@ import Layout from '../../../layouts/Base.astro';
         <polygon points="240,126 248,130 240,134" fill="currentColor" fill-opacity="0.3"/>
 
         <!-- No effect -->
-        <rect x="260" y="115" width="70" height="30" rx="4" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.15" stroke-dasharray="4 3"/>
+        <rect x="260" y="115" width="70" height="30" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="4 3"/>
         <text x="295" y="135" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.3">no e</text>
 
         <!-- Conclusion -->
@@ -94,7 +94,7 @@ import Layout from '../../../layouts/Base.astro';
 
     <p>Mill was candid about what his methods could not do. The method of agreement can only identify necessary conditions, not sufficient ones. The method of difference requires that you can actually hold everything else constant, which in practice is hard. Concomitant variation detects correlation but cannot distinguish direct from indirect causation. The method of residues assumes you already know most of the causal structure, which means it works only in mature sciences.</p>
 
-    <p>These are not flaws in Mill's thinking. They are honest boundary conditions. Fisher's randomization solved the "hold everything constant" problem probabilistically. Modern causal inference (Pearl, Rubin) solved the "direct vs. indirect" problem structurally. But every solution still operates within the framework Mill laid out: isolate causes by systematic variation and elimination.</p>
+    <p>These are not flaws in Mill's thinking. They are honest boundary conditions. Fisher's randomization solved the "hold everything constant" problem probabilistically. Modern causal inference (<a href="https://en.wikipedia.org/wiki/Judea_Pearl">🅦 Pearl</a>, Rubin) solved the "direct vs. indirect" problem structurally. But every solution still operates within the framework Mill laid out: isolate causes by systematic variation and elimination.</p>
 
     <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/scientific-method/">scientific method</a> · <a href="/reading/scientific-method/boole-1854/">Boole 1854</a> · <a href="/reading/scientific-method/peirce-1878/">Peirce 1878</a></p>
 

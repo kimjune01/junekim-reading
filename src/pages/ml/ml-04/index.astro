@@ -16,33 +16,71 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">Logistic regression squashes linear output through a <strong>sigmoid</strong> to get probabilities. <strong>Cross-entropy loss</strong> measures how wrong the probabilities are &mdash; it penalizes confident wrong answers heavily. <strong>Maximum likelihood</strong> estimation is equivalent to minimizing cross-entropy. The decision boundary is where the probability hits 0.5.</p>
     </div>
 
-    <!-- SVG: sigmoid curve with decision boundary -->
-    <div class="flex justify-center my-6">
-      <svg viewBox="0 0 360 200" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+    <!-- SVG: interactive sigmoid curve -->
+    <div class="flex flex-col items-center my-6">
+      <svg id="sig-svg" viewBox="0 0 360 220" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
         <!-- Axes -->
         <line x1="30" y1="170" x2="330" y2="170" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <line x1="180" y1="180" x2="180" y2="15" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <line x1="180" y1="180" x2="180" y2="15" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
         <text x="335" y="174" fill="currentColor" font-size="10" fill-opacity="0.4">z</text>
         <text x="175" y="12" fill="currentColor" font-size="10" fill-opacity="0.4">&sigma;</text>
         <!-- Asymptote lines -->
-        <line x1="30" y1="30" x2="330" y2="30" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.15" stroke-dasharray="4,4"/>
+        <line x1="30" y1="30" x2="330" y2="30" stroke="#71717a" stroke-width="0.5" stroke-opacity="0.45" stroke-dasharray="4,4"/>
         <text x="335" y="34" fill="currentColor" font-size="9" fill-opacity="0.3">1</text>
-        <line x1="30" y1="170" x2="330" y2="170" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.15"/>
         <text x="335" y="174" fill="currentColor" font-size="9" fill-opacity="0.3">0</text>
-        <!-- Sigmoid curve (piecewise linear approximation) -->
-        <path d="M 30 168 Q 80 166 110 160 Q 130 153 150 138 Q 165 118 180 100 Q 195 82 210 62 Q 230 47 250 40 Q 280 34 330 32" fill="none" stroke="#60a5fa" stroke-width="2" stroke-opacity="0.6"/>
-        <!-- Decision boundary at z=0 -->
-        <line x1="180" y1="100" x2="180" y2="170" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="3,3"/>
-        <circle cx="180" cy="100" r="3.5" fill="#f59e0b" fill-opacity="0.7"/>
-        <text x="190" y="108" fill="#f59e0b" font-size="9" fill-opacity="0.6">0.5</text>
-        <text x="180" y="190" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.5">decision boundary</text>
+        <!-- Sigmoid curve (computed polyline) -->
+        <polyline id="sig-curve" fill="none" stroke="#60a5fa" stroke-width="2" stroke-opacity="0.6"/>
+        <!-- Dynamic elements -->
+        <line id="sig-vline" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="3,3"/>
+        <line id="sig-hline" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="3,3"/>
+        <circle id="sig-dot" r="4" fill="#f59e0b" fill-opacity="0.8"/>
         <!-- Class labels -->
         <text x="100" y="155" text-anchor="middle" fill="#a78bfa" font-size="10" fill-opacity="0.5">class 0</text>
         <text x="260" y="55" text-anchor="middle" fill="#34d399" font-size="10" fill-opacity="0.5">class 1</text>
-        <!-- Caption -->
-        <text x="180" y="12" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35"></text>
+        <!-- Readout -->
+        <text id="sig-readout" x="180" y="210" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.7"></text>
       </svg>
+      <input id="sig-slider" type="range" min="-60" max="60" value="0" step="1" class="w-full max-w-sm mt-2" style="accent-color: #60a5fa;" />
     </div>
+    <script is:inline>
+    (function() {
+      var LEFT = 30, RIGHT = 330, TOP = 30, BOT = 170;
+      var ZMIN = -6, ZMAX = 6;
+      function sigmoid(z) { return 1 / (1 + Math.exp(-z)); }
+      function zToX(z) { return LEFT + (z - ZMIN) / (ZMAX - ZMIN) * (RIGHT - LEFT); }
+      function sigToY(s) { return BOT - s * (BOT - TOP); }
+
+      // Draw static curve
+      var pts = [];
+      for (var i = -60; i <= 60; i++) {
+        var z = i / 10;
+        pts.push(zToX(z).toFixed(1) + "," + sigToY(sigmoid(z)).toFixed(1));
+      }
+      document.getElementById("sig-curve").setAttribute("points", pts.join(" "));
+
+      var slider = document.getElementById("sig-slider");
+      var dot = document.getElementById("sig-dot");
+      var vline = document.getElementById("sig-vline");
+      var hline = document.getElementById("sig-hline");
+      var readout = document.getElementById("sig-readout");
+
+      function update() {
+        var z = slider.value / 10;
+        var s = sigmoid(z);
+        var cx = zToX(z), cy = sigToY(s);
+        dot.setAttribute("cx", cx);
+        dot.setAttribute("cy", cy);
+        vline.setAttribute("x1", cx); vline.setAttribute("y1", cy);
+        vline.setAttribute("x2", cx); vline.setAttribute("y2", BOT);
+        hline.setAttribute("x1", LEFT); hline.setAttribute("y1", cy);
+        hline.setAttribute("x2", cx); hline.setAttribute("y2", cy);
+        var cls = s >= 0.5 ? 1 : 0;
+        readout.textContent = "z = " + z.toFixed(1) + " → σ(z) = " + s.toFixed(2) + " → class " + cls;
+      }
+      slider.addEventListener("input", update);
+      update();
+    })();
+    </script>
 
     <!-- 1. Sigmoid function -->
     <h3>Sigmoid function</h3>

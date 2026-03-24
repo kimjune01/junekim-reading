@@ -175,7 +175,7 @@ for doc_id, doc in db.find({"age": 30}):
 
     <!-- CAP theorem -->
     <h3>CAP theorem</h3>
-    <p>The <strong>CAP theorem</strong> (Brewer, 2000): a distributed data store can satisfy at most two of three properties. <strong>Consistency</strong> (every read returns the latest write), <strong>Availability</strong> (every request gets a response), <strong>Partition tolerance</strong> (the system works despite network splits). In practice, partitions happen, so the real choice is between consistency and availability during a partition.</p>
+    <p>The <strong><a href="https://en.wikipedia.org/wiki/CAP_theorem">🅦 CAP theorem</a></strong> (<a href="https://en.wikipedia.org/wiki/Eric_Brewer_(scientist)">🅦 Brewer</a>, 2000): a distributed data store can satisfy at most two of three properties. <strong>Consistency</strong> (every read returns the latest write), <strong>Availability</strong> (every request gets a response), <strong>Partition tolerance</strong> (the system works despite network splits). In practice, partitions happen, so the real choice is between consistency and availability during a partition.</p>
 
     <SchemeRepl client:load initialCode={`; CAP theorem: pick two.
 ; CP systems: consistent but unavailable during partition (e.g., HBase)

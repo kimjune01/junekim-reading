@@ -56,7 +56,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     </div>
 
     <h3>Routh-Hurwitz criterion</h3>
-    <p>You don't need to find the roots to check stability. The <strong>Routh-Hurwitz criterion</strong> builds a table from the coefficients of the characteristic polynomial. If all entries in the first column are positive, all poles are in the left half-plane and the system is stable. A sign change in the first column means an unstable pole.</p>
+    <p>You don't need to find the roots to check stability. The <strong><a href="https://en.wikipedia.org/wiki/Routh%E2%80%93Hurwitz_stability_criterion">Routh-Hurwitz criterion</a></strong> builds a table from the coefficients of the characteristic polynomial. If all entries in the first column are positive, all poles are in the left half-plane and the system is stable. A sign change in the first column means an unstable pole.</p>
 
     <SchemeRepl client:load initialCode={`; Check stability by examining poles (roots of characteristic equation)
 ; For a second-order system: s^2 + 2*zeta*wn*s + wn^2 = 0

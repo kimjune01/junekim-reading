@@ -23,11 +23,11 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <div class="flex justify-center my-6">
       <svg viewBox="0 0 420 160" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
         <!-- Bidder A -->
-        <rect x="20" y="20" width="100" height="45" rx="6" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.2"/>
+        <rect x="20" y="20" width="100" height="45" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2"/>
         <text x="70" y="38" text-anchor="middle" fill="currentColor" font-size="11">Bidder A</text>
         <text x="70" y="55" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="bold">bids $80</text>
         <!-- Bidder B -->
-        <rect x="20" y="90" width="100" height="45" rx="6" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.2"/>
+        <rect x="20" y="90" width="100" height="45" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1.2"/>
         <text x="70" y="108" text-anchor="middle" fill="currentColor" font-size="11">Bidder B</text>
         <text x="70" y="125" text-anchor="middle" fill="currentColor" font-size="13">bids $50</text>
         <!-- Arrows to auctioneer -->
@@ -99,7 +99,7 @@ print(second_price([45, 50, 30]))
     </details>
 
     <h3>The dominance argument</h3>
-    <p>Truthful bidding weakly dominates every other strategy. No matter what others bid, you never do worse by bidding your true value, and sometimes you do strictly better. This is Vickrey's central result.</p>
+    <p>Truthful bidding weakly dominates every other strategy. No matter what others bid, you never do worse by bidding your true value, and sometimes you do strictly better. This is <a href="https://en.wikipedia.org/wiki/William_Vickrey">🅦 Vickrey's</a> central result.</p>
 
     <SchemeRepl client:load initialCode={`; Dominance check: is truthful bidding always at least as good?
 ; Compare payoff of bidding v (truthful) vs bidding b (deviation)

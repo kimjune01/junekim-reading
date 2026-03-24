@@ -35,21 +35,21 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <path d="M 122 90 Q 180 50 238 90" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.25"/>
         <polygon points="225,82 232,88 223,89" fill="currentColor" fill-opacity="0.25"/>
 
-        <path d="M 118 82 Q 180 20 242 82" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <path d="M 118 82 Q 180 20 242 82" fill="none" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
         <polygon points="228,72 236,80 227,80" fill="currentColor" fill-opacity="0.2"/>
 
-        <path d="M 110 86 Q 180 -5 250 86" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
-        <polygon points="237,70 245,78 236,77" fill="currentColor" fill-opacity="0.15"/>
+        <path d="M 110 86 Q 180 -5 250 86" fill="none" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
+        <polygon points="237,70 245,78 236,77" fill="#a1a1aa" fill-opacity="0.18"/>
 
         <!-- Lower lines (mirror) -->
         <path d="M 122 110 Q 180 150 238 110" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.25"/>
         <polygon points="225,118 232,112 223,111" fill="currentColor" fill-opacity="0.25"/>
 
-        <path d="M 118 118 Q 180 180 242 118" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <path d="M 118 118 Q 180 180 242 118" fill="none" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
         <polygon points="228,128 236,120 227,120" fill="currentColor" fill-opacity="0.2"/>
 
-        <path d="M 110 114 Q 180 205 250 114" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
-        <polygon points="237,130 245,122 236,123" fill="currentColor" fill-opacity="0.15"/>
+        <path d="M 110 114 Q 180 205 250 114" fill="none" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
+        <polygon points="237,130 245,122 236,123" fill="#a1a1aa" fill-opacity="0.18"/>
 
         <!-- Caption -->
         <text x="180" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">Field lines point from positive to negative.</text>
@@ -154,7 +154,7 @@ for r in [0.01, 0.1, 1.0, 10.0]:
 
     <!-- 4. Capacitance -->
     <h3>Capacitance and circuits</h3>
-    <p>A capacitor stores charge: C = Q/V (farads). Two parallel plates separated by a gap form a capacitor: C = epsilon_0 * A / d. In circuits, resistors dissipate energy (V = IR), capacitors store it (E = (1/2)CV&sup2;), and batteries supply it. Kirchhoff's laws (conservation of charge and energy) govern every circuit.</p>
+    <p>A capacitor stores charge: C = Q/V (farads). Two parallel plates separated by a gap form a capacitor: C = epsilon_0 * A / d. In circuits, resistors dissipate energy (V = IR), capacitors store it (E = (1/2)CV&sup2;), and batteries supply it. <a href="https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws">Kirchhoff's laws</a> (conservation of charge and energy) govern every circuit.</p>
 
     <SchemeRepl client:load initialCode={`; Circuits: Ohm's law V = IR, capacitor C = Q/V
 

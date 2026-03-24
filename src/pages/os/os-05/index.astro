@@ -145,7 +145,7 @@ print("P1->P2->P3->P1:", has_cycle({"P1": ["P2"], "P2": ["P3"], "P3": ["P1"]}))
     <p>Break one of the four conditions. Impose a total ordering on resources (break circular wait). Require processes to request all resources at once (break hold-and-wait). Allow preemption of resources.</p>
 
     <h3>Avoidance: Banker's algorithm</h3>
-    <p>Dijkstra's Banker's algorithm checks whether granting a request leaves the system in a <strong>safe state</strong>: one where there exists a sequence in which all processes can finish. If not, the request is denied. The cost is knowing maximum resource needs in advance.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">🅦 Dijkstra</a>'s <a href="https://en.wikipedia.org/wiki/Banker%27s_algorithm">🅦 Banker's algorithm</a> checks whether granting a request leaves the system in a <strong>safe state</strong>: one where there exists a sequence in which all processes can finish. If not, the request is denied. The cost is knowing maximum resource needs in advance.</p>
 
     <SchemeRepl client:load initialCode={`; Banker's algorithm: is the state safe?
 ; available: list of available resources per type

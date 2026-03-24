@@ -20,9 +20,9 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h3>The Lorenz curve</h3>
     <p>Sort everyone by income, poorest to richest. The x-axis is cumulative population share, the y-axis is cumulative income share. Perfect equality is the 45-degree line. The further the Lorenz curve bows below the diagonal, the greater the inequality. The Gini coefficient is the area between the diagonal and the Lorenz curve, divided by the total area under the diagonal.</p>
 
-    <!-- SVG: Lorenz curve with 45-degree line and shaded Gini area -->
-    <div class="flex justify-center my-6">
-      <svg viewBox="0 0 400 400" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+    <!-- SVG: Interactive Lorenz curve / Gini coefficient -->
+    <div class="flex flex-col items-center my-6">
+      <svg id="lz-svg" viewBox="0 0 400 420" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
         <!-- Axes -->
         <line x1="60" y1="340" x2="360" y2="340" stroke="currentColor" stroke-width="1.5"/>
         <line x1="60" y1="340" x2="60" y2="40" stroke="currentColor" stroke-width="1.5"/>
@@ -36,15 +36,74 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <!-- 45-degree equality line -->
         <line x1="60" y1="340" x2="360" y2="40" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5,3" stroke-opacity="0.4"/>
         <text x="175" y="165" fill="currentColor" font-size="10" fill-opacity="0.4" transform="rotate(-45,175,165)">perfect equality</text>
-        <!-- Shaded Gini area (between diagonal and Lorenz curve) -->
-        <path d="M 60 340 L 360 40 L 360 340 Q 300 310 240 290 Q 180 260 120 310 Z" fill="#fbbf24" fill-opacity="0.12"/>
+        <!-- Shaded area between diagonal and Lorenz curve -->
+        <path id="lz-area" fill="#f59e0b" fill-opacity="0.15"/>
         <!-- Lorenz curve -->
-        <path d="M 60 340 Q 120 330 180 300 Q 240 260 300 180 Q 340 100 360 40" fill="none" stroke="#4ade80" stroke-width="2.5"/>
-        <!-- Gini label -->
-        <text x="260" y="240" fill="#fbbf24" font-size="12" fill-opacity="0.8">A (Gini area)</text>
-        <text x="200" y="310" fill="#4ade80" font-size="11">Lorenz curve</text>
+        <polyline id="lz-curve" fill="none" stroke="#34d399" stroke-width="2.5"/>
+        <!-- Labels -->
+        <text x="260" y="240" fill="#f59e0b" font-size="12" fill-opacity="0.7">Gini area</text>
+        <text x="200" y="310" fill="#34d399" font-size="11" fill-opacity="0.8">Lorenz curve</text>
+        <!-- Readout -->
+        <text id="lz-readout" x="210" y="405" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.7"></text>
       </svg>
+      <input id="lz-slider" type="range" min="0" max="80" value="35" step="1" class="w-full max-w-sm mt-2" style="accent-color: #34d399;" />
     </div>
+    <script is:inline>
+    (function() {
+      var LEFT = 60, RIGHT = 360, TOP = 40, BOT = 340;
+      var W = RIGHT - LEFT, H = BOT - TOP;
+      function xOf(t) { return LEFT + t * W; }
+      function yOf(t) { return BOT - t * H; }
+      // Lorenz approximation: L(x) = x^(1/(1-G))
+      function lorenz(x, g) {
+        if (g <= 0) return x;
+        var exp = 1 / (1 - g);
+        return Math.pow(x, exp);
+      }
+
+      var slider = document.getElementById("lz-slider");
+      var curve = document.getElementById("lz-curve");
+      var area = document.getElementById("lz-area");
+      var readout = document.getElementById("lz-readout");
+      var N = 50;
+
+      function update() {
+        var g = slider.value / 100;
+        // Build Lorenz curve points
+        var pts = [];
+        for (var i = 0; i <= N; i++) {
+          var x = i / N;
+          var y = lorenz(x, g);
+          pts.push(xOf(x).toFixed(1) + "," + yOf(y).toFixed(1));
+        }
+        curve.setAttribute("points", pts.join(" "));
+        // Build shaded area path: diagonal down, then Lorenz curve back
+        var d = "M " + LEFT + " " + BOT;
+        // Along diagonal to top-right
+        d += " L " + RIGHT + " " + TOP;
+        // Back along Lorenz curve (reverse)
+        for (var i = N; i >= 0; i--) {
+          var x = i / N;
+          var y = lorenz(x, g);
+          d += " L " + xOf(x).toFixed(1) + " " + yOf(y).toFixed(1);
+        }
+        d += " Z";
+        area.setAttribute("d", d);
+        // Description
+        var desc;
+        if (g < 0.05) desc = "perfect equality";
+        else if (g < 0.25) desc = "low inequality";
+        else if (g < 0.35) desc = "typical developed nation";
+        else if (g < 0.45) desc = "moderate inequality";
+        else if (g < 0.55) desc = "high inequality";
+        else if (g < 0.65) desc = "very unequal";
+        else desc = "extreme inequality";
+        readout.textContent = "Gini = " + g.toFixed(2) + " — " + desc;
+      }
+      slider.addEventListener("input", update);
+      update();
+    })();
+    </script>
 
     <SchemeRepl client:load initialCode={`; Gini coefficient from income list
 ; Gini = (sum |xi - xj|) / (2 * n^2 * mean)

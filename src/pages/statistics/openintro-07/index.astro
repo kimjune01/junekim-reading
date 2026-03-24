@@ -40,7 +40,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- 1. One-sample t-test -->
     <h3>One-sample t-test</h3>
-    <p>Test whether a sample mean differs from a hypothesized value. The t-statistic replaces Z when sigma is unknown: t = (x-bar - mu0) / (s / sqrt(n)). It follows a t-distribution with n - 1 degrees of freedom. As n grows, t approaches Z.</p>
+    <p>Test whether a sample mean differs from a hypothesized value. The t-statistic replaces Z when sigma is unknown: t = (x-bar - mu0) / (s / sqrt(n)). It follows a <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">t-distribution</a> with n - 1 degrees of freedom. As n grows, t approaches Z.</p>
 
     <SchemeRepl client:load initialCode={`; One-sample t-test
 ; H0: mu = 100, sample mean = 105, s = 15, n = 25

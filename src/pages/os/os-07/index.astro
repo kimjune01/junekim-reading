@@ -20,7 +20,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <p>Pages are not loaded until accessed. The first access triggers a <strong>page fault</strong>: the OS loads the page from disk into a free frame, updates the page table, and resumes the instruction. Most programs exhibit locality, so page faults are rare after warmup.</p>
 
     <h3>Page replacement algorithms</h3>
-    <p><strong>FIFO</strong>: evict the oldest page. Simple but suffers Belady's anomaly (more frames can mean more faults). <strong>LRU</strong>: evict the least recently used page. Good performance but expensive to track precisely. <strong>Optimal</strong>: evict the page that will not be used for the longest time. Impossible to implement (requires future knowledge) but useful as a benchmark.</p>
+    <p><strong>FIFO</strong>: evict the oldest page. Simple but suffers <a href="https://en.wikipedia.org/wiki/B%C3%A9l%C3%A1dy%27s_anomaly">🅦 Belady's anomaly</a> (more frames can mean more faults). <strong>LRU</strong>: evict the least recently used page. Good performance but expensive to track precisely. <strong>Optimal</strong>: evict the page that will not be used for the longest time. Impossible to implement (requires future knowledge) but useful as a benchmark.</p>
 
     <!-- SVG: Page replacement sequence with hits/faults marked -->
     <div class="flex justify-center my-6">

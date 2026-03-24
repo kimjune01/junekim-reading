@@ -17,7 +17,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     </div>
 
     <h3>The Laplace domain</h3>
-    <p>A linear time-invariant (LTI) system is described by a differential equation. The Laplace transform replaces derivatives with powers of the complex variable s. Differentiation becomes multiplication: if y(t) has transform Y(s), then y'(t) has transform sY(s). This turns calculus into algebra.</p>
+    <p>A linear time-invariant (LTI) system is described by a differential equation. The <a href="https://en.wikipedia.org/wiki/Laplace_transform">Laplace transform</a> replaces derivatives with powers of the complex variable s. Differentiation becomes multiplication: if y(t) has transform Y(s), then y'(t) has transform sY(s). This turns calculus into algebra.</p>
 
     <h3>Poles and zeros</h3>
     <p>The transfer function is a ratio of polynomials in s. The roots of the numerator are <strong>zeros</strong>: frequencies where the output vanishes. The roots of the denominator are <strong>poles</strong>: frequencies where the output blows up. Poles in the left half-plane decay. Poles in the right half-plane grow. Poles on the imaginary axis oscillate forever.</p>
@@ -34,19 +34,19 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <text x="380" y="215" fill="currentColor" font-size="11" fill-opacity="0.4">t</text>
         <text x="35" y="20" fill="currentColor" font-size="11" fill-opacity="0.4">y</text>
         <!-- Steady state line -->
-        <line x1="50" y1="60" x2="380" y2="60" stroke="currentColor" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4,3"/>
+        <line x1="50" y1="60" x2="380" y2="60" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="4,3"/>
         <text x="385" y="64" fill="currentColor" font-size="9" fill-opacity="0.3">setpoint</text>
         <!-- Step response curve (underdamped) -->
         <path d="M 50 200 L 70 200 Q 100 200 120 80 Q 135 20 160 50 Q 180 75 200 55 Q 220 40 240 58 Q 255 68 270 60 Q 285 55 300 59 Q 315 62 330 60 L 380 60" fill="none" stroke="#60a5fa" stroke-width="2"/>
         <!-- Rise time -->
-        <line x1="120" y1="205" x2="120" y2="80" stroke="currentColor" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="2,2"/>
+        <line x1="120" y1="205" x2="120" y2="80" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="2,2"/>
         <text x="95" y="220" fill="currentColor" font-size="9" fill-opacity="0.4">rise time</text>
         <!-- Overshoot -->
         <line x1="135" y1="20" x2="165" y2="20" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
         <line x1="150" y1="20" x2="150" y2="60" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="2,2"/>
         <text x="155" y="15" fill="#f59e0b" font-size="9" fill-opacity="0.6">overshoot</text>
         <!-- Settling time -->
-        <line x1="300" y1="205" x2="300" y2="60" stroke="currentColor" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="2,2"/>
+        <line x1="300" y1="205" x2="300" y2="60" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="2,2"/>
         <text x="280" y="220" fill="currentColor" font-size="9" fill-opacity="0.4">settling</text>
       </svg>
     </div>

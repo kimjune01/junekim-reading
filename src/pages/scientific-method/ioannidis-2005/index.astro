@@ -20,48 +20,75 @@ import Layout from '../../../layouts/Base.astro';
     <p>Suppose one in ten hypotheses tested is actually true. A study with 80% power and a 5% significance threshold will produce results like this:</p>
 
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 480 320" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
-        <!-- Title -->
-        <text x="240" y="20" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">1000 hypotheses tested, 100 true, 900 false</text>
-
-        <!-- 2x2 grid -->
-        <!-- Header row -->
-        <text x="260" y="58" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Study says positive</text>
-        <text x="400" y="58" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Study says negative</text>
-
-        <!-- Row labels -->
-        <text x="120" y="110" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Hypothesis true</text>
-        <text x="120" y="120" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">(100 of 1000)</text>
-        <text x="120" y="200" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Hypothesis false</text>
-        <text x="120" y="210" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">(900 of 1000)</text>
-
-        <!-- True positive cell -->
-        <rect x="190" y="75" width="140" height="70" rx="4" fill="#4ade80" fill-opacity="0.12" stroke="#4ade80" stroke-width="1.5"/>
-        <text x="260" y="105" text-anchor="middle" fill="#4ade80" font-size="20">80</text>
-        <text x="260" y="125" text-anchor="middle" fill="#4ade80" font-size="9" fill-opacity="0.7">true positives</text>
-
-        <!-- False negative cell -->
-        <rect x="340" y="75" width="120" height="70" rx="4" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-        <text x="400" y="105" text-anchor="middle" fill="currentColor" font-size="18" fill-opacity="0.4">20</text>
-        <text x="400" y="125" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">false negatives</text>
-
-        <!-- False positive cell -->
-        <rect x="190" y="155" width="140" height="70" rx="4" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
-        <text x="260" y="185" text-anchor="middle" fill="#ef4444" font-size="20">45</text>
-        <text x="260" y="205" text-anchor="middle" fill="#ef4444" font-size="9" fill-opacity="0.7">false positives</text>
-
-        <!-- True negative cell -->
-        <rect x="340" y="155" width="120" height="70" rx="4" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-        <text x="400" y="185" text-anchor="middle" fill="currentColor" font-size="18" fill-opacity="0.4">855</text>
-        <text x="400" y="205" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">true negatives</text>
-
-        <!-- Bottom: the punchline -->
-        <line x1="190" y1="245" x2="330" y2="245" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-        <text x="260" y="265" text-anchor="middle" fill="currentColor" font-size="11">Of 125 "positive" findings:</text>
-        <text x="260" y="283" text-anchor="middle" fill="#ef4444" font-size="12">45 are wrong (36%)</text>
-        <text x="260" y="305" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">lower the prior, raise the bias, add more teams: it gets worse</text>
-      </svg>
+      <div style="width:100%;max-width:30rem;">
+        <svg id="ioannidis" viewBox="0 0 480 310" class="w-full" style="font-family: ui-monospace, monospace;">
+          <!-- Title -->
+          <text id="io-title" x="240" y="20" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5"></text>
+          <!-- Headers -->
+          <text x="260" y="55" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Study says positive</text>
+          <text x="400" y="55" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Study says negative</text>
+          <!-- Row labels -->
+          <text x="120" y="105" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Hypothesis true</text>
+          <text id="io-true-n" x="120" y="117" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3"></text>
+          <text x="120" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Hypothesis false</text>
+          <text id="io-false-n" x="120" y="207" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3"></text>
+          <!-- TP -->
+          <rect x="190" y="70" width="140" height="65" rx="4" fill="#4ade80" fill-opacity="0.12" stroke="#4ade80" stroke-width="1.5"/>
+          <text id="io-tp" x="260" y="100" text-anchor="middle" fill="#4ade80" font-size="20"></text>
+          <text x="260" y="118" text-anchor="middle" fill="#4ade80" font-size="9" fill-opacity="0.7">true positives</text>
+          <!-- FN -->
+          <rect x="340" y="70" width="120" height="65" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1"/>
+          <text id="io-fn" x="400" y="100" text-anchor="middle" fill="currentColor" font-size="18" fill-opacity="0.4"></text>
+          <text x="400" y="118" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">false negatives</text>
+          <!-- FP -->
+          <rect x="190" y="150" width="140" height="65" rx="4" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
+          <text id="io-fp" x="260" y="180" text-anchor="middle" fill="#ef4444" font-size="20"></text>
+          <text x="260" y="198" text-anchor="middle" fill="#ef4444" font-size="9" fill-opacity="0.7">false positives</text>
+          <!-- TN -->
+          <rect x="340" y="150" width="120" height="65" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1"/>
+          <text id="io-tn" x="400" y="180" text-anchor="middle" fill="currentColor" font-size="18" fill-opacity="0.4"></text>
+          <text x="400" y="198" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">true negatives</text>
+          <!-- Punchline -->
+          <line x1="190" y1="235" x2="330" y2="235" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
+          <text id="io-pos" x="260" y="255" text-anchor="middle" fill="currentColor" font-size="11"></text>
+          <text id="io-fdr" x="260" y="275" text-anchor="middle" fill="#ef4444" font-size="12"></text>
+          <text x="260" y="300" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">drag the slider: lower the prior and watch the false discovery rate climb</text>
+        </svg>
+        <input type="range" id="io-slider" min="1" max="50" value="10" step="1" style="width:100%;margin-top:4px;accent-color:#ef4444;">
+      </div>
     </div>
+    <script is:inline>
+    (function() {
+      var N = 1000, power = 0.8, alpha = 0.05;
+      var slider = document.getElementById('io-slider');
+      var els = {};
+      ['title','true-n','false-n','tp','fn','fp','tn','pos','fdr'].forEach(function(k) {
+        els[k] = document.getElementById('io-' + k);
+      });
+      function update() {
+        var prior = parseInt(slider.value) / 100;
+        var nTrue = Math.round(N * prior);
+        var nFalse = N - nTrue;
+        var tp = Math.round(nTrue * power);
+        var fn = nTrue - tp;
+        var fp = Math.round(nFalse * alpha);
+        var tn = nFalse - fp;
+        var positives = tp + fp;
+        var fdr = positives > 0 ? Math.round(fp / positives * 100) : 0;
+        els['title'].textContent = N + ' hypotheses, ' + nTrue + ' true, ' + nFalse + ' false (prior = ' + (prior * 100).toFixed(0) + '%)';
+        els['true-n'].textContent = '(' + nTrue + ' of ' + N + ')';
+        els['false-n'].textContent = '(' + nFalse + ' of ' + N + ')';
+        els['tp'].textContent = tp;
+        els['fn'].textContent = fn;
+        els['fp'].textContent = fp;
+        els['tn'].textContent = tn;
+        els['pos'].textContent = 'Of ' + positives + ' "positive" findings:';
+        els['fdr'].textContent = fp + ' are wrong (' + fdr + '%)';
+      }
+      slider.addEventListener('input', update);
+      update();
+    })();
+    </script>
 
     <p>The arithmetic is not subtle. With a 10% prior, more than a third of published positives are false. Drop the prior to 1% and the false discovery rate climbs past 80%. The significance threshold was never designed to handle low base rates. Fisher knew this. The field forgot.</p>
 
@@ -103,40 +130,40 @@ import Layout from '../../../layouts/Base.astro';
 
         <!-- 20 team dots: 19 null, 1 "significant" -->
         <!-- Row 1 -->
-        <circle cx="60" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="90" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="120" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="150" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="180" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="210" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="240" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="270" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="300" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="330" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="60" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="90" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="120" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="150" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="180" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="210" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="240" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="270" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="300" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="330" cy="45" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
         <!-- Row 2 -->
-        <circle cx="60" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="90" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="120" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="150" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="180" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="210" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="240" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="270" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
-        <circle cx="300" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="60" cy="70" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="90" cy="70" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="120" cy="70" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="150" cy="70" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="180" cy="70" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="210" cy="70" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="240" cy="70" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="270" cy="70" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+        <circle cx="300" cy="70" r="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
         <!-- The one "significant" result -->
         <circle cx="330" cy="70" r="6" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.2"/>
         <text x="330" y="73" text-anchor="middle" fill="#ef4444" font-size="6" fill-opacity="0.8">*</text>
 
         <!-- Arrows: 19 go down to file drawer -->
-        <line x1="190" y1="85" x2="150" y2="125" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
+        <line x1="190" y1="85" x2="150" y2="125" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
         <text x="120" y="115" fill="currentColor" font-size="8" fill-opacity="0.3">19 null results</text>
 
         <!-- File drawer -->
-        <rect x="60" y="130" width="200" height="40" rx="3" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-        <line x1="70" y1="145" x2="250" y2="145" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
+        <rect x="60" y="130" width="200" height="40" rx="3" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
+        <line x1="70" y1="145" x2="250" y2="145" stroke="#71717a" stroke-width="0.5" stroke-opacity="0.45"/>
         <text x="160" y="157" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">file drawer</text>
         <!-- Drawer handle -->
-        <rect x="145" y="133" width="30" height="4" rx="2" fill="currentColor" fill-opacity="0.1"/>
+        <rect x="145" y="133" width="30" height="4" rx="2" fill="#a1a1aa" fill-opacity="0.18"/>
 
         <!-- Arrow: 1 goes right to journal -->
         <line x1="338" y1="78" x2="360" y2="125" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
@@ -178,7 +205,7 @@ import Layout from '../../../layouts/Base.astro';
         <text x="430" y="30" text-anchor="start" fill="#ef4444" font-size="7" fill-opacity="0.5">α = .05</text>
 
         <!-- Expected distribution (honest science): smooth decay from left -->
-        <path d="M 50,40 C 80,42 110,60 140,80 C 170,100 200,120 240,140 C 280,155 320,162 360,166 C 390,168 410,170 420,170" fill="none" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.2" stroke-dasharray="5,5"/>
+        <path d="M 50,40 C 80,42 110,60 140,80 C 170,100 200,120 240,140 C 280,155 320,162 360,166 C 390,168 410,170 420,170" fill="none" stroke="#71717a" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="5,5"/>
         <text x="160" y="68" fill="currentColor" font-size="7" fill-opacity="0.25">expected</text>
 
         <!-- Actual distribution: similar decay but with a bump near 0.05 -->
@@ -215,11 +242,11 @@ import Layout from '../../../layouts/Base.astro';
 
     <p>The p-value was never meant to carry this weight. <a href="/reading/scientific-method/fisher-1935/">Fisher</a> introduced it as a rough guide for when to look more closely, not as a decision boundary for truth. Somewhere between 1935 and 2005, the scientific community turned a heuristic into a ritual. Ioannidis is documenting what happens when the ritual replaces the reasoning.</p>
 
-    <p><a href="/reading/scientific-method/feynman-1974/">Feynman</a> warned in 1974 that scientists were performing the motions of science without the substance. He called it cargo cult science: build the runway, light the fires, wait for the planes that never come. Ioannidis is showing that the cargo cult operates at industrial scale. Thousands of papers per year, most of them reporting planes that never landed.</p>
+    <p><a href="/reading/scientific-method/feynman-1974/">🔬 Feynman</a> warned in 1974 that scientists were performing the motions of science without the substance. He called it cargo cult science: build the runway, light the fires, wait for the planes that never come. Ioannidis is showing that the cargo cult operates at industrial scale. Thousands of papers per year, most of them reporting planes that never landed.</p>
 
-    <p><a href="/reading/scientific-method/mayo-2018/">Mayo</a> provides the diagnostic. Her severity principle asks: did the test have a high probability of producing a different result if the hypothesis were false? If not, a positive result is uninformative. Most of the studies Ioannidis flags would fail the severity test. The design was too flexible, the power too low, the prior too thin. The machinery produced a number below 0.05, but the test was not severe.</p>
+    <p><a href="/reading/scientific-method/mayo-2018/">🔬 Mayo</a> provides the diagnostic. Her severity principle asks: did the test have a high probability of producing a different result if the hypothesis were false? If not, a positive result is uninformative. Most of the studies Ioannidis flags would fail the severity test. The design was too flexible, the power too low, the prior too thin. The machinery produced a number below 0.05, but the test was not severe.</p>
 
-    <p><a href="/reading/scientific-method/popper-1934/">Popper</a> said science advances by trying to falsify. Ioannidis is showing that scientists routinely fail to falsify. The incentive structure rewards confirmation. Publication bias filters for it. Career advancement depends on it. The community selects for the behavior Popper said disqualifies a field from being science at all.</p>
+    <p><a href="/reading/scientific-method/popper-1934/">🔬 Popper</a> said science advances by trying to falsify. Ioannidis is showing that scientists routinely fail to falsify. The incentive structure rewards confirmation. Publication bias filters for it. Career advancement depends on it. The community selects for the behavior Popper said disqualifies a field from being science at all.</p>
 
     <!-- Integrity angle -->
     <h3>The incentive problem</h3>

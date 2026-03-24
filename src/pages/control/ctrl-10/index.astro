@@ -56,7 +56,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <p>A function V(x) is a Lyapunov function for the equilibrium x=0 if: (1) V(0) = 0, (2) V(x) is greater than 0 for x not equal to 0 (positive definite), and (3) dV/dt is less than or equal to 0 along trajectories (V is non-increasing). If dV/dt is strictly negative (not just non-increasing), the equilibrium is <strong>asymptotically stable</strong>: the state converges to zero.</p>
 
     <h3>LaSalle's invariance principle</h3>
-    <p>What if dV/dt is only zero on some set, not everywhere? LaSalle's principle says: the system converges to the largest invariant set where dV/dt = 0. This handles cases where the Lyapunov function is not strictly decreasing everywhere but still guarantees convergence.</p>
+    <p>What if dV/dt is only zero on some set, not everywhere? <a href="https://en.wikipedia.org/wiki/LaSalle%27s_invariance_principle">LaSalle's principle</a> says: the system converges to the largest invariant set where dV/dt = 0. This handles cases where the Lyapunov function is not strictly decreasing everywhere but still guarantees convergence.</p>
 
     <SchemeRepl client:load initialCode={`; Lyapunov analysis: x' = -x^3
 ; Candidate V(x) = x^2 / 2

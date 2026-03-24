@@ -30,7 +30,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <!-- Plus sign -->
         <text x="30" y="130" fill="currentColor" font-size="14" fill-opacity="0.3">+</text>
         <!-- Equals line -->
-        <line x1="50" y1="140" x2="370" y2="140" stroke="currentColor" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="3,3"/>
+        <line x1="50" y1="140" x2="370" y2="140" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
 
         <!-- Superposition (sum) -->
         <text x="15" y="170" fill="#f59e0b" font-size="10" fill-opacity="0.6">sum</text>
@@ -144,7 +144,7 @@ for n in range(1, 7):
 
     <!-- 4. Fourier -->
     <h3>Fourier decomposition</h3>
-    <p>Any periodic wave can be written as a sum of sines and cosines. A square wave is an infinite series of odd harmonics. Fourier analysis is the reason we can separate instruments in a chord: each instrument has a different harmonic spectrum. The math is the same whether the wave is sound, light, or a quantum wavefunction.</p>
+    <p>Any periodic wave can be written as a sum of sines and cosines. A square wave is an infinite series of odd harmonics. <a href="https://en.wikipedia.org/wiki/Fourier_analysis">Fourier analysis</a> is the reason we can separate instruments in a chord: each instrument has a different harmonic spectrum. The math is the same whether the wave is sound, light, or a quantum wavefunction.</p>
 
     <SchemeRepl client:load initialCode={`; Fourier series: square wave from odd harmonics
 ; f(x) = (4/pi) * sum_{n=1,3,5,...} sin(n*x)/n

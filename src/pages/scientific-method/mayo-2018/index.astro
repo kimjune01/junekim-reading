@@ -25,7 +25,7 @@ import Layout from '../../../layouts/Base.astro';
         <text x="125" y="20" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">Severe test</text>
 
         <!-- Narrow prediction band -->
-        <rect x="30" y="40" width="190" height="120" rx="4" fill="currentColor" fill-opacity="0.03" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
+        <rect x="30" y="40" width="190" height="120" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
 
         <!-- Prediction region: narrow band -->
         <rect x="85" y="60" width="80" height="80" rx="3" fill="#4ade80" fill-opacity="0.1" stroke="#4ade80" stroke-width="1.2" stroke-dasharray="4,3"/>
@@ -49,7 +49,7 @@ import Layout from '../../../layouts/Base.astro';
         <text x="375" y="20" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">Non-severe test</text>
 
         <!-- Wide prediction band -->
-        <rect x="280" y="40" width="190" height="120" rx="4" fill="currentColor" fill-opacity="0.03" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
+        <rect x="280" y="40" width="190" height="120" rx="4" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
 
         <!-- Prediction region: covers nearly everything -->
         <rect x="290" y="50" width="170" height="100" rx="3" fill="#fbbf24" fill-opacity="0.08" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="4,3"/>
@@ -66,10 +66,10 @@ import Layout from '../../../layouts/Base.astro';
         <text x="375" y="210" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">passing this test proves nothing</text>
 
         <!-- Divider -->
-        <line x1="250" y1="35" x2="250" y2="215" stroke="currentColor" stroke-width="1" stroke-opacity="0.1"/>
+        <line x1="250" y1="35" x2="250" y2="215" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
 
         <!-- Formal statement at bottom -->
-        <rect x="60" y="240" width="380" height="60" rx="6" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <rect x="60" y="240" width="380" height="60" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="#71717a" stroke-width="1" stroke-opacity="0.45"/>
         <text x="250" y="262" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.7">Severity principle</text>
         <text x="250" y="280" text-anchor="middle" fill="currentColor" font-size="10">Data x are evidence for H only if the test was severe:</text>
         <text x="250" y="294" text-anchor="middle" fill="currentColor" font-size="10">P(test yields result as or more agreeable to H | H is false) is low</text>

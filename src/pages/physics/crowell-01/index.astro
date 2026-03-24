@@ -20,49 +20,70 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h3>Kinetic energy</h3>
     <p>A mass m moving at speed v has kinetic energy KE = (1/2)mv&sup2;. Double the speed, quadruple the energy. This is why car crashes at highway speed are so much worse.</p>
 
-    <!-- SVG: Ball at different heights with KE/PE bars -->
+    <!-- SVG: interactive energy conservation — drag height -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 400 200" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
-        <!-- Ground -->
-        <line x1="20" y1="180" x2="380" y2="180" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-
-        <!-- Position 1: high, all PE -->
-        <circle cx="80" cy="50" r="10" fill="#60a5fa" fill-opacity="0.6"/>
-        <text x="80" y="35" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">h = max</text>
-        <!-- PE bar -->
-        <rect x="60" y="130" width="12" height="45" fill="#f59e0b" fill-opacity="0.5"/>
-        <text x="66" y="125" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">PE</text>
-        <!-- KE bar (tiny) -->
-        <rect x="76" y="170" width="12" height="5" fill="#34d399" fill-opacity="0.5"/>
-        <text x="82" y="125" text-anchor="middle" fill="#34d399" font-size="9" fill-opacity="0.7">KE</text>
-
-        <!-- Position 2: mid height -->
-        <circle cx="200" cy="110" r="10" fill="#60a5fa" fill-opacity="0.6"/>
-        <text x="200" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">h = mid</text>
-        <!-- PE bar -->
-        <rect x="180" y="152" width="12" height="23" fill="#f59e0b" fill-opacity="0.5"/>
-        <text x="186" y="145" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">PE</text>
-        <!-- KE bar -->
-        <rect x="196" y="152" width="12" height="23" fill="#34d399" fill-opacity="0.5"/>
-        <text x="202" y="145" text-anchor="middle" fill="#34d399" font-size="9" fill-opacity="0.7">KE</text>
-
-        <!-- Position 3: ground, all KE -->
-        <circle cx="320" cy="170" r="10" fill="#60a5fa" fill-opacity="0.6"/>
-        <text x="320" y="155" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">h = 0</text>
-        <!-- PE bar (tiny) -->
-        <rect x="300" y="170" width="12" height="5" fill="#f59e0b" fill-opacity="0.5"/>
-        <text x="306" y="125" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">PE</text>
-        <!-- KE bar -->
-        <rect x="316" y="130" width="12" height="45" fill="#34d399" fill-opacity="0.5"/>
-        <text x="322" y="125" text-anchor="middle" fill="#34d399" font-size="9" fill-opacity="0.7">KE</text>
-
-        <!-- Trajectory arc -->
-        <path d="M 80 50 Q 200 40 320 170" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4,3"/>
-
-        <!-- Caption -->
-        <text x="200" y="198" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">PE + KE = constant throughout the fall.</text>
-      </svg>
+      <div style="width:100%;max-width:24rem;">
+        <svg id="energy" viewBox="0 0 300 220" class="w-full" style="font-family: ui-monospace, monospace;">
+          <!-- Ground -->
+          <line x1="20" y1="170" x2="280" y2="170" stroke="#71717a" stroke-width="1"/>
+          <!-- Ball -->
+          <circle id="en-ball" r="10" fill="#60a5fa" fill-opacity="0.7"/>
+          <!-- Height line -->
+          <line id="en-hline" stroke="#71717a" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <text id="en-hlabel" fill="currentColor" font-size="9" fill-opacity="0.5"></text>
+          <!-- PE bar -->
+          <rect id="en-pe" x="200" width="20" fill="#f59e0b" fill-opacity="0.5" rx="2"/>
+          <text x="210" y="115" text-anchor="middle" fill="#f59e0b" font-size="9">PE</text>
+          <!-- KE bar -->
+          <rect id="en-ke" x="235" width="20" fill="#34d399" fill-opacity="0.5" rx="2"/>
+          <text x="245" y="115" text-anchor="middle" fill="#34d399" font-size="9">KE</text>
+          <!-- Total marker -->
+          <line x1="195" y1="120" x2="260" y2="120" stroke="#71717a" stroke-width="0.5" stroke-dasharray="2,2"/>
+          <text x="270" y="124" fill="currentColor" font-size="7" fill-opacity="0.4">total</text>
+          <!-- Readout -->
+          <text id="en-readout" x="150" y="210" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4"></text>
+        </svg>
+        <input type="range" id="en-slider" min="0" max="100" value="80" step="1" style="width:100%;margin-top:4px;accent-color:#60a5fa;">
+      </div>
     </div>
+    <script is:inline>
+    (function() {
+      var GROUND = 170, TOP = 40, MAX_BAR = 50;
+      var slider = document.getElementById('en-slider');
+      var ball = document.getElementById('en-ball');
+      var pe = document.getElementById('en-pe');
+      var ke = document.getElementById('en-ke');
+      var hline = document.getElementById('en-hline');
+      var hlabel = document.getElementById('en-hlabel');
+      var readout = document.getElementById('en-readout');
+
+      function update() {
+        var hFrac = parseInt(slider.value) / 100; // 0 = ground, 1 = top
+        var ballY = GROUND - hFrac * (GROUND - TOP);
+        ball.setAttribute('cx', 80);
+        ball.setAttribute('cy', ballY);
+        // Height line
+        hline.setAttribute('x1', 80); hline.setAttribute('y1', ballY + 10);
+        hline.setAttribute('x2', 80); hline.setAttribute('y2', GROUND);
+        hlabel.setAttribute('x', 90);
+        hlabel.setAttribute('y', (ballY + GROUND) / 2 + 4);
+        hlabel.textContent = 'h=' + (hFrac * 10).toFixed(1) + 'm';
+        // Bars: PE = mgh ∝ h, KE = total - PE
+        var peH = hFrac * MAX_BAR;
+        var keH = (1 - hFrac) * MAX_BAR;
+        pe.setAttribute('y', GROUND - peH);
+        pe.setAttribute('height', peH);
+        ke.setAttribute('y', GROUND - peH - keH);
+        ke.setAttribute('height', keH);
+        // Readout
+        var peVal = (hFrac * 100).toFixed(0);
+        var keVal = ((1 - hFrac) * 100).toFixed(0);
+        readout.textContent = 'PE = ' + peVal + 'J, KE = ' + keVal + 'J, total = 100J';
+      }
+      slider.addEventListener('input', update);
+      update();
+    })();
+    </script>
 
     <SchemeRepl client:load initialCode={`; Kinetic energy: KE = (1/2) m v^2
 ; A 2 kg ball at different speeds

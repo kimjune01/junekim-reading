@@ -56,49 +56,85 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h3>Monopoly: price setter</h3>
     <p>The monopolist faces the entire market demand curve. To sell more, it must lower the price on all units. It produces where marginal revenue equals marginal cost, which is less than the competitive quantity. The result: higher price, lower quantity, and a deadweight loss triangle.</p>
 
-    <!-- SVG: Monopoly pricing with deadweight loss triangle -->
-    <div class="flex justify-center my-6">
-      <svg viewBox="0 0 420 320" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+    <!-- SVG: Interactive monopoly pricing -->
+    <div class="flex flex-col items-center my-6">
+      <svg id="mon-svg" viewBox="0 0 420 340" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
         <!-- Axes -->
         <line x1="60" y1="270" x2="400" y2="270" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
         <line x1="60" y1="270" x2="60" y2="30" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
         <text x="230" y="300" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.5">Quantity</text>
         <text x="25" y="150" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.5" transform="rotate(-90, 25, 150)">Price</text>
+        <!-- Axis tick labels -->
+        <text x="60" y="285" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">0</text>
+        <text x="50" y="274" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.3">5</text>
+        <text x="50" y="42" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.3">30</text>
 
-        <!-- Demand curve (D) -->
-        <line x1="80" y1="50" x2="370" y2="250" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-        <text x="375" y="255" fill="currentColor" font-size="11" fill-opacity="0.5">D</text>
+        <!-- Demand curve: P = 30 - Q, Q from 0 to 25 -->
+        <line x1="60" y1="30" x2="400" y2="270" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+        <text x="398" y="260" fill="currentColor" font-size="11" fill-opacity="0.5">D</text>
 
-        <!-- Marginal Revenue (MR) - steeper -->
-        <line x1="80" y1="50" x2="225" y2="250" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
-        <text x="230" y="255" fill="currentColor" font-size="11" fill-opacity="0.5">MR</text>
+        <!-- Marginal Revenue: MR = 30 - 2Q -->
+        <line x1="60" y1="30" x2="230" y2="270" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+        <text x="235" y="268" fill="currentColor" font-size="11" fill-opacity="0.5">MR</text>
 
-        <!-- Marginal Cost (MC) -->
-        <line x1="80" y1="230" x2="370" y2="80" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-        <text x="375" y="75" fill="currentColor" font-size="11" fill-opacity="0.5">MC</text>
+        <!-- MC = 5 (horizontal line) -->
+        <line x1="60" y1="240" x2="400" y2="240" stroke="#34d399" stroke-width="1.5" opacity="0.6"/>
+        <text x="405" y="244" fill="#34d399" font-size="11" fill-opacity="0.7">MC</text>
 
-        <!-- Monopoly quantity: MR = MC intersection -->
-        <circle cx="155" cy="165" r="3" fill="currentColor" fill-opacity="0.7"/>
-        <line x1="155" y1="165" x2="155" y2="270" stroke="currentColor" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
-        <text x="155" y="285" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">Qm</text>
-
-        <!-- Monopoly price: go up to demand curve -->
-        <circle cx="155" cy="103" r="3" fill="currentColor" fill-opacity="0.7"/>
-        <line x1="60" y1="103" x2="155" y2="103" stroke="currentColor" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
-        <text x="45" y="107" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">Pm</text>
-
-        <!-- Competitive equilibrium: D = MC -->
-        <circle cx="250" cy="167" r="3" fill="currentColor" fill-opacity="0.5"/>
-        <line x1="250" y1="167" x2="250" y2="270" stroke="currentColor" stroke-width="1" stroke-dasharray="3,2" opacity="0.2"/>
-        <text x="250" y="285" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">Qc</text>
-        <line x1="60" y1="167" x2="250" y2="167" stroke="currentColor" stroke-width="1" stroke-dasharray="3,2" opacity="0.2"/>
-        <text x="45" y="171" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">Pc</text>
-
-        <!-- Deadweight loss triangle -->
-        <path d="M 155 103 L 250 167 L 155 165 Z" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-        <text x="195" y="150" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">DWL</text>
+        <!-- Profit rectangle (dynamic) -->
+        <rect id="mon-profit" fill="#f59e0b" fill-opacity="0.15"/>
+        <!-- Dashed lines to axes -->
+        <line id="mon-vline" stroke="currentColor" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
+        <line id="mon-hline" stroke="currentColor" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
+        <!-- Price dot on demand curve -->
+        <circle id="mon-dot" r="4" fill="#f59e0b" fill-opacity="0.8"/>
+        <!-- Readout -->
+        <text id="mon-readout" x="230" y="325" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.7"></text>
       </svg>
+      <input id="mon-slider" type="range" min="1" max="20" value="12" step="1" class="w-full max-w-md mt-2" style="accent-color: #f59e0b;" />
     </div>
+    <script is:inline>
+    (function() {
+      var LEFT = 60, RIGHT = 400, TOP = 30, BOT = 270;
+      var QMAX = 25, PMAX = 30, PMIN = 0;
+      // Map Q to x, P to y
+      function qToX(q) { return LEFT + (q / QMAX) * (RIGHT - LEFT); }
+      function pToY(p) { return BOT - ((p - PMIN) / (PMAX - PMIN)) * (BOT - TOP); }
+      function demand(q) { return 30 - q; }
+      var MC = 5;
+
+      var slider = document.getElementById("mon-slider");
+      var dot = document.getElementById("mon-dot");
+      var rect = document.getElementById("mon-profit");
+      var vline = document.getElementById("mon-vline");
+      var hline = document.getElementById("mon-hline");
+      var readout = document.getElementById("mon-readout");
+
+      function update() {
+        var q = parseFloat(slider.value);
+        var p = demand(q);
+        var profit = (p - MC) * q;
+        var cx = qToX(q), cy = pToY(p);
+        var mcY = pToY(MC);
+        dot.setAttribute("cx", cx);
+        dot.setAttribute("cy", cy);
+        // Profit rectangle: from MC up to P, from x=LEFT to x=cx
+        rect.setAttribute("x", LEFT);
+        rect.setAttribute("y", cy);
+        rect.setAttribute("width", cx - LEFT);
+        rect.setAttribute("height", mcY - cy);
+        // Dashed lines
+        vline.setAttribute("x1", cx); vline.setAttribute("y1", cy);
+        vline.setAttribute("x2", cx); vline.setAttribute("y2", BOT);
+        hline.setAttribute("x1", LEFT); hline.setAttribute("y1", cy);
+        hline.setAttribute("x2", cx); hline.setAttribute("y2", cy);
+        var optNote = (q === 12 || q === 13) ? " ≈ profit max (Q*=12.5)" : "";
+        readout.textContent = "Q = " + q + ", P = " + p.toFixed(0) + ", profit = " + profit.toFixed(0) + optNote;
+      }
+      slider.addEventListener("input", update);
+      update();
+    })();
+    </script>
 
     <SchemeRepl client:load initialCode={`; Monopoly vs competition
 ; Demand: P = 100 - Q

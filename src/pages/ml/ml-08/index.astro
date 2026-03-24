@@ -13,7 +13,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <p class="text-gray-400 text-sm mb-6">Machine Learning · Ch.8 of 12</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
-      <p class="text-lg" style="max-width:none">A neural network is <strong>function composition</strong>: layers of linear maps + nonlinear activations. Backpropagation is the chain rule applied to the computation graph. <strong>Universal approximation</strong>: one hidden layer can approximate any continuous function.</p>
+      <p class="text-lg" style="max-width:none">A neural network is <strong>function composition</strong>: layers of linear maps + nonlinear activations. Backpropagation is the chain rule applied to the computation graph. <strong><a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem">🅦 Universal approximation</a></strong>: one hidden layer can approximate any continuous function.</p>
     </div>
 
     <!-- SVG: 3-layer MLP -->
@@ -21,23 +21,23 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <div style="width:100%;max-width:28rem;">
         <svg viewBox="0 0 380 240" class="w-full" style="font-family: ui-monospace, monospace;">
           <!-- Weight arrows: input -> hidden -->
-          <line x1="80" y1="60" x2="180" y2="45" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="60" x2="180" y2="90" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="60" x2="180" y2="135" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="60" x2="180" y2="180" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="120" x2="180" y2="45" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="120" x2="180" y2="90" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="120" x2="180" y2="135" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="120" x2="180" y2="180" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="180" x2="180" y2="45" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="180" x2="180" y2="90" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="180" x2="180" y2="135" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="80" y1="180" x2="180" y2="180" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
+          <line x1="80" y1="60" x2="180" y2="45" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="60" x2="180" y2="90" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="60" x2="180" y2="135" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="60" x2="180" y2="180" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="120" x2="180" y2="45" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="120" x2="180" y2="90" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="120" x2="180" y2="135" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="120" x2="180" y2="180" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="180" x2="180" y2="45" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="180" x2="180" y2="90" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="180" x2="180" y2="135" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="80" y1="180" x2="180" y2="180" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
           <!-- Weight arrows: hidden -> output -->
-          <line x1="200" y1="45" x2="300" y2="115" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="200" y1="90" x2="300" y2="115" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="200" y1="135" x2="300" y2="115" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
-          <line x1="200" y1="180" x2="300" y2="115" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
+          <line x1="200" y1="45" x2="300" y2="115" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="200" y1="90" x2="300" y2="115" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="200" y1="135" x2="300" y2="115" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
+          <line x1="200" y1="180" x2="300" y2="115" stroke="#71717a" stroke-width="0.8" stroke-opacity="0.45"/>
           <!-- Input layer nodes -->
           <circle cx="80" cy="60" r="14" fill="#60a5fa" fill-opacity="0.2" stroke="#60a5fa" stroke-width="1.5"/>
           <circle cx="80" cy="120" r="14" fill="#60a5fa" fill-opacity="0.2" stroke="#60a5fa" stroke-width="1.5"/>

@@ -92,7 +92,7 @@ print(f"Reject H0 at alpha=0.05? {'Yes' if abs(z) > 1.96 else 'No'}")
         <text x="260" y="78" text-anchor="middle" fill="#f97316" font-size="10">0.58</text>
 
         <!-- Overlap region shaded -->
-        <rect x="200" y="44" width="40" height="58" fill="currentColor" fill-opacity="0.05" rx="2"/>
+        <rect x="200" y="44" width="40" height="58" fill="#a1a1aa" fill-opacity="0.15" rx="2"/>
         <text x="220" y="125" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">overlap</text>
       </svg>
     </div>
@@ -146,7 +146,7 @@ print(f"Reject H0? {'Yes' if abs(z) > 1.96 else 'No'}")
 
     <!-- 3. Chi-square goodness of fit -->
     <h3>Chi-square goodness of fit</h3>
-    <p>Test whether observed counts across k categories match expected proportions. The test statistic sums (observed - expected)^2 / expected across all cells. It follows a chi-square distribution with k - 1 degrees of freedom.</p>
+    <p>Test whether observed counts across k categories match expected proportions. The test statistic sums (observed - expected)^2 / expected across all cells. It follows a <a href="https://en.wikipedia.org/wiki/Chi-squared_distribution">chi-square distribution</a> with k - 1 degrees of freedom.</p>
 
     <SchemeRepl client:load initialCode={`; Chi-square goodness of fit
 ; Are dice rolls uniform? 60 rolls.

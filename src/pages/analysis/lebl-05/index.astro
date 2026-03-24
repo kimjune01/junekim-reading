@@ -30,7 +30,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <!-- Tangent line -->
         <line x1="100" y1="160" x2="280" y2="3" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.5"/>
         <!-- Secant line (faded) -->
-        <line x1="100" y1="155" x2="280" y2="40" stroke="currentColor" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,3"/>
+        <line x1="100" y1="155" x2="280" y2="40" stroke="#71717a" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="4,3"/>
         <circle cx="280" cy="40" r="3" fill="currentColor" fill-opacity="0.3"/>
         <text x="290" y="35" fill="currentColor" font-size="10" fill-opacity="0.3">(x, f(x))</text>
         <!-- Labels -->
@@ -130,7 +130,7 @@ print("  exact sin(2) =", math.sin(2.0))
     </details>
 
     <h3>Mean value theorem</h3>
-    <p>If f is continuous on [a, b] and differentiable on (a, b), there exists c in (a, b) with f'(c) = (f(b) - f(a)) / (b - a). The tangent at c is parallel to the secant from a to b. Rolle's theorem is the special case where f(a) = f(b), giving f'(c) = 0.</p>
+    <p>If f is continuous on [a, b] and differentiable on (a, b), there exists c in (a, b) with f'(c) = (f(b) - f(a)) / (b - a). The tangent at c is parallel to the secant from a to b. <a href="https://en.wikipedia.org/wiki/Rolle%27s_theorem">🅦 Rolle's theorem</a> is the special case where f(a) = f(b), giving f'(c) = 0.</p>
 
     <SchemeRepl client:load initialCode={`; MVT: find c where f'(c) = (f(b)-f(a))/(b-a)
 ; f(x) = x^3, [a,b] = [1, 3]

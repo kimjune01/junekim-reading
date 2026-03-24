@@ -24,7 +24,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <svg viewBox="0 0 500 200" class="w-full max-w-lg" style="font-family: ui-monospace, monospace;">
         <!-- World WITH bidder i -->
         <text x="130" y="18" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.6">With you</text>
-        <rect x="30" y="25" width="200" height="80" rx="6" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1"/>
+        <rect x="30" y="25" width="200" height="80" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1"/>
         <text x="60" y="50" fill="#4ade80" font-size="11">A: $10</text>
         <text x="60" y="70" fill="currentColor" font-size="11">B: $7</text>
         <text x="60" y="90" fill="currentColor" font-size="11">C: $4</text>
@@ -33,7 +33,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
         <!-- World WITHOUT bidder i -->
         <text x="380" y="18" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.6">Without you</text>
-        <rect x="280" y="25" width="200" height="80" rx="6" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1"/>
+        <rect x="280" y="25" width="200" height="80" rx="6" fill="#a1a1aa" fill-opacity="0.15" stroke="currentColor" stroke-width="1"/>
         <text x="310" y="50" fill="currentColor" font-size="11" fill-opacity="0.4">A: gone</text>
         <text x="310" y="70" fill="#60a5fa" font-size="11">B: $7</text>
         <text x="310" y="90" fill="currentColor" font-size="11">C: $4</text>
@@ -109,7 +109,7 @@ print(vcg_multi([10, 7, 4, 3, 1], k=2))
     </details>
 
     <h3>Three properties</h3>
-    <p><strong>Truthful</strong>: bidding your true value is a dominant strategy. <strong>Efficient</strong>: items go to those who value them most. <strong>Individually rational</strong>: every participant is at least as well off as not participating.</p>
+    <p><strong>Truthful</strong>: bidding your true value is a <a href="https://en.wikipedia.org/wiki/Dominant_strategy">🅦 dominant strategy</a>. <strong>Efficient</strong>: items go to those who value them most. <strong>Individually rational</strong>: every participant is at least as well off as not participating.</p>
 
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">

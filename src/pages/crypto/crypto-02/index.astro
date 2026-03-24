@@ -199,7 +199,7 @@ print(f"Round-trip? {(dec_l, dec_r) == (plain_l, plain_r)}")
 
     <!-- Confusion and diffusion -->
     <h3>Confusion and diffusion</h3>
-    <p>Claude Shannon identified two properties every good cipher needs. <strong>Confusion</strong>: each ciphertext bit should depend on many key bits (SubBytes provides this). <strong>Diffusion</strong>: changing one plaintext bit should change about half the ciphertext bits (ShiftRows and MixColumns provide this). Multiple rounds amplify both.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Claude_Shannon">🅦 Claude Shannon</a> identified two properties every good cipher needs. <strong>Confusion</strong>: each ciphertext bit should depend on many key bits (SubBytes provides this). <strong>Diffusion</strong>: changing one plaintext bit should change about half the ciphertext bits (ShiftRows and MixColumns provide this). Multiple rounds amplify both.</p>
 
     <SchemeRepl client:load initialCode={`; Avalanche effect: flipping one bit in plaintext
 ; should change ~50% of ciphertext bits

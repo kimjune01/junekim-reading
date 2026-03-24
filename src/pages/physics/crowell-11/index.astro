@@ -18,7 +18,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- 1. Wave-particle duality -->
     <h3>Wave-particle duality</h3>
-    <p>Light acts as both wave and particle. The photoelectric effect showed light comes in quanta (photons) with energy E = h*f. De Broglie showed the reverse: particles have wavelength lambda = h/p. Every object has a wavelength, but for macroscopic objects it is absurdly small. For electrons, it matters.</p>
+    <p>Light acts as both wave and particle. The photoelectric effect showed light comes in quanta (photons) with energy E = h*f. <a href="https://en.wikipedia.org/wiki/Louis_de_Broglie">De Broglie</a> showed the reverse: particles have wavelength lambda = h/p. Every object has a wavelength, but for macroscopic objects it is absurdly small. For electrons, it matters.</p>
 
     <SchemeRepl client:load initialCode={`; De Broglie wavelength: lambda = h / p = h / (m*v)
 ; Photon energy: E = h * f = h * c / lambda
@@ -78,7 +78,7 @@ print(f"Green photon: {E:.3e} J = {E/1.6e-19:.2f} eV")
 
     <!-- 2. Uncertainty principle -->
     <h3>The uncertainty principle</h3>
-    <p>Heisenberg's uncertainty principle: <strong>delta_x * delta_p >= h_bar / 2</strong>. This is not about measurement clumsiness. It is a fundamental property of waves. A well-localized wave packet (small delta_x) must contain many wavelengths (large delta_p). You cannot have both.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Werner_Heisenberg">Heisenberg</a>'s uncertainty principle: <strong>delta_x * delta_p >= h_bar / 2</strong>. This is not about measurement clumsiness. It is a fundamental property of waves. A well-localized wave packet (small delta_x) must contain many wavelengths (large delta_p). You cannot have both.</p>
 
     <SchemeRepl client:load initialCode={`; Uncertainty principle: dx * dp >= hbar/2
 ; hbar = h / (2*pi)
@@ -118,7 +118,7 @@ print(f"Green photon: {E:.3e} J = {E/1.6e-19:.2f} eV")
     <div class="flex justify-center my-6">
       <svg viewBox="0 0 400 220" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
         <!-- Screen on right -->
-        <rect x="330" y="20" width="4" height="180" fill="currentColor" fill-opacity="0.1"/>
+        <rect x="330" y="20" width="4" height="180" fill="#a1a1aa" fill-opacity="0.18"/>
         <!-- Barrier with two slits -->
         <rect x="148" y="20" width="4" height="70" fill="currentColor" fill-opacity="0.4"/>
         <rect x="148" y="100" width="4" height="20" fill="currentColor" fill-opacity="0.4"/>
