@@ -40,8 +40,8 @@ const { title, favicon } = Astro.props;
             background: #fafaf9;       /* stone-50 */
           }
           h1, h2, h3, h4 { color: #18181b; }
-          a, a:link, a:visited { color: inherit; background: #e7e5e4 !important; }
-          a.visited-link { background: rgba(0,0,0,0.04) !important; }
+          a, a:link, a:visited { color: #09090b; text-decoration: none; background: #e7e5e4 !important; }
+          a.visited-link { color: #57534e; background: rgba(0,0,0,0.04) !important; }
           a.bare-link, a.bare-link:link, a.bare-link:visited, a.bare-link:hover { background: transparent !important; }
           a:hover, a:visited:hover { color: #09090b; background: #d6d3d1 !important; }
           code:not(pre code) {
@@ -193,9 +193,9 @@ const { title, favicon } = Astro.props;
       textarea::-webkit-scrollbar-track, pre::-webkit-scrollbar-track { background: #27272a; }
       img[alt="jk"], img[alt="arxiv"] { filter: invert(1); }
       :root.light img[alt="jk"], :root.light img[alt="arxiv"] { filter: none; }
-      :root a, :root a:link, :root a:visited { color: inherit; text-decoration: none; background: #27272a; padding: 0.1em 0.3em; border-radius: 3px; }
-      :root a.visited-link { background: rgba(255,255,255,0.04); }
-      :root a:hover { color: #fafafa; background: #3f3f46; }
+      :root:not(.light) a, :root:not(.light) a:link, :root:not(.light) a:visited { color: #e4e4e7; text-decoration: none; background: #27272a; padding: 0.1em 0.3em; border-radius: 3px; }
+      :root:not(.light) a.visited-link { color: #bbbbc4; background: rgba(255,255,255,0.04); }
+      :root:not(.light) a:hover { color: #fafafa; background: #3f3f46; }
       /* REPL textarea — selection keeps text hidden, shows highlight only */
       .callout p { font-size: 1rem; }
       .repl-input::selection { color: transparent !important; -webkit-text-fill-color: transparent !important; background: rgba(96,165,250,0.25); }
