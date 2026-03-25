@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Lebl Ch.7 — Sequences of Functions" favicon="∞">
@@ -196,10 +197,7 @@ print("Convergence is uniform because the bound is x-independent")
     <h3>Translation notes</h3>
     <p>The x^n example is the canonical counterexample in every analysis course. Our numerical evaluation shows pointwise convergence (each x^n &rarr; 0 for x &lt; 1), but the lack of uniform convergence is a theoretical fact about the supremum, not something a finite computation proves.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/real-analysis/lebl-06/">← The Riemann Integral</a>
-      <a href="/reading/real-analysis/lebl-08/">Metric Spaces →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/real-analysis/lebl-06/", label: "The Riemann Integral" }} next={{ href: "/reading/real-analysis/lebl-08/", label: "Metric Spaces" }} />
 
   </main>
 </Layout>

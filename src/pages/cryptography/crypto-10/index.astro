@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crypto Ch.10 — TLS Handshake" favicon="🔐">
@@ -185,10 +186,7 @@ import Neighbors from "../../../components/Neighbors.astro";
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cryptography/crypto-09/">&#8592; Zero-Knowledge Proofs</a>
-      <a href="/reading/cryptography/crypto-11/">Remote Attestation &#8594;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cryptography/crypto-09/", label: "Zero-Knowledge Proofs" }} next={{ href: "/reading/cryptography/crypto-11/", label: "Remote Attestation" }} />
 
   </main>
 </Layout>

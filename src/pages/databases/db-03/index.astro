@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="DB Ch.3 — SQL Basics" favicon="🗄">
@@ -218,10 +219,7 @@ for row in c.execute("""
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/databases/db-02/">&larr; Relational Algebra</a>
-      <a href="/reading/databases/db-04/">Normalization &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/databases/db-02/", label: "Relational Algebra" }} next={{ href: "/reading/databases/db-04/", label: "Normalization" }} />
 
   </main>
 </Layout>

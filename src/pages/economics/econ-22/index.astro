@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Econ Ch.22 — Inequality and Distribution" favicon="💰">
@@ -227,10 +228,7 @@ for name, inc in [("Equal", equal), ("Moderate", moderate), ("Unequal", unequal)
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/economics/econ-21/">← Behavioral Economics</a>
-      <a href="/reading/economics/econ-23/">Comparative Systems →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/economics/econ-21/", label: "Behavioral Economics" }} next={{ href: "/reading/economics/econ-23/", label: "Comparative Systems" }} />
 
   </main>
 </Layout>

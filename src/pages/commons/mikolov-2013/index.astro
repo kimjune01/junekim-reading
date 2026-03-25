@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Mikolov 2013 — Word2Vec" favicon="⚖">
@@ -114,10 +115,7 @@ import Neighbors from "../../../components/Neighbors.astro";
     <p class="text-sm text-gray-500 mt-6">This is the technical fact that makes everything else in the collection actionable. Meaning as geometry means retrieval without reproduction. Copyleft + embeddings = a search engine that stays on the commons side. <a href="https://june.kim/pageleft-manifesto"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>PageLeft Manifesto</a></p>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/commons/authors-guild-v-google-2015/">&larr; Authors Guild v. Google &middot; 7 of 8</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/commons/authors-guild-v-google-2015/", label: "Authors Guild v. Google · 7 of 8" }} />
 
   </main>
 </Layout>

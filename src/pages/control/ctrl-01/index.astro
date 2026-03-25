@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Control Ch.1 — Feedback" favicon="🎛">
@@ -131,10 +132,7 @@ print(f"Final temp: {temp:.1f}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/control/ctrl-02/">Transfer Functions &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/control/ctrl-02/", label: "Transfer Functions" }} />
 
   </main>
 </Layout>

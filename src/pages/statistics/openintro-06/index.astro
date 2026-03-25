@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OpenIntro Ch.6 — Inference for Proportions" favicon="📊">
@@ -268,10 +269,7 @@ print(f"Reject H0? {'Yes' if chi_sq > 3.84 else 'No'}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/statistics/openintro-05/">&larr; Foundations for Inference</a>
-      <a href="/reading/statistics/openintro-07/">Inference for Means &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/statistics/openintro-05/", label: "Foundations for Inference" }} next={{ href: "/reading/statistics/openintro-07/", label: "Inference for Means" }} />
 
   </main>
 </Layout>

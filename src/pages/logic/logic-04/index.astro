@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Logic Ch.4 — Logical Equivalence" favicon="🔑">
@@ -171,10 +172,7 @@ print(f"De Morgan's laws hold for all assignments: {all_hold}")
       </table>
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/logic/logic-03/">&larr; Truth Tables</a>
-      <a href="/reading/logic/logic-05/">Natural Deduction &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/logic/logic-03/", label: "Truth Tables" }} next={{ href: "/reading/logic/logic-05/", label: "Natural Deduction" }} />
 
   </main>
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Minsky 1986 — The Society of Mind" favicon="🏛️">
@@ -284,10 +285,7 @@ import Neighbors from "../../../components/Neighbors.astro";
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/cognitive-architecture/vaswani-2017/">Vaswani 2017 &middot; 2 of 5 &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/cognitive-architecture/vaswani-2017/", label: "Vaswani 2017 · 2 of 5" }} />
 
   </main>
 </Layout>

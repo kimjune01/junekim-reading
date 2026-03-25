@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Popper 1934 — The Logic of Scientific Discovery" favicon="🔬">
@@ -125,9 +126,6 @@ import Neighbors from "../../../components/Neighbors.astro";
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/scientific-method/fisher-1935/">&larr; Fisher 1935 &middot; 8 of 17</a>
-      <a href="/reading/scientific-method/kuhn-1962/">Kuhn 1962 &middot; 10 of 17 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/scientific-method/fisher-1935/", label: "Fisher 1935 · 8 of 17" }} next={{ href: "/reading/scientific-method/kuhn-1962/", label: "Kuhn 1962 · 10 of 17" }} />
   </main>
 </Layout>

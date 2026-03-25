@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Control Ch.5 — Root Locus" favicon="🎛">
@@ -109,10 +110,7 @@ for K in [0.0, 0.5, 1.0, 3.0, 5.0]:
 `} />
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/control/ctrl-04/">&larr; Stability</a>
-      <a href="/reading/control/ctrl-06/">Frequency Response &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/control/ctrl-04/", label: "Stability" }} next={{ href: "/reading/control/ctrl-06/", label: "Frequency Response" }} />
 
   </main>
 </Layout>

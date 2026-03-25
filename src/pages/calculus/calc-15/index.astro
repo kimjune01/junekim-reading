@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.15 — Fundamental Theorems" favicon="∫">
@@ -275,10 +276,7 @@ print("  d^2 = 0 (curl of gradient = 0, div of curl = 0)")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/calculus/calc-14/">&larr; Line and Surface Integrals</a>
-      <span class="text-gray-600">end of sequence</span>
-    </div>
+    <PrevNext prev={{ href: "/reading/calculus/calc-14/", label: "Line and Surface Integrals" }} />
 
   </main>
 </Layout>

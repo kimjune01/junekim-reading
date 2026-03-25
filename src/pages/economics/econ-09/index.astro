@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Econ Ch.9 — Price Discrimination" favicon="💰">
@@ -214,10 +215,7 @@ print("Consumer surplus (perfect): $0")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/economics/econ-08/">← Elasticity</a>
-      <a href="/reading/economics/econ-10/">Externalities →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/economics/econ-08/", label: "Elasticity" }} next={{ href: "/reading/economics/econ-10/", label: "Externalities" }} />
 
   </main>
 </Layout>

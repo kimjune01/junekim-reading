@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.3 — Limits and Continuity" favicon="∫">
@@ -276,10 +277,7 @@ print("f(root) ~", f(mid))
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/calculus/calc-02/">&larr; Trigonometry</a>
-      <a href="/reading/calculus/calc-04/">The Derivative &middot; 4 of 15 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/calculus/calc-02/", label: "Trigonometry" }} next={{ href: "/reading/calculus/calc-04/", label: "The Derivative · 4 of 15" }} />
 
   </main>
 </Layout>

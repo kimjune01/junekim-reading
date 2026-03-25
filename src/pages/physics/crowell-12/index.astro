@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.12 — The Atom" favicon="⚛">
@@ -273,10 +274,7 @@ for years in [1000, 5730, 11460, 20000, 50000]:
     <h3>Translation notes</h3>
     <p>The Bohr model is historically important but physically wrong: electrons do not orbit like planets. The Schrodinger equation gives probability clouds (orbitals), not orbits. However, the energy levels E_n = -13.6/n^2 eV are exact for hydrogen. Our electron configuration code follows the Aufbau filling order, which has exceptions for chromium (Z=24) and copper (Z=29) due to half-filled subshell stability. The radioactive decay law is exact for large numbers of atoms; individual decays are random.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/physics/crowell-11/">&larr; Quantum Mechanics</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/physics/crowell-11/", label: "Quantum Mechanics" }} />
 
   </main>
 </Layout>

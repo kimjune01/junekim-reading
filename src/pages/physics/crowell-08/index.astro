@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.8 — Electromagnetism" favicon="⚛">
@@ -226,10 +227,7 @@ print(f"Ratio:       {c/299792458:.6f}")
     <h3>Translation notes</h3>
     <p>The differential forms of Maxwell's equations (div and curl) require vector calculus. The integral forms (Gauss, Faraday, Ampere) are more physical: they say what happens when you draw a closed surface or loop. Crowell develops both. Our code computes with the algebraic consequences rather than the calculus itself. The speed-of-light derivation is exact: Maxwell's prediction matched experiment to high precision.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/physics/crowell-07/">&larr; Magnetism</a>
-      <a href="/reading/physics/crowell-09/">Optics &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/physics/crowell-07/", label: "Magnetism" }} next={{ href: "/reading/physics/crowell-09/", label: "Optics" }} />
 
   </main>
 </Layout>

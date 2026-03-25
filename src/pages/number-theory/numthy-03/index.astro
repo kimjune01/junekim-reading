@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Number Theory Ch.3 — Congruences" favicon="#">
@@ -123,10 +124,7 @@ print(f"17 and 7 congruent mod 5? {17 % 5 == 7 % 5}")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/number-theory/numthy-02/">&larr; Primes</a>
-      <a href="/reading/number-theory/numthy-04/">Euler and Fermat &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/number-theory/numthy-02/", label: "Primes" }} next={{ href: "/reading/number-theory/numthy-04/", label: "Euler and Fermat" }} />
 
   </main>
 </Layout>

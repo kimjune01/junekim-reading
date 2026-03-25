@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Hoare/Core.lean — Triples, COMP, AND, OR, consequence" favicon="✏️">
@@ -105,9 +106,6 @@ print(f"{{P}} clamp;double {{Q}}: {comp}  (by COMP)")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/fractal/">&larr; Fractal.lean &middot; 14 of 25</a>
-      <a href="/reading/lean/hoare-wp/">Hoare/WP.lean &middot; 16 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/fractal/", label: "Fractal.lean · 14 of 25" }} next={{ href: "/reading/lean/hoare-wp/", label: "Hoare/WP.lean · 16 of 25" }} />
   </main>
 </Layout>

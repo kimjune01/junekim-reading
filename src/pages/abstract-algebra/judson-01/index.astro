@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Judson Ch.1 — Groups" favicon="🔗">
@@ -218,10 +219,7 @@ for i in range(4):
     <h3>Translation notes</h3>
     <p>Judson's textbook opens with preliminaries on sets and equivalence relations, which we skip. The treatment here covers chapters 3 (Groups) and 4 (Cyclic Groups) of the textbook, compressing the core definitions into executable examples. S3 is built from list permutations, which is less elegant than Judson's cycle notation but easier to run in Scheme. All groups here are finite.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/abstract-algebra/judson-02/">Subgroups &middot; 2 of 8 &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/abstract-algebra/judson-02/", label: "Subgroups · 2 of 8" }} />
 
   </main>
 </Layout>

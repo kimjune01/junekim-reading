@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="DB Ch.4 — Normalization" favicon="🗄">
@@ -167,10 +168,7 @@ print("One update, consistent everywhere. That is normalization.")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/databases/db-03/">&larr; SQL Basics</a>
-      <a href="/reading/databases/db-05/">Indexing &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/databases/db-03/", label: "SQL Basics" }} next={{ href: "/reading/databases/db-05/", label: "Indexing" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Nordstrom §1.2 — Game Matrices" favicon="🎲">
@@ -236,10 +237,7 @@ for r in ["A", "B", "C"]:
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/game-theory/nordstrom-01/">← Players and Strategies</a>
-      <a href="/reading/game-theory/nordstrom-03/">Zero-Sum Games →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/game-theory/nordstrom-01/", label: "Players and Strategies" }} next={{ href: "/reading/game-theory/nordstrom-03/", label: "Zero-Sum Games" }} />
 
   </main>
 </Layout>

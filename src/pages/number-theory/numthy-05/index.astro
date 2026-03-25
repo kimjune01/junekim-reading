@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Number Theory Ch.5 — Chinese Remainder Theorem" favicon="#">
@@ -164,10 +165,7 @@ print(f"x=1 mod 3, x=2 mod 5, x=3 mod 7: x = {crt([1,2,3], [3,5,7])}")
 `} />
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/number-theory/numthy-04/">&larr; Euler and Fermat</a>
-      <a href="/reading/number-theory/numthy-06/">Quadratic Residues &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/number-theory/numthy-04/", label: "Euler and Fermat" }} next={{ href: "/reading/number-theory/numthy-06/", label: "Quadratic Residues" }} />
 
   </main>
 </Layout>

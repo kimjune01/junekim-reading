@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Dist Ch.3 — Replication" favicon="🌐">
@@ -139,10 +140,7 @@ for R in range(1, N+1):
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/distributed-systems/dist-02/">&larr; Time and Clocks</a>
-      <a href="/reading/distributed-systems/dist-04/">Consensus &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/distributed-systems/dist-02/", label: "Time and Clocks" }} next={{ href: "/reading/distributed-systems/dist-04/", label: "Consensus" }} />
 
   </main>
 </Layout>

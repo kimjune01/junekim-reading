@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Vaswani et al. 2017 — Attention Is All You Need" favicon="🏛️">
@@ -196,10 +197,7 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))</code></pre>
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cognitive-architecture/minsky-1986/">&larr; Minsky 1986 &middot; 1 of 5</a>
-      <a href="/reading/cognitive-architecture/laird-2022/">Laird 2022 &middot; 3 of 5 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cognitive-architecture/minsky-1986/", label: "Minsky 1986 · 1 of 5" }} next={{ href: "/reading/cognitive-architecture/laird-2022/", label: "Laird 2022 · 3 of 5" }} />
 
   </main>
 </Layout>

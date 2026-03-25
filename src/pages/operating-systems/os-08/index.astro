@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OS Ch.8 — File Systems" favicon="🖥">
@@ -160,10 +161,7 @@ ls()
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/operating-systems/os-07/">&larr; Virtual Memory</a>
-      <a href="/reading/operating-systems/os-09/">I/O Systems &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/operating-systems/os-07/", label: "Virtual Memory" }} next={{ href: "/reading/operating-systems/os-09/", label: "I/O Systems" }} />
 
   </main>
 </Layout>

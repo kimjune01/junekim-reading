@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.7 — Magnetism" favicon="⚛">
@@ -262,10 +263,7 @@ print(f"Cyclotron radius: {r:.1f} m ({r/1000:.1f} km)")
     <h3>Translation notes</h3>
     <p>All formulas assume SI units. The cross product in the Lorentz force is computed as a scalar magnitude here (q*v*B*sin theta) since our Scheme REPL lacks vector operations. Crowell develops the vector form in detail. The solenoid formula assumes an ideal infinite solenoid; real solenoids have fringe fields at the ends.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/physics/crowell-06/">&larr; Electricity</a>
-      <a href="/reading/physics/crowell-08/">Electromagnetism &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/physics/crowell-06/", label: "Electricity" }} next={{ href: "/reading/physics/crowell-08/", label: "Electromagnetism" }} />
 
   </main>
 </Layout>

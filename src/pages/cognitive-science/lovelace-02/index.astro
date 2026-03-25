@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Lovelace Ch.2 — Probability and Bayes" favicon="🧠">
@@ -248,10 +249,7 @@ print("Posterior mean: " + "{:.4f}".format(beta_mean(a2, b2)))
       Read the original: <a href="https://computationalcognitivescience.github.io/lovelace/chapter2">Lovelace, Chapter 2</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cognitive-science/lovelace-01/">&larr; What is Computational Cognitive Science?</a>
-      <a href="/reading/cognitive-science/lovelace-03/">Bayesian Models of Cognition &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cognitive-science/lovelace-01/", label: "What is Computational Cognitive Science?" }} next={{ href: "/reading/cognitive-science/lovelace-03/", label: "Bayesian Models of Cognition" }} />
 
   </main>
 </Layout>

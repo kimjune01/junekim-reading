@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.6 — Applications of Derivatives" favicon="∫">
@@ -264,10 +265,7 @@ for x in [-2, -1, 0, 1, 2]:
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/calculus/calc-05/">&larr; Derivative Rules</a>
-      <a href="/reading/calculus/calc-07/">The Integral &middot; 7 of 15 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/calculus/calc-05/", label: "Derivative Rules" }} next={{ href: "/reading/calculus/calc-07/", label: "The Integral · 7 of 15" }} />
 
   </main>
 </Layout>

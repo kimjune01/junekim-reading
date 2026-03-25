@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Logic Ch.8 — Identity and Functions" favicon="🔑">
@@ -170,10 +171,7 @@ print(f"Unique even: {exists_unique(lambda x: x % 2 == 0, domain)}")
 (display "f(-2) = f(2) but -2 != 2: not injective")
 `} />
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/logic/logic-07/">&larr; Predicate Logic Proofs</a>
-      <a href="/reading/logic/logic-09/">Mathematical Induction &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/logic/logic-07/", label: "Predicate Logic Proofs" }} next={{ href: "/reading/logic/logic-09/", label: "Mathematical Induction" }} />
 
   </main>
 </Layout>

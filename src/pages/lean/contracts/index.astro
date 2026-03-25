@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Contracts.lean — Postconditions on morphism outputs" favicon="✏️">
@@ -96,9 +97,6 @@ print(f"len shrinks: {len(data)} -> {len(filtered)}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/pipeline/">&larr; Pipeline.lean &middot; 4 of 25</a>
-      <a href="/reading/lean/handshake/">Handshake.lean &middot; 6 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/pipeline/", label: "Pipeline.lean · 4 of 25" }} next={{ href: "/reading/lean/handshake/", label: "Handshake.lean · 6 of 25" }} />
   </main>
 </Layout>

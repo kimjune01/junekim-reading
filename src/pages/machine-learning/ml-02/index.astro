@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.2 — Linear Regression" favicon="🤖">
@@ -247,10 +248,7 @@ print("MSE:", round(mse, 4))
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/machine-learning/ml-01/">&larr; What is ML?</a>
-      <a href="/reading/machine-learning/ml-03/">Optimization &middot; 3 of 12 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/machine-learning/ml-01/", label: "What is ML?" }} next={{ href: "/reading/machine-learning/ml-03/", label: "Optimization · 3 of 12" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Judson Ch.3 — Homomorphisms" favicon="🔗">
@@ -200,10 +201,7 @@ print("Image = " + str(image))
     <p>Judson covers homomorphisms in Ch. 11 and isomorphisms in Ch. 9, after treating permutation groups and cosets. We pull homomorphisms forward because the concept is simpler than the textbook ordering suggests: it is just "f preserves the operation." The first isomorphism theorem (G/ker(f) is isomorphic to im(f)) is the punchline of this material but requires quotient groups, covered implicitly in Ch. 5.</p>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/abstract-algebra/judson-02/">&larr; Subgroups</a>
-      <a href="/reading/abstract-algebra/judson-04/">Isomorphisms &middot; 4 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/abstract-algebra/judson-02/", label: "Subgroups" }} next={{ href: "/reading/abstract-algebra/judson-04/", label: "Isomorphisms · 4 of 8" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="SICP Ch.21 — Explicit-Control Evaluator" favicon="🪄">
@@ -470,10 +471,7 @@ print(f"  result = {eval_if(env['x'] > 50, 'big', 'small')}")
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-34.html#%_sec_5.4">Read SICP &sect;5.4</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-20/">&larr; Storage &amp; Garbage Collection</a>
-      <a href="/reading/programming/sicp-22/">Compilation &middot; 22 of 22 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/programming/sicp-20/", label: "Storage & Garbage Collection" }} next={{ href: "/reading/programming/sicp-22/", label: "Compilation · 22 of 22" }} />
 
   </main>
 </Layout>

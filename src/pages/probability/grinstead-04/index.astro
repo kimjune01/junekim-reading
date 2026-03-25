@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 4 — Conditional Probability" favicon="🎰">
@@ -245,10 +246,7 @@ print("Most positives are false positives when prevalence is low.")
 
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/probability/grinstead-03/">← Combinatorics</a>
-      <a href="/reading/probability/grinstead-05/">Distributions →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/probability/grinstead-03/", label: "Combinatorics" }} next={{ href: "/reading/probability/grinstead-05/", label: "Distributions" }} />
 
   </main>
 </Layout>

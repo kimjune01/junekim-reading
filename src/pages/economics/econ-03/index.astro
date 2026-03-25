@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Econ Ch.3 — Comparative Advantage" favicon="💰">
@@ -183,10 +184,7 @@ print("Portugal: comparative advantage in wine")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/economics/econ-02/">&larr; Supply and Demand</a>
-      <a href="/reading/economics/econ-04/">Diminishing Returns &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/economics/econ-02/", label: "Supply and Demand" }} next={{ href: "/reading/economics/econ-04/", label: "Diminishing Returns" }} />
 
   </main>
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="The Self-Experiment — Randomization at n=1" favicon="🔬">
@@ -157,9 +158,6 @@ import Neighbors from "../../../components/Neighbors.astro";
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/scientific-method/integrity/">&larr; Integrity &middot; 15 of 17</a>
-      <a href="/reading/scientific-method/registered-prediction/">Registered prediction &middot; 17 of 17 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/scientific-method/integrity/", label: "Integrity · 15 of 17" }} next={{ href: "/reading/scientific-method/registered-prediction/", label: "Registered prediction · 17 of 17" }} />
   </main>
 </Layout>

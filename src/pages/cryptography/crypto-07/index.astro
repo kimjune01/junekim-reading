@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crypto Ch.7 — Elliptic Curves" favicon="🔐">
@@ -311,10 +312,7 @@ print(f"3G = {G3}")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cryptography/crypto-06/">&#8592; Public-Key Cryptography</a>
-      <a href="/reading/cryptography/crypto-08/">Digital Signatures &#8594;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cryptography/crypto-06/", label: "Public-Key Cryptography" }} next={{ href: "/reading/cryptography/crypto-08/", label: "Digital Signatures" }} />
 
   </main>
 </Layout>

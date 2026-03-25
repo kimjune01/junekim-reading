@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.4 — Searching" favicon="⚙">
@@ -154,10 +155,7 @@ print(f"Search for 10: index {binary_search(arr, 10)}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/algorithms/algo-03/">&larr; Sorting</a>
-      <a href="/reading/algorithms/algo-05/">Trees &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/algorithms/algo-03/", label: "Sorting" }} next={{ href: "/reading/algorithms/algo-05/", label: "Trees" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.2 — Recursion" favicon="⚙">
@@ -153,10 +154,7 @@ print(f"10! = {factorial_iter(10)}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/algorithms/algo-01/">&larr; Complexity and O-Notation</a>
-      <a href="/reading/algorithms/algo-03/">Sorting &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/algorithms/algo-01/", label: "Complexity and O-Notation" }} next={{ href: "/reading/algorithms/algo-03/", label: "Sorting" }} />
 
   </main>
 </Layout>

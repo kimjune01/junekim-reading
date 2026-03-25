@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milewski Ch.1 — Category: The Essence of Composition" favicon="🐱">
@@ -319,10 +320,7 @@ print(f"Equal? {left(3) == right(3)}")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/category-theory/milewski-02/">Types and Functions →</a>
-    </div>
+    <PrevNext next={{ href: "/reading/category-theory/milewski-02/", label: "Types and Functions" }} />
 
   </main>
 </Layout>

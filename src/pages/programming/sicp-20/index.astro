@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="SICP Ch.20 — Storage & Garbage Collection" favicon="🪄">
@@ -550,10 +551,7 @@ print(f"Free list head: {free_list[0]} (fragmented!)")
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-33.html#%_sec_5.3">Read SICP &sect;5.3</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-19/">&larr; Register Machine Simulator</a>
-      <a href="/reading/programming/sicp-21/">Explicit-Control Evaluator &middot; 21 of 22 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/programming/sicp-19/", label: "Register Machine Simulator" }} next={{ href: "/reading/programming/sicp-21/", label: "Explicit-Control Evaluator · 21 of 22" }} />
 
   </main>
 </Layout>

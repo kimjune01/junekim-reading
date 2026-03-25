@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Econ Ch.2 — Supply and Demand" favicon="💰">
@@ -150,10 +151,7 @@ print("Check — demand(P*): " + str(demand(p_star)) + ", supply(P*): " + str(su
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/economics/econ-01/">&larr; Division of Labor</a>
-      <a href="/reading/economics/econ-03/">Comparative Advantage &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/economics/econ-01/", label: "Division of Labor" }} next={{ href: "/reading/economics/econ-03/", label: "Comparative Advantage" }} />
 
   </main>
 </Layout>

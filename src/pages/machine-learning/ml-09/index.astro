@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.9 — Convolutional Networks" favicon="🤖">
@@ -247,10 +248,7 @@ print("After max-pool:", step3)
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/machine-learning/ml-08/">&larr; Regularization</a>
-      <a href="/reading/machine-learning/ml-10/">Sequence Models &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/machine-learning/ml-08/", label: "Regularization" }} next={{ href: "/reading/machine-learning/ml-10/", label: "Sequence Models" }} />
 
   </main>
 </Layout>

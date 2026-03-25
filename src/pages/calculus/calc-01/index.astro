@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.1 — Functions and Graphs" favicon="∫">
@@ -254,10 +255,7 @@ print(f"log2(2^5) = {math.log2(2**5)}")    # 5.0
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/calculus/calc-02/">Trigonometry &middot; 2 of 15 &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/calculus/calc-02/", label: "Trigonometry · 2 of 15" }} />
 
   </main>
 </Layout>

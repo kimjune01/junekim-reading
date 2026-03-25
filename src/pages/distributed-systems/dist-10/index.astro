@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Dist Ch.10 — CRDTs" favicon="🌐">
@@ -208,10 +209,7 @@ print(f"Merge(merged, merged): {merged.merge(merged)}")  # idempotent
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/distributed-systems/dist-09/">&larr; Gossip Protocols</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/distributed-systems/dist-09/", label: "Gossip Protocols" }} />
 
   </main>
 </Layout>

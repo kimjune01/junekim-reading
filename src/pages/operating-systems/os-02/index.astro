@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OS Ch.2 — Scheduling" favicon="🖥">
@@ -207,10 +208,7 @@ for entry in round_robin(procs, 2):
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/operating-systems/os-01/">&larr; Processes</a>
-      <a href="/reading/operating-systems/os-03/">Threads and Concurrency &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/operating-systems/os-01/", label: "Processes" }} next={{ href: "/reading/operating-systems/os-03/", label: "Threads and Concurrency" }} />
 
   </main>
 </Layout>

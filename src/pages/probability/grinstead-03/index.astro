@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 3 — Combinatorics" favicon="🎰">
@@ -272,10 +273,7 @@ print(f"P(flush) = {p_flush:.6f}")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/probability/grinstead-02/">← Continuous Probability</a>
-      <a href="/reading/probability/grinstead-04/">Conditional Probability →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/probability/grinstead-02/", label: "Continuous Probability" }} next={{ href: "/reading/probability/grinstead-04/", label: "Conditional Probability" }} />
 
   </main>
 </Layout>

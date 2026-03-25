@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Lebl Ch.6 — The Riemann Integral" favicon="∞">
@@ -214,10 +215,7 @@ print("sin(pi/4) =", math.sin(x0))
     <h3>Translation notes</h3>
     <p>Numerical integration (midpoint rule) converges at rate O(1/n^2). The upper/lower sum approach converges at O(1/n) for monotone functions. Neither is the Riemann integral itself: that is the common value they converge to. The FTC proof requires the mean value theorem, not computation.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/real-analysis/lebl-05/">← The Derivative</a>
-      <a href="/reading/real-analysis/lebl-07/">Sequences of Functions →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/real-analysis/lebl-05/", label: "The Derivative" }} next={{ href: "/reading/real-analysis/lebl-07/", label: "Sequences of Functions" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Aurenhammer 1987 — Power Diagrams" favicon="💎">
@@ -123,10 +124,7 @@ for x in range(0, 11):
       Ready for the real thing? <a href="https://doi.org/10.1137/0216006">Read the paper</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/auction-theory/milgrom-weber-1982/">&larr; Milgrom &amp; Weber 1982 &middot; 4 of 8</a>
-      <a href="/reading/auction-theory/lahaie-lubin-2025/">Lahaie &amp; Lubin 2025 &middot; 6 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/auction-theory/milgrom-weber-1982/", label: "Milgrom & Weber 1982 · 4 of 8" }} next={{ href: "/reading/auction-theory/lahaie-lubin-2025/", label: "Lahaie & Lubin 2025 · 6 of 8" }} />
 
   </main>
 </Layout>

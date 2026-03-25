@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Number Theory Ch.8 — Continued Fractions" favicon="#">
@@ -149,10 +150,7 @@ print(f"  sqrt(2)   = {2**0.5:.10f}")
 `} />
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/number-theory/numthy-07/">&larr; Primitive Roots</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/number-theory/numthy-07/", label: "Primitive Roots" }} />
 
   </main>
 </Layout>

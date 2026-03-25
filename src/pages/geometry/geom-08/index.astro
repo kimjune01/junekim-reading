@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Geometry Ch.8 — Convex Geometry" favicon="△">
@@ -241,10 +242,7 @@ print(f"Star convex?   {is_convex(star)}")
     <h3>Translation notes</h3>
     <p>The convex hull algorithm shown is Jarvis march (gift wrapping), which runs in O(nh) time where h is the number of hull vertices. Graham scan achieves O(n log n) regardless of output size. The separation theorem stated here is the finite-dimensional version; the infinite-dimensional generalization (Hahn-Banach) requires additional hypotheses (closedness, or one set having nonempty interior).</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/geometry/geom-07/">&larr; Metric Spaces</a>
-      <a href="/reading/geometry/geom-09/">Voronoi Diagrams &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/geometry/geom-07/", label: "Metric Spaces" }} next={{ href: "/reading/geometry/geom-09/", label: "Voronoi Diagrams" }} />
 
   </main>
 </Layout>

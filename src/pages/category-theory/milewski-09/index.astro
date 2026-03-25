@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milewski Ch.9 — Function Types" favicon="🐱">
@@ -445,10 +446,7 @@ print(f"uncurried: {f_uncurried((10, 3))}")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/category-theory/milewski-08/">← Functoriality</a>
-      <a href="/reading/category-theory/milewski-10/">Natural Transformations →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/category-theory/milewski-08/", label: "Functoriality" }} next={{ href: "/reading/category-theory/milewski-10/", label: "Natural Transformations" }} />
 
   </main>
 </Layout>

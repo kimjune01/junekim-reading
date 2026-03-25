@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Proofs Ch.6 — Functions" favicon="✎">
@@ -189,10 +190,7 @@ for x in range(-3, 4):
 
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/proof-writing/proofs-05/">← Sets</a>
-      <a href="/reading/proof-writing/proofs-07/">Relations →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/proof-writing/proofs-05/", label: "Sets" }} next={{ href: "/reading/proof-writing/proofs-07/", label: "Relations" }} />
 
   </main>
 </Layout>

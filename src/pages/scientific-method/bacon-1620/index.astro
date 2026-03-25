@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Bacon 1620 — Novum Organum" favicon="🔬">
@@ -175,9 +176,6 @@ import Neighbors from "../../../components/Neighbors.astro";
     <p class="text-sm text-gray-500 mt-6"><a href="/reading/scientific-method/">🔬 The Scientific Method</a></p>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/scientific-method/descartes-1637/">Descartes 1637 &middot; 2 of 17 &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/scientific-method/descartes-1637/", label: "Descartes 1637 · 2 of 17" }} />
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.2 — Conservation of Momentum" favicon="⚛">
@@ -191,10 +192,7 @@ print(f"KE lost: {ke_before - ke_after} J ({(1 - ke_after/ke_before)*100:.0f}%)"
       Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/physics/crowell-01/">&larr; Conservation of Energy</a>
-      <a href="/reading/physics/crowell-03/">Conservation of Angular Momentum &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/physics/crowell-01/", label: "Conservation of Energy" }} next={{ href: "/reading/physics/crowell-03/", label: "Conservation of Angular Momentum" }} />
 
   </main>
 </Layout>

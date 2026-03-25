@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Control Ch.9 — Kalman Filter" favicon="🎛">
@@ -136,10 +137,7 @@ print(f"Final estimate: {x_est:.2f} (true: {true_value})")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/control/ctrl-08/">&larr; Optimal Control</a>
-      <a href="/reading/control/ctrl-10/">Lyapunov Stability &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/control/ctrl-08/", label: "Optimal Control" }} next={{ href: "/reading/control/ctrl-10/", label: "Lyapunov Stability" }} />
 
   </main>
 </Layout>

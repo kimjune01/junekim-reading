@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="SICP Ch.11 — Mutable Data" favicon="🪄">
@@ -313,10 +314,7 @@ print(f"out: {w_out.get_signal()}")  # 0
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-22.html#%_sec_3.3">Read SICP &sect;3.3</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-10/">&larr; Environment Model</a>
-      <a href="/reading/programming/sicp-12/">Concurrency &middot; 12 of 22 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/programming/sicp-10/", label: "Environment Model" }} next={{ href: "/reading/programming/sicp-12/", label: "Concurrency · 12 of 22" }} />
 
   </main>
 </Layout>

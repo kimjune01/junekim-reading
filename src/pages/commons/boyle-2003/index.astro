@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Boyle 2003 — The Second Enclosure Movement" favicon="⚖">
@@ -72,10 +73,7 @@ import Neighbors from "../../../components/Neighbors.astro";
     </div>
 
     <!-- Navigation -->
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/commons/brin-page-1998/">&larr; Brin &amp; Page 1998 &middot; 4 of 8</a>
-      <a href="/reading/commons/lessig-2004/">Lessig 2004 &middot; 6 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/commons/brin-page-1998/", label: "Brin & Page 1998 · 4 of 8" }} next={{ href: "/reading/commons/lessig-2004/", label: "Lessig 2004 · 6 of 8" }} />
 
   </main>
 </Layout>

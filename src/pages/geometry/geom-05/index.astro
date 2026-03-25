@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Geometry Ch.5 — Non-Euclidean Geometry" favicon="△">
@@ -187,10 +188,7 @@ print(f"Hyperbolic triangle (area=0.5): {180 - 0.5*180/math.pi:.1f} degrees")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/geometry/geom-04/">← Projective Geometry</a>
-      <a href="/reading/geometry/geom-06/">Differential Geometry →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/geometry/geom-04/", label: "Projective Geometry" }} next={{ href: "/reading/geometry/geom-06/", label: "Differential Geometry" }} />
 
   </main>
 </Layout>

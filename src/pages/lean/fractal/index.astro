@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Fractal.lean — Recursive consolidation with budget termination" favicon="✏️">
@@ -118,9 +119,6 @@ print("Terminates: budget hits 0 at depth=initial")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/induction/">&larr; Induction.lean &middot; 13 of 25</a>
-      <a href="/reading/lean/hoare-core/">Hoare/Core.lean &middot; 15 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/induction/", label: "Induction.lean · 13 of 25" }} next={{ href: "/reading/lean/hoare-core/", label: "Hoare/Core.lean · 15 of 25" }} />
   </main>
 </Layout>

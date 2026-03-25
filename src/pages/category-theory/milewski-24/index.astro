@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milewski Ch.24 — Lawvere Theories" favicon="🐱">
@@ -487,11 +488,7 @@ print(f"100/5/0: {maybe_bind(safe_div(100, 5), lambda r: safe_div(r, 0))}")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/category-theory/milewski-23/">← Topoi</a>
-      <span></span>
-      <span class="text-gray-500">fin &middot; 24 of 24</span>
-    </div>
+    <PrevNext prev={{ href: "/reading/category-theory/milewski-23/", label: "Topoi" }} fin="fin · 24 of 24" />
 
   </main>
 </Layout>

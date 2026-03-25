@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.5 — Derivative Rules" favicon="∫">
@@ -294,10 +295,7 @@ print("Numerical dy/dx = {:.4f}".format(numerical))
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/calculus/calc-04/">&larr; The Derivative</a>
-      <a href="/reading/calculus/calc-06/">Applications of Derivatives &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/calculus/calc-04/", label: "The Derivative" }} next={{ href: "/reading/calculus/calc-06/", label: "Applications of Derivatives" }} />
 
   </main>
 </Layout>

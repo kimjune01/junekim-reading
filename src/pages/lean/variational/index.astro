@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Variational.lean — Contracts from optimization" favicon="✏️">
@@ -50,9 +51,6 @@ import Neighbors from "../../../components/Neighbors.astro";
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/hoare-divergence/">&larr; Hoare/Divergence.lean &middot; 22 of 25</a>
-      <a href="/reading/lean/corollary/">Corollary.lean &middot; 24 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/hoare-divergence/", label: "Hoare/Divergence.lean · 22 of 25" }} next={{ href: "/reading/lean/corollary/", label: "Corollary.lean · 24 of 25" }} />
   </main>
 </Layout>

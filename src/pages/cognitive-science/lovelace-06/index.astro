@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Lovelace Ch.6 — Decision Making" favicon="🧠">
@@ -211,10 +212,7 @@ print("This finds the best candidate ~37% of the time.")
       Read the original: <a href="https://computationalcognitivescience.github.io/lovelace/chapter6">Lovelace, Chapter 6</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cognitive-science/lovelace-05/">&larr; Reinforcement Learning</a>
-      <a href="/reading/cognitive-science/lovelace-07/">Language and Communication &middot; 7 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cognitive-science/lovelace-05/", label: "Reinforcement Learning" }} next={{ href: "/reading/cognitive-science/lovelace-07/", label: "Language and Communication · 7 of 8" }} />
 
   </main>
 </Layout>

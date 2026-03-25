@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Arunkumar et al. 2026 — Agentic AI Architectures" favicon="🏛️">
@@ -352,10 +353,7 @@ import Neighbors from "../../../components/Neighbors.astro";
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cognitive-architecture/zhao-2023/">&larr; Zhao 2023 &middot; 4 of 5</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/cognitive-architecture/zhao-2023/", label: "Zhao 2023 · 4 of 5" }} />
 
   </main>
 </Layout>

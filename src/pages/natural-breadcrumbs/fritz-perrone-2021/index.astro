@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Fritz, Perrone, Rezagholi 2021 — Support as Monad Morphism" favicon="🍞">
@@ -301,9 +302,6 @@ for src in ["cat", "dog", "rock"]:
 
     <p class="text-sm text-gray-500 mt-6">Framework connection: The possibilistic shadow justifies the Natural Framework's Filter stage doing reachability-based gating without exact probabilities. (<a href="https://june.kim/ambient-category">Ambient Category</a>)</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/natural-breadcrumbs/fritz-2020/">&larr; Fritz 2020 &middot; 2 of 21</a>
-      <a href="/reading/natural-breadcrumbs/gaboardi-2021/">Gaboardi 2021 &middot; 4 of 21 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/natural-breadcrumbs/fritz-2020/", label: "Fritz 2020 · 2 of 21" }} next={{ href: "/reading/natural-breadcrumbs/gaboardi-2021/", label: "Gaboardi 2021 · 4 of 21" }} />
   </main>
 </Layout>

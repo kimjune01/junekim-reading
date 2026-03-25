@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="ToC Ch.4 — Context-Free Grammars" favicon="🔀">
@@ -191,10 +192,7 @@ for _ in range(6):
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/theory-of-computation/toc-03/">&larr; Regular Expressions</a>
-      <a href="/reading/theory-of-computation/toc-05/">Pushdown Automata &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/theory-of-computation/toc-03/", label: "Regular Expressions" }} next={{ href: "/reading/theory-of-computation/toc-05/", label: "Pushdown Automata" }} />
 
   </main>
 </Layout>

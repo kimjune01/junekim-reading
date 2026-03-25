@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Uniqueness.lean — The ordering is unique" favicon="✏️">
@@ -49,9 +50,6 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/contracts/">Contracts.lean</a> &mdash; imported; the handshake condition on type compatibility</li>
       <li><a href="/reading/lean/handshake/">Handshake.lean</a> &mdash; the cross-cycle coupling that Consolidate participates in</li>
     </ul>
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/boundary/">&larr; Boundary.lean &middot; 7 of 25</a>
-      <a href="/reading/lean/removal/">Removal.lean &middot; 9 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/boundary/", label: "Boundary.lean · 7 of 25" }} next={{ href: "/reading/lean/removal/", label: "Removal.lean · 9 of 25" }} />
   </main>
 </Layout>

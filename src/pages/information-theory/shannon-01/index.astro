@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Shannon 01 — Surprise: the atomic unit" favicon="📡">
@@ -213,10 +214,7 @@ print(f"joint P:    {self_info(0.5 * 1/6):.4f} bits")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/information-theory/shannon-02/">Entropy →</a>
-    </div>
+    <PrevNext next={{ href: "/reading/information-theory/shannon-02/", label: "Entropy" }} />
 
   </main>
 </Layout>

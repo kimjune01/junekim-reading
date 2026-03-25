@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Authors Guild v. Google 2015 — Indexing Is Fair Use" favicon="⚖">
@@ -79,10 +80,7 @@ import Neighbors from "../../../components/Neighbors.astro";
     <p class="text-sm text-gray-500 mt-6">Blog connection: The court said indexing is fair use because it serves a different purpose. Canon indexes copyleft works by meaning. The derivative-work question&mdash;does compiled output carry the prose's copyleft obligation?&mdash;is the frontier the courts have not reached. <a href="https://june.kim/canon"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Canon</a></p>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/commons/lessig-2004/">&larr; Lessig 2004 &middot; 6 of 8</a>
-      <a href="/reading/commons/mikolov-2013/">Mikolov 2013 &middot; 8 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/commons/lessig-2004/", label: "Lessig 2004 · 6 of 8" }} next={{ href: "/reading/commons/mikolov-2013/", label: "Mikolov 2013 · 8 of 8" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milewski Ch.2 — Types and Functions" favicon="🐱">
@@ -358,10 +359,7 @@ print(f"to_unit(True)    = {to_unit(True)}")
     <p class="text-sm text-gray-500 mt-6">Framework connection: Types are the handshake between pipeline stages. The target type of one morphism must match the source type of the next. This is the composability constraint that the Natural Framework enforces at every stage boundary. (<a href="https://june.kim/the-handshake">The Handshake</a>)</p>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/category-theory/milewski-01/">← Category</a>
-      <a href="/reading/category-theory/milewski-03/">Great and Small →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/category-theory/milewski-01/", label: "Category" }} next={{ href: "/reading/category-theory/milewski-03/", label: "Great and Small" }} />
 
   </main>
 </Layout>

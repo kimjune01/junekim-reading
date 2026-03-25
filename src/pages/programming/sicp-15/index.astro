@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="SICP Ch.15 — Lazy Evaluation" favicon="🪄">
@@ -420,10 +421,7 @@ print(f"unless False:  {unless(False, lambda: 'ran the body', lambda: 'skipped')
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-27.html#%_sec_4.2">Read SICP &sect;4.2</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-14/">&larr; Metacircular Evaluator</a>
-      <a href="/reading/programming/sicp-16/">Nondeterministic Computing &middot; 16 of 22 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/programming/sicp-14/", label: "Metacircular Evaluator" }} next={{ href: "/reading/programming/sicp-16/", label: "Nondeterministic Computing · 16 of 22" }} />
 
   </main>
 </Layout>

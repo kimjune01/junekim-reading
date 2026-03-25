@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milewski Ch.4 — Kleisli Categories" favicon="🐱">
@@ -364,10 +365,7 @@ print(pipeline(200))
 
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/category-theory/milewski-03/">← Great and Small</a>
-      <a href="/reading/category-theory/milewski-05/">Products and Coproducts →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/category-theory/milewski-03/", label: "Great and Small" }} next={{ href: "/reading/category-theory/milewski-05/", label: "Products and Coproducts" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="DB Ch.9 — Query Processing" favicon="🗄">
@@ -199,10 +200,7 @@ estimate_cost(1000, 10000, has_index=True)  # with index
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/databases/db-08/">&larr; Recovery</a>
-      <a href="/reading/databases/db-10/">NoSQL and Beyond &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/databases/db-08/", label: "Recovery" }} next={{ href: "/reading/databases/db-10/", label: "NoSQL and Beyond" }} />
 
   </main>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Axioms.lean — Five empirical assumptions" favicon="✏️">
@@ -56,9 +57,6 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/stochasticity/">Stochasticity.lean</a> &mdash; uses capacity_bound + BoundedTransducer to show deterministic limits</li>
       <li><a href="/reading/lean/pigeonhole/">Pigeonhole.lean</a> &mdash; the collision that capacity_bound enables</li>
     </ul>
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/kleisli/">&larr; Kleisli.lean &middot; 2 of 25</a>
-      <a href="/reading/lean/pipeline/">Pipeline.lean &middot; 4 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/kleisli/", label: "Kleisli.lean · 2 of 25" }} next={{ href: "/reading/lean/pipeline/", label: "Pipeline.lean · 4 of 25" }} />
   </main>
 </Layout>

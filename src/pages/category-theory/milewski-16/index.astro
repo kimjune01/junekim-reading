@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milewski Ch.16 — Adjunctions" favicon="🐱">
@@ -468,10 +469,7 @@ print(f"two ticks from 0: {two_ticks(0)}")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/category-theory/milewski-15/">← Yoneda Embedding</a>
-      <a href="/reading/category-theory/milewski-17/">Monads →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/category-theory/milewski-15/", label: "Yoneda Embedding" }} next={{ href: "/reading/category-theory/milewski-17/", label: "Monads" }} />
 
   </main>
 </Layout>

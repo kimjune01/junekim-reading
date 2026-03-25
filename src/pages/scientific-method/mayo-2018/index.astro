@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Mayo 2018 — Statistical Inference as Severe Testing" favicon="🔬">
@@ -160,9 +161,6 @@ import Neighbors from "../../../components/Neighbors.astro";
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/scientific-method/ioannidis-2005/">&larr; Ioannidis 2005 &middot; 13 of 17</a>
-      <a href="/reading/scientific-method/integrity/">Integrity &middot; 15 of 17 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/scientific-method/ioannidis-2005/", label: "Ioannidis 2005 · 13 of 17" }} next={{ href: "/reading/scientific-method/integrity/", label: "Integrity · 15 of 17" }} />
   </main>
 </Layout>

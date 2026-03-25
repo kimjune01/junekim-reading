@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Nordstrom 3.3 — Mixed Strategies: Expected Value" favicon="🎲">
@@ -236,10 +237,7 @@ print(f"Indifferent? {abs(ev_C - ev_D) < 1e-10}")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/game-theory/nordstrom-09/">← Mixed: Graphical</a>
-      <a href="/reading/game-theory/nordstrom-11/">Non-Zero-Sum Games →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/game-theory/nordstrom-09/", label: "Mixed: Graphical" }} next={{ href: "/reading/game-theory/nordstrom-11/", label: "Non-Zero-Sum Games" }} />
 
   </main>
 </Layout>

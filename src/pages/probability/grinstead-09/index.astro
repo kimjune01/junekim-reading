@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 9 — Central Limit Theorem" favicon="🎰">
@@ -212,10 +213,7 @@ for n in [1, 10, 100]:
     <p class="text-sm text-gray-500 mt-6"><a href="https://june.kim/the-handshake">The Handshake</a></p>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/probability/grinstead-08/">← Law of Large Numbers</a>
-      <a href="/reading/probability/grinstead-10/">Generating Functions →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/probability/grinstead-08/", label: "Law of Large Numbers" }} next={{ href: "/reading/probability/grinstead-10/", label: "Generating Functions" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.6 — PCA" favicon="📊">
@@ -263,11 +264,7 @@ for pt in data:
     <h3>Ready for the real thing?</h3>
     <p class="text-sm text-gray-400">This chapter covers the 2D intuition. For high-dimensional PCA, SVD-based computation, and connections to factor analysis, see Shalev-Shwartz & Ben-David Ch.23 or Bishop Ch.12.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/machine-learning/ml-05/">&larr; Kernel Methods</a>
-      <span class="text-gray-500">PCA &middot; 7 of 12</span>
-      <a href="/reading/machine-learning/ml-07/">Gaussian Processes &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/machine-learning/ml-05/", label: "Kernel Methods" }} next={{ href: "/reading/machine-learning/ml-07/", label: "Gaussian Processes" }} fin="PCA · 7 of 12" />
 
   </main>
 </Layout>

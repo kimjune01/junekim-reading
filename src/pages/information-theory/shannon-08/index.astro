@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Shannon 8 — Entropy as Functor" favicon="📡">
@@ -256,11 +257,7 @@ print("Functorial: the ONLY measure that adds up this way.")
     <h3>Translation notes</h3>
     <p>All examples use finite uniform or explicit distributions. The Baez-Fritz-Leinster theorem works over FinProb, the category of finite probability distributions with measure-preserving maps as morphisms. The "functor" here maps each morphism to its information loss (a real number), and the theorem says this functor is unique. Renyi entropy, Tsallis entropy, and other generalizations satisfy some but not all three axioms. The chain rule is the one that eliminates them.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/information-theory/shannon-07/">← Channels</a>
-      <span></span>
-      <span class="text-gray-500">fin &middot; 8 of 8</span>
-    </div>
+    <PrevNext prev={{ href: "/reading/information-theory/shannon-07/", label: "Channels" }} fin="fin · 8 of 8" />
 
   </main>
 </Layout>

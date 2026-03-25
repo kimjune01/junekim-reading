@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.2 — Trigonometry" favicon="∫">
@@ -316,10 +317,7 @@ print("atan2(-1, -1) = {:.4f}".format(math.atan2(-1, -1)))
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/calculus/calc-01/">&larr; Functions and Graphs</a>
-      <a href="/reading/calculus/calc-03/">Limits and Continuity &middot; 3 of 15 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/calculus/calc-01/", label: "Functions and Graphs" }} next={{ href: "/reading/calculus/calc-03/", label: "Limits and Continuity · 3 of 15" }} />
 
   </main>
 </Layout>

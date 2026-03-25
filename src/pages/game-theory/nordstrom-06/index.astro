@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Nordstrom §2.4 — Equilibrium Points" favicon="🎲">
@@ -216,10 +217,7 @@ print(f"Equilibria: {find_equilibria(matrix)}")
 
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/game-theory/nordstrom-05/">← Probability and EV</a>
-      <a href="/reading/game-theory/nordstrom-07/">Zero-Sum Summary →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/game-theory/nordstrom-05/", label: "Probability and EV" }} next={{ href: "/reading/game-theory/nordstrom-07/", label: "Zero-Sum Summary" }} />
 
   </main>
 </Layout>

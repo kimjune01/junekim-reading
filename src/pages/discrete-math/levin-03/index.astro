@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Levin Ch.3 — Symbolic Logic" favicon="🔢">
@@ -274,10 +275,7 @@ print(f"All pass (1..100)? {check}")
     <h3>Translation notes</h3>
     <p>Levin's logic chapter covers proof techniques that are inherently human activities. Programs can verify instances but cannot produce proofs. The Scheme implementations model propositions as booleans and quantifiers as folds over finite domains. Real logic quantifies over infinite domains, which requires axioms, not loops. The implication connective is the one that surprises newcomers: "false implies anything" is vacuously true.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/discrete-math/levin-02/">&larr; Sequences</a>
-      <a href="/reading/discrete-math/levin-04/">Graph Theory &middot; 4 of 5 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/discrete-math/levin-02/", label: "Sequences" }} next={{ href: "/reading/discrete-math/levin-04/", label: "Graph Theory · 4 of 5" }} />
 
   </main>
 </Layout>

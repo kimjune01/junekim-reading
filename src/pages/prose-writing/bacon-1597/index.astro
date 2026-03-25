@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Bacon 1597 — Essays" favicon="✍️">
@@ -93,10 +94,7 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/prose-writing/">back to prose writing</a></li>
     </ul>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/prose-writing/quintilian/">&larr; Quintilian &middot; 2 of 10</a>
-      <a href="/reading/prose-writing/blair-1783/">Blair 1783 &middot; 4 of 10 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/prose-writing/quintilian/", label: "Quintilian · 2 of 10" }} next={{ href: "/reading/prose-writing/blair-1783/", label: "Blair 1783 · 4 of 10" }} />
 
   </main>
 </Layout>

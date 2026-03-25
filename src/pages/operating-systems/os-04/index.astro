@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OS Ch.4 — Synchronization" favicon="🖥">
@@ -171,10 +172,7 @@ for r in results: print(r)
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/operating-systems/os-03/">&larr; Threads and Concurrency</a>
-      <a href="/reading/operating-systems/os-05/">Deadlock &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/operating-systems/os-03/", label: "Threads and Concurrency" }} next={{ href: "/reading/operating-systems/os-05/", label: "Deadlock" }} />
 
   </main>
 </Layout>

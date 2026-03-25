@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crypto Ch.6 — RSA" favicon="🔐">
@@ -240,10 +241,7 @@ for m in [42, 100, 7]:
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cryptography/crypto-05/">&larr; Key Exchange</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/cryptography/crypto-05/", label: "Key Exchange" }} />
 
   </main>
 </Layout>

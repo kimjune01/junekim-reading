@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Hefferon Ch.3 — Maps Between Spaces" favicon="📐">
@@ -307,10 +308,7 @@ print("dim(R^3) = dim(ker) + dim(im) = 1 + 2 = 3")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/linear-algebra/hefferon-02/">← Vector Spaces</a>
-      <a href="/reading/linear-algebra/hefferon-04/">Determinants →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/linear-algebra/hefferon-02/", label: "Vector Spaces" }} next={{ href: "/reading/linear-algebra/hefferon-04/", label: "Determinants" }} />
 
   </main>
 </Layout>

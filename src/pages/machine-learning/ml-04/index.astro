@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.4 — Logistic Regression" favicon="🤖">
@@ -286,10 +287,7 @@ for x, y in data:
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/machine-learning/ml-03/">&larr; Optimization</a>
-      <a href="/reading/machine-learning/ml-05/">Kernel Methods &middot; 5 of 12 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/machine-learning/ml-03/", label: "Optimization" }} next={{ href: "/reading/machine-learning/ml-05/", label: "Kernel Methods · 5 of 12" }} />
 
   </main>
 </Layout>

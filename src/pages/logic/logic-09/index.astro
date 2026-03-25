@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Logic Ch.9 — Mathematical Induction" favicon="🔑">
@@ -184,10 +185,7 @@ for n in [0, 1, 5, 10, 100]:
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/logic/logic-08/">&larr; Identity and Functions</a>
-      <a href="/reading/logic/logic-10/">Soundness and Completeness &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/logic/logic-08/", label: "Identity and Functions" }} next={{ href: "/reading/logic/logic-10/", label: "Soundness and Completeness" }} />
 
   </main>
 </Layout>

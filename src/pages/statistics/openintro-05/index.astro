@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OpenIntro Ch.5 — Foundations for Inference" favicon="📊">
@@ -225,10 +226,7 @@ print(f"95% CI: ({x_bar - margin:.2f}, {x_bar + margin:.2f})")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/statistics/openintro-04/">&larr; Distributions</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/statistics/openintro-04/", label: "Distributions" }} />
 
   </main>
 </Layout>

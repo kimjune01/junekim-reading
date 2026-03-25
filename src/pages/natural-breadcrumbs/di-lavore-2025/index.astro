@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Di Lavore, Román, Sobocinski 2025 — Partial Markov Categories" favicon="🍞">
@@ -246,9 +247,6 @@ print(f"P(>10):  {condition(dist, lambda x: x > 10)}")
       Ready for the real thing? <a href="https://arxiv.org/abs/2502.03477"><img src="/reading/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for partial Markov categories, §5 for observations and Bayes' theorem, §7 for Pearl and Jeffrey updates.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/natural-breadcrumbs/parzygnat-2020/">&larr; Parzygnat 2020 &middot; 16 of 21</a>
-      <a href="/reading/natural-breadcrumbs/panangaden-2009/">Panangaden 2009 &middot; 18 of 21 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/natural-breadcrumbs/parzygnat-2020/", label: "Parzygnat 2020 · 16 of 21" }} next={{ href: "/reading/natural-breadcrumbs/panangaden-2009/", label: "Panangaden 2009 · 18 of 21" }} />
   </main>
 </Layout>

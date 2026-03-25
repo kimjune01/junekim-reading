@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Logic Ch.5 — Natural Deduction" favicon="🔑">
@@ -178,10 +179,7 @@ print(f"Modus tollens: not wet + (rain->wet) = not rain: {modus_tollens(True, Tr
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/logic/logic-04/">&larr; Logical Equivalence</a>
-      <a href="/reading/logic/logic-06/">Predicate Logic &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/logic/logic-04/", label: "Logical Equivalence" }} next={{ href: "/reading/logic/logic-06/", label: "Predicate Logic" }} />
 
   </main>
 </Layout>

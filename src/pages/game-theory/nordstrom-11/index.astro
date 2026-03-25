@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Nordstrom 4.1 — Non-Zero-Sum Games" favicon="🎲">
@@ -236,10 +237,7 @@ for moves in [("A","A"), ("C","C"), ("A","C"), ("C","A")]:
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/game-theory/nordstrom-10/">← Mixed: Expected Value</a>
-      <a href="/reading/game-theory/nordstrom-12/">Prisoner's Dilemma →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/game-theory/nordstrom-10/", label: "Mixed: Expected Value" }} next={{ href: "/reading/game-theory/nordstrom-12/", label: "Prisoner's Dilemma" }} />
 
   </main>
 </Layout>

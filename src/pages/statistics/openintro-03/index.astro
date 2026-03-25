@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OpenIntro Ch.3 — Probability" favicon="📊">
@@ -170,10 +171,7 @@ print(f"Base rate matters.")
       Want the full treatment? <a href="https://openintro.org/book/operating-systems/">Read OpenIntro Statistics, Ch. 3</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/statistics/openintro-02/">&larr; Summarizing Data</a>
-      <a href="/reading/statistics/openintro-04/">Distributions &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/statistics/openintro-02/", label: "Summarizing Data" }} next={{ href: "/reading/statistics/openintro-04/", label: "Distributions" }} />
 
   </main>
 </Layout>

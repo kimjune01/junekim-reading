@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crypto Ch.4 — MACs and Authentication" favicon="🔐">
@@ -195,10 +196,7 @@ print(f"HMAC(42, 'Hellp') = {hmac(key, [72,101,108,108,112])}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cryptography/crypto-03/">&larr; Hash Functions</a>
-      <a href="/reading/cryptography/crypto-05/">Key Exchange &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cryptography/crypto-03/", label: "Hash Functions" }} next={{ href: "/reading/cryptography/crypto-05/", label: "Key Exchange" }} />
 
   </main>
 </Layout>

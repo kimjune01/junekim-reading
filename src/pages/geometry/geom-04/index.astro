@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Geometry Ch.4 — Projective Geometry" favicon="△">
@@ -177,10 +178,7 @@ print(f"Parallel lines meet at: {from_homogeneous(meeting)}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/geometry/geom-03/">← Transformations</a>
-      <a href="/reading/geometry/geom-05/">Non-Euclidean Geometry →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/geometry/geom-03/", label: "Transformations" }} next={{ href: "/reading/geometry/geom-05/", label: "Non-Euclidean Geometry" }} />
 
   </main>
 </Layout>

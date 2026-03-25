@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Judson Ch.6 — Rings" favicon="🔗">
@@ -193,10 +194,7 @@ print("Kernel: multiples of 6")
     <h3>Translation notes</h3>
     <p>Judson treats rings in Ch. 16 and ideals in Ch. 16-17. We compress this because the definition is straightforward: a ring is an abelian group with a second associative operation that distributes. The integers are the motivating example. Commutative rings with identity (the common case in algebra) are assumed throughout. The connection to Milewski's sum/product types is informal: types under (+, *) satisfy distributivity but lack additive inverses, making them a semiring rather than a ring.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/abstract-algebra/judson-05/">&larr; Cosets and Lagrange's Theorem</a>
-      <a href="/reading/abstract-algebra/judson-07/">Integral Domains and Fields &middot; 7 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/abstract-algebra/judson-05/", label: "Cosets and Lagrange's Theorem" }} next={{ href: "/reading/abstract-algebra/judson-07/", label: "Integral Domains and Fields · 7 of 8" }} />
 
   </main>
 </Layout>

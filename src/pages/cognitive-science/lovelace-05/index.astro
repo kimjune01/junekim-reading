@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Lovelace Ch.5 — Reinforcement Learning" favicon="🧠">
@@ -273,10 +274,7 @@ update_q(0, 1, 0.0, 1)
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cognitive-science/lovelace-04/">&larr; Neural Networks</a>
-      <a href="/reading/cognitive-science/lovelace-06/">Decision Making &middot; 6 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cognitive-science/lovelace-04/", label: "Neural Networks" }} next={{ href: "/reading/cognitive-science/lovelace-06/", label: "Decision Making · 6 of 8" }} />
 
   </main>
 </Layout>

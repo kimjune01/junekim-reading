@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Lebl Ch.3 — Series" favicon="∞">
@@ -234,10 +235,7 @@ for x in [1, 2, -1, 0.5]:
     <h3>Translation notes</h3>
     <p>The harmonic series diverges slowly: 10,000 terms only reaches about 9.8. Our numerical partial sums illustrate convergence speed but cannot prove convergence or divergence. The comparison test is a proof technique, not a computation.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/real-analysis/lebl-02/">← Sequences</a>
-      <a href="/reading/real-analysis/lebl-04/">Continuous Functions →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/real-analysis/lebl-02/", label: "Sequences" }} next={{ href: "/reading/real-analysis/lebl-04/", label: "Continuous Functions" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Shannon 04 — Mutual information" favicon="📡">
@@ -219,10 +220,7 @@ print(f"H(U) - H(U|W) = {h_u - (h_joint - h_w):.4f} bits")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/information-theory/shannon-03/">← Joint and Conditional</a>
-      <a href="/reading/information-theory/shannon-05/">KL Divergence →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/information-theory/shannon-03/", label: "Joint and Conditional" }} next={{ href: "/reading/information-theory/shannon-05/", label: "KL Divergence" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="GSP 2007 — Generalized Second-Price Auction" favicon="💎">
@@ -131,10 +132,7 @@ print(gsp([10, 8, 2], [100, 60, 20]))
       Ready for the real thing? <a href="https://www.aeaweb.org/articles?id=10.1257/aer.97.1.242">Read the paper</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/auction-theory/vcg-1973/">&larr; VCG 1973 &middot; 2 of 8</a>
-      <a href="/reading/auction-theory/milgrom-weber-1982/">Milgrom &amp; Weber 1982 &middot; 4 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/auction-theory/vcg-1973/", label: "VCG 1973 · 2 of 8" }} next={{ href: "/reading/auction-theory/milgrom-weber-1982/", label: "Milgrom & Weber 1982 · 4 of 8" }} />
 
   </main>
 </Layout>

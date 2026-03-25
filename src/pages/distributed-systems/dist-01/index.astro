@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Dist Ch.1 — What Makes It Hard" favicon="🌐">
@@ -162,10 +163,7 @@ print("Is C crashed or partitioned? Unknown.")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/distributed-systems/dist-02/">Time and Clocks &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/distributed-systems/dist-02/", label: "Time and Clocks" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Vickrey 1961 — Second-Price Sealed-Bid Auction" favicon="💎">
@@ -168,10 +169,7 @@ print(second_price([45, 50, 30]))
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/auction-theory/vcg-1973/">VCG 1973 &middot; 2 of 8 &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/auction-theory/vcg-1973/", label: "VCG 1973 · 2 of 8" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="SICP Ch.3 — Higher-Order Functions" favicon="🪄">
@@ -425,10 +426,7 @@ print(f"cbrt(8)  = {cbrt(8):.6f}")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-02/">&larr; Recursion &amp; Iteration</a>
-      <a href="/reading/programming/sicp-04/">Data Abstraction &middot; 4 of 22 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/programming/sicp-02/", label: "Recursion & Iteration" }} next={{ href: "/reading/programming/sicp-04/", label: "Data Abstraction · 4 of 22" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Stochasticity.lean — Determinism forces confusion forces error" favicon="✏️">
@@ -94,9 +95,6 @@ print("Stochasticity breaks the 'same state => same output' chain.")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/pigeonhole/">&larr; Pigeonhole.lean &middot; 10 of 25</a>
-      <a href="/reading/lean/deathconditions/">DeathConditions.lean &middot; 12 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/pigeonhole/", label: "Pigeonhole.lean · 10 of 25" }} next={{ href: "/reading/lean/deathconditions/", label: "DeathConditions.lean · 12 of 25" }} />
   </main>
 </Layout>

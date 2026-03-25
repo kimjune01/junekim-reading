@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Number Theory Ch.2 — Primes" favicon="#">
@@ -205,10 +206,7 @@ print(f"Primes up to 50: {sieve(50)}")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/number-theory/numthy-01/">&larr; Divisibility</a>
-      <a href="/reading/number-theory/numthy-03/">Congruences &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/number-theory/numthy-01/", label: "Divisibility" }} next={{ href: "/reading/number-theory/numthy-03/", label: "Congruences" }} />
 
   </main>
 </Layout>

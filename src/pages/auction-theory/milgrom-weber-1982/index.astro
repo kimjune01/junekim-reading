@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milgrom & Weber 1982 — A Theory of Auctions and Competitive Bidding" favicon="💎">
@@ -138,10 +139,7 @@ simulate_revenues()
       Ready for the real thing? <a href="https://doi.org/10.2307/1911865">Read the paper</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/auction-theory/gsp-2007/">&larr; GSP 2007 &middot; 3 of 8</a>
-      <a href="/reading/auction-theory/aurenhammer-1987/">Aurenhammer 1987 &middot; 5 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/auction-theory/gsp-2007/", label: "GSP 2007 · 3 of 8" }} next={{ href: "/reading/auction-theory/aurenhammer-1987/", label: "Aurenhammer 1987 · 5 of 8" }} />
 
   </main>
 </Layout>

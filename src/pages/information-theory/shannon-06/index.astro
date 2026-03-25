@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Shannon 6 — Data Processing Inequality" favicon="📡">
@@ -227,10 +228,7 @@ print(f"Functor can't increase: {hfx <= hx}")
     <p>All examples use discrete finite distributions. The data processing inequality holds for continuous distributions, Markov kernels, and general measurable spaces. The inequality is tight (equality) when Y is a sufficient statistic for X with respect to Z. Every example computes entropy directly from probability vectors rather than simulating the Markov chain.</p>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/information-theory/shannon-05/">← KL Divergence</a>
-      <a href="/reading/information-theory/shannon-07/">Channels →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/information-theory/shannon-05/", label: "KL Divergence" }} next={{ href: "/reading/information-theory/shannon-07/", label: "Channels" }} />
 
   </main>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Boundary.lean — Why each stage is forced" favicon="✏️">
@@ -46,9 +47,6 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/removal/">Removal.lean</a> &mdash; the full removal table, combining all boundary arguments</li>
       <li><a href="/reading/lean/corollary/">Corollary.lean</a> &mdash; derives the competitive core and control/data separation from these proofs</li>
     </ul>
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/handshake/">&larr; Handshake.lean &middot; 6 of 25</a>
-      <a href="/reading/lean/uniqueness/">Uniqueness.lean &middot; 8 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/handshake/", label: "Handshake.lean · 6 of 25" }} next={{ href: "/reading/lean/uniqueness/", label: "Uniqueness.lean · 8 of 25" }} />
   </main>
 </Layout>

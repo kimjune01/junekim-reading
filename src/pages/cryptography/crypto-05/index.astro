@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crypto Ch.5 — Key Exchange" favicon="🔐">
@@ -222,10 +223,7 @@ print(f"Same? {alice_secret == bob_secret}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cryptography/crypto-04/">&larr; MACs and Authentication</a>
-      <a href="/reading/cryptography/crypto-06/">RSA &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cryptography/crypto-04/", label: "MACs and Authentication" }} next={{ href: "/reading/cryptography/crypto-06/", label: "RSA" }} />
 
   </main>
 </Layout>

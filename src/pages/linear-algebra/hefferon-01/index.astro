@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Hefferon Ch.1 — Linear Systems" favicon="📐">
@@ -355,10 +356,7 @@ print("Solution is a line through (3, 0, 1).")
       Full chapter: <a href="https://hefferon.net/linearalgebra/">Hefferon, Chapter One — Linear Systems</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/linear-algebra/hefferon-02/">Vector Spaces →</a>
-    </div>
+    <PrevNext next={{ href: "/reading/linear-algebra/hefferon-02/", label: "Vector Spaces" }} />
 
   </main>
 </Layout>

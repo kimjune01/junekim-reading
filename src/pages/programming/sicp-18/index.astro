@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="SICP Ch.18 — Register Machines" favicon="🪄">
@@ -521,10 +522,7 @@ for i in [0, 1, 5, 10, 15]:
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-31.html#%_sec_5.1">Read SICP &sect;5.1</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-17/">&larr; Logic Programming</a>
-      <a href="/reading/programming/sicp-19/">Register Machine Simulator &middot; 19 of 22 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/programming/sicp-17/", label: "Logic Programming" }} next={{ href: "/reading/programming/sicp-19/", label: "Register Machine Simulator · 19 of 22" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Hefferon Ch.4 — Determinants" favicon="📐">
@@ -363,10 +364,7 @@ print("Reflection (0,1)x(1,0): signed area = " + str(det2(0, 1, 1, 0)))
       Full chapter: <a href="https://hefferon.net/linearalgebra/">Hefferon, Chapter Four — Determinants</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/linear-algebra/hefferon-03/">← Maps Between Spaces</a>
-      <a href="/reading/linear-algebra/hefferon-05/">Similarity →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/linear-algebra/hefferon-03/", label: "Maps Between Spaces" }} next={{ href: "/reading/linear-algebra/hefferon-05/", label: "Similarity" }} />
 
   </main>
 </Layout>

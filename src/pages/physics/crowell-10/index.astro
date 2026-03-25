@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.10 — Relativity" favicon="⚛">
@@ -211,10 +212,7 @@ for frac in [0, 0.1, 0.5, 0.9, 0.99, 0.999]:
     <h3>Translation notes</h3>
     <p>We use natural units informally (v as a fraction of c) but compute in SI. The Lorentz transformation here is the standard 1+1 dimensional form (one space dimension plus time). The full 3+1 form involves velocity in an arbitrary direction and is more complex. Crowell develops the four-vector formalism. Our muon example uses real experimental parameters: cosmic-ray muons do reach the ground precisely because of time dilation.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/physics/crowell-09/">&larr; Optics</a>
-      <a href="/reading/physics/crowell-11/">Quantum Mechanics &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/physics/crowell-09/", label: "Optics" }} next={{ href: "/reading/physics/crowell-11/", label: "Quantum Mechanics" }} />
 
   </main>
 </Layout>

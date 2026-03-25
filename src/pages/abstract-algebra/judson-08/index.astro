@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Judson Ch.8 — Lattices and Boolean Algebras" favicon="🔗">
@@ -216,11 +217,7 @@ print("[a] v [a]' = " + names[join(1, comp(1))])
     <p>Judson covers lattices and Boolean algebras in Ch. 19. The power set Boolean algebra is the canonical example. The connection to logic (meet = AND, join = OR) makes Boolean algebras central to computer science. The <a href="https://en.wikipedia.org/wiki/Heyting_algebra">🅦 Heyting algebra</a> generalization (drop the complement axiom, keep distributivity) connects to intuitionistic logic and the internal logic of topoi. Every Boolean algebra is a Heyting algebra, but not conversely.</p>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/abstract-algebra/judson-07/">&larr; Integral Domains and Fields</a>
-      <span></span>
-      <span class="text-gray-500">fin &middot; 8 of 8</span>
-    </div>
+    <PrevNext prev={{ href: "/reading/abstract-algebra/judson-07/", label: "Integral Domains and Fields" }} fin="fin · 8 of 8" />
 
   </main>
 </Layout>

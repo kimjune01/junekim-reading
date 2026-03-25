@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Kidney & Wu 2021 — Algebras for Weighted Search" favicon="🍞">
@@ -352,9 +353,6 @@ print(f"sum = {sum(after2.values()):.3f} (probability sums to 1)")
       Ready for the real thing? <a href="https://dl.acm.org/doi/10.1145/3473577">Read the paper</a> (ICFP 2021). Start at §3 for the free semimodule monad, §5 for the semiring-parameterized search.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/natural-breadcrumbs/jacobs-2014/">&larr; Jacobs 2014 &middot; 12 of 21</a>
-      <a href="/reading/natural-breadcrumbs/leinster-2021/">Leinster 2021 &middot; 14 of 21 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/natural-breadcrumbs/jacobs-2014/", label: "Jacobs 2014 · 12 of 21" }} next={{ href: "/reading/natural-breadcrumbs/leinster-2021/", label: "Leinster 2021 · 14 of 21" }} />
   </main>
 </Layout>

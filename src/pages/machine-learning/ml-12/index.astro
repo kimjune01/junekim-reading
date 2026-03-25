@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.12 — Large Language Models" favicon="🤖">
@@ -298,10 +299,7 @@ print("Context window: ~4k to ~1M tokens")
       <p><a href="https://d2l.ai/">Dive into Deep Learning</a> (d2l.ai) covers everything here with runnable PyTorch/JAX code, full math, and exercises. It's free, it's excellent, and it's where these chapters point when the scaffolding comes off.</p>
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/machine-learning/ml-11/">&larr; Transformers</a>
-      <span class="text-gray-500">fin</span>
-    </div>
+    <PrevNext prev={{ href: "/reading/machine-learning/ml-11/", label: "Transformers" }} fin="fin" />
 
   </main>
 </Layout>

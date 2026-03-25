@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="DeathConditions.lean — Three ways to die" favicon="✏️">
@@ -43,9 +44,6 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/handshake/">Handshake.lean</a> &mdash; the information budget constraints (InformationBudget, closed_loop_budget_negative)</li>
       <li><a href="/reading/lean/removal/">Removal.lean</a> &mdash; each removal test is one of these death conditions instantiated</li>
     </ul>
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/stochasticity/">&larr; Stochasticity.lean &middot; 11 of 25</a>
-      <a href="/reading/lean/induction/">Induction.lean &middot; 13 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/stochasticity/", label: "Stochasticity.lean · 11 of 25" }} next={{ href: "/reading/lean/induction/", label: "Induction.lean · 13 of 25" }} />
   </main>
 </Layout>

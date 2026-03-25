@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Control Ch.3 — PID Control" favicon="🎛">
@@ -111,10 +112,7 @@ print(f"Final: {temp:.3f}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/control/ctrl-02/">&larr; Transfer Functions</a>
-      <a href="/reading/control/ctrl-04/">Stability &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/control/ctrl-02/", label: "Transfer Functions" }} next={{ href: "/reading/control/ctrl-04/", label: "Stability" }} />
 
   </main>
 </Layout>

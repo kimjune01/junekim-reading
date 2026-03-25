@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.6 — Electricity" favicon="⚛">
@@ -196,10 +197,7 @@ for r in [0.01, 0.1, 1.0, 10.0]:
       Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/physics/crowell-05/">&larr; Waves</a>
-      <a href="/reading/physics/crowell-07/">Magnetism →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/physics/crowell-05/", label: "Waves" }} next={{ href: "/reading/physics/crowell-07/", label: "Magnetism" }} />
 
   </main>
 </Layout>

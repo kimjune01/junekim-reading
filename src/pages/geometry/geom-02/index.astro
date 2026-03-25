@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Geometry Ch.2 — Coordinate Geometry" favicon="△">
@@ -181,10 +182,7 @@ print(f"Perpendicular? slopes 2 and -0.5: {2 * -0.5 == -1}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/geometry/geom-01/">← Euclidean Geometry</a>
-      <a href="/reading/geometry/geom-03/">Transformations →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/geometry/geom-01/", label: "Euclidean Geometry" }} next={{ href: "/reading/geometry/geom-03/", label: "Transformations" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.7 — Gaussian Processes" favicon="🌊">
@@ -296,11 +297,7 @@ print("  std  = {:.3f}".format(math.sqrt(var)))
     <h3>Ready for the real thing?</h3>
     <p class="text-sm text-gray-400">This chapter covers prediction with a fixed kernel. For hyperparameter optimization (marginal likelihood), sparse approximations, and deep GPs, see Rasmussen & Williams's <em>Gaussian Processes for Machine Learning</em> (free online).</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/machine-learning/ml-06/">&larr; PCA</a>
-      <span class="text-gray-500">Gaussian Processes &middot; 8 of 12</span>
-      <a href="/reading/machine-learning/ml-08/">Neural Networks &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/machine-learning/ml-06/", label: "PCA" }} next={{ href: "/reading/machine-learning/ml-08/", label: "Neural Networks" }} fin="Gaussian Processes · 8 of 12" />
 
   </main>
 </Layout>

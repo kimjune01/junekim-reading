@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Hoare/WP.lean — Weakest precondition" favicon="✏️">
@@ -48,9 +49,6 @@ import Neighbors from "../../../components/Neighbors.astro";
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/hoare-core/">&larr; Hoare/Core.lean &middot; 15 of 25</a>
-      <a href="/reading/lean/hoare-bridge/">Hoare/Bridge.lean &middot; 17 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/hoare-core/", label: "Hoare/Core.lean · 15 of 25" }} next={{ href: "/reading/lean/hoare-bridge/", label: "Hoare/Bridge.lean · 17 of 25" }} />
   </main>
 </Layout>

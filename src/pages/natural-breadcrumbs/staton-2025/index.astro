@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Staton 2025 — Program Logics via Distributive Monoidal Categories" favicon="🍞">
@@ -501,9 +502,6 @@ print("through the bind — same as your Lean proof.")
       Ready for the real thing? <a href="https://arxiv.org/abs/2507.18238"><img src="/reading/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a> (52 pages). Start at Section 5.1 (p.20) for correctness triples, Corollary 76 (p.19) for why Stoch qualifies.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/natural-breadcrumbs/fritz-2020/">Fritz 2020 &middot; 2 of 21 &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/natural-breadcrumbs/fritz-2020/", label: "Fritz 2020 · 2 of 21" }} />
   </main>
 </Layout>

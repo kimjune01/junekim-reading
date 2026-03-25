@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 12 — Random Walks" favicon="🎰">
@@ -265,11 +266,7 @@ print(f"100 steps, returns: {ret100}")
     <p class="text-sm text-gray-500 mt-6"><a href="https://june.kim/the-handshake">The Handshake</a></p>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/probability/grinstead-11/">← Markov Chains</a>
-      <span></span>
-      <span class="text-gray-500">fin &middot; 12 of 12</span>
-    </div>
+    <PrevNext prev={{ href: "/reading/probability/grinstead-11/", label: "Markov Chains" }} fin="fin · 12 of 12" />
 
   </main>
 </Layout>

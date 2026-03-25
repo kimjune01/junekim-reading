@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Mill 1843 — A System of Logic" favicon="🔬">
@@ -107,9 +108,6 @@ import Neighbors from "../../../components/Neighbors.astro";
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/scientific-method/hume-1739/">&larr; Hume 1739 &middot; 3 of 17</a>
-      <a href="/reading/scientific-method/boole-1854/">Boole 1854 &middot; 5 of 17 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/scientific-method/hume-1739/", label: "Hume 1739 · 3 of 17" }} next={{ href: "/reading/scientific-method/boole-1854/", label: "Boole 1854 · 5 of 17" }} />
   </main>
 </Layout>

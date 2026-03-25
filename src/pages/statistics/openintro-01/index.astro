@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OpenIntro Ch.1 — Introduction to Data" favicon="📊">
@@ -179,10 +180,7 @@ print(f"Mean age: {sum(ages) / len(ages)}")
       Want the full treatment? <a href="https://openintro.org/book/operating-systems/">Read OpenIntro Statistics, Ch. 1</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/statistics/openintro-02/">Summarizing Data &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/statistics/openintro-02/", label: "Summarizing Data" }} />
 
   </main>
 </Layout>

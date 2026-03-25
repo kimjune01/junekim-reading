@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Control Ch.7 — State Space" favicon="🎛">
@@ -127,10 +128,7 @@ for step in range(200):
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/control/ctrl-06/">&larr; Frequency Response</a>
-      <a href="/reading/control/ctrl-08/">Optimal Control &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/control/ctrl-06/", label: "Frequency Response" }} next={{ href: "/reading/control/ctrl-08/", label: "Optimal Control" }} />
 
   </main>
 </Layout>

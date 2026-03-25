@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.3 — Conservation of Angular Momentum" favicon="⚛">
@@ -189,10 +190,7 @@ print(f"Speed increase: {omega_in / omega_out:.1f}x")
       Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/physics/crowell-02/">&larr; Conservation of Momentum</a>
-      <a href="/reading/physics/crowell-04/">Thermodynamics &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/physics/crowell-02/", label: "Conservation of Momentum" }} next={{ href: "/reading/physics/crowell-04/", label: "Thermodynamics" }} />
 
   </main>
 </Layout>

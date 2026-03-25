@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Logic Ch.10 — Soundness and Completeness" favicon="🔑">
@@ -184,10 +185,7 @@ print(f"P -> Q is tautology: {is_tautology(impl, 2)}")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/logic/logic-09/">&larr; Mathematical Induction</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/logic/logic-09/", label: "Mathematical Induction" }} />
 
   </main>
 </Layout>

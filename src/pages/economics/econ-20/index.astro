@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Econ Ch.20 — Mechanism Design" favicon="💰">
@@ -198,10 +199,7 @@ for bid, label in [(50, "Truthful"), (80, "Overbid"), (40, "Underbid")]:
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/economics/econ-19/">← Fiscal and Monetary Policy</a>
-      <a href="/reading/economics/econ-21/">Behavioral Economics →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/economics/econ-19/", label: "Fiscal and Monetary Policy" }} next={{ href: "/reading/economics/econ-21/", label: "Behavioral Economics" }} />
 
   </main>
 </Layout>

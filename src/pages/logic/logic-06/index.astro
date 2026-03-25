@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Logic Ch.6 — Predicate Logic" favicon="🔑">
@@ -161,10 +162,7 @@ print(f"forall < 5 in domain: {all(x < 5 for x in domain)}")
 (display (exists (lambda (x) (and (cat? x) (purrs? x))) animals))
 `} />
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/logic/logic-05/">&larr; Natural Deduction</a>
-      <a href="/reading/logic/logic-07/">Predicate Logic Proofs &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/logic/logic-05/", label: "Natural Deduction" }} next={{ href: "/reading/logic/logic-07/", label: "Predicate Logic Proofs" }} />
 
   </main>
 </Layout>

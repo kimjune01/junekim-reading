@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Number Theory Ch.4 — Euler and Fermat" favicon="#">
@@ -127,10 +128,7 @@ print(f"7^4 mod 12 = {mod_pow(7, 4, 12)}")
 
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/number-theory/numthy-03/">&larr; Congruences</a>
-      <a href="/reading/number-theory/numthy-05/">Chinese Remainder Theorem &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/number-theory/numthy-03/", label: "Congruences" }} next={{ href: "/reading/number-theory/numthy-05/", label: "Chinese Remainder Theorem" }} />
 
   </main>
 </Layout>

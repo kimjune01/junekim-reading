@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crypto Ch.11 — Remote Attestation" favicon="🔐">
@@ -182,10 +183,7 @@ print(f"Tampered passes? {tampered_hash == expected}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cryptography/crypto-10/">&#8592; TLS Handshake</a>
-      <a href="/reading/cryptography/crypto-12/">Trusted Execution Environments &#8594;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cryptography/crypto-10/", label: "TLS Handshake" }} next={{ href: "/reading/cryptography/crypto-12/", label: "Trusted Execution Environments" }} />
 
   </main>
 </Layout>

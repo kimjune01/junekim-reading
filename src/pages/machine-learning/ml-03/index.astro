@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.3 — Optimization" favicon="🤖">
@@ -223,10 +224,7 @@ print("Diverged! x = {:.2f}, f(x) = {:.2f}".format(x, f(x)))
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/machine-learning/ml-02/">&larr; Linear Regression</a>
-      <a href="/reading/machine-learning/ml-04/">Logistic Regression &middot; 4 of 12 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/machine-learning/ml-02/", label: "Linear Regression" }} next={{ href: "/reading/machine-learning/ml-04/", label: "Logistic Regression · 4 of 12" }} />
 
   </main>
 </Layout>

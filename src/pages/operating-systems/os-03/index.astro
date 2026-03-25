@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OS Ch.3 — Threads and Concurrency" favicon="🖥">
@@ -131,10 +132,7 @@ print(f"Threaded:   {count}")  # likely < 200000
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/operating-systems/os-02/">&larr; Scheduling</a>
-      <a href="/reading/operating-systems/os-04/">Synchronization &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/operating-systems/os-02/", label: "Scheduling" }} next={{ href: "/reading/operating-systems/os-04/", label: "Synchronization" }} />
 
   </main>
 </Layout>

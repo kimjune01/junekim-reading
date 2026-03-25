@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Nordstrom §2.2 — Dominated Strategies" favicon="🎲">
@@ -263,10 +264,7 @@ else:
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/game-theory/nordstrom-03/">← Zero-Sum Games</a>
-      <a href="/reading/game-theory/nordstrom-05/">Probability and EV →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/game-theory/nordstrom-03/", label: "Zero-Sum Games" }} next={{ href: "/reading/game-theory/nordstrom-05/", label: "Probability and EV" }} />
 
   </main>
 </Layout>

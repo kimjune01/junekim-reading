@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="VCG Mechanism — Clarke 1971, Groves 1973" favicon="💎">
@@ -146,10 +147,7 @@ print(vcg_multi([10, 7, 4, 3, 1], k=2))
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/auction-theory/vickrey-1961/">&larr; Vickrey 1961 &middot; 1 of 8</a>
-      <a href="/reading/auction-theory/gsp-2007/">GSP 2007 &middot; 3 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/auction-theory/vickrey-1961/", label: "Vickrey 1961 · 1 of 8" }} next={{ href: "/reading/auction-theory/gsp-2007/", label: "GSP 2007 · 3 of 8" }} />
 
   </main>
 </Layout>

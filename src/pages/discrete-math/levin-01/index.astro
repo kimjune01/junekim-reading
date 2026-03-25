@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Levin Ch.1 — Counting" favicon="🔢">
@@ -271,10 +272,7 @@ print(f"Div by 2, 3, or 5: {result}")  # 74
     <h3>Translation notes</h3>
     <p>Levin's textbook builds counting from careful set-theoretic arguments. The Scheme implementations here use exact integer arithmetic, so no overflow or rounding issues for moderate inputs. The multiplicative formula for C(n,k) avoids computing full factorials. Python's math.comb (3.8+) does the same internally.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/discrete-math/levin-02/">Sequences &middot; 2 of 5 &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/discrete-math/levin-02/", label: "Sequences · 2 of 5" }} />
 
   </main>
 </Layout>

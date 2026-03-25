@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crypto Ch.2 — Block Ciphers" favicon="🔐">
@@ -242,10 +243,7 @@ print(f"Round-trip? {(dec_l, dec_r) == (plain_l, plain_r)}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cryptography/crypto-01/">&larr; Symmetric Ciphers</a>
-      <a href="/reading/cryptography/crypto-03/">Hash Functions &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cryptography/crypto-01/", label: "Symmetric Ciphers" }} next={{ href: "/reading/cryptography/crypto-03/", label: "Hash Functions" }} />
 
   </main>
 </Layout>

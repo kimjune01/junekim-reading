@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Econ Ch.14 — Information Asymmetry" favicon="💰">
@@ -247,10 +248,7 @@ import Neighbors from "../../../components/Neighbors.astro";
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/economics/econ-13/">← Oligopoly</a>
-      <a href="/reading/economics/econ-15/">Money and Banking →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/economics/econ-13/", label: "Oligopoly" }} next={{ href: "/reading/economics/econ-15/", label: "Money and Banking" }} />
 
   </main>
 </Layout>

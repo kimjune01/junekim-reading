@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Support.lean — Which outputs a computation can produce" favicon="✏️">
@@ -111,9 +112,6 @@ print(f"support(coin-flip >>= coin-flip)(3): {bind_support(coin_flip, coin_flip,
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/lean/kleisli/">Kleisli.lean &middot; 2 of 25 &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/lean/kleisli/", label: "Kleisli.lean · 2 of 25" }} />
   </main>
 </Layout>

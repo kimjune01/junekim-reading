@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OpenIntro Ch.4 — Distributions" favicon="📊">
@@ -188,10 +189,7 @@ print(f"Score at Z=2: {sat_mean + 2 * sat_sd}")
       Want the full treatment? <a href="https://openintro.org/book/operating-systems/">Read OpenIntro Statistics, Ch. 4</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/statistics/openintro-03/">&larr; Probability</a>
-      <a href="/reading/statistics/openintro-05/">Foundations for Inference &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/statistics/openintro-03/", label: "Probability" }} next={{ href: "/reading/statistics/openintro-05/", label: "Foundations for Inference" }} />
 
   </main>
 </Layout>

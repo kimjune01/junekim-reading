@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Proofs Ch.1 — Statements and Logic" favicon="✎">
@@ -188,10 +189,7 @@ for p in [True, False]:
 
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/proof-writing/proofs-02/">Direct Proof →</a>
-    </div>
+    <PrevNext next={{ href: "/reading/proof-writing/proofs-02/", label: "Direct Proof" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Kleisli.lean — Stochastic functions compose" favicon="✏️">
@@ -107,9 +108,6 @@ print(f"pipeline('cat'): {pipeline('cat')}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/support/">&larr; Support.lean &middot; 1 of 25</a>
-      <a href="/reading/lean/axioms/">Axioms.lean &middot; 3 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/support/", label: "Support.lean · 1 of 25" }} next={{ href: "/reading/lean/axioms/", label: "Axioms.lean · 3 of 25" }} />
   </main>
 </Layout>

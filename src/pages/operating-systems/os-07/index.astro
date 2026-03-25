@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="OS Ch.7 — Virtual Memory" favicon="🖥">
@@ -171,10 +172,7 @@ lru_replace([7, 0, 1, 2, 0, 3, 0, 4], 3)
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/operating-systems/os-06/">&larr; Memory Management</a>
-      <a href="/reading/operating-systems/os-08/">File Systems &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/operating-systems/os-06/", label: "Memory Management" }} next={{ href: "/reading/operating-systems/os-08/", label: "File Systems" }} />
 
   </main>
 </Layout>

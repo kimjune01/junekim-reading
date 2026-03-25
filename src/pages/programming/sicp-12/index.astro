@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="SICP Ch.12 — Concurrency" favicon="🪄">
@@ -324,10 +325,7 @@ print(f"after:  a1={a1.balance}, a2={a2.balance}")
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-23.html#%_sec_3.4">Read SICP &sect;3.4</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-11/">&larr; Mutable Data</a>
-      <a href="/reading/programming/sicp-13/">Streams &middot; 13 of 22 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/programming/sicp-11/", label: "Mutable Data" }} next={{ href: "/reading/programming/sicp-13/", label: "Streams · 13 of 22" }} />
 
   </main>
 </Layout>

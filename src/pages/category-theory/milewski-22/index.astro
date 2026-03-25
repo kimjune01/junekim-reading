@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milewski Ch.22 — Enriched Categories" favicon="🐱">
@@ -461,10 +462,7 @@ print(f"id(1)={id_fn[1]}, id(2)={id_fn[2]}")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/category-theory/milewski-21/">← Kan Extensions</a>
-      <a href="/reading/category-theory/milewski-23/">Topoi →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/category-theory/milewski-21/", label: "Kan Extensions" }} next={{ href: "/reading/category-theory/milewski-23/", label: "Topoi" }} />
 
   </main>
 </Layout>

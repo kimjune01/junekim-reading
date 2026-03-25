@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.11 — Quantum Mechanics" favicon="⚛">
@@ -251,10 +252,7 @@ print(f"Green photon: {E:.3e} J = {E/1.6e-19:.2f} eV")
     <h3>Translation notes</h3>
     <p>We use real-valued amplitudes for simplicity. The full Schrodinger equation uses complex amplitudes, and interference depends on relative phase. The particle-in-a-box is the simplest exactly solvable quantum system. Crowell builds up to the hydrogen atom (next chapter). Our probability amplitude example captures the essential logic: amplitudes add, then you square. This is the origin of all quantum weirdness.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/physics/crowell-10/">&larr; Relativity</a>
-      <a href="/reading/physics/crowell-12/">The Atom &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/physics/crowell-10/", label: "Relativity" }} next={{ href: "/reading/physics/crowell-12/", label: "The Atom" }} />
 
   </main>
 </Layout>

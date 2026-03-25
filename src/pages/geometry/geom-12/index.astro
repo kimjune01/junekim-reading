@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Geometry Ch.12 — The Erlangen Program" favicon="△">
@@ -269,10 +270,7 @@ print("Distances preserved.")
     <h3>Translation notes</h3>
     <p>Klein's original 1872 Erlangen lecture was titled "Vergleichende Betrachtungen uber neuere geometrische Forschungen" (A Comparative Review of Recent Researches in Geometry). The functorial interpretation is modern. The hierarchy shown here (topology &supset; projective &supset; affine &supset; Euclidean) is the standard one, but there are geometries that do not fit neatly into this chain: hyperbolic and elliptic geometry branch off from projective geometry rather than sitting in the linear chain. Milewski's chapter 7 covers functors in the programming context; the Erlangen program is the original mathematical example of "structure-preserving maps between categories."</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/geometry/geom-11/">&larr; Power Diagrams</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/geometry/geom-11/", label: "Power Diagrams" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Shannon 5 — KL Divergence" favicon="📡">
@@ -183,10 +184,7 @@ print("Asymmetric: D(P||Q) != D(Q||P). Not a distance.")
     <p>All examples use finite discrete distributions with explicit probability vectors. KL divergence extends to continuous distributions via integrals, and to distributions over infinite countable sets via infinite sums. The asymmetry is the same in all cases. The non-negativity proof (Gibbs' inequality) uses Jensen's inequality on the convexity of -log, which holds regardless of whether the sample space is finite.</p>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/information-theory/shannon-04/">← Mutual Information</a>
-      <a href="/reading/information-theory/shannon-06/">Data Processing →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/information-theory/shannon-04/", label: "Mutual Information" }} next={{ href: "/reading/information-theory/shannon-06/", label: "Data Processing" }} />
 
   </main>
 </Layout>

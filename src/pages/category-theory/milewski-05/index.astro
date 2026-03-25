@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milewski Ch.5 — Products and Coproducts" favicon="🐱">
@@ -412,10 +413,7 @@ print(f"m(Right('hello')) == show_str('hello')? {m(Right('hello')) == show_str('
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/category-theory/milewski-04/">← Kleisli Categories</a>
-      <a href="/reading/category-theory/milewski-06/">Algebraic Data Types →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/category-theory/milewski-04/", label: "Kleisli Categories" }} next={{ href: "/reading/category-theory/milewski-06/", label: "Algebraic Data Types" }} />
 
   </main>
 </Layout>

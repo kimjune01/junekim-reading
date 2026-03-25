@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Levin Ch.2 — Sequences" favicon="🔢">
@@ -299,10 +300,7 @@ print(f"All match 0..20? {all(formula(i) == direct(i) for i in range(21))}")
     <h3>Translation notes</h3>
     <p>Levin treats sequences as functions from naturals. The Scheme implementations use iterative loops where possible to avoid stack overflow on large inputs. The characteristic root method is demonstrated but the algebra (solving quadratics, plugging in initial conditions) happens by hand. Programs verify the result, they do not derive it.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/discrete-math/levin-01/">&larr; Counting</a>
-      <a href="/reading/discrete-math/levin-03/">Symbolic Logic &middot; 3 of 5 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/discrete-math/levin-01/", label: "Counting" }} next={{ href: "/reading/discrete-math/levin-03/", label: "Symbolic Logic · 3 of 5" }} />
 
   </main>
 </Layout>

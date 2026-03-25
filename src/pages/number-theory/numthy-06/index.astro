@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Number Theory Ch.6 — Quadratic Residues" favicon="#">
@@ -145,10 +146,7 @@ print(f"QR mod 13: {qr(13)}")
 `} />
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/number-theory/numthy-05/">&larr; Chinese Remainder Theorem</a>
-      <a href="/reading/number-theory/numthy-07/">Primitive Roots &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/number-theory/numthy-05/", label: "Chinese Remainder Theorem" }} next={{ href: "/reading/number-theory/numthy-07/", label: "Primitive Roots" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 1 — Discrete Probability" favicon="🎰">
@@ -253,10 +254,7 @@ print(f"P(doubles) = {len(doubles)/len(two_dice):.4f}")
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/probability/grinstead-02/">Continuous Probability →</a>
-    </div>
+    <PrevNext next={{ href: "/reading/probability/grinstead-02/", label: "Continuous Probability" }} />
 
   </main>
 </Layout>

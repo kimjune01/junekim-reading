@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Hajiaghayi et al. 2024 — Ad Auctions for LLMs via RAG" favicon="💎">
@@ -155,10 +156,7 @@ for name, rel, bid, score in rag_auction(query, ads):
       Ready for the real thing? <a href="https://arxiv.org/abs/2406.09459">Read the paper</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/auction-theory/hartline-2023/">&larr; Hartline 2023 &middot; 7 of 8</a>
-      <span></span>
-    </div>
+    <PrevNext prev={{ href: "/reading/auction-theory/hartline-2023/", label: "Hartline 2023 · 7 of 8" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="DB Ch.7 — Concurrency Control" favicon="🗄">
@@ -223,10 +224,7 @@ print("T1->T2->T3->T1:", detect_deadlock({
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/databases/db-06/">&larr; Transactions</a>
-      <a href="/reading/databases/db-08/">Recovery &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/databases/db-06/", label: "Transactions" }} next={{ href: "/reading/databases/db-08/", label: "Recovery" }} />
 
   </main>
 </Layout>

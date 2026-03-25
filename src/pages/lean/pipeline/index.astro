@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Pipeline.lean — Six stages, one cycle" favicon="✏️">
@@ -125,9 +126,6 @@ print(f"forward('hello', 'diverse'): {forward('hello', 'diverse')}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/lean/axioms/">&larr; Axioms.lean &middot; 3 of 25</a>
-      <a href="/reading/lean/contracts/">Contracts.lean &middot; 5 of 25 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/lean/axioms/", label: "Axioms.lean · 3 of 25" }} next={{ href: "/reading/lean/contracts/", label: "Contracts.lean · 5 of 25" }} />
   </main>
 </Layout>

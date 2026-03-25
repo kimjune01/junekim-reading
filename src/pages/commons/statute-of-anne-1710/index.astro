@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Statute of Anne 1710 — The Original Bargain" favicon="⚖">
@@ -67,10 +68,7 @@ import Neighbors from "../../../components/Neighbors.astro";
 
     <p class="text-sm text-gray-500 mt-6">Blog connection: Prometheus gave fire; the Statute of Anne gave a fourteen-year candle. The original bargain said knowledge returns to the commons. Copyleft says it never leaves. <a href="https://june.kim/free-as-in-fire"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Free as in Fire</a></p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/commons/bush-1945/">&larr; As We May Think &middot; 1 of 8</a>
-      <a href="/reading/commons/berners-lee-1989/">Berners-Lee 1989 &middot; 3 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/commons/bush-1945/", label: "As We May Think · 1 of 8" }} next={{ href: "/reading/commons/berners-lee-1989/", label: "Berners-Lee 1989 · 3 of 8" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Dist Ch.2 — Time and Clocks" favicon="🌐">
@@ -226,10 +227,7 @@ print(f"P2 sends, P1 receives, P1 clock={p1.time}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/distributed-systems/dist-01/">&larr; What Makes It Hard</a>
-      <a href="/reading/distributed-systems/dist-03/">Replication &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/distributed-systems/dist-01/", label: "What Makes It Hard" }} next={{ href: "/reading/distributed-systems/dist-03/", label: "Replication" }} />
 
   </main>
 </Layout>

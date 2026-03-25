@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Number Theory Ch.7 — Primitive Roots" favicon="#">
@@ -167,10 +168,7 @@ print(f"Powers of 2 mod 13: {[pow(2, k, 13) for k in range(12)]}")
 
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/number-theory/numthy-06/">&larr; Quadratic Residues</a>
-      <a href="/reading/number-theory/numthy-08/">Continued Fractions &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/number-theory/numthy-06/", label: "Quadratic Residues" }} next={{ href: "/reading/number-theory/numthy-08/", label: "Continued Fractions" }} />
 
   </main>
 </Layout>

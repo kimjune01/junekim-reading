@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Lovelace Ch.4 — Neural Networks" favicon="🧠">
@@ -239,10 +240,7 @@ print("Final prediction: " + "{:.6f}".format(sigmoid(w2 * sigmoid(w1 * x + b1) +
       Read the original: <a href="https://computationalcognitivescience.github.io/lovelace/chapter4">Lovelace, Chapter 4</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cognitive-science/lovelace-03/">&larr; Bayesian Models of Cognition</a>
-      <a href="/reading/cognitive-science/lovelace-05/">Reinforcement Learning &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cognitive-science/lovelace-03/", label: "Bayesian Models of Cognition" }} next={{ href: "/reading/cognitive-science/lovelace-05/", label: "Reinforcement Learning" }} />
 
   </main>
 </Layout>

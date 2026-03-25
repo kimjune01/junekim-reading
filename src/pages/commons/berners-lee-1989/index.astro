@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Berners-Lee 1989 + CERN 1993 — The Accidental Commons" favicon="⚖">
@@ -102,10 +103,7 @@ import Neighbors from "../../../components/Neighbors.astro";
       The proposal is <a href="https://www.w3.org/History/1989/proposal.html">on the W3C site</a>. The CERN public domain declaration is <a href="https://cds.cern.ch/record/1164399">in the CERN document server</a>. Both are short. Read both.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/commons/statute-of-anne-1710/">&larr; Statute of Anne &middot; 2 of 8</a>
-      <a href="/reading/commons/brin-page-1998/">Brin &amp; Page 1998 &middot; 4 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/commons/statute-of-anne-1710/", label: "Statute of Anne · 2 of 8" }} next={{ href: "/reading/commons/brin-page-1998/", label: "Brin & Page 1998 · 4 of 8" }} />
 
   </main>
 </Layout>

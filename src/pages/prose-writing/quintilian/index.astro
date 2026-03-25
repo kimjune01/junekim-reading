@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Quintilian — Institutio Oratoria" favicon="✍️">
@@ -164,10 +165,7 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/logic/logic-01/">🔑 Logic Ch.1</a> — argumentation and proof structure: inventio (finding arguments) is the same problem as formal proof search — what counts as a valid argument, and how do you find one?</li>
     </ul>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/prose-writing/aristotle/">&larr; Aristotle &middot; 1 of 10</a>
-      <a href="/reading/prose-writing/bacon-1597/">Bacon 1597 &middot; 3 of 10 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/prose-writing/aristotle/", label: "Aristotle · 1 of 10" }} next={{ href: "/reading/prose-writing/bacon-1597/", label: "Bacon 1597 · 3 of 10" }} />
 
   </main>
 </Layout>

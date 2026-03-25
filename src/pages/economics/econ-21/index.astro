@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Econ Ch.21 — Behavioral Economics" favicon="💰">
@@ -185,10 +186,7 @@ for x in [10, 50, 100, 500]:
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/economics/econ-20/">← Mechanism Design</a>
-      <a href="/reading/economics/econ-22/">Inequality and Distribution →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/economics/econ-20/", label: "Mechanism Design" }} next={{ href: "/reading/economics/econ-22/", label: "Inequality and Distribution" }} />
 
   </main>
 </Layout>

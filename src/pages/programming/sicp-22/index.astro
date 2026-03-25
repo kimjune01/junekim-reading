@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="SICP Ch.22 — Compilation" favicon="🪄">
@@ -494,10 +495,7 @@ print("Interface: same calling convention, different execution")
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book.html">Read the full SICP text</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/programming/sicp-21/">&larr; Explicit-Control Evaluator</a>
-      <span class="text-gray-500">fin &middot; 22 of 22</span>
-    </div>
+    <PrevNext prev={{ href: "/reading/programming/sicp-21/", label: "Explicit-Control Evaluator" }} fin="fin · 22 of 22" />
 
   </main>
 </Layout>

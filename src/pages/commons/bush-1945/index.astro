@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Bush 1945 — As We May Think" favicon="⚖">
@@ -73,10 +74,7 @@ import Neighbors from "../../../components/Neighbors.astro";
     <p class="text-sm text-gray-500 mt-6">Bush imagined Ramanujan and Hardy finding each other through trails&mdash;two minds describing the same problem in different vocabularies, finally linked by association rather than index. <a href="https://june.kim/pageleft-manifesto"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>PageLeft Manifesto</a> imagines the same thing through embeddings: the trails are vectors now, but the problem Bush diagnosed has not changed.</p>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/commons/statute-of-anne-1710/">Statute of Anne &middot; 2 of 8 &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/commons/statute-of-anne-1710/", label: "Statute of Anne · 2 of 8" }} />
 
   </main>
 </Layout>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.1 — Conservation of Energy" favicon="⚛">
@@ -249,10 +250,7 @@ print(f"W = delta KE? {abs(W - 0.5 * m * v_final**2) < 1e-10}")
       Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <span></span>
-      <a href="/reading/physics/crowell-02/">Conservation of Momentum &rarr;</a>
-    </div>
+    <PrevNext next={{ href: "/reading/physics/crowell-02/", label: "Conservation of Momentum" }} />
 
   </main>
 </Layout>

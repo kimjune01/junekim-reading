@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Ch.11 — Partial Derivatives" favicon="∫">
@@ -287,10 +288,7 @@ for label, x, y in [("(1, 2)", 1.0, 2.0), ("(1.1, 2.1)", 1.1, 2.1), ("(3, 4)", 3
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/calculus/calc-10/">&larr; Vectors and Geometry</a>
-      <a href="/reading/calculus/calc-12/">Optimization &middot; 12 of 15 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/calculus/calc-10/", label: "Vectors and Geometry" }} next={{ href: "/reading/calculus/calc-12/", label: "Optimization · 12 of 15" }} />
 
   </main>
 </Layout>

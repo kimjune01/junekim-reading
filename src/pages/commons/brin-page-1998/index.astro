@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Brin & Page 1998 — The Anatomy of a Search Engine" favicon="⚖">
@@ -71,10 +72,7 @@ import Neighbors from "../../../components/Neighbors.astro";
     </div>
 
     <!-- Navigation -->
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/commons/berners-lee-1989/">&larr; Berners-Lee 1989 &middot; 3 of 8</a>
-      <a href="/reading/commons/boyle-2003/">Boyle 2003 &middot; 5 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/commons/berners-lee-1989/", label: "Berners-Lee 1989 · 3 of 8" }} next={{ href: "/reading/commons/boyle-2003/", label: "Boyle 2003 · 5 of 8" }} />
 
   </main>
 </Layout>

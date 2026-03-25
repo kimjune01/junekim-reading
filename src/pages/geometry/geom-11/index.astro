@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Geometry Ch.11 — Power Diagrams" favicon="△">
@@ -217,10 +218,7 @@ for x in [(3,3), (5,3), (6,3), (3,4)]:
     <h3>Translation notes</h3>
     <p>The power diagram boundary formula for two sites p1 (weight w1) and p2 (weight w2) is the locus where d(x,p1)&sup2; - w1 = d(x,p2)&sup2; - w2. Expanding the squared distances, the quadratic terms cancel, leaving a linear equation: the boundary is a hyperplane. The shift from the Voronoi midpoint is (w2 - w1) / (2 * d(p1, p2)). The ad auction interpretation follows Edelman, Ostrovsky, and Schwarz (2007); the power diagram framing is a geometric restatement of their algebraic result.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/geometry/geom-10/">&larr; Delaunay Triangulation</a>
-      <a href="/reading/geometry/geom-12/">The Erlangen Program &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/geometry/geom-10/", label: "Delaunay Triangulation" }} next={{ href: "/reading/geometry/geom-12/", label: "The Erlangen Program" }} />
 
   </main>
 </Layout>

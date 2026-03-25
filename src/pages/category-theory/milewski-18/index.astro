@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Milewski Ch.18 — Comonads" favicon="🐱">
@@ -447,10 +448,7 @@ for gen in range(5):
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/category-theory/milewski-17/">← Monads</a>
-      <a href="/reading/category-theory/milewski-19/">F-Algebras →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/category-theory/milewski-17/", label: "Monads" }} next={{ href: "/reading/category-theory/milewski-19/", label: "F-Algebras" }} />
 
   </main>
 </Layout>

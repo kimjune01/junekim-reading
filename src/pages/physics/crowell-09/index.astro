@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crowell Ch.9 — Optics" favicon="⚛">
@@ -231,10 +232,7 @@ print(f"Critical angle: {math.degrees(math.asin(1/1.5)):.2f} deg")
     <h3>Translation notes</h3>
     <p>The thin lens equation assumes a thin lens (thickness much less than focal length) and paraxial rays (close to the optical axis). Real lenses have aberrations. The double-slit formula assumes far-field (Fraunhofer) diffraction, where the screen is far from the slits. Crowell develops near-field (Fresnel) diffraction as well. Our Scheme code computes fringe angles but not the full intensity pattern, which requires summing phasors.</p>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/physics/crowell-08/">&larr; Electromagnetism</a>
-      <a href="/reading/physics/crowell-10/">Relativity &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/physics/crowell-08/", label: "Electromagnetism" }} next={{ href: "/reading/physics/crowell-10/", label: "Relativity" }} />
 
   </main>
 </Layout>

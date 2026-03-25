@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Hartline, Hoy & Taggart 2023 — Reserve Pricing" favicon="💎">
@@ -119,10 +120,7 @@ for r in [0, 3, 6, 9, 12]:
       Ready for the real thing? <a href="https://arxiv.org/abs/2310.03702">Read the paper</a>.
     </div>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/auction-theory/lahaie-lubin-2025/">&larr; Lahaie &amp; Lubin 2025 &middot; 6 of 8</a>
-      <a href="/reading/auction-theory/hajiaghayi-2024/">Hajiaghayi 2024 &middot; 8 of 8 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/auction-theory/lahaie-lubin-2025/", label: "Lahaie & Lubin 2025 · 6 of 8" }} next={{ href: "/reading/auction-theory/hajiaghayi-2024/", label: "Hajiaghayi 2024 · 8 of 8" }} />
 
   </main>
 </Layout>

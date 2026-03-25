@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Dist Ch.7 — CAP Theorem" favicon="🌐">
@@ -119,10 +120,7 @@ print(f"AP read: {ap_read()}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/distributed-systems/dist-06/">&larr; Byzantine Fault Tolerance</a>
-      <a href="/reading/distributed-systems/dist-08/">Distributed Transactions &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/distributed-systems/dist-06/", label: "Byzantine Fault Tolerance" }} next={{ href: "/reading/distributed-systems/dist-08/", label: "Distributed Transactions" }} />
 
   </main>
 </Layout>

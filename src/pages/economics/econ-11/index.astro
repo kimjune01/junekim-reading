@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Econ Ch.11 — Public Goods" favicon="💰">
@@ -193,10 +194,7 @@ print("Commons depleted by individual rationality")
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/economics/econ-10/">← Externalities</a>
-      <a href="/reading/economics/econ-12/">Monopoly and Competition →</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/economics/econ-10/", label: "Externalities" }} next={{ href: "/reading/economics/econ-12/", label: "Monopoly and Competition" }} />
 
   </main>
 </Layout>

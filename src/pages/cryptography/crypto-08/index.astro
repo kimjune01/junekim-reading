@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Crypto Ch.8 — Digital Signatures" favicon="🔐">
@@ -193,10 +194,7 @@ print(f"Valid?     {recovered == message}")
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/cryptography/crypto-07/">&#8592; Elliptic Curves</a>
-      <a href="/reading/cryptography/crypto-09/">Zero-Knowledge Proofs &#8594;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/cryptography/crypto-07/", label: "Elliptic Curves" }} next={{ href: "/reading/cryptography/crypto-09/", label: "Zero-Knowledge Proofs" }} />
 
   </main>
 </Layout>

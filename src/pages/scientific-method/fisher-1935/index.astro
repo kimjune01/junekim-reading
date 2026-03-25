@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Fisher 1935 — The Design of Experiments" favicon="🔬">
@@ -133,9 +134,6 @@ import Neighbors from "../../../components/Neighbors.astro";
     </div>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/scientific-method/chamberlin-1890/">&larr; Chamberlin 1890 &middot; 7 of 17</a>
-      <a href="/reading/scientific-method/popper-1934/">Popper 1934 &middot; 9 of 17 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/scientific-method/chamberlin-1890/", label: "Chamberlin 1890 · 7 of 17" }} next={{ href: "/reading/scientific-method/popper-1934/", label: "Popper 1934 · 9 of 17" }} />
   </main>
 </Layout>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Logic Ch.2 — Propositional Logic Syntax" favicon="🔑">
@@ -151,10 +152,7 @@ print(f'"P": {is_wff("P")}')
 (display "Right subformula: ") (display (caddr formula))
 `} />
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/logic/logic-01/">&larr; Arguments and Validity</a>
-      <a href="/reading/logic/logic-03/">Truth Tables &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/logic/logic-01/", label: "Arguments and Validity" }} next={{ href: "/reading/logic/logic-03/", label: "Truth Tables" }} />
 
   </main>
 </Layout>

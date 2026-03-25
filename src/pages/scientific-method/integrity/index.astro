@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Integrity — The Scientific Method" favicon="🔬">
@@ -120,9 +121,6 @@ import Neighbors from "../../../components/Neighbors.astro";
     </Neighbors>
 
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/scientific-method/mayo-2018/">&larr; Mayo 2018 &middot; 14 of 17</a>
-      <a href="/reading/scientific-method/self-experiment/">Self-experiment &middot; 16 of 17 &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/scientific-method/mayo-2018/", label: "Mayo 2018 · 14 of 17" }} next={{ href: "/reading/scientific-method/self-experiment/", label: "Self-experiment · 16 of 17" }} />
   </main>
 </Layout>

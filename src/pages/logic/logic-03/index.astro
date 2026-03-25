@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
 import Neighbors from "../../../components/Neighbors.astro";
+import PrevNext from "../../../components/PrevNext.astro";
 ---
 
 <Layout title="Logic Ch.3 — Truth Tables" favicon="🔑">
@@ -161,10 +162,7 @@ for p, q in product([True, False], repeat=2):
     </ul>
     </Neighbors>
 
-    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
-      <a href="/reading/logic/logic-02/">&larr; Propositional Logic Syntax</a>
-      <a href="/reading/logic/logic-04/">Logical Equivalence &rarr;</a>
-    </div>
+    <PrevNext prev={{ href: "/reading/logic/logic-02/", label: "Propositional Logic Syntax" }} next={{ href: "/reading/logic/logic-04/", label: "Logical Equivalence" }} />
 
   </main>
 </Layout>
