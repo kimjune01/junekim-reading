@@ -42,6 +42,7 @@ const { title, favicon } = Astro.props;
           h1, h2, h3, h4 { color: #18181b; }
           a, a:link, a:visited { color: inherit; background: #e7e5e4 !important; }
           a.visited-link { background: rgba(0,0,0,0.04) !important; }
+          a.bare-link, a.bare-link:link, a.bare-link:visited, a.bare-link:hover { background: transparent !important; }
           a:hover, a:visited:hover { color: #09090b; background: #d6d3d1 !important; }
           code:not(pre code) {
             background: #f0f0f0;
@@ -173,6 +174,8 @@ const { title, favicon } = Astro.props;
           background: #365314;
           color: #fafafa;
         }
+
+        /* Highlights */
       }
     </style>
     <style is:global>
@@ -197,6 +200,27 @@ const { title, favicon } = Astro.props;
       .callout p { font-size: 1rem; }
       .repl-input::selection { color: transparent !important; -webkit-text-fill-color: transparent !important; background: rgba(96,165,250,0.25); }
       :root.light .repl-input::selection { background: rgba(37,99,235,0.2); }
+      /* Highlight popup button */
+      #hl-btn {
+        position: absolute;
+        display: none;
+        z-index: 60;
+        background: #bbf7d0;
+        color: #09090b;
+        border: none;
+        border-radius: 4px;
+        padding: 0.1em 0.45em;
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        line-height: 1.4;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      }
+      #hl-btn:hover { background: #86efac; }
+      /* @layer base loses to browser defaults (e.g. <mark> yellow). Put overrides here in is:global. */
+      mark.user-highlight { background: #365314 !important; color: #fafafa !important; border-radius: 2px; padding: 0; }
+      :root.light mark.user-highlight { background: #bbf7d0 !important; color: #09090b !important; }
       /* REPL background — used by inline styles in components */
       :root { --repl-bg: #18181b; --repl-caret: #93c5fd; }
       :root.light { --repl-bg: #fafaf9; --repl-caret: #1d4ed8; }
@@ -224,6 +248,65 @@ const { title, favicon } = Astro.props;
       <button id="lang-toggle" style="position:fixed;top:1rem;right:3.5rem;background:transparent;border:1px solid #52525b;border-radius:4px;padding:0.2em 0.5em;cursor:pointer;font-size:0.8rem;color:inherit;z-index:50;" aria-label="Toggle Scheme/Python" title="Switch to Python">λ</button>
       <slot />
     </div>
+    <button id="hl-btn">H</button>
+    <script>
+      import { createHighlighter } from '../highlighter.js';
+
+      var btn = document.getElementById('hl-btn');
+      var hl = createHighlighter(document, localStorage, location.pathname);
+
+      function showBtn(x, y) {
+        btn.style.left = (x + window.scrollX) + 'px';
+        btn.style.top = (y + window.scrollY - 30) + 'px';
+        btn.style.display = 'block';
+      }
+      function hideBtn() { btn.style.display = 'none'; }
+
+      document.addEventListener('mouseup', function(e) {
+        if (e.target === btn) return;
+        setTimeout(function() {
+          var sel = window.getSelection();
+          if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideBtn(); return; }
+          var range = sel.getRangeAt(0);
+          var el = hl._allowedAncestor(range.startContainer);
+          if (!el) { hideBtn(); return; }
+          var endEl = hl._allowedAncestor(range.endContainer);
+          if (el !== endEl) { hideBtn(); return; }
+          var rect = range.getBoundingClientRect();
+          showBtn(rect.right + 6, rect.bottom - 4);
+        }, 10);
+      });
+
+      btn.addEventListener('mousedown', function(e) { e.preventDefault(); });
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        hl.doHighlight(window.getSelection());
+        hideBtn();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key !== 'h' && e.key !== 'H') return;
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
+        var tag = (e.target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+        var sel = window.getSelection();
+        if (!sel || sel.isCollapsed) {
+          if (hl.lastHighlightText) { e.preventDefault(); hl.undoLast(); }
+          return;
+        }
+        var el = hl._allowedAncestor(sel.getRangeAt(0).startContainer);
+        if (!el) return;
+        e.preventDefault();
+        hl.doHighlight(window.getSelection());
+        hideBtn();
+      });
+
+      document.addEventListener('mousedown', function(e) {
+        if (e.target !== btn) hideBtn();
+      });
+
+      hl.restoreHighlights();
+    </script>
     <script is:inline>
       (function() {
         // Visited link tracking
