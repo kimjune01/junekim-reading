@@ -8,7 +8,7 @@ const { prev, next, fin } = Astro.props;
 ---
 <div class="prev-next">
   {prev ? <a href={prev.href}>&larr; {prev.label}</a> : <span></span>}
-  <span class="byline">by <a href="https://june.kim">june.kim</a></span>
+  <span class="byline">by <a class="bare-link" href="https://june.kim">june.kim</a></span>
   {next ? <a href={next.href}>{next.label} &rarr;</a> : fin ? <span class="fin">{fin}</span> : <span></span>}
 </div>
 
@@ -25,6 +25,7 @@ const { prev, next, fin } = Astro.props;
   .byline {
     color: #4b5563;
     font-size: 0.75rem;
+    opacity: 0.7;
   }
   .fin {
     color: #6b7280;
