@@ -15,7 +15,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-gray-400 text-sm mb-6">Shannon 1948 (public domain) &middot; Wikipedia (CC BY-SA 4.0)</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">A <a href="https://en.wikipedia.org/wiki/Channel_(communications)">&#x1F150; channel</a> is a conditional distribution P(Y|X). <strong>Channel capacity</strong> C = max<sub>P(X)</sub> I(X;Y) is the highest rate at which you can send information reliably. Shannon's noisy channel theorem: reliable communication at rate R &lt; C is possible; at R &gt; C it is not.</p>
+      <p class="text-lg" style="max-width:none">A <a href="https://en.wikipedia.org/wiki/Channel_(communications)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>channel</a> is a conditional distribution P(Y|X). <strong>Channel capacity</strong> C = max<sub>P(X)</sub> I(X;Y) is the highest rate at which you can send information reliably. Shannon's noisy channel theorem: reliable communication at rate R &lt; C is possible; at R &gt; C it is not.</p>
     </div>
 
     <!-- 1. What is a channel -->
@@ -81,7 +81,7 @@ print("flip=0.5: output independent of input (useless channel)")
 
     <!-- 2. Channel capacity -->
     <h3>Channel capacity</h3>
-    <p>Channel capacity C = max<sub>P(X)</sub> I(X;Y). You choose the input distribution P(X) to maximize mutual information. For the <a href="https://en.wikipedia.org/wiki/Binary_symmetric_channel">&#x1F150; binary symmetric channel</a> with flip probability p, the capacity is C = 1 - H(p), achieved by a uniform input.</p>
+    <p>Channel capacity C = max<sub>P(X)</sub> I(X;Y). You choose the input distribution P(X) to maximize mutual information. For the <a href="https://en.wikipedia.org/wiki/Binary_symmetric_channel"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>binary symmetric channel</a> with flip probability p, the capacity is C = 1 - H(p), achieved by a uniform input.</p>
 
     <SchemeRepl client:load initialCode={`; Channel capacity of the binary symmetric channel
 ; C = 1 - H(p) where H(p) = -p*log2(p) - (1-p)*log2(1-p)
@@ -178,8 +178,8 @@ for p in [0.0, 0.01, 0.1, 0.25, 0.5]:
       <li><a href="/reading/information-theory/shannon-08/">📡 Entropy as functor</a> &mdash; why capacity is a categorical invariant</li>
       <li><a href="/reading/fritz-2020/">🍞 Fritz 2020</a> &mdash; Markov kernels are channels in categorical language</li>
       <li><a href="/reading/capucci-2021/">🍞 Capucci 2021</a> &mdash; forward and backward channels in cybernetic systems</li>
-      <li><a href="https://en.wikipedia.org/wiki/Channel_capacity">&#x1F150; Channel capacity</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Binary_symmetric_channel">&#x1F150; Binary symmetric channel</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Channel_capacity"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Channel capacity</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Binary_symmetric_channel"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Binary symmetric channel</a></li>
     </ul>
     </Neighbors>
 

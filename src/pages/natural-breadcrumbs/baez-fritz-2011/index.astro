@@ -17,12 +17,12 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-sm text-gray-500 mb-6">Assumes you've seen <a href="/reading/natural-breadcrumbs/fritz-2020/">🍞 Markov categories</a>. 5 minutes.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">🅦 Shannon entropy</a> is the <strong>only</strong> way to measure information loss that respects composition. There is no other choice.</p>
+      <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Shannon entropy</a> is the <strong>only</strong> way to measure information loss that respects composition. There is no other choice.</p>
     </div>
 
     <!-- What's information loss -->
     <h3>Information loss</h3>
-    <p>When a stochastic function processes a distribution, some information is lost. The question is: how do you <em>measure</em> that loss? <a href="https://en.wikipedia.org/wiki/Claude_Shannon">🅦 Shannon</a> defined entropy in 1948. Baez, Fritz, and Leinster proved that Shannon's definition is the only one that satisfies three natural properties.</p>
+    <p>When a stochastic function processes a distribution, some information is lost. The question is: how do you <em>measure</em> that loss? <a href="https://en.wikipedia.org/wiki/Claude_Shannon"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Shannon</a> defined entropy in 1948. Baez, Fritz, and Leinster proved that Shannon's definition is the only one that satisfies three natural properties.</p>
 
     <SchemeRepl client:load initialCode={`; Shannon entropy: H(p) = -Σ p·log₂(p)
 (define (log2 x) (/ (log x) (log 2)))
@@ -146,7 +146,7 @@ print(f"Functorial: {h0-h2:.2f} = {(h0-h1)+(h1-h2):.2f} ✓")
 
     <!-- Data processing inequality -->
     <h3>Data processing inequality</h3>
-    <p>A corollary: information can only decrease through processing. You can't create information by computing — you can only lose it or preserve it. This is the <a href="https://en.wikipedia.org/wiki/Data_processing_inequality">🅦 data processing inequality</a> (DPI), proved categorically.</p>
+    <p>A corollary: information can only decrease through processing. You can't create information by computing — you can only lose it or preserve it. This is the <a href="https://en.wikipedia.org/wiki/Data_processing_inequality"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 data processing inequality</a> (DPI), proved categorically.</p>
 
     <SchemeRepl client:load initialCode={`; DPI: H(output) <= H(input). Always.
 (define (log2 x) (/ (log x) (log 2)))
@@ -251,10 +251,10 @@ print("The only functorial, convex-linear, continuous measure.")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">🅦 Shannon entropy</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Data_processing_inequality">🅦 Data processing inequality</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Information_theory">🅦 Information theory</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Functor">🅦 Functor</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Shannon entropy</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Data_processing_inequality"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Data processing inequality</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Information_theory"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Information theory</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Functor"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Functor</a></li>
     </ul>
     </Neighbors>
 

@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/cryptography/" class="text-sm mb-4 inline-block">&larr; back to cryptography</a>
 
     <h1>RSA</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA (cryptosystem)</a> &middot; CC BY-SA 4.0</p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>RSA (cryptosystem)</a> &middot; CC BY-SA 4.0</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>RSA</strong> is an asymmetric cipher: the encryption key (public) and decryption key (private) are different. Anyone can encrypt a message with the public key, but only the private key holder can decrypt it. Security rests on the difficulty of factoring the product of two large primes. The math works because of Euler's theorem: m<sup>ed</sup> mod n = m when ed = 1 mod phi(n).</p>
@@ -124,7 +124,7 @@ print(f"e * d mod phi = {(e * d) % phi}")  # 1
 
     <!-- 2. Encrypt and decrypt -->
     <h3>Encrypt and decrypt</h3>
-    <p>To encrypt message m: compute c = m<sup>e</sup> mod n. To decrypt ciphertext c: compute m = c<sup>d</sup> mod n. This works because m<sup>ed</sup> mod n = m (by <a href="https://en.wikipedia.org/wiki/Euler%27s_theorem">🅦 Euler's theorem</a>, since ed = 1 mod phi(n)).</p>
+    <p>To encrypt message m: compute c = m<sup>e</sup> mod n. To decrypt ciphertext c: compute m = c<sup>d</sup> mod n. This works because m<sup>ed</sup> mod n = m (by <a href="https://en.wikipedia.org/wiki/Euler%27s_theorem"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Euler's theorem</a>, since ed = 1 mod phi(n)).</p>
 
     <SchemeRepl client:load initialCode={`; RSA encrypt and decrypt
 
@@ -233,10 +233,10 @@ for m in [42, 100, 7]:
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA (cryptosystem)</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Euler%27s_theorem">Euler's theorem</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Integer_factorization">Integer factorization</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">Extended Euclidean algorithm</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>RSA (cryptosystem)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Euler%27s_theorem"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Euler's theorem</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Integer_factorization"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Integer factorization</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Extended Euclidean algorithm</a></li>
     </ul>
     </Neighbors>
 

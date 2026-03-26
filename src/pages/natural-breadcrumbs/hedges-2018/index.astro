@@ -17,7 +17,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> (composition of programs). 5 min.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Nash_equilibrium">🅦 Nash equilibrium</a> is a <strong>compositional predicate</strong>: if each sub-game is in equilibrium given its context, the whole game is in equilibrium. Games compose like programs.</p>
+      <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Nash_equilibrium"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Nash equilibrium</a> is a <strong>compositional predicate</strong>: if each sub-game is in equilibrium given its context, the whole game is in equilibrium. Games compose like programs.</p>
     </div>
 
     <!-- 1. Open games -->
@@ -452,15 +452,15 @@ print(f"(C,C) Nash? {is_nash(['C','C'], [u1,u2], [['C','D'],['C','D']])}")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Nash_equilibrium">🅦 Nash equilibrium</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Game_theory">🅦 Game theory</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Best_response">🅦 Best response</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Nash_equilibrium"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Nash equilibrium</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Game_theory"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Game theory</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Best_response"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Best response</a></li>
     </ul>
     </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p>All examples use pure strategies over finite action spaces. The paper works with mixed strategies, continuous spaces, and open games as morphisms in a <a href="https://en.wikipedia.org/wiki/Symmetric_monoidal_category">🅦 symmetric monoidal category</a> with a coplay (contravariant) channel. For example: the Nash equilibrium check on this page iterates over two players with two actions each. In the paper, the same construction applies to a network of open games composed via <a href="https://en.wikipedia.org/wiki/String_diagram">🅦 string diagrams</a> — where equilibrium is verified by checking each node's selection function against the continuation induced by all downstream nodes. The compositionality is identical. The string-diagrammatic machinery is not.</p>
+    <p>All examples use pure strategies over finite action spaces. The paper works with mixed strategies, continuous spaces, and open games as morphisms in a <a href="https://en.wikipedia.org/wiki/Symmetric_monoidal_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 symmetric monoidal category</a> with a coplay (contravariant) channel. For example: the Nash equilibrium check on this page iterates over two players with two actions each. In the paper, the same construction applies to a network of open games composed via <a href="https://en.wikipedia.org/wiki/String_diagram"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 string diagrams</a> — where equilibrium is verified by checking each node's selection function against the continuation induced by all downstream nodes. The compositionality is identical. The string-diagrammatic machinery is not.</p>
 
     <h3>Watch</h3>
     <p class="text-gray-400 text-sm mb-4">Bartosz Milewski explains open games and compositional game theory:</p>

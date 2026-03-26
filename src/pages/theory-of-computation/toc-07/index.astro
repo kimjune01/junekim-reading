@@ -39,7 +39,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- Halting problem -->
     <h3>The halting problem</h3>
-    <p>Can we write a program that takes any program P and input I and decides whether P(I) halts? No. The proof is by <strong><a href="https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument">🅦 diagonalization</a></strong>: assume such a decider H exists, then build a program D that calls H on itself and does the opposite. D halts if and only if D does not halt. Contradiction.</p>
+    <p>Can we write a program that takes any program P and input I and decides whether P(I) halts? No. The proof is by <strong><a href="https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 diagonalization</a></strong>: assume such a decider H exists, then build a program D that calls H on itself and does the opposite. D halts if and only if D does not halt. Contradiction.</p>
 
     <SchemeRepl client:load initialCode={`; The halting problem: a diagonalization argument.
 ; We cannot build H, but we can show why.
@@ -95,7 +95,7 @@ print("No algorithm can decide if arbitrary programs halt.")
 
     <!-- Rice's theorem -->
     <h3>Rice's theorem</h3>
-    <p>The halting problem is just one instance of a general result. <strong><a href="https://en.wikipedia.org/wiki/Rice%27s_theorem">🅦 Rice's theorem</a></strong>: every nontrivial semantic property of programs is undecidable. "Does this program output 42?" Undecidable. "Does this program ever print anything?" Undecidable. "Is this program equivalent to that one?" Undecidable. The only decidable properties are trivial ones (true for all programs or false for all programs).</p>
+    <p>The halting problem is just one instance of a general result. <strong><a href="https://en.wikipedia.org/wiki/Rice%27s_theorem"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Rice's theorem</a></strong>: every nontrivial semantic property of programs is undecidable. "Does this program output 42?" Undecidable. "Does this program ever print anything?" Undecidable. "Is this program equivalent to that one?" Undecidable. The only decidable properties are trivial ones (true for all programs or false for all programs).</p>
 
     <!-- Reductions -->
     <h3>Reductions</h3>

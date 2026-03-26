@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/cryptography/" class="text-sm mb-4 inline-block">&larr; back to cryptography</a>
 
     <h1>Symmetric Ciphers</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">Symmetric-key algorithm</a> &middot; CC BY-SA 4.0</p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Symmetric-key algorithm</a> &middot; CC BY-SA 4.0</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">A <strong>symmetric cipher</strong> uses the same key to encrypt and decrypt. The sender and receiver must both know the secret. Every cipher in this chapter is breakable by modern standards, but they introduce the core idea: transform plaintext into ciphertext using a shared secret, and reverse the transformation with the same secret.</p>
@@ -57,7 +57,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 1. XOR cipher -->
     <h3>XOR cipher — the simplest encryption</h3>
-    <p>XOR each byte of the plaintext with a key byte. XOR again with the same key to decrypt. It is its own inverse: <code>a XOR k XOR k = a</code>. With a truly random key as long as the message (used once), this is the <a href="https://en.wikipedia.org/wiki/One-time_pad">🅦 one-time pad</a>, which is information-theoretically secure. With a short repeating key, it is trivially breakable.</p>
+    <p>XOR each byte of the plaintext with a key byte. XOR again with the same key to decrypt. It is its own inverse: <code>a XOR k XOR k = a</code>. With a truly random key as long as the message (used once), this is the <a href="https://en.wikipedia.org/wiki/One-time_pad"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 one-time pad</a>, which is information-theoretically secure. With a short repeating key, it is trivially breakable.</p>
 
     <SchemeRepl client:load initialCode={`; XOR cipher: encrypt and decrypt are the same operation
 ; XOR each character code with the key byte
@@ -245,10 +245,10 @@ print("... (26 total)")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">Symmetric-key algorithm</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Substitution_cipher">Substitution cipher</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/One-time_pad">One-time pad</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Symmetric-key algorithm</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Caesar_cipher"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Caesar cipher</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Substitution_cipher"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Substitution cipher</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/One-time_pad"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>One-time pad</a></li>
     </ul>
     </Neighbors>
 

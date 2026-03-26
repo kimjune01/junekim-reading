@@ -113,7 +113,7 @@ print(f"2|6 and 6|18, so 2|18? {divides(2,6) and divides(6,18) and divides(2,18)
 
     <!-- 3. GCD and the Euclidean algorithm -->
     <h3>GCD and the Euclidean algorithm</h3>
-    <p>The greatest common divisor gcd(a, b) is the largest positive integer dividing both a and b. The <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">🅦 Euclidean algorithm</a> computes it by repeated division: gcd(a, b) = gcd(b, a mod b), bottoming out at gcd(d, 0) = d. It is one of the oldest known algorithms.</p>
+    <p>The greatest common divisor gcd(a, b) is the largest positive integer dividing both a and b. The <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Euclidean algorithm</a> computes it by repeated division: gcd(a, b) = gcd(b, a mod b), bottoming out at gcd(d, 0) = d. It is one of the oldest known algorithms.</p>
 
     <SchemeRepl client:load initialCode={`; Euclidean algorithm: gcd(a, b) = gcd(b, a mod b)
 (define (gcd a b)
@@ -146,7 +146,7 @@ print(f"gcd(17, 5) = {gcd(17, 5)}")
 
     <!-- 4. Bezout's identity -->
     <h3>Bezout's identity</h3>
-    <p><a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity">🅦 Bezout's identity</a>: for any integers a and b, there exist integers x and y such that a x + b y = gcd(a, b). The extended Euclidean algorithm finds these coefficients by working backwards through the GCD computation.</p>
+    <p><a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Bezout's identity</a>: for any integers a and b, there exist integers x and y such that a x + b y = gcd(a, b). The extended Euclidean algorithm finds these coefficients by working backwards through the GCD computation.</p>
 
     <SchemeRepl client:load initialCode={`; Extended Euclidean algorithm
 ; Returns (gcd, x, y) such that a*x + b*y = gcd

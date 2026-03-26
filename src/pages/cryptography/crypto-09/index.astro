@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/cryptography/" class="text-sm mb-4 inline-block">&#8592; back to crypto</a>
 
     <h1>Zero-Knowledge Proofs</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia (CC BY-SA 4.0) · <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof">Zero-knowledge proof</a></p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia (CC BY-SA 4.0) · <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Zero-knowledge proof</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">A <strong>zero-knowledge proof</strong> lets you prove you know a secret without revealing the secret itself. The verifier learns nothing except that the statement is true. This is one of the deepest ideas in cryptography: conviction without information.</p>
@@ -130,7 +130,7 @@ print(f"Fake prover: {caught}/1000 caught")
 
     <!-- 2. Interactive vs non-interactive -->
     <h3>Interactive vs non-interactive</h3>
-    <p>The cave protocol is <strong>interactive</strong>: the verifier must be online, issuing fresh challenges. A <strong>non-interactive</strong> proof replaces the verifier with a hash function (the <a href="https://en.wikipedia.org/wiki/Fiat%E2%80%93Shamir_heuristic">🅦 Fiat-Shamir heuristic</a>). The prover hashes the commitment to generate their own challenge. Anyone can verify the proof later without interaction.</p>
+    <p>The cave protocol is <strong>interactive</strong>: the verifier must be online, issuing fresh challenges. A <strong>non-interactive</strong> proof replaces the verifier with a hash function (the <a href="https://en.wikipedia.org/wiki/Fiat%E2%80%93Shamir_heuristic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Fiat-Shamir heuristic</a>). The prover hashes the commitment to generate their own challenge. Anyone can verify the proof later without interaction.</p>
 
     <SchemeRepl client:load initialCode={`; Fiat-Shamir heuristic: replace the verifier with a hash.
 ; Interactive: verifier sends challenge c
@@ -194,9 +194,9 @@ print(f"Fake prover: {caught}/1000 caught")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof">&#x1F150; Zero-knowledge proof</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Fiat%E2%80%93Shamir_heuristic">&#x1F150; Fiat-Shamir heuristic</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Non-interactive_zero-knowledge_proof">&#x1F150; ZK-SNARK</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Zero-knowledge proof</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Fiat%E2%80%93Shamir_heuristic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Fiat-Shamir heuristic</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Non-interactive_zero-knowledge_proof"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>ZK-SNARK</a></li>
     </ul>
     </Neighbors>
 

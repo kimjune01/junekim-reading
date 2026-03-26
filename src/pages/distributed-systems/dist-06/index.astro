@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/distributed-systems/" class="text-sm mb-4 inline-block">&larr; back to distributed systems</a>
 
     <h1>Byzantine Fault Tolerance</h1>
-    <p class="text-gray-400 text-sm mb-6">Lamport, Shostak, Pease 1982 &middot; Castro &amp; Liskov 1999 &middot; <a href="https://en.wikipedia.org/wiki/Byzantine_fault">Wikipedia</a></p>
+    <p class="text-gray-400 text-sm mb-6">Lamport, Shostak, Pease 1982 &middot; Castro &amp; Liskov 1999 &middot; <a href="https://en.wikipedia.org/wiki/Byzantine_fault"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Wikipedia</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">The <strong>Byzantine generals problem</strong>: nodes can send contradictory messages. To tolerate f Byzantine faults, you need at least <strong>3f + 1</strong> nodes. With fewer, a traitor can make honest nodes disagree. PBFT (Practical Byzantine Fault Tolerance) makes this work in practice with three rounds of communication.</p>

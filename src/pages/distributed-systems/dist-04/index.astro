@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/distributed-systems/" class="text-sm mb-4 inline-block">&larr; back to distributed systems</a>
 
     <h1>Consensus</h1>
-    <p class="text-gray-400 text-sm mb-6">Fischer, Lynch, Paterson 1985 &middot; Lamport 1998 &middot; <a href="https://en.wikipedia.org/wiki/Consensus_(computer_science)">Wikipedia</a></p>
+    <p class="text-gray-400 text-sm mb-6">Fischer, Lynch, Paterson 1985 &middot; Lamport 1998 &middot; <a href="https://en.wikipedia.org/wiki/Consensus_(computer_science)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Wikipedia</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">The <strong>consensus problem</strong>: get all non-faulty nodes to agree on a single value. The FLP impossibility result says no deterministic algorithm can guarantee consensus in an asynchronous system if even one node can crash. Paxos solves it anyway by being non-deterministic (it may not terminate, but if it does, it is correct).</p>
@@ -48,7 +48,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 2. FLP impossibility -->
     <h3>FLP impossibility</h3>
-    <p><a href="https://en.wikipedia.org/wiki/FLP_impossibility">🅦 Fischer, Lynch, and Paterson</a> proved in 1985 that <strong>no deterministic consensus protocol</strong> can guarantee both safety (agreement + validity) and liveness (termination) in an asynchronous system where even one process can crash. The proof constructs an execution where the algorithm is always one step away from deciding but never does. This is not a practical obstacle. It means you need randomization, timeouts, or partial synchrony assumptions.</p>
+    <p><a href="https://en.wikipedia.org/wiki/FLP_impossibility"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Fischer, Lynch, and Paterson</a> proved in 1985 that <strong>no deterministic consensus protocol</strong> can guarantee both safety (agreement + validity) and liveness (termination) in an asynchronous system where even one process can crash. The proof constructs an execution where the algorithm is always one step away from deciding but never does. This is not a practical obstacle. It means you need randomization, timeouts, or partial synchrony assumptions.</p>
 
     <!-- SVG: proposer/acceptor/learner roles (Paxos) -->
     <div class="flex justify-center my-6">
@@ -85,7 +85,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 3. Paxos overview -->
     <h3>Paxos overview</h3>
-    <p><a href="https://en.wikipedia.org/wiki/Paxos_(computer_science)">🅦 Paxos</a> uses two phases. Phase 1 (prepare): the proposer picks a number n, sends prepare(n) to acceptors. Acceptors promise not to accept anything below n and return any value they already accepted. Phase 2 (accept): the proposer sends accept(n, v) where v is the highest-numbered previously accepted value, or its own if none. Acceptors accept if they have not promised a higher number. A value is chosen when a majority of acceptors accept the same proposal.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Paxos_(computer_science)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Paxos</a> uses two phases. Phase 1 (prepare): the proposer picks a number n, sends prepare(n) to acceptors. Acceptors promise not to accept anything below n and return any value they already accepted. Phase 2 (accept): the proposer sends accept(n, v) where v is the highest-numbered previously accepted value, or its own if none. Acceptors accept if they have not promised a higher number. A value is chosen when a majority of acceptors accept the same proposal.</p>
 
     <SchemeRepl client:load initialCode={`; Simplified Paxos: two phases with three acceptors.
 ; Phase 1: prepare(n) -> promise or reject

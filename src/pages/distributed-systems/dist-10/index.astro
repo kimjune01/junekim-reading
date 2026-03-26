@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/distributed-systems/" class="text-sm mb-4 inline-block">&larr; back to distributed systems</a>
 
     <h1>CRDTs</h1>
-    <p class="text-gray-400 text-sm mb-6">Shapiro et al. 2011 &middot; <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type">Wikipedia</a></p>
+    <p class="text-gray-400 text-sm mb-6">Shapiro et al. 2011 &middot; <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Wikipedia</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Conflict-free replicated data types</strong> guarantee eventual consistency without consensus. The trick: structure your data as a <strong>join-semilattice</strong>. Merging any two states produces a unique least upper bound. Merge is commutative, associative, and idempotent. No conflicts, no coordination, no locking.</p>

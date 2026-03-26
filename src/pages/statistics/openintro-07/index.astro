@@ -42,7 +42,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 1. One-sample t-test -->
     <h3>One-sample t-test</h3>
-    <p>Test whether a sample mean differs from a hypothesized value. The t-statistic replaces Z when sigma is unknown: t = (x-bar - mu0) / (s / sqrt(n)). It follows a <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">t-distribution</a> with n - 1 degrees of freedom. As n grows, t approaches Z.</p>
+    <p>Test whether a sample mean differs from a hypothesized value. The t-statistic replaces Z when sigma is unknown: t = (x-bar - mu0) / (s / sqrt(n)). It follows a <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>t-distribution</a> with n - 1 degrees of freedom. As n grows, t approaches Z.</p>
 
     <SchemeRepl client:load initialCode={`; One-sample t-test
 ; H0: mu = 100, sample mean = 105, s = 15, n = 25
@@ -269,10 +269,10 @@ print(f"Reject H0? {'Yes' if f > 4.26 else 'No'}")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Student%27s_t-test">Student's t-test</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Welch%27s_t-test">Welch's t-test</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Analysis_of_variance">Analysis of variance</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/F-distribution">F-distribution</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Student%27s_t-test"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Student's t-test</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Welch%27s_t-test"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Welch's t-test</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Analysis_of_variance"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Analysis of variance</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/F-distribution"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>F-distribution</a></li>
     </ul>
     </Neighbors>
 

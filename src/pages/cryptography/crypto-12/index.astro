@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/cryptography/" class="text-sm mb-4 inline-block">&#8592; back to crypto</a>
 
     <h1>Trusted Execution Environments</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia (CC BY-SA 4.0) · <a href="https://en.wikipedia.org/wiki/Trusted_execution_environment">Trusted execution environment</a></p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia (CC BY-SA 4.0) · <a href="https://en.wikipedia.org/wiki/Trusted_execution_environment"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Trusted execution environment</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">A <strong>trusted execution environment</strong> (TEE) is an enclave: attestation + encryption + memory isolation. The operator runs the server but cannot read the enclave's memory. The user verifies what code runs (attestation), then sends encrypted data that only the enclave can decrypt. The result: computation on private data without trusting the operator.</p>
@@ -130,7 +130,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 3. Application: honest auction -->
     <h3>Application: the honest auction</h3>
-    <p>Consider an ad auction server. Advertisers submit bids, and the server runs a <a href="https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_auction">🅦 VCG auction</a> (second-price). Without a TEE, the operator could peek at bids, favor certain advertisers, or lie about the winning price.</p>
+    <p>Consider an ad auction server. Advertisers submit bids, and the server runs a <a href="https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_auction"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 VCG auction</a> (second-price). Without a TEE, the operator could peek at bids, favor certain advertisers, or lie about the winning price.</p>
     <p>With a TEE, the auction code runs in an enclave. Advertisers verify the code via attestation, then send encrypted bids. The enclave computes the winner and price. The operator never sees the bids or the auction logic's internal state.</p>
 
     <SchemeRepl client:load initialCode={`; Honest auction in an enclave
@@ -198,10 +198,10 @@ print("Operator never sees individual bids.")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Trusted_execution_environment">&#x1F150; Trusted execution environment</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Software_Guard_Extensions">&#x1F150; Intel SGX</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/TrustZone">&#x1F150; ARM TrustZone</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Nitro_Enclaves">&#x1F150; AWS Nitro Enclaves</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Trusted_execution_environment"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Trusted execution environment</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Software_Guard_Extensions"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Intel SGX</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/TrustZone"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>ARM TrustZone</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Nitro_Enclaves"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>AWS Nitro Enclaves</a></li>
     </ul>
     </Neighbors>
 

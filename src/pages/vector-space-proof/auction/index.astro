@@ -19,7 +19,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h2>Scaffolding (standard mechanism design)</h2>
 
     <h3>Report</h3>
-    <p>A player's declared bid in a direct-revelation mechanism. Each advertiser reports a center (where they're most relevant), a spread parameter sigma (how far their relevance reaches), and a bid (willingness to pay). Positivity fields keep logarithms and divisions well-formed downstream.</p>
+    <p>A player's declared bid in a <a href="https://en.wikipedia.org/wiki/Direct_revelation_mechanism"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>direct-revelation mechanism</a>. Each advertiser reports a center (where they're most relevant), a spread parameter sigma (how far their relevance reaches), and a bid (willingness to pay). Positivity fields keep logarithms and divisions well-formed downstream.</p>
     <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm text-blue-300"><code><span class="text-blue-300">structure</span> <span class="text-green-300">Report</span> (E : Type*) <span class="text-blue-300">where</span>
   center : E
   sigma : ℝ
@@ -43,7 +43,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   valuation : ι → Valuation E</code></pre>
 
     <h3>utility</h3>
-    <p>Quasilinear utility: value minus payment. Standard in mechanism design, encoded here as a definition.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Quasilinear_utility"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Quasilinear utility</a>: value minus payment. Standard in mechanism design, encoded here as a definition.</p>
     <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm text-blue-300"><code><span class="text-blue-300">def</span> <span class="text-green-300">utility</span> (_auc : Auction ι E) (_i : ι) (_x : E)
     (myValue payment : ℝ) : ℝ :=
   myValue - payment</code></pre>

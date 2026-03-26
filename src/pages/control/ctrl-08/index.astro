@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/control/" class="text-sm mb-4 inline-block">&larr; back to Control Theory</a>
 
     <h1>Optimal Control</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Linear%E2%80%93quadratic_regulator">Linear-quadratic regulator</a> &middot; CC BY-SA 4.0</p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Linear%E2%80%93quadratic_regulator"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Linear-quadratic regulator</a> &middot; CC BY-SA 4.0</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Optimal control</strong> finds the input that minimizes a cost function. The <strong>LQR</strong> (linear quadratic regulator) minimizes a weighted sum of state deviation and control effort. The solution comes from the <strong>Riccati equation</strong>. The tradeoff: penalize state error more for faster response, penalize effort more for smaller actuators.</p>
@@ -52,7 +52,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     </div>
 
     <h3>LQR: the linear case</h3>
-    <p>For a linear system x' = Ax + Bu with quadratic cost, the optimal gain K = R^(-1) B' P where P solves the <a href="https://en.wikipedia.org/wiki/Algebraic_Riccati_equation">algebraic Riccati equation</a>: A'P + PA - PBR^(-1)B'P + Q = 0. The result is a constant-gain state feedback law. No online optimization needed: compute K once, apply u = -Kx forever.</p>
+    <p>For a linear system x' = Ax + Bu with quadratic cost, the optimal gain K = R^(-1) B' P where P solves the <a href="https://en.wikipedia.org/wiki/Algebraic_Riccati_equation"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>algebraic Riccati equation</a>: A'P + PA - PBR^(-1)B'P + Q = 0. The result is a constant-gain state feedback law. No online optimization needed: compute K once, apply u = -Kx forever.</p>
 
     <SchemeRepl client:load initialCode={`; LQR-like simulation: u = -K*x for a double integrator
 ; x1' = x2, x2' = u

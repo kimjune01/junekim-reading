@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/control/" class="text-sm mb-4 inline-block">&larr; back to Control Theory</a>
 
     <h1>Lyapunov Stability</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Lyapunov_stability">Lyapunov stability</a> &middot; CC BY-SA 4.0</p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Lyapunov_stability"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Lyapunov stability</a> &middot; CC BY-SA 4.0</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Lyapunov's direct method</strong>: find an energy-like function V(x) that is positive and always decreasing along trajectories. If such a function exists, the equilibrium is stable. You never need to solve the differential equation. The function V is a <strong>Lyapunov function</strong>.</p>
@@ -58,7 +58,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p>A function V(x) is a Lyapunov function for the equilibrium x=0 if: (1) V(0) = 0, (2) V(x) is greater than 0 for x not equal to 0 (positive definite), and (3) dV/dt is less than or equal to 0 along trajectories (V is non-increasing). If dV/dt is strictly negative (not just non-increasing), the equilibrium is <strong>asymptotically stable</strong>: the state converges to zero.</p>
 
     <h3>LaSalle's invariance principle</h3>
-    <p>What if dV/dt is only zero on some set, not everywhere? <a href="https://en.wikipedia.org/wiki/LaSalle%27s_invariance_principle">LaSalle's principle</a> says: the system converges to the largest invariant set where dV/dt = 0. This handles cases where the Lyapunov function is not strictly decreasing everywhere but still guarantees convergence.</p>
+    <p>What if dV/dt is only zero on some set, not everywhere? <a href="https://en.wikipedia.org/wiki/LaSalle%27s_invariance_principle"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>LaSalle's principle</a> says: the system converges to the largest invariant set where dV/dt = 0. This handles cases where the Lyapunov function is not strictly decreasing everywhere but still guarantees convergence.</p>
 
     <SchemeRepl client:load initialCode={`; Lyapunov analysis: x' = -x^3
 ; Candidate V(x) = x^2 / 2

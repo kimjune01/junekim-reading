@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/distributed-systems/" class="text-sm mb-4 inline-block">&larr; back to distributed systems</a>
 
     <h1>Time and Clocks</h1>
-    <p class="text-gray-400 text-sm mb-6">Lamport 1978 &middot; Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Lamport_timestamp">Lamport timestamps</a></p>
+    <p class="text-gray-400 text-sm mb-6">Lamport 1978 &middot; Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Lamport_timestamp"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Lamport timestamps</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none">Physical clocks drift. Logical clocks don't measure wall time; they capture <strong>causality</strong>. If event A could have influenced event B, then A's timestamp is less than B's. Lamport clocks give a total order consistent with causality. Vector clocks give the exact causal partial order.</p>
@@ -43,7 +43,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 2. Happens-before -->
     <h3>The happens-before relation</h3>
-    <p><a href="https://en.wikipedia.org/wiki/Leslie_Lamport">🅦 Lamport</a> defined the <strong>happens-before</strong> relation: A happens-before B (written A &rarr; B) if A and B are on the same node and A came first, or if A is a send and B is the corresponding receive. The relation is transitive. Events that are not related by happens-before are <strong>concurrent</strong>: neither caused the other.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Leslie_Lamport"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Lamport</a> defined the <strong>happens-before</strong> relation: A happens-before B (written A &rarr; B) if A and B are on the same node and A came first, or if A is a send and B is the corresponding receive. The relation is transitive. Events that are not related by happens-before are <strong>concurrent</strong>: neither caused the other.</p>
 
     <!-- SVG: space-time diagram with Lamport timestamps -->
     <div class="flex justify-center my-6">

@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/distributed-systems/" class="text-sm mb-4 inline-block">&larr; back to distributed systems</a>
 
     <h1>Gossip Protocols</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Gossip_protocol">Gossip protocol</a></p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Gossip_protocol"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Gossip protocol</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Gossip protocols</strong> spread information like an epidemic. Each node periodically picks a random peer and exchanges state. After O(log N) rounds, all N nodes have the information. No central coordinator, no single point of failure, and remarkably robust to node failures. The tradeoff: eventual consistency only, and bandwidth overhead from redundant messages.</p>

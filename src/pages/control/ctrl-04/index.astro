@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/control/" class="text-sm mb-4 inline-block">&larr; back to Control Theory</a>
 
     <h1>Stability</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/BIBO_stability">BIBO stability</a> &middot; CC BY-SA 4.0</p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/BIBO_stability"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>BIBO stability</a> &middot; CC BY-SA 4.0</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>BIBO stability</strong>: bounded input, bounded output. A system is stable if every bounded input produces a bounded output. Poles in the left half of the complex plane mean stability. Poles on the right mean the output grows without bound.</p>
@@ -58,7 +58,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     </div>
 
     <h3>Routh-Hurwitz criterion</h3>
-    <p>You don't need to find the roots to check stability. The <strong><a href="https://en.wikipedia.org/wiki/Routh%E2%80%93Hurwitz_stability_criterion">Routh-Hurwitz criterion</a></strong> builds a table from the coefficients of the characteristic polynomial. If all entries in the first column are positive, all poles are in the left half-plane and the system is stable. A sign change in the first column means an unstable pole.</p>
+    <p>You don't need to find the roots to check stability. The <strong><a href="https://en.wikipedia.org/wiki/Routh%E2%80%93Hurwitz_stability_criterion"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Routh-Hurwitz criterion</a></strong> builds a table from the coefficients of the characteristic polynomial. If all entries in the first column are positive, all poles are in the left half-plane and the system is stable. A sign change in the first column means an unstable pole.</p>
 
     <SchemeRepl client:load initialCode={`; Check stability by examining poles (roots of characteristic equation)
 ; For a second-order system: s^2 + 2*zeta*wn*s + wn^2 = 0

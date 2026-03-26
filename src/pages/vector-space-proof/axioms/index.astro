@@ -21,8 +21,8 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <ul>
       <li><strong>Quasilinear utility</strong> &mdash; <code>utility</code> is defined as value minus payment</li>
       <li><strong>Positive bids and sigmas</strong> &mdash; carried as fields on Report and Valuation</li>
-      <li><strong>Independent private values</strong> &mdash; <code>withReport</code> changes reports, not valuations</li>
-      <li><strong>Free disposal</strong> &mdash; empty player set means zero welfare</li>
+      <li><strong><a href="https://en.wikipedia.org/wiki/Independent_private_values"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Independent private values</a></strong> &mdash; <code>withReport</code> changes reports, not valuations</li>
+      <li><strong><a href="https://en.wikipedia.org/wiki/Free_disposal"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Free disposal</a></strong> &mdash; empty player set means zero welfare</li>
       <li><strong>Gaussian valuation decay</strong> &mdash; <code>trueVal</code> is an exponential in squared distance</li>
     </ul>
 
@@ -34,7 +34,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <h3>QueryMeasure</h3>
     <p>The sole axiom: there exists a monotone functional from <code>(E &rarr; ℝ)</code> to <code>ℝ</code>. If <code>f(x) &ge; g(x)</code> everywhere, then <code>integrate f &ge; integrate g</code>.</p>
-    <p>Note what this does <em>not</em> assume: normalization, linearity, additivity, or even nontriviality. It is weaker than a probability measure &mdash; any monotone functional satisfies it. An economist might <em>interpret</em> it as an expected-value operator, but the proof only uses monotonicity.</p>
+    <p>Note what this does <em>not</em> assume: normalization, linearity, additivity, or even nontriviality. It is weaker than a <a href="https://en.wikipedia.org/wiki/Probability_measure"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>probability measure</a> &mdash; any <a href="https://en.wikipedia.org/wiki/Monotone_function"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>monotone functional</a> satisfies it. An economist might <em>interpret</em> it as an expected-value operator, but the proof only uses monotonicity.</p>
     <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm text-blue-300"><code><span class="text-blue-300">structure</span> <span class="text-green-300">QueryMeasure</span> (E : Type*) <span class="text-blue-300">where</span>
   integrate : (E → ℝ) → ℝ
   integral_mono : ∀ (f g : E → ℝ),

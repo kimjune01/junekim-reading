@@ -17,12 +17,12 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/category-theory/milewski-16/">&#x1F35E; Ch16 (Adjunctions)</a>, Ch20 (Ends and Coends). 12 min.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">"All concepts are Kan extensions" (<a href="https://en.wikipedia.org/wiki/Saunders_Mac_Lane">Mac Lane</a>). Given functors K : I &rarr; A and D : I &rarr; C, the <strong>right Kan extension</strong> Ran<sub>K</sub>D : A &rarr; C is the best approximation of D along K. It answers: how do you extend a functor defined on a subcategory to the whole category? Limits, colimits, and adjunctions are all special cases.</p>
+      <p class="text-lg" style="max-width:none">"All concepts are Kan extensions" (<a href="https://en.wikipedia.org/wiki/Saunders_Mac_Lane"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Mac Lane</a>). Given functors K : I &rarr; A and D : I &rarr; C, the <strong>right Kan extension</strong> Ran<sub>K</sub>D : A &rarr; C is the best approximation of D along K. It answers: how do you extend a functor defined on a subcategory to the whole category? Limits, colimits, and adjunctions are all special cases.</p>
     </div>
 
     <!-- 1. The problem: extending a functor -->
     <h3>The problem: extending a functor</h3>
-    <p>You have a functor D : I &rarr; C that maps a small category I into C. You also have a functor K : I &rarr; A that embeds I into a larger category A. You want to extend D to all of A, not just the image of K. The <a href="https://en.wikipedia.org/wiki/Kan_extension">🅦 Kan extension</a> is the universal solution: the best functor A &rarr; C that approximates D, given K.</p>
+    <p>You have a functor D : I &rarr; C that maps a small category I into C. You also have a functor K : I &rarr; A that embeds I into a larger category A. You want to extend D to all of A, not just the image of K. The <a href="https://en.wikipedia.org/wiki/Kan_extension"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kan extension</a> is the universal solution: the best functor A &rarr; C that approximates D, given K.</p>
 
     <SchemeRepl client:load initialCode={`; Setup: I is a small subcategory, A is the full category.
 ; K embeds I into A.  D maps I into values (our target).
@@ -490,9 +490,9 @@ print(f"after fmap (+1): {mapped2.run()}")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Kan_extension">&#x1F160; Kan extension</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/End_(category_theory)">&#x1F160; End (category theory)</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Adjoint_functors">&#x1F160; Adjoint functors</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Kan_extension"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>&#x1F160; Kan extension</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/End_(category_theory)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>&#x1F160; End (category theory)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Adjoint_functors"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>&#x1F160; Adjoint functors</a></li>
     </ul>
     </Neighbors>
 

@@ -134,7 +134,7 @@ print(f"joint P:    {self_info(0.5 * 1/6):.4f} bits")
 
     <!-- 2. The additivity argument -->
     <h3>Additivity forces the logarithm</h3>
-    <p>Shannon's key insight: any function f(p) that satisfies f(p &times; q) = f(p) + f(q) must be a logarithm. This is the <a href="https://en.wikipedia.org/wiki/Cauchy%27s_functional_equation">Cauchy functional equation</a>. Adding the constraints that f is continuous and f(1/2) = 1 (defining the bit), the unique solution is f(p) = &minus;log<sub>2</sub>(p).</p>
+    <p>Shannon's key insight: any function f(p) that satisfies f(p &times; q) = f(p) + f(q) must be a logarithm. This is the <a href="https://en.wikipedia.org/wiki/Cauchy%27s_functional_equation"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Cauchy functional equation</a>. Adding the constraints that f is continuous and f(1/2) = 1 (defining the bit), the unique solution is f(p) = &minus;log<sub>2</sub>(p).</p>
 
     <SchemeRepl client:load initialCode={`; Verify additivity: I(p*q) = I(p) + I(q)
 (define (log2 x) (/ (log x) (log 2)))
@@ -207,8 +207,8 @@ print(f"joint P:    {self_info(0.5 * 1/6):.4f} bits")
       <li><a href="/reading/information-theory/shannon-02/">📡 Shannon 02</a> &mdash; entropy is expected surprise</li>
       <li><a href="/reading/baez-fritz-2011/">🍞 Baez &amp; Fritz 2011</a> &mdash; entropy as a functor: the category-theoretic characterization</li>
       <li><a href="/reading/cognitive-science/lovelace-07/">🧠 Lovelace Ch.7 Language</a> &mdash; surprisal as a linking hypothesis between language models and reading data</li>
-      <li><a href="https://en.wikipedia.org/wiki/Information_content">🅦 Information content</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Bit">🅦 Bit</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Information_content"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Information content</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Bit"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Bit</a></li>
       <li><a href="/reading/probability/grinstead-01/">🎰 Probability Ch.1</a> — probability is the foundation: self-information is -log P(event)</li>
     </ul>
     </Neighbors>

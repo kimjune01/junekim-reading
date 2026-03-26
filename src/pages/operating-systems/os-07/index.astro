@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/operating-systems/" class="text-sm mb-4 inline-block">&larr; back to Operating Systems</a>
 
     <h1>Virtual Memory</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Virtual_memory">Virtual memory</a> &middot; CC BY-SA 4.0</p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Virtual_memory"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Virtual memory</a> &middot; CC BY-SA 4.0</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Virtual memory</strong> lets a process use more memory than physically exists. Pages live on disk until needed, then get loaded into frames on demand. When physical memory is full, the OS picks a victim page to evict. The choice of victim is the <strong>page replacement algorithm</strong>.</p>
@@ -22,7 +22,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p>Pages are not loaded until accessed. The first access triggers a <strong>page fault</strong>: the OS loads the page from disk into a free frame, updates the page table, and resumes the instruction. Most programs exhibit locality, so page faults are rare after warmup.</p>
 
     <h3>Page replacement algorithms</h3>
-    <p><strong>FIFO</strong>: evict the oldest page. Simple but suffers <a href="https://en.wikipedia.org/wiki/B%C3%A9l%C3%A1dy%27s_anomaly">🅦 Belady's anomaly</a> (more frames can mean more faults). <strong>LRU</strong>: evict the least recently used page. Good performance but expensive to track precisely. <strong>Optimal</strong>: evict the page that will not be used for the longest time. Impossible to implement (requires future knowledge) but useful as a benchmark.</p>
+    <p><strong>FIFO</strong>: evict the oldest page. Simple but suffers <a href="https://en.wikipedia.org/wiki/B%C3%A9l%C3%A1dy%27s_anomaly"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Belady's anomaly</a> (more frames can mean more faults). <strong>LRU</strong>: evict the least recently used page. Good performance but expensive to track precisely. <strong>Optimal</strong>: evict the page that will not be used for the longest time. Impossible to implement (requires future knowledge) but useful as a benchmark.</p>
 
     <!-- SVG: Page replacement sequence with hits/faults marked -->
     <div class="flex justify-center my-6">
@@ -166,9 +166,9 @@ lru_replace([7, 0, 1, 2, 0, 3, 0, 4], 3)
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Virtual_memory">Virtual memory</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Page_replacement_algorithm">Page replacement algorithm</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Thrashing_(computer_science)">Thrashing</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Virtual_memory"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Virtual memory</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Page_replacement_algorithm"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Page replacement algorithm</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Thrashing_(computer_science)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Thrashing</a></li>
     </ul>
     </Neighbors>
 

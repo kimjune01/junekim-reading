@@ -123,7 +123,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 3. Carnot efficiency -->
     <h3>Carnot efficiency</h3>
-    <p>The <a href="https://en.wikipedia.org/wiki/Carnot_cycle">Carnot cycle</a> is the most efficient possible heat engine operating between two temperatures. Its efficiency is eta = 1 - T_cold/T_hot. No real engine beats this. The closer T_cold is to T_hot, the less work you can extract.</p>
+    <p>The <a href="https://en.wikipedia.org/wiki/Carnot_cycle"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Carnot cycle</a> is the most efficient possible heat engine operating between two temperatures. Its efficiency is eta = 1 - T_cold/T_hot. No real engine beats this. The closer T_cold is to T_hot, the less work you can extract.</p>
 
     <SchemeRepl client:load initialCode={`; Carnot efficiency: eta = 1 - T_cold / T_hot
 ; All temperatures in Kelvin
@@ -167,7 +167,7 @@ for name, Th, Tc in cases:
 
     <!-- 4. Boltzmann -->
     <h3>Boltzmann's bridge</h3>
-    <p><a href="https://en.wikipedia.org/wiki/Ludwig_Boltzmann">Boltzmann</a> connected the macroscopic (pressure, temperature) to the microscopic (molecular velocities). The ideal gas law PV = NkT follows from averaging over molecular collisions. His tombstone reads S = k log W. The second law is not a postulate; it is a theorem of statistics applied to 10&sup2;&sup3; particles.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Ludwig_Boltzmann"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Boltzmann</a> connected the macroscopic (pressure, temperature) to the microscopic (molecular velocities). The ideal gas law PV = NkT follows from averaging over molecular collisions. His tombstone reads S = k log W. The second law is not a postulate; it is a theorem of statistics applied to 10&sup2;&sup3; particles.</p>
 
     <SchemeRepl client:load initialCode={`; Ideal gas law: PV = NkT
 ; N molecules, each bouncing in a box

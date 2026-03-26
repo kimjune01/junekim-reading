@@ -12,7 +12,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <a href="/reading/databases/" class="text-sm mb-4 inline-block">&larr; back to databases</a>
 
     <h1>Recovery</h1>
-    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Write-ahead_logging">Write-ahead logging</a> &middot; CC BY-SA 4.0</p>
+    <p class="text-gray-400 text-sm mb-6">Wikipedia &middot; <a href="https://en.wikipedia.org/wiki/Write-ahead_logging"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Write-ahead logging</a> &middot; CC BY-SA 4.0</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
       <p class="text-lg" style="max-width:none"><strong>Recovery</strong> restores the database to a consistent state after a crash. The key mechanism is <strong>write-ahead logging</strong> (WAL): before any data page is modified on disk, the change is first recorded in a log. On crash recovery, the log replays committed changes (redo) and undoes uncommitted ones (undo).</p>
@@ -180,7 +180,7 @@ print("Final state: " + str(db.db))
 
     <!-- ARIES -->
     <h3>ARIES algorithm</h3>
-    <p><strong><a href="https://en.wikipedia.org/wiki/Algorithms_for_Recovery_and_Isolation_Exploiting_Semantics">🅦 ARIES</a></strong> (Algorithms for Recovery and Isolation Exploiting Semantics) is the industry-standard recovery algorithm. Three phases: (1) Analysis: scan the log to determine which transactions were active at crash time. (2) Redo: replay all logged actions from the last checkpoint. (3) Undo: reverse actions of uncommitted transactions, working backward. ARIES uses LSNs (Log Sequence Numbers) to avoid redundant work.</p>
+    <p><strong><a href="https://en.wikipedia.org/wiki/Algorithms_for_Recovery_and_Isolation_Exploiting_Semantics"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 ARIES</a></strong> (Algorithms for Recovery and Isolation Exploiting Semantics) is the industry-standard recovery algorithm. Three phases: (1) Analysis: scan the log to determine which transactions were active at crash time. (2) Redo: replay all logged actions from the last checkpoint. (3) Undo: reverse actions of uncommitted transactions, working backward. ARIES uses LSNs (Log Sequence Numbers) to avoid redundant work.</p>
 
     <SchemeRepl client:load initialCode={`; ARIES three phases: Analysis, Redo, Undo.
 ; Simplified demonstration.
@@ -243,9 +243,9 @@ print("Final state: " + str(db.db))
     <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
-      <li><a href="https://en.wikipedia.org/wiki/Write-ahead_logging">Write-ahead logging</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Algorithms_for_Recovery_and_Isolation_Exploiting_Semantics">ARIES</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Database_checkpoint">Checkpoint</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Write-ahead_logging"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Write-ahead logging</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Algorithms_for_Recovery_and_Isolation_Exploiting_Semantics"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>ARIES</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Database_checkpoint"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Checkpoint</a></li>
     </ul>
     </Neighbors>
 
