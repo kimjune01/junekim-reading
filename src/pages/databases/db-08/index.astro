@@ -180,7 +180,7 @@ print("Final state: " + str(db.db))
 
     <!-- ARIES -->
     <h3>ARIES algorithm</h3>
-    <p><strong><a href="https://en.wikipedia.org/wiki/Algorithms_for_Recovery_and_Isolation_Exploiting_Semantics"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 ARIES</a></strong> (Algorithms for Recovery and Isolation Exploiting Semantics) is the industry-standard recovery algorithm. Three phases: (1) Analysis: scan the log to determine which transactions were active at crash time. (2) Redo: replay all logged actions from the last checkpoint. (3) Undo: reverse actions of uncommitted transactions, working backward. ARIES uses LSNs (Log Sequence Numbers) to avoid redundant work.</p>
+    <p><strong><a href="https://en.wikipedia.org/wiki/Algorithms_for_Recovery_and_Isolation_Exploiting_Semantics"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>ARIES</a></strong> (Algorithms for Recovery and Isolation Exploiting Semantics) is the industry-standard recovery algorithm. Three phases: (1) Analysis: scan the log to determine which transactions were active at crash time. (2) Redo: replay all logged actions from the last checkpoint. (3) Undo: reverse actions of uncommitted transactions, working backward. ARIES uses LSNs (Log Sequence Numbers) to avoid redundant work.</p>
 
     <SchemeRepl client:load initialCode={`; ARIES three phases: Analysis, Redo, Undo.
 ; Simplified demonstration.

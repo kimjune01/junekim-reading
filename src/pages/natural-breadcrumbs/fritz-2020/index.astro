@@ -15,7 +15,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-gray-400 text-sm mb-6">Tobias Fritz · 2020 · <a href="https://arxiv.org/abs/1908.07021"><img src="/reading/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> arXiv:1908.07021</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">Stochastic functions form a <a href="https://en.wikipedia.org/wiki/Category_(mathematics)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 category</a> with copy and discard. Whether a function is deterministic or stochastic is detected by whether it commutes with copying.</p>
+      <p class="text-lg" style="max-width:none">Stochastic functions form a <a href="https://en.wikipedia.org/wiki/Category_(mathematics)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>category</a> with copy and discard. Whether a function is deterministic or stochastic is detected by whether it commutes with copying.</p>
     </div>
 
     <!-- What's a Markov category -->
@@ -220,7 +220,7 @@ for _ in range(4):
 
     <!-- Kleisli composition -->
     <h3>Kleisli composition</h3>
-    <p>Morphisms in FinStoch compose via <a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kleisli composition</a>: feed the output distribution of f into g, marginalizing over the intermediate. This is <code>>>=</code> (bind) from monads.</p>
+    <p>Morphisms in FinStoch compose via <a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Kleisli composition</a>: feed the output distribution of f into g, marginalizing over the intermediate. This is <code>>>=</code> (bind) from monads.</p>
 
     <!-- SVG: Markov category composition with copy at B -->
     <div class="flex justify-center my-6">
@@ -375,7 +375,7 @@ print(f"support(f(5)) = {support(f(5))}")
 
     <!-- Informativeness -->
     <h3>Informativeness preorder</h3>
-    <p>Fritz defines when one morphism is "more informative" than another: f ≤ g if g factors through f. If you can recover g's output from f's output via post-processing, then f is at least as informative. This is the categorical version of <a href="https://en.wikipedia.org/wiki/Sufficient_statistic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 sufficient statistics</a>.</p>
+    <p>Fritz defines when one morphism is "more informative" than another: f ≤ g if g factors through f. If you can recover g's output from f's output via post-processing, then f is at least as informative. This is the categorical version of <a href="https://en.wikipedia.org/wiki/Sufficient_statistic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>sufficient statistics</a>.</p>
 
     <SchemeRepl client:load initialCode={`; Informativeness: f ≤ g if g factors through f
 ; "f is at least as informative as g"
@@ -440,9 +440,9 @@ print("just_square loses the sign — not recoverable")
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
       <li><a href="https://ncatlab.org/nlab/show/Markov+category">Markov category (nLab)</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Stochastic_matrix"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Stochastic matrix</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kleisli category</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Sufficient_statistic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Sufficient statistic</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Stochastic_matrix"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Stochastic matrix</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Kleisli category</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Sufficient_statistic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Sufficient statistic</a></li>
     </ul>
     </Neighbors>
 

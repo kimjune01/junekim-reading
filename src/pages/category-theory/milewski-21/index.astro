@@ -22,7 +22,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 1. The problem: extending a functor -->
     <h3>The problem: extending a functor</h3>
-    <p>You have a functor D : I &rarr; C that maps a small category I into C. You also have a functor K : I &rarr; A that embeds I into a larger category A. You want to extend D to all of A, not just the image of K. The <a href="https://en.wikipedia.org/wiki/Kan_extension"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kan extension</a> is the universal solution: the best functor A &rarr; C that approximates D, given K.</p>
+    <p>You have a functor D : I &rarr; C that maps a small category I into C. You also have a functor K : I &rarr; A that embeds I into a larger category A. You want to extend D to all of A, not just the image of K. The <a href="https://en.wikipedia.org/wiki/Kan_extension"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Kan extension</a> is the universal solution: the best functor A &rarr; C that approximates D, given K.</p>
 
     <SchemeRepl client:load initialCode={`; Setup: I is a small subcategory, A is the full category.
 ; K embeds I into A.  D maps I into values (our target).

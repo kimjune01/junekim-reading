@@ -44,7 +44,7 @@ import PrevNext from "../../../components/PrevNext.astro";
       <span class="text-gray-400">assert</span> <span class="text-green-300">Q</span>
     </div>
 
-    <p>"If P holds before running c, then Q holds after." That's a <a href="https://en.wikipedia.org/wiki/Hoare_logic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Hoare triple</a>: <code>{'{P}'} c {'{Q}'}</code>. If the precondition doesn't hold, the triple says nothing — it's vacuously satisfied.</p>
+    <p>"If P holds before running c, then Q holds after." That's a <a href="https://en.wikipedia.org/wiki/Hoare_logic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Hoare triple</a>: <code>{'{P}'} c {'{Q}'}</code>. If the precondition doesn't hold, the triple says nothing — it's vacuously satisfied.</p>
 
     <Repl client:load initialCode={`# {P} c {Q} — if P holds before, Q holds after.
 
@@ -267,7 +267,7 @@ for x in range(0, 8):
 
     <!-- 6. Copy and discard -->
     <h3>Copy and discard — the structure underneath</h3>
-    <p>An <a href="https://en.wikipedia.org/wiki/Distributive_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 imperative category</a> has two special operations per type: <strong>copy</strong> (ν) and <strong>discard</strong> (ε). A morphism is <strong>deterministic</strong> if it commutes with copy. This is how Fritz (2020) distinguishes deterministic from stochastic morphisms.</p>
+    <p>An <a href="https://en.wikipedia.org/wiki/Distributive_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>imperative category</a> has two special operations per type: <strong>copy</strong> (ν) and <strong>discard</strong> (ε). A morphism is <strong>deterministic</strong> if it commutes with copy. This is how Fritz (2020) distinguishes deterministic from stochastic morphisms.</p>
 
     <Repl client:load initialCode={`# Copy: ν(x) = (x, x) — duplicate the state
 # Discard: ε(x) = None — throw it away
@@ -367,7 +367,7 @@ print("That's the bridge theorem.")
     <!-- 8. Stoch is an imperative category -->
     <h3>The punchline — Corollary 76</h3>
     <p>Stoch (stochastic matrices) is a <strong>posetal imperative category</strong>. That means every Hoare rule in Section 5 holds there as a theorem. Hoare triples aren't an engineering choice — they're forced by the category.</p>
-    <p>A stochastic function takes an input and returns a probability distribution over outputs. <a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kleisli composition</a> chains two such functions: run the first, then for each possible output run the second, weighting by probability. This is how stochastic pipelines compose — and it's the composition that makes the COMP rule work.</p>
+    <p>A stochastic function takes an input and returns a probability distribution over outputs. <a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Kleisli composition</a> chains two such functions: run the first, then for each possible output run the second, weighting by probability. This is how stochastic pipelines compose — and it's the composition that makes the COMP rule work.</p>
 
     <Repl client:load initialCode={`# Stoch = Kleisli category of the subdistribution monad
 # Morphisms are stochastic functions: X -> Distribution(Y)
@@ -482,11 +482,11 @@ print("through the bind — same as your Lean proof.")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Hoare_logic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Hoare logic</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Weakest_precondition"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Weakest precondition</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Loop_invariant"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Loop invariant</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Stochastic_matrix"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Stochastic matrix</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kleisli category</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Hoare_logic"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Hoare logic</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Weakest_precondition"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Weakest precondition</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Loop_invariant"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Loop invariant</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Stochastic_matrix"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Stochastic matrix</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Kleisli category</a></li>
     </ul>
     </Neighbors>
 

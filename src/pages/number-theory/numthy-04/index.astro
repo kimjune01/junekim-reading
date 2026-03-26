@@ -75,7 +75,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 2. Fermat's little theorem -->
     <h3>Fermat's little theorem</h3>
-    <p><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Fermat's little theorem</a>: if p is prime and gcd(a, p) = 1, then a^(p-1) &#x2261; 1 (mod p). Equivalently, a^p &#x2261; a (mod p) for all a. This is a special case of Euler's theorem.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Fermat's little theorem</a>: if p is prime and gcd(a, p) = 1, then a^(p-1) &#x2261; 1 (mod p). Equivalently, a^p &#x2261; a (mod p) for all a. This is a special case of Euler's theorem.</p>
 
     <SchemeRepl client:load initialCode={`; Fast modular exponentiation (repeated squaring)
 (define (mod-pow base exp mod)

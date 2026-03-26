@@ -17,7 +17,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> (Hoare triples, weakest precondition). <a href="/reading/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> (Kleisli categories) helps.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">Weakest preconditions arise automatically from a <a href="https://en.wikipedia.org/wiki/Fibred_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 fibration</a> over a Kleisli category. The poset of predicates sitting above each type is the fiber; lifting a morphism through the fibration computes wp.</p>
+      <p class="text-lg" style="max-width:none">Weakest preconditions arise automatically from a <a href="https://en.wikipedia.org/wiki/Fibred_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>fibration</a> over a Kleisli category. The poset of predicates sitting above each type is the fiber; lifting a morphism through the fibration computes wp.</p>
     </div>
 
     <!-- SVG: Fibration — predicates over types, wp lifting -->
@@ -129,7 +129,7 @@ print(f"Q(x>0) => P(x>5)? {implies(Q, P, domain)}")
     </div>
 
     <h3>Lifting through the Kleisli category</h3>
-    <p>A stochastic function f: X → D(Y) lives in the <a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kleisli category</a> of the distribution monad. To compute wp(f, Q), you lift the predicate Q on Y back through f: for each input x, check whether <em>every</em> possible output satisfies Q.</p>
+    <p>A stochastic function f: X → D(Y) lives in the <a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Kleisli category</a> of the distribution monad. To compute wp(f, Q), you lift the predicate Q on Y back through f: for each input x, check whether <em>every</em> possible output satisfies Q.</p>
 
     <SchemeRepl client:load initialCode={`; wp(f, Q)(x) = for all y in support(f(x)), Q(y)
 ; Lifting Q backwards through the Kleisli morphism f
@@ -289,10 +289,10 @@ for x in range(0, 9):
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Fibred_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Fibred category</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kleisli category</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Weakest_precondition"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Weakest precondition</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Predicate_transformer_semantics"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Predicate transformer semantics</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Fibred_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Fibred category</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Kleisli_category"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Kleisli category</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Weakest_precondition"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Weakest precondition</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Predicate_transformer_semantics"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Predicate transformer semantics</a></li>
     </ul>
     </Neighbors>
 

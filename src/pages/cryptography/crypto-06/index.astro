@@ -124,7 +124,7 @@ print(f"e * d mod phi = {(e * d) % phi}")  # 1
 
     <!-- 2. Encrypt and decrypt -->
     <h3>Encrypt and decrypt</h3>
-    <p>To encrypt message m: compute c = m<sup>e</sup> mod n. To decrypt ciphertext c: compute m = c<sup>d</sup> mod n. This works because m<sup>ed</sup> mod n = m (by <a href="https://en.wikipedia.org/wiki/Euler%27s_theorem"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Euler's theorem</a>, since ed = 1 mod phi(n)).</p>
+    <p>To encrypt message m: compute c = m<sup>e</sup> mod n. To decrypt ciphertext c: compute m = c<sup>d</sup> mod n. This works because m<sup>ed</sup> mod n = m (by <a href="https://en.wikipedia.org/wiki/Euler%27s_theorem"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Euler's theorem</a>, since ed = 1 mod phi(n)).</p>
 
     <SchemeRepl client:load initialCode={`; RSA encrypt and decrypt
 

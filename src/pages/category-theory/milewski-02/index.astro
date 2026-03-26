@@ -17,7 +17,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/category-theory/milewski-01/">🍞 Chapter 1 (Category)</a>. 5 min.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">Types are <a href="https://en.wikipedia.org/wiki/Set_(mathematics)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 sets</a>. Functions are morphisms between them. The category <strong>Hask</strong> has Haskell types as objects and pure functions as arrows. Every type is extended with <strong>bottom</strong> (&perp;), the value representing non-termination.</p>
+      <p class="text-lg" style="max-width:none">Types are <a href="https://en.wikipedia.org/wiki/Set_(mathematics)"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>sets</a>. Functions are morphisms between them. The category <strong>Hask</strong> has Haskell types as objects and pure functions as arrows. Every type is extended with <strong>bottom</strong> (&perp;), the value representing non-termination.</p>
     </div>
 
     <!-- SVG: Three objects — Void, Unit, Bool — with cardinality -->
@@ -203,7 +203,7 @@ print(f"impure_add(5) = {impure_add(5)}")  # 7 — different!
 
     <!-- 4. Void — the empty type -->
     <h3>Void &mdash; the empty set</h3>
-    <p>The type <code>Void</code> has no values at all. It corresponds to the empty set. You cannot call a function that takes Void as input, because you have nothing to pass it. But you can <em>declare</em> one: <code>absurd :: Void &rarr; a</code>. From falsity, anything follows. This is the <a href="https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Curry-Howard correspondence</a> in action.</p>
+    <p>The type <code>Void</code> has no values at all. It corresponds to the empty set. You cannot call a function that takes Void as input, because you have nothing to pass it. But you can <em>declare</em> one: <code>absurd :: Void &rarr; a</code>. From falsity, anything follows. This is the <a href="https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Curry-Howard correspondence</a> in action.</p>
 
     <SchemeRepl client:load initialCode={`; Void: the empty type — no values exist
 ; absurd : Void -> a (can be defined but never called)
@@ -341,10 +341,10 @@ print(f"to_unit(True)    = {to_unit(True)}")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Category_of_sets"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Category of sets (Set)</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Curry-Howard correspondence</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Bottom_type"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Bottom type</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Unit_type"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Unit type</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Category_of_sets"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Category of sets (Set)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Curry-Howard correspondence</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Bottom_type"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Bottom type</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Unit_type"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Unit type</a></li>
     </ul>
     </Neighbors>
 

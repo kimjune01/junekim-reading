@@ -17,11 +17,11 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/reading/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> (Markov kernels, composition). Basic probability.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">Two stochastic systems are <strong>behaviorally equivalent</strong> if no experiment can tell them apart. <a href="https://en.wikipedia.org/wiki/Bisimulation"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Bisimulation</a> makes this precise. The <strong>bisimulation metric</strong> measures <em>how different</em> two systems are — a continuous relaxation of the binary same-or-different question.</p>
+      <p class="text-lg" style="max-width:none">Two stochastic systems are <strong>behaviorally equivalent</strong> if no experiment can tell them apart. <a href="https://en.wikipedia.org/wiki/Bisimulation"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Bisimulation</a> makes this precise. The <strong>bisimulation metric</strong> measures <em>how different</em> two systems are — a continuous relaxation of the binary same-or-different question.</p>
     </div>
 
     <h3>Labelled Markov processes</h3>
-    <p>A labelled Markov process (LMP) is a state space with labelled probabilistic transitions. From state s, action a leads to a distribution over next states. It's a <a href="https://en.wikipedia.org/wiki/Markov_decision_process"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Markov decision process</a> viewed through the lens of process algebra.</p>
+    <p>A labelled Markov process (LMP) is a state space with labelled probabilistic transitions. From state s, action a leads to a distribution over next states. It's a <a href="https://en.wikipedia.org/wiki/Markov_decision_process"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Markov decision process</a> viewed through the lens of process algebra.</p>
 
     <SchemeRepl client:load initialCode={`; LMP: states + labelled transitions
 ; transition(state, label) -> distribution over states
@@ -58,7 +58,7 @@ for s in ["s0", "s1", "s2"]:
     </div>
 
     <h3>Bisimulation — behavioral equivalence</h3>
-    <p>Two states are <a href="https://en.wikipedia.org/wiki/Bisimulation"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 bisimilar</a> if they can't be distinguished by any sequence of observations. Formally: s ~ t if for every label a, the distributions transition(s,a) and transition(t,a) assign the same total probability to every equivalence class of ~.</p>
+    <p>Two states are <a href="https://en.wikipedia.org/wiki/Bisimulation"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>bisimilar</a> if they can't be distinguished by any sequence of observations. Formally: s ~ t if for every label a, the distributions transition(s,a) and transition(t,a) assign the same total probability to every equivalence class of ~.</p>
 
     <SchemeRepl client:load initialCode={`; Bisimulation: s ~ t iff no experiment distinguishes them
 ; Check: do s and t assign same probability to each class?
@@ -239,14 +239,14 @@ print("Nonzero = behaviorally distinguishable")
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Bisimulation"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Bisimulation</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Markov_decision_process"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Markov decision process</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Kantorovich_metric"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kantorovich metric</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Bisimulation"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Bisimulation</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Markov_decision_process"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Markov decision process</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Kantorovich_metric"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Kantorovich metric</a></li>
     </ul>
     </Neighbors>
 
     <h3>Translation notes</h3>
-    <p>All examples use finite state spaces with explicit transition tables. Panangaden works with labelled Markov processes over analytic spaces — continuous state spaces with σ-algebras, where bisimulation is defined via measurable partitions and the metric uses the Kantorovich (<a href="https://en.wikipedia.org/wiki/Wasserstein_metric"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Wasserstein</a>-1) distance on probability measures. For example: the bisimulation metric on this page computes total variation between finite distributions. In the book, the Kantorovich metric lifts an arbitrary pseudometric on states to distributions over those states, and the bisimulation metric is the greatest fixed point of this lifting. The iterative structure is the same; the measure-theoretic foundations are not.</p>
+    <p>All examples use finite state spaces with explicit transition tables. Panangaden works with labelled Markov processes over analytic spaces — continuous state spaces with σ-algebras, where bisimulation is defined via measurable partitions and the metric uses the Kantorovich (<a href="https://en.wikipedia.org/wiki/Wasserstein_metric"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Wasserstein</a>-1) distance on probability measures. For example: the bisimulation metric on this page computes total variation between finite distributions. In the book, the Kantorovich metric lifts an arbitrary pseudometric on states to distributions over those states, and the bisimulation metric is the greatest fixed point of this lifting. The iterative structure is the same; the measure-theoretic foundations are not.</p>
     <p>Every example is <strong class="text-green-400">Simplified</strong>.</p>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">

@@ -114,7 +114,7 @@ print(f"QR mod 13: {qr(13)}")
 
     <!-- Quadratic reciprocity -->
     <h3>Quadratic reciprocity (statement)</h3>
-    <p>For distinct odd primes p and q: (p/q)(q/p) = (-1)^((p-1)/2 * (q-1)/2). In words: p is a square mod q and q is a square mod p, unless both are 3 mod 4, in which case exactly one is. This is the "golden theorem" that <a href="https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Gauss</a> proved eight different ways.</p>
+    <p>For distinct odd primes p and q: (p/q)(q/p) = (-1)^((p-1)/2 * (q-1)/2). In words: p is a square mod q and q is a square mod p, unless both are 3 mod 4, in which case exactly one is. This is the "golden theorem" that <a href="https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Gauss</a> proved eight different ways.</p>
 
     <SchemeRepl client:load initialCode={`; Verify quadratic reciprocity for small primes
 (define (mod-pow base exp mod)

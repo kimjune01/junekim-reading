@@ -24,7 +24,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <ul>
       <li><strong>Union</strong>: R<sub>1</sub> | R<sub>2</sub> matches strings in either language</li>
       <li><strong>Concatenation</strong>: R<sub>1</sub>R<sub>2</sub> matches a string from R<sub>1</sub> followed by one from R<sub>2</sub></li>
-      <li><strong><a href="https://en.wikipedia.org/wiki/Kleene_star"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Kleene star</a></strong>: R* matches zero or more repetitions of R</li>
+      <li><strong><a href="https://en.wikipedia.org/wiki/Kleene_star"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Kleene star</a></strong>: R* matches zero or more repetitions of R</li>
     </ul>
     <p>Base cases: each symbol a &isin; &Sigma; is a regex, &epsilon; matches the empty string, and &empty; matches nothing.</p>
 
@@ -95,7 +95,7 @@ for s in ["abc", "c", "aabbc", "ab", "cc"]:
 
     <!-- Equivalence with FA -->
     <h3>Equivalence with finite automata</h3>
-    <p>Two directions: every regex can be converted to an NFA (<a href="https://en.wikipedia.org/wiki/Thompson%27s_construction"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Thompson's construction</a>), and every DFA can be converted to a regex (state elimination). The regular languages are exactly those describable by regular expressions.</p>
+    <p>Two directions: every regex can be converted to an NFA (<a href="https://en.wikipedia.org/wiki/Thompson%27s_construction"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Thompson's construction</a>), and every DFA can be converted to a regex (state elimination). The regular languages are exactly those describable by regular expressions.</p>
 
     <!-- Pumping lemma -->
     <h3>The pumping lemma</h3>

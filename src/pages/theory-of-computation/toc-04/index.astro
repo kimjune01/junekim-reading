@@ -133,7 +133,7 @@ for _ in range(6):
 
     <!-- Chomsky normal form -->
     <h3>Chomsky normal form</h3>
-    <p>Every CFG can be converted to <strong><a href="https://en.wikipedia.org/wiki/Chomsky_normal_form"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 Chomsky normal form</a></strong> (CNF): every production is either A &rarr; BC (two variables) or A &rarr; a (one terminal). CNF makes proofs easier and enables the <a href="https://en.wikipedia.org/wiki/CYK_algorithm"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 CYK parsing algorithm</a> (O(n<sup>3</sup>) time).</p>
+    <p>Every CFG can be converted to <strong><a href="https://en.wikipedia.org/wiki/Chomsky_normal_form"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Chomsky normal form</a></strong> (CNF): every production is either A &rarr; BC (two variables) or A &rarr; a (one terminal). CNF makes proofs easier and enables the <a href="https://en.wikipedia.org/wiki/CYK_algorithm"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>CYK parsing algorithm</a> (O(n<sup>3</sup>) time).</p>
 
     <SchemeRepl client:load initialCode={`; CYK algorithm for CFG in Chomsky Normal Form.
 ; Grammar: S -> AB, A -> a, B -> b

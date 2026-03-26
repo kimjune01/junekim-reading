@@ -57,7 +57,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 1. XOR cipher -->
     <h3>XOR cipher — the simplest encryption</h3>
-    <p>XOR each byte of the plaintext with a key byte. XOR again with the same key to decrypt. It is its own inverse: <code>a XOR k XOR k = a</code>. With a truly random key as long as the message (used once), this is the <a href="https://en.wikipedia.org/wiki/One-time_pad"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>🅦 one-time pad</a>, which is information-theoretically secure. With a short repeating key, it is trivially breakable.</p>
+    <p>XOR each byte of the plaintext with a key byte. XOR again with the same key to decrypt. It is its own inverse: <code>a XOR k XOR k = a</code>. With a truly random key as long as the message (used once), this is the <a href="https://en.wikipedia.org/wiki/One-time_pad"><img src="/reading/wikipedia.svg" alt="wp" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>one-time pad</a>, which is information-theoretically secure. With a short repeating key, it is trivially breakable.</p>
 
     <SchemeRepl client:load initialCode={`; XOR cipher: encrypt and decrypt are the same operation
 ; XOR each character code with the key byte
