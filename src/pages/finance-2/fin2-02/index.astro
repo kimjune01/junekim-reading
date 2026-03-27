@@ -88,7 +88,7 @@ print("Theory: QV = T = 1.000000")
 
     <!-- 2. Ito's Lemma -->
     <h3>Ito's lemma &#x2014; the chain rule for stochastic calculus</h3>
-    <p>If X(t) satisfies dX = &#x03BC; dt + &#x03C3; dB, then for any twice-differentiable f, Ito's lemma gives df(X) = f&#x2032;(X) dX + &#xBD; f&#x2033;(X) &#x03C3;&#xB2; dt. The extra &#xBD;&#x03C3;&#xB2;f&#x2033; dt term is the Ito correction. It exists because (dB)&#xB2; = dt, not zero.</p>
+    <p>If X(t) satisfies dX = &#x03BC; dt + &#x03C3; dB, then for any twice-differentiable f(x) with no explicit time dependence, Ito's lemma gives df(X) = f&#x2032;(X) dX + &#xBD; f&#x2033;(X) &#x03C3;&#xB2; dt. (If f also depends on t, add an f&#x2080; dt term.) The extra &#xBD;&#x03C3;&#xB2;f&#x2033; dt term is the Ito correction. It exists because (dB)&#xB2; = dt, not zero.</p>
 
     <SchemeRepl client:load initialCode={`; Ito's lemma example: f(x) = x^2
 ; If dX = sigma * dB, then:

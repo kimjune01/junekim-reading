@@ -44,7 +44,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 1. Call and Put Payoffs -->
     <h3>Call and put payoffs</h3>
-    <p>A <strong>call</strong> pays max(S&#x1D40; &minus; K, 0) at expiration: you profit when the stock rises above the strike K. A <strong>put</strong> pays max(K &minus; S&#x1D40;, 0): you profit when the stock falls below K. The option buyer's loss is capped at the premium paid. The seller's loss is potentially unlimited (for calls) or capped at K (for puts).</p>
+    <p>A <strong>call</strong> pays max(S&#x1D40; &minus; K, 0) at expiration: the payoff is positive when the stock finishes above the strike K; profit requires covering the premium paid. A <strong>put</strong> pays max(K &minus; S&#x1D40;, 0): you profit when the stock falls below K. The option buyer's loss is capped at the premium paid. The seller's loss is potentially unlimited (for calls) or capped at K (for puts).</p>
 
     <SchemeRepl client:load initialCode={`; Option payoffs at expiration
 (define (call-payoff S K) (max (- S K) 0))

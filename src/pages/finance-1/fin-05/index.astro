@@ -103,7 +103,7 @@ print("Diversification benefit!")
 
     <!-- 2. Correlation and Diversification -->
     <h3>Correlation and diversification</h3>
-    <p>When correlation &#961; = +1, diversification does nothing. When &#961; = -1, you can eliminate risk entirely. Real-world correlations fall between, so diversification reduces but doesn't eliminate risk. The lower the correlation, the bigger the benefit.</p>
+    <p>When correlation &#961; = +1, diversification does nothing. When &#961; = -1, a zero-variance portfolio is possible at the right weights. Real-world correlations fall between, so diversification reduces but doesn't eliminate risk. The lower the correlation, the bigger the benefit.</p>
 
     <SchemeRepl client:load initialCode={`; Effect of correlation on portfolio risk
 ; Same assets, vary rho from -1 to +1
@@ -127,7 +127,7 @@ print("Diversification benefit!")
 (show-rho  0.5)
 (show-rho  0.0)
 (show-rho -0.5)
-(show-rho -1.0)   ; risk can be eliminated
+(show-rho -1.0)   ; zero-variance portfolio possible
 `} />
 
     <div class="python-block my-2" style="display:none">

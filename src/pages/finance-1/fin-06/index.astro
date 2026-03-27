@@ -103,7 +103,7 @@ print(f"Beta           = {beta(r_asset, r_market):.4f}")
 
     <!-- 2. Security Market Line -->
     <h3>Security market line</h3>
-    <p>The <strong>security market line</strong> (SML) is the CAPM equation graphed: E[R_i] = r_f + &#946;_i(E[R_m] - r_f). Every asset should lie on this line. Assets above it are underpriced (positive alpha), assets below are overpriced (negative alpha).</p>
+    <p>The <strong>security market line</strong> (SML) is the CAPM equation graphed: E[R_i] = r_f + &#946;_i(E[R_m] - r_f). Under CAPM assumptions, expected returns should lie on this line. Assets above it are underpriced (positive alpha), assets below are overpriced (negative alpha).</p>
 
     <SchemeRepl client:load initialCode={`; Security Market Line: E[R_i] = r_f + beta * (E[R_m] - r_f)
 (define (capm rf beta er-m)

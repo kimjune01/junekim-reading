@@ -157,16 +157,18 @@ print(f"(Black-Scholes exact:   10.4506)")
 ; d2 = d1 - sigma*sqrt(T)
 
 ; Approximate cumulative normal using Abramowitz & Stegun
+; Phi(x) = 0.5 * (1 + erf(x / sqrt(2)))
 (define (phi x)
   ; CDF of standard normal, accurate to ~0.0003
   (define (erf-approx t)
+    ; Abramowitz & Stegun 7.1.26: erf approximation for t >= 0
     (let* ((a1 0.254829592) (a2 -0.284496736) (a3 1.421413741)
            (a4 -1.453152027) (a5 1.061405429) (p 0.3275911)
-           (s (/ 1.0 (+ 1.0 (* p (abs t)))))
-           (val (- 1.0 (* (+ (* (+ (* (+ (* (+ (* a5 s) a4) s) a3) s) a2) s) a1)
-                          s (exp (* -0.5 t t))))))
-      (if (>= t 0) (* 0.5 (+ 1.0 val)) (* 0.5 (- 1.0 val)))))
-  (erf-approx x))
+           (u (/ 1.0 (+ 1.0 (* p (abs t)))))
+           (val (- 1.0 (* (+ (* (+ (* (+ (* (+ (* a5 u) a4) u) a3) u) a2) u) a1)
+                          u (exp (* -1 t t))))))
+      (if (>= t 0) val (- val))))
+  (* 0.5 (+ 1.0 (erf-approx (/ x (sqrt 2))))))
 
 (define (black-scholes S0 K r sigma T)
   (define d1 (/ (+ (log (/ S0 K)) (* (+ r (* 0.5 sigma sigma)) T))
@@ -218,12 +220,15 @@ for K in [90, 95, 100, 105, 110]:
 ; Gamma ≈ [C(S+h) - 2C(S) + C(S-h)] / h^2
 
 (define (phi x)
-  (let* ((a1 0.254829592) (a2 -0.284496736) (a3 1.421413741)
-         (a4 -1.453152027) (a5 1.061405429) (p 0.3275911)
-         (s (/ 1.0 (+ 1.0 (* p (abs x)))))
-         (val (- 1.0 (* (+ (* (+ (* (+ (* (+ (* a5 s) a4) s) a3) s) a2) s) a1)
-                        s (exp (* -0.5 x x))))))
-    (if (>= x 0) (* 0.5 (+ 1.0 val)) (* 0.5 (- 1.0 val)))))
+  ; Phi(x) = 0.5 * (1 + erf(x / sqrt(2)))
+  (define (erf-approx t)
+    (let* ((a1 0.254829592) (a2 -0.284496736) (a3 1.421413741)
+           (a4 -1.453152027) (a5 1.061405429) (p 0.3275911)
+           (u (/ 1.0 (+ 1.0 (* p (abs t)))))
+           (val (- 1.0 (* (+ (* (+ (* (+ (* (+ (* a5 u) a4) u) a3) u) a2) u) a1)
+                          u (exp (* -1 t t))))))
+      (if (>= t 0) val (- val))))
+  (* 0.5 (+ 1.0 (erf-approx (/ x (sqrt 2))))))
 
 (define (bs S K r sigma T)
   (define d1 (/ (+ (log (/ S K)) (* (+ r (* 0.5 sigma sigma)) T))

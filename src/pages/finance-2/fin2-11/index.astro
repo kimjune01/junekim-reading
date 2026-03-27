@@ -114,7 +114,7 @@ print(f"99% VaR: {var_99*100:.1f}%")
 (define z-99 2.326)
 
 (define (parametric-var mu sigma z)
-  (- (* -1 (- mu (* z sigma)))))
+  (- (* z sigma) mu))
 
 ; Portfolio: mean daily return 0.05%, volatility 1.5%
 (define mu 0.0005)
