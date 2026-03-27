@@ -92,14 +92,42 @@ Pattern: static SVG → slider/drag input + JS that redraws elements. Reference 
 | `economics/econ-22` | Lorenz / Gini | Slider: Gini, curve bows, area shades | high | **done** |
 | **Physics** | | | | |
 | `physics/crowell-01` | energy conservation | Slider: height, PE/KE bars trade off | high | **done** |
+| **Finance 1 (corporate/investments)** | | | | |
+| `finance-1/index` | efficient frontier + CML | Drag tangency point, CML pivots, Sharpe ratio readout | high | planned |
+| `finance-1/fin-01` | PV ↔ FV timeline | Slider: r or n, watch PV/FV bars rescale | high | planned |
+| `finance-1/fin-02` | bond cash-flow timeline | Slider: yield, PV of each coupon bar shrinks/grows | high | planned |
+| `finance-1/fin-03` | DDM cash-flow timeline | Slider: growth rate g, dividend bars diverge/converge | high | planned |
+| `finance-1/fin-04` | return distribution (μ, σ) | Slider: σ, bell curve widens, 68% band stretches | high | planned |
+| `finance-1/fin-05` | efficient frontier + MVP | Drag weight slider, portfolio dot moves along frontier | high | planned |
+| `finance-1/fin-06` | Security Market Line | Drag β, expected return dot rides SML, α readout | high | planned |
+| `finance-1/fin-07` | forward payoff diagram | Slider: forward price F, long/short lines shift | high | planned |
+| `finance-1/fin-08` | call + put payoff | Slider: strike K, payoff kinks shift | high | planned |
+| `finance-1/fin-09` | EMH nested circles | Click to highlight each form, info examples appear | medium | planned |
+| `finance-1/fin-10` | prospect theory value fn | Drag reference point, curve shifts, loss aversion visible | high | planned |
+| `finance-1/fin-11` | NPV vs discount rate | Slider: r, dot rides curve, NPV + IRR readout | high | planned |
+| `finance-1/fin-12` | risk taxonomy tree | Click node to expand sub-categories | low | planned |
+| **Finance 2 (quant/derivatives)** | | | | |
+| `finance-2/index` | GBM sample paths | Slider: σ, paths fan out/in, drift line stays | high | planned |
+| `finance-2/fin2-01` | random walk paths | Slider: number of steps, paths extend | high | planned |
+| `finance-2/fin2-02` | chain rule vs Ito's lemma | Toggle between ordinary and Ito, correction term highlights | medium | planned |
+| `finance-2/fin2-03` | call payoff + pre-expiry curve | Slider: time to expiry, C(S,t) curve flattens toward payoff | high | planned |
+| `finance-2/fin2-04` | binomial tree | Click to step through up/down nodes, price builds | medium | planned |
+| `finance-2/fin2-05` | volatility smile/skew | Slider: skew parameter, smile tilts | high | planned |
+| `finance-2/fin2-06` | mean-reversion (OU process) | Slider: mean-reversion speed κ, paths tighten/loosen | high | planned |
+| `finance-2/fin2-07` | factor model decomposition | Slider: factor betas, bar chart of return attribution updates | high | planned |
+| `finance-2/fin2-08` | short-rate model paths | Slider: θ (long-run mean), paths converge to new level | high | planned |
+| `finance-2/fin2-09` | structural credit model | Slider: time or volatility, firm value paths cross/miss debt barrier | high | planned |
+| `finance-2/fin2-10` | CDS cash-flow diagram | Slider: spread (bps), payment arrows resize | medium | planned |
+| `finance-2/fin2-11` | VaR + CVaR distribution | Slider: confidence level, VaR line shifts, CVaR shading updates | high | planned |
+| `finance-2/fin2-12` | dynamic programming tree | Click to step through optimal decisions at each node | medium | planned |
 
 ### Not viable (structural/definitional — static is better)
 
-Landing page icons, commutative diagrams (milewski 01-06, 11-12, 16, 19-24), universal property triangles, type hierarchy nesting (algebra 07), truth tables (discrete-math 03), notation references, Hasse diagrams, string diagram definitions (fritz-2020 copy/discard), chain rule composition diagram (calc-05 arrow diagram — the slider version above replaces the idea, not the same SVG).
+Landing page icons, commutative diagrams (milewski 01-06, 11-12, 16, 19-24), universal property triangles, type hierarchy nesting (algebra 07), truth tables (discrete-math 03), notation references, Hasse diagrams, string diagram definitions (fritz-2020 copy/discard), chain rule composition diagram (calc-05 arrow diagram — the slider version above replaces the idea, not the same SVG), risk taxonomy tree (fin-12 — static hierarchy is clearer), CDS flow diagram (fin2-10 — structural, not parametric), Ito vs chain rule comparison (fin2-02 — definitional side-by-side).
 
 ## Inventory
 
-Hashes stored in `svg-inventory.json` (391 entries). Each key is a file path (with `-N` suffix for multi-SVG pages), each value is a SHA-256 prefix.
+Hashes stored in `svg-inventory.json` (461 entries). Each key is a file path (with `-N` suffix for multi-SVG pages), each value is a SHA-256 prefix.
 
 ### How to re-scan
 
@@ -132,7 +160,7 @@ if not (added or removed or changed): print('No changes.')
 To update after review, re-run the generation script and overwrite `svg-inventory.json`.
 
 
-- **Total SVGs**: 391 across the site
-- **Reviewed**: 391 (all)
+- **Total SVGs**: 461 across the site
+- **Reviewed**: 461 (all)
 - **Fixed**: 7 (5 SICP, 1 calculus calc-15, 1 game-theory index)
 - **Multi-SVG pages**: milewski-06, milewski-14, os-02, ml-08, sicp-03

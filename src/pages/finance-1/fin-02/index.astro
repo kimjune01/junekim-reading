@@ -53,12 +53,14 @@ import PrevNext from "../../../components/PrevNext.astro";
     <h3>Bond pricing</h3>
     <p>A bond pays periodic coupons C and returns face value F at maturity. Its price is the sum of discounted cash flows: P = &sum; C/(1+y)<sup>t</sup> + F/(1+y)<sup>n</sup>. This is just TVM applied to a fixed schedule.</p>
 
-    <SchemeRepl client:load initialCode={`; Bond price = PV of coupons + PV of face value
+    <SchemeRepl client:load initialCode={`(define (range a b) (if (> a b) '() (cons a (range (+ a 1) b))))
+
+; Bond price = PV of coupons + PV of face value
 (define (bond-price coupon face-value yield n)
   (let ((pv-coupons
          (apply + (map (lambda (t)
                          (/ coupon (expt (+ 1 yield) t)))
-                       (cdr (iota (+ n 1))))))
+                       (range 1 n))))
         (pv-face (/ face-value (expt (+ 1 yield) n))))
     (+ pv-coupons pv-face)))
 
@@ -96,10 +98,12 @@ print(f"Yield 4%: \${bond_price(50, 1000, 0.04, 10):.2f}")
     <h3>Yield to maturity</h3>
     <p><strong>Yield to maturity</strong> (YTM) is the single discount rate that makes the bond's price equal the PV of its cash flows. It is the bond's internal rate of return if held to maturity. Finding YTM requires solving P = &sum; C/(1+y)<sup>t</sup> + F/(1+y)<sup>n</sup> for y &mdash; no closed form, so we use bisection.</p>
 
-    <SchemeRepl client:load initialCode={`; Yield to maturity via bisection
+    <SchemeRepl client:load initialCode={`(define (range a b) (if (> a b) '() (cons a (range (+ a 1) b))))
+
+; Yield to maturity via bisection
 (define (bond-price c f y n)
   (+ (apply + (map (lambda (t) (/ c (expt (+ 1 y) t)))
-                   (cdr (iota (+ n 1)))))
+                   (range 1 n)))
      (/ f (expt (+ 1 y) n))))
 
 (define (find-ytm price c f n)
@@ -149,10 +153,12 @@ print(f"YTM for bond at $925: {ytm:.4f} ({ytm*100:.2f}%)")
     <h3>Duration and convexity</h3>
     <p><strong>Macaulay duration</strong> is the weighted-average time to receive cash flows, weighted by present value. It measures interest rate sensitivity: a bond with duration D loses roughly D% in price for a 1% rise in yield. <strong>Convexity</strong> captures the curvature &mdash; the error in the linear duration approximation.</p>
 
-    <SchemeRepl client:load initialCode={`; Macaulay duration = sum(t * PV(CF_t)) / Price
+    <SchemeRepl client:load initialCode={`(define (range a b) (if (> a b) '() (cons a (range (+ a 1) b))))
+
+; Macaulay duration = sum(t * PV(CF_t)) / Price
 (define (bond-price c f y n)
   (+ (apply + (map (lambda (t) (/ c (expt (+ 1 y) t)))
-                   (cdr (iota (+ n 1)))))
+                   (range 1 n)))
      (/ f (expt (+ 1 y) n))))
 
 (define (macaulay-duration c f y n)
@@ -160,7 +166,7 @@ print(f"YTM for bond at $925: {ytm:.4f} ({ytm*100:.2f}%)")
          (weighted-sum
           (+ (apply + (map (lambda (t)
                              (* t (/ c (expt (+ 1 y) t))))
-                           (cdr (iota (+ n 1)))))
+                           (range 1 n)))
              (* n (/ f (expt (+ 1 y) n))))))
     (/ weighted-sum price)))
 
