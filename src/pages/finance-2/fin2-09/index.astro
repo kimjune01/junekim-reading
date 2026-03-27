@@ -18,34 +18,38 @@ import PrevNext from "../../../components/PrevNext.astro";
       <p class="text-lg" style="max-width:none"><strong>Credit risk</strong> is the possibility that a borrower fails to pay. Quantifying it means modeling when default happens, how much you lose, and how the market prices that uncertainty into bond spreads.</p>
     </div>
 
-    <!-- SVG: Merton model — firm value vs default barrier -->
+    <!-- SVG: Merton model — default checked only at maturity T -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 400 220" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+      <svg viewBox="0 0 420 230" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
         <!-- Axes -->
-        <line x1="40" y1="200" x2="380" y2="200" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <line x1="40" y1="20" x2="40" y2="200" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <text x="210" y="218" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">time</text>
-        <text x="15" y="110" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5" transform="rotate(-90,15,110)">firm value V(t)</text>
-        <!-- Debt barrier -->
-        <line x1="40" y1="155" x2="380" y2="155" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="6,4"/>
-        <text x="385" y="158" fill="#ef4444" font-size="9" fill-opacity="0.7">D (debt)</text>
-        <!-- Surviving firm path -->
-        <polyline points="40,80 80,75 120,85 160,70 200,60 240,75 280,65 320,55 360,60" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.6"/>
-        <text x="365" y="55" fill="#60a5fa" font-size="9" fill-opacity="0.6">solvent</text>
-        <!-- Defaulting firm path -->
-        <polyline points="40,80 80,90 120,100 160,110 200,120 240,135 280,145 320,155 360,170" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.6"/>
-        <text x="365" y="175" fill="#f59e0b" font-size="9" fill-opacity="0.6">default</text>
-        <!-- Default point marker -->
-        <circle cx="320" cy="155" r="4" fill="#ef4444" fill-opacity="0.7"/>
-        <text x="310" y="172" fill="#ef4444" font-size="9" fill-opacity="0.6">V = D</text>
+        <line x1="40" y1="195" x2="390" y2="195" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <line x1="40" y1="15" x2="40" y2="195" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="215" y="212" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">time</text>
+        <text x="15" y="105" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5" transform="rotate(-90,15,105)">firm value V(t)</text>
+        <!-- Maturity line -->
+        <line x1="370" y1="15" x2="370" y2="195" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
+        <text x="370" y="210" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">T</text>
+        <!-- Debt level at maturity -->
+        <line x1="360" y1="145" x2="380" y2="145" stroke="#ef4444" stroke-width="2" stroke-opacity="0.7"/>
+        <text x="395" y="148" fill="#ef4444" font-size="9" fill-opacity="0.7">D</text>
+        <!-- Surviving firm: V(T) > D -->
+        <polyline points="40,90 80,85 120,95 160,78 200,65 240,80 280,70 320,60 370,55" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.6"/>
+        <circle cx="370" cy="55" r="4" fill="#60a5fa" fill-opacity="0.7"/>
+        <text x="375" y="45" fill="#60a5fa" font-size="9" fill-opacity="0.6">V(T)&gt;D</text>
+        <!-- Defaulting firm: V(T) < D — may go below D mid-path but that doesn't trigger default -->
+        <polyline points="40,90 80,100 120,110 160,95 200,115 240,130 280,140 320,150 370,170" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.6"/>
+        <circle cx="370" cy="170" r="4" fill="#f59e0b" fill-opacity="0.7"/>
+        <text x="375" y="180" fill="#f59e0b" font-size="9" fill-opacity="0.6">V(T)&lt;D</text>
         <!-- Equity region label -->
-        <text x="200" y="45" text-anchor="middle" fill="#60a5fa" font-size="10" fill-opacity="0.4">Equity = max(V&#x2212;D, 0)</text>
+        <text x="200" y="35" text-anchor="middle" fill="#60a5fa" font-size="10" fill-opacity="0.4">Equity = max(V(T)&#x2212;D, 0)</text>
+        <!-- Caption -->
+        <text x="210" y="225" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">Merton model: default checked at maturity T, not mid-path.</text>
       </svg>
     </div>
 
     <!-- 1. Default Probability and Hazard Rates -->
     <h3>Default probability and hazard rates</h3>
-    <p>The <strong>hazard rate</strong> &#x3BB;(t) is the instantaneous conditional probability of default at time t, given survival to t. If the hazard rate is constant, the survival probability decays exponentially: S(t) = e^(-&#x3BB;t). The cumulative default probability is 1 &#x2212; S(t). Higher hazard rate means the bond issuer is more likely to default in any given instant.</p>
+    <p>The <strong>hazard rate</strong> &#x3BB;(t) is the default intensity at time t &mdash; the probability of default over a short interval [t, t+dt], conditional on survival to t, is approximately &#x3BB;(t)dt. If the hazard rate is constant, the survival probability decays exponentially: S(t) = e^(-&#x3BB;t). The cumulative default probability is 1 &#x2212; S(t). Higher hazard rate means the bond issuer is more likely to default in any given instant.</p>
 
     <SchemeRepl client:load initialCode={`; Hazard rate and survival probability
 ; Constant hazard: S(t) = exp(-lambda*t)
