@@ -42,8 +42,12 @@ import Neighbors from "../../components/Neighbors.astro";
 
     <div class="overflow-x-auto">
       <table class="w-full text-sm">
+        <colgroup>
+          
+        </colgroup>
         <thead>
           <tr class="border-b border-zinc-700">
+            <th class="py-2"></th>
             <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
             <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
             <th class="text-left py-2 text-gray-400"></th>
@@ -51,62 +55,74 @@ import Neighbors from "../../components/Neighbors.astro";
         </thead>
         <tbody>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-01/">1. What is ML?</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-01/">What is ML?</a></td>
             <td class="pr-3 text-gray-400">Function approximation from data &mdash; supervised, unsupervised, reinforcement</td>
             <td><a href="/reading/machine-learning/ml-01/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-02/">2. Linear Regression</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-02/">Linear Regression</a></td>
             <td class="pr-3 text-gray-400">Find weights that minimize squared error &mdash; normal equation or gradient descent</td>
             <td><a href="/reading/machine-learning/ml-02/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-03/">3. Optimization</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-03/">Optimization</a></td>
             <td class="pr-3 text-gray-400">Follow the negative gradient downhill &mdash; learning rate, convexity, convergence</td>
             <td><a href="/reading/machine-learning/ml-03/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-04/">4. Logistic Regression</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-04/">Logistic Regression</a></td>
             <td class="pr-3 text-gray-400">Squash linear output through sigmoid for probabilities &mdash; cross-entropy loss</td>
             <td><a href="/reading/machine-learning/ml-04/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-05/">5. Kernel Methods</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-05/">Kernel Methods</a></td>
             <td class="pr-3 text-gray-400">Replace dot products with kernel functions to learn nonlinear boundaries</td>
             <td><a href="/reading/machine-learning/ml-05/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-06/">6. Neural Networks</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-06/">Neural Networks</a></td>
             <td class="pr-3 text-gray-400">Stack linear layers with nonlinearities &mdash; universal approximation by composition</td>
             <td><a href="/reading/machine-learning/ml-06/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-07/">7. Backpropagation</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-07/">Backpropagation</a></td>
             <td class="pr-3 text-gray-400">The chain rule applied layer by layer &mdash; how gradients flow backward through a network</td>
             <td><a href="/reading/machine-learning/ml-07/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-08/">8. Regularization</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-08/">Regularization</a></td>
             <td class="pr-3 text-gray-400">Penalize complexity to prevent overfitting &mdash; L1, L2, dropout, early stopping</td>
             <td><a href="/reading/machine-learning/ml-08/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-09/">9. Convolutional Networks</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-09/">Convolutional Networks</a></td>
             <td class="pr-3 text-gray-400">Exploit spatial structure &mdash; shared filters, pooling, translation equivariance</td>
             <td><a href="/reading/machine-learning/ml-09/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-10/">10. Recurrent Networks</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-10/">Recurrent Networks</a></td>
             <td class="pr-3 text-gray-400">Process sequences by feeding hidden state forward &mdash; vanishing gradients and LSTMs</td>
             <td><a href="/reading/machine-learning/ml-10/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-11/">11. Dimensionality Reduction</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">11.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-11/">Dimensionality Reduction</a></td>
             <td class="pr-3 text-gray-400">PCA finds the axes of maximum variance &mdash; compress data without losing structure</td>
             <td><a href="/reading/machine-learning/ml-11/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
           <tr>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-12/">12. Clustering</a></td>
+            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">12.</td>
+            <td class="py-2 pr-3 text-gray-300"><a href="/reading/machine-learning/ml-12/">Clustering</a></td>
             <td class="pr-3 text-gray-400">Group data by similarity &mdash; k-means, EM, and the bias-variance tradeoff in unsupervised learning</td>
             <td><a href="/reading/machine-learning/ml-12/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
           </tr>
