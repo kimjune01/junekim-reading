@@ -75,8 +75,9 @@ import PrevNext from "../../../components/PrevNext.astro";
     <h3>The theorem program</h3>
 
     <p>
-      Three theorems would close the triangle. Each is well-posed but unproven.
-      Each builds on existing results from the adjacent fields.
+      Three theorems would close the triangle. Computational attempts (March 2026)
+      produced one structural finding, one closed-form formula, and one achievability
+      bound. None is a finished theorem. All three advanced the problem.
     </p>
 
     <h3>Theorem 1: R-D bounds for journey observables</h3>
@@ -86,98 +87,83 @@ import PrevNext from "../../../components/PrevNext.astro";
     </p>
 
     <p>
-      <strong>Setup:</strong> Fix a temporal graph model (e.g., temporal Erdős–Rényi
-      with n vertices, edge density p, lifetime T). Fix an encoding family (timestamped
-      edge list with quantized timestamps). Define distortion D(G, Ĝ) as the fraction
-      of reachable pairs whose foremost journey duration stretches by more than factor α.
-    </p>
-
-    <p>
-      <strong>Question:</strong> What is R(D) — the minimum encoding rate that achieves
-      distortion at most D?
-    </p>
-
-    <p>
-      <strong>What exists:</strong>
+      <strong>Achievability (partial result):</strong> Timestamp coarsening into
+      bins of width Δ gives rate below lossless with controlled journey distortion.
       <a href="https://dl.acm.org/doi/abs/10.1145/1376616.1376661">Navlakha et al. (2008)</a>
-      did this for static graphs under MDL (not Shannon R-D). Temporal spanners
-      (<a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2022.19">Bilò et al. 2022</a>)
-      give edge-count bounds for stretch-α preservation.
-      The combination — information-theoretic R-D where distortion is on journeys — is open.
+      did this for static graphs under MDL.
+      <a href="https://www.sciencedirect.com/science/article/pii/S0304397518307308">Bento &amp; Ioannidis (2020)</a>
+      give an information-theoretic framework for lossy link-stream compression
+      but without journey-aware distortion.
     </p>
 
-    <h3>Theorem 2: Temporal sheaves</h3>
+    <p>
+      <strong>Converse (partial):</strong> The interval transfer tensor (foremost
+      arrival times between all pairs within a checkpoint interval) is i.i.d.
+      across intervals, giving R ≥ K · R<sub>seg</sub>(D). Optimal spacing
+      L* ≈ log(n)/log(np). But journeys couple intervals, so the tensor-level
+      converse does not directly yield end-to-end guarantees. The distortion
+      definition also needs repair (multiplicative vs. additive slack).
+    </p>
+
+    <p>
+      <strong>Dead end:</strong> Serializing the temporal graph as a string and
+      applying lossy LZ fails. Hamming distortion is agnostic to event criticality,
+      so worst-case journey distortion is trivial regardless of serialization order.
+    </p>
+
+    <h3>Theorem 2: Tropical sheaves (strongest finding)</h3>
 
     <p>
       <strong>Transfers:</strong> TVG formalism → sheaf cohomology.
     </p>
 
     <p>
-      <strong>Setup:</strong> Define a cellular sheaf F on a temporal event graph
-      (Kivelä's weighted event graph, where nodes are temporal events and edges
-      encode δt-constrained adjacency). Use Krishnan's semiring framework —
-      Theorem 5.12 works over semirings, so the tropical semiring
-      T = (R ∪ {"{"}&infin;{"}"}, min, +) is algebraically admissible.
+      <strong>Finding:</strong> The naive tropicalization of sheaf MFMC
+      breaks on event graphs. On a 4-vertex example with tropical stalks,
+      H⁰ gives earliest-arrival potentials, but max-flow > min-cut because
+      tropical flows are potentials, not conserved commodities. No subtraction
+      in the tropical semiring means the coboundary cannot be written in
+      standard form.
     </p>
 
     <p>
-      <strong>Question:</strong> Does the sheaf-theoretic max-flow/min-cut on a
-      temporal event graph with tropical coefficients yield a meaningful temporal
-      reachability result? Specifically: does the duality gap measure something
-      about journey fragility?
+      This is a structural obstruction, not an artifact. Existing sheaf MFMC
+      (<a href="https://arxiv.org/abs/1409.6712">Krishnan 2014</a>,
+      <a href="https://www2.math.upenn.edu/~ghrist/preprints/networkcodingshort.pdf">Ghrist &amp; Hiraoka</a>)
+      works over vector spaces where conservation makes sense. The tropical
+      semiring breaks conservation. The open question is now precise: what
+      cut notion replaces crossing-edge minima when the coefficient semiring
+      has no additive inverses?
     </p>
 
-    <p>
-      <strong>What exists:</strong>
-      <a href="https://arxiv.org/abs/1409.6712">Krishnan (2014)</a> proves MFMC
-      over semirings on static digraphs. Temporal event graphs are static DAGs
-      (Mellor's Lemma 3.2). The tropical semiring is a semiring. The ingredients
-      compose — but nobody has checked whether the resulting duality gap says
-      anything temporal.
-    </p>
-
-    <p>
-      The <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9792072/">temporal
-      state machines</a> invariance constraint sharpens this: temporal composition
-      that breaks time-translational symmetry requires memory (state). If the
-      sheaf's restriction maps encode this boundary, the cohomological obstruction
-      might correspond to the stateless/stateful boundary in the TVG.
-    </p>
-
-    <h3>Theorem 3: Checkpoint spacing from H¹</h3>
+    <h3>Theorem 3: Checkpoint spacing (reframed)</h3>
 
     <p>
       <strong>Transfers:</strong> sheaf cohomology → codec engineering.
     </p>
 
     <p>
-      <strong>Setup:</strong> On a directed dependency graph (prediction DAG),
-      define a cellular sheaf where the coboundary δ⁰ computes prediction residuals
-      (<a href="https://arxiv.org/abs/2511.11092">Seely 2025</a>: (δ⁰s)<sub>e</sub> = s<sub>v</sub> − W<sub>e</sub> s<sub>u</sub>).
-      Hodge decomposition splits accumulated error into removable (im D) and
-      irreducible (ker D<sup>T</sup> = H¹) components. Checkpoints are modeled as
-      clamped boundary conditions on a subgraph.
+      <strong>Surprise:</strong> Checkpoints increase dim H¹, not decrease it.
+      Each checkpoint adds d independent dimensions of obstruction. The right
+      quantity is not dim H¹ but ‖r*‖ under a drift model.
     </p>
 
     <p>
-      <strong>Question:</strong> For a given dependency graph and prediction weights,
-      what checkpoint spacing δ keeps dim H¹ (or ‖Hb‖) below a quality threshold τ?
+      <strong>Closed form:</strong> For a linear chain with weight matrix W
+      and per-hop drift N(0, σ²I):
+      E[‖r*‖²] = σ² · Σᵢ (1 − μᵢⁿ)/(1 − μᵢ),
+      where μᵢ = eigenvalues of WᵀW. Optimal checkpoint spacing with cost λ:
+      L* ≈ √(2λ/(σ²d)). The relevant spectral quantity is which singular
+      values of W are near or above 1, not the condition number.
     </p>
 
     <p>
-      <strong>What exists:</strong> Seely gives the complete operator dictionary for
-      linear networks: coboundary, Laplacian, Hodge decomposition, learning gradient.
-      Codec engineers know operationally that longer P-frame chains accumulate more
-      error and that I-frame spacing is a quality/bitrate tradeoff. The algebraic
-      form of the question is precise — dim H¹ as a function of sub-complex size —
-      but nobody has computed it for codec-style dependency graphs.
-    </p>
-
-    <p>
-      The linear restriction aligns with the prediction stage of codecs
-      (motion-compensated subtraction is linear), though the full codec pipeline
-      includes nonlinear stages. Nonlinear extension requires Jacobian linearization
-      at equilibrium.
+      <strong>Status:</strong> The mathematics (Green's function on a path
+      with transport and drift) is standard
+      (<a href="https://link.springer.com/article/10.1007/s41468-019-00038-7">Hansen &amp; Ghrist 2019</a>).
+      The codec interpretation (recovering the GOP heuristic, correcting the
+      condition-number intuition) is new but not sufficient for a standalone
+      paper. The open question is generalization to non-chain dependency graphs.
     </p>
 
     <h3>What this is and what it isn't</h3>

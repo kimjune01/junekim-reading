@@ -174,28 +174,54 @@ What remains missing: an encoding family, a distortion functional, a rate constr
 
 ---
 
-## Open problems
+## Computational attempts (March 2026)
 
-### 1. Rate-distortion bounds for journey observables
-Given a bit budget R, what is the minimum distortion in journey metrics (reachability, duration, hop count)?
+Three concrete computations were run against the open problems. Results below.
 
-This requires:
-- A concrete **encoding family** (adjacency stream, timestamped edge list, snapshot deltas, event graph)
-- A concrete **distortion functional** D(G, Ĝ) on journey observables
-- A concrete **temporal-graph model** to make bounds nontrivial
-- A definition of **admissible decoders**
+### Finding 1: Tropical MFMC breaks on event graphs (strongest result)
 
-Navlakha et al. (2008) used MDL for static graph compression with bounded error. Adhikari et al. (2017) and Allen et al. (2024) compress temporal networks preserving dynamics heuristically. None provides information-theoretic rate-distortion bounds for temporal journeys.
+On a 4-vertex temporal graph, constructing the event graph (6 nodes, 6 edges, DAG) and defining a cellular sheaf with tropical stalks T = R∪{∞}:
 
-### 2. Per-hop error accumulation with checkpoint-forced resets
-On a directed dependency graph, let the coboundary produce edgewise residuals and let Hodge decomposition split them into removable and irreducible components. Then the right quantity may not be a scalar additive law ε(e₁) ⊕ ... ⊕ ε(eₖ), but a decomposition into:
+- H⁰ (global sections) = earliest-arrival potentials. Unique anchored section: (0, 0, 1, 1, 2, 2).
+- Naive tropical cut capacity = min over crossing edges = 1. Flow value to sink = 2. Max-flow > min-cut.
+- **The duality breaks** because tropical flows are potentials, not conserved commodities. No subtraction in the tropical semiring means the coboundary cannot be written in standard form.
 
-- **Image part** (in im D): eliminable by better encoder choices
-- **Harmonic part** (in ker Dᵀ = H¹): not eliminable by any activation assignment
+This is not a failure but a structural finding: Krishnan's Theorem 5.12 (sheaf MFMC over semirings) does not transfer naively to the tropical semiring on event graphs. The "flow" is an earliest-arrival schedule, and the "cut" must be redefined in terms of tropical potentials rather than crossing-edge minima. The obstruction is algebraic (lack of additive inverses), not an artifact of the example.
 
-Checkpoints could correspond to clamped boundary conditions on a subgraph, restricting to a sub-complex where H¹ vanishes. The open question: for a specified temporal graph model, characterize bounds on checkpoint spacing that keep the harmonic component below a quality threshold.
+**Status:** Likely novel and nontrivial. Publishable as a short note if the failure criterion is made precise (counterexample + theorem characterizing when naive tropical cuts fail). Closest existing work: Ghrist-Hiraoka (2011) and [sheaf MFMC over abelian groups (2017)](https://polipapers.upv.es/index.php/AGT/article/download/3371/8705), both in additive/vector-space settings where conservation makes sense.
 
-The linear restriction aligns with codec prediction (motion-compensated subtraction is linear). Nonlinear extension requires Jacobian linearization.
+### Finding 2: Checkpoint spacing formula (known math, new interpretation)
+
+For a linear prediction chain with iid weight matrix W and per-hop Gaussian drift N(0, σ²I):
+
+- dim H¹_rel = d (constant). Checkpoints increase H¹ by d per checkpoint.
+- E[‖r*‖²] = σ² · tr Gₙ(W) = σ² · Σᵢ (1 - μᵢⁿ)/(1 - μᵢ), where μᵢ = eigenvalues of WᵀW.
+- Optimal checkpoint spacing with cost λ: L* ≈ √(2λ/(σ²d)) in the nearly-unitary regime.
+- The relevant spectral quantity is which singular values of W are near/above 1, not the condition number.
+
+**Status:** The mathematics (Green's function on a path with transport and drift) is standard. The codec interpretation (this recovers the GOP heuristic and corrects the condition-number intuition) is new but not sufficient for a standalone paper. Closest: Hansen-Ghrist (2019) on spectral sheaf theory, and standard matrix-weighted graph Laplacian literature.
+
+### Finding 3: R-D achievability via timestamp coarsening (novel direction, shaky converse)
+
+- Achievability: timestamp coarsening into bins of width Δ gives rate below lossless with controlled journey distortion. For the additive-slack interpretation, zero distortion is achievable below lossless rate.
+- Converse attempt: the interval transfer tensor (foremost arrival times between all pairs within a checkpoint interval) is i.i.d. across intervals. Shannon converse gives R ≥ K · R_seg(D). Optimal spacing L* ≈ log(n)/log(np).
+- **Issue:** journeys couple intervals, so the tensor-level converse does not directly yield end-to-end journey guarantees. The distortion definition needs repair (multiplicative vs. additive slack).
+- Serialization approach (lossy LZ on flattened string) fails: Hamming distortion is agnostic to event criticality, so worst-case journey distortion is trivial.
+
+**Status:** Novel direction, probably new at the exact formulation level. Not reviewer-ready. Closest: [Lossy compression of link streams (2020)](https://www.sciencedirect.com/science/article/pii/S0304397518307308), which gives an information-theoretic framework for lossy temporal graph compression but does not use journey-aware distortion.
+
+---
+
+## Open problems (updated)
+
+### 1. Tropical flow-cut duality on event graphs
+The naive tropicalization of sheaf MFMC breaks. What is the correct notion of tropical cut on a temporal event graph? Does Krishnan's equalizer formulation (avoiding explicit subtraction) resolve the obstruction, or is a fundamentally different cut notion needed? Characterize the class of semirings for which the sheaf MFMC transfers to event graphs.
+
+### 2. R-D bounds for journey observables
+The achievability direction works (timestamp coarsening). The converse needs: (a) a repaired distortion definition (additive slack, not multiplicative stretch), (b) a coupling argument showing the tensor-level converse extends to end-to-end journeys, or (c) a different approach entirely. The lossy link-stream framework of [Bento & Ioannidis (2020)](https://www.sciencedirect.com/science/article/pii/S0304397518307308) is the closest existing work and should be compared.
+
+### 3. Checkpoint spacing on general graphs
+The linear chain formula E[‖r*‖²] = σ² · tr Gₙ(W) is known math. The open question is whether it generalizes to non-chain dependency graphs (trees, DAGs with fan-out) in a way that produces nontrivial results. On general graphs, the Green's function structure is richer and the checkpoint placement becomes a combinatorial optimization.
 
 ---
 
@@ -204,10 +230,10 @@ The linear restriction aligns with codec prediction (motion-compensated subtract
 1. Where does the event graph ≅ prediction dependency DAG identification break first: B-frame bidirectionality, multi-reference prediction, or weighted event graph δt-semantics?
 2. Temporal spanners optimize edge count, codec R-D optimizes bits. Is edge count a defensible proxy for bitrate, or does the encoding family matter fundamentally?
 3. Is the lack of per-hop error accumulation in standard TVG a conceptual absence, or a modeling choice from exact/unweighted journey semantics?
-4. Seely's sheaf formalism is linear. For motion-compensated residual coding, is the linear restriction the right abstraction rather than a limitation?
-5. Can Ghrist-Hiraoka or Krishnan's exactness/flow machinery be lifted to temporal event graphs without collapsing time into a static encoding?
-6. The temporal state-machine invariance result says composition that breaks time-translation symmetry requires memory. Does this correspond to a known TVG distinction (strict vs. non-strict journeys, or a connectivity class boundary)?
-7. Krishnan's Theorem 5.12 works over semirings. Does the tropical semiring yield a meaningful flow-cut duality on temporal event graphs? If so, what does the duality gap measure about temporal reachability?
+4. **[Partially answered]** Seely's sheaf formalism is linear. The checkpoint spacing computation confirms this aligns with codec prediction. The open question is nonlinear extension.
+5. **[Answered: no, not naively]** Can Krishnan's flow machinery be lifted to tropical event graphs? The naive lift breaks. Modified cut notions needed.
+6. The temporal state-machine invariance constraint draws a formal line between stateless composition and stateful computation. Does this correspond to a known TVG distinction?
+7. **[Answered: the duality breaks]** The tropical semiring does not yield a meaningful flow-cut duality via naive tropicalization. The question is now: what cut notion works?
 
 ---
 
@@ -232,6 +258,8 @@ The linear restriction aligns with codec prediction (motion-compensated subtract
 - Joswig et al. 2019 — https://arxiv.org/abs/1904.01082
 - Temporal state machines — https://pmc.ncbi.nlm.nih.gov/articles/PMC9792072/
 - Chowdhury & Huntsman 2020 — https://arxiv.org/abs/2008.11885
+- Bento & Ioannidis 2020 — https://www.sciencedirect.com/science/article/pii/S0304397518307308
+- Hansen & Ghrist 2019 — https://link.springer.com/article/10.1007/s41468-019-00038-7
 - Pritam et al. 2025 — https://arxiv.org/html/2502.10076v1
 - Path homologies of motifs — https://appliednetsci.springeropen.com/articles/10.1007/s41109-021-00441-z
 - Chacholski et al. 2022 — https://arxiv.org/abs/2012.01033
