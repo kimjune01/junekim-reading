@@ -218,7 +218,7 @@ For a linear prediction chain with iid weight matrix W and per-hop Gaussian drif
 The naive tropicalization of sheaf MFMC breaks. What is the correct notion of tropical cut on a temporal event graph? Does Krishnan's equalizer formulation (avoiding explicit subtraction) resolve the obstruction, or is a fundamentally different cut notion needed? Characterize the class of semirings for which the sheaf MFMC transfers to event graphs.
 
 ### 2. R-D bounds for journey observables
-The achievability direction works (timestamp coarsening). The converse needs: (a) a repaired distortion definition (additive slack, not multiplicative stretch), (b) a coupling argument showing the tensor-level converse extends to end-to-end journeys, or (c) a different approach entirely. The lossy link-stream framework of [Bento & Ioannidis (2020)](https://www.sciencedirect.com/science/article/pii/S0304397518307308) is the closest existing work and should be compared.
+The achievability direction works (timestamp coarsening). The converse needs: (a) a repaired distortion definition (additive slack, not multiplicative stretch), (b) a coupling argument showing the tensor-level converse extends to end-to-end journeys, or (c) a different approach entirely. The lossy link-stream framework of [Lamarche-Perrin (2019)](https://www.sciencedirect.com/science/article/pii/S0304397518307308) is the closest existing work and should be compared.
 
 ### 3. Checkpoint spacing on general graphs
 The linear chain formula E[‖r*‖²] = σ² · tr Gₙ(W) is known math. The open question is whether it generalizes to non-chain dependency graphs (trees, DAGs with fan-out) in a way that produces nontrivial results. On general graphs, the Green's function structure is richer and the checkpoint placement becomes a combinatorial optimization.
@@ -258,7 +258,7 @@ The linear chain formula E[‖r*‖²] = σ² · tr Gₙ(W) is known math. The o
 - Joswig et al. 2019 — https://arxiv.org/abs/1904.01082
 - Temporal state machines — https://pmc.ncbi.nlm.nih.gov/articles/PMC9792072/
 - Chowdhury & Huntsman 2020 — https://arxiv.org/abs/2008.11885
-- Bento & Ioannidis 2020 — https://www.sciencedirect.com/science/article/pii/S0304397518307308
+- Lamarche-Perrin 2019 — https://www.sciencedirect.com/science/article/pii/S0304397518307308
 - Hansen & Ghrist 2019 — https://link.springer.com/article/10.1007/s41468-019-00038-7
 - Pritam et al. 2025 — https://arxiv.org/html/2502.10076v1
 - Path homologies of motifs — https://appliednetsci.springeropen.com/articles/10.1007/s41109-021-00441-z
